@@ -1676,17 +1676,12 @@ body.page-quote .hero2 .quote-grid{
   align-items:start;
 }
 
+/* Make Request a Quote box 25% wider */
 body.page-quote .qcard{
   width:100%;
-  max-width: 830px; /* 15% wider */
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:18px;
-  box-shadow: var(--shadow);
-  padding:18px;
+  max-width:900px;
   margin-left:auto;
   margin-right:auto;
-  overflow:hidden;
 }
 
 /* Card title */
