@@ -17,148 +17,47 @@
   <meta property="og:url" content="https://hydrosealpavers.com/get-a-quote/" />
   <meta property="og:image" content="https://hydrosealpavers.com/assets/hero/paver-sealing-jacksonville-driveway.png" />
 
-<link rel="stylesheet" href="/styles.css?v=20260228-2" />
-<style>
-  /* GET-A-QUOTE: tighten the form box height ~10% by reducing vertical spacing */
-  .quote-wrap,
-  .quote-card,
-  .get-a-quote-card,
-  .card,
-  .form-card,
-  .form-wrapper,
-  .cog-form,
-  form {
-    /* don’t globally shrink everything; just tighten spacing inside */
-  }
+  <link rel="stylesheet" href="/styles.css?v=20260228-2" />
 
-  /* tighten headings + top padding */
-  .quote-wrap h1, .quote-wrap h2, .quote-wrap h3,
-  .quote-card h1, .quote-card h2, .quote-card h3,
-  .card h1, .card h2, .card h3 {
-    margin-top: 0 !important;
-    margin-bottom: 10px !important;
-  }
+  <!-- Jobber embed stylesheet -->
+  <link rel="stylesheet" href="https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css" media="screen" />
 
-  /* reduce field block spacing (works for common form plugins) */
-  .quote-wrap .field,
-  .quote-wrap .form-group,
-  .quote-wrap .wpforms-field,
-  .quote-wrap .gfield,
-  .quote-wrap .ff-el-group,
-  .quote-wrap .nf-field-container,
-  .quote-wrap .cog-field,
-  .quote-wrap li,
-  .quote-card .field,
-  .quote-card .form-group,
-  .quote-card .wpforms-field,
-  .quote-card .gfield,
-  .quote-card .ff-el-group,
-  .quote-card .nf-field-container,
-  .quote-card .cog-field,
-  .quote-card li {
-    margin-bottom: 10px !important;
-    padding-bottom: 0 !important;
-  }
-
-  /* reduce label spacing */
-  .quote-wrap label,
-  .quote-card label,
-  .quote-wrap .cog-label,
-  .quote-card .cog-label {
-    margin-bottom: 6px !important;
-  }
-
-  /* reduce input padding a bit (big contributor to “tall” look) */
-  .quote-wrap input[type="text"],
-  .quote-wrap input[type="email"],
-  .quote-wrap input[type="tel"],
-  .quote-wrap input[type="number"],
-  .quote-wrap select,
-  .quote-wrap textarea,
-  .quote-card input[type="text"],
-  .quote-card input[type="email"],
-  .quote-card input[type="tel"],
-  .quote-card input[type="number"],
-  .quote-card select,
-  .quote-card textarea {
-    padding-top: 10px !important;
-    padding-bottom: 10px !important;
-  }
-
-  /* tighten button height slightly */
-  .quote-wrap button,
-  .quote-wrap .btn,
-  .quote-card button,
-  .quote-card .btn {
-    padding-top: 10px !important;
-    padding-bottom: 10px !important;
-  }
-
-  /* Local form classes on this page */
-  body.page-quote .qcard .form-field,
-  body.page-quote .qcard .field {
-    margin-bottom: 10px;
-  }
-
-  body.page-quote .qcard label {
-    margin-bottom: 6px;
-  }
-
-  body.page-quote .qcard input,
-  body.page-quote .qcard select,
-  body.page-quote .qcard textarea,
-  body.page-quote .qcard .btn-primary {
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-</style>
-<style>
-  /* GET-A-QUOTE: hide text field labels visually, keep for screen readers */
-  body.page-quote .quote-form [data-step-panel] .form-field > label,
-  body.page-quote .quote-form [data-step-panel] .form-field.field > label {
-    position: absolute !important;
-    width: 1px !important;
-    height: 1px !important;
-    padding: 0 !important;
-    margin: -1px !important;
-    overflow: hidden !important;
-    clip: rect(0, 0, 0, 0) !important;
-    white-space: nowrap !important;
-    border: 0 !important;
-  }
-
-  /* Keep checkbox/radio option copy visible */
-  body.page-quote .quote-form [data-step-panel] .checkbox-row > label,
-  body.page-quote .quote-form [data-step-panel] .radio-grid label {
-    position: static !important;
-    width: auto !important;
-    height: auto !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    overflow: visible !important;
-    clip: auto !important;
-    white-space: normal !important;
-  }
-
-  /* Hide standalone Required helper text lines under labels */
-  body.page-quote .quote-form [data-step-panel] .form-field > .err,
-  body.page-quote .quote-form [data-step-panel] .field > .err {
-    display: none !important;
-  }
-</style>
-<style>
-  /* Page-local tweak: lift the quote box higher on the hero */
-  body.page-quote .quote-overlay{
-    transform: translateY(-10%);
-  }
-
-  /* Don’t over-lift on smaller screens */
-  @media (max-width: 820px){
+  <style>
+    /* Page-local tweak: lift the quote box higher on the hero */
     body.page-quote .quote-overlay{
-      transform: translateY(-6%);
+      transform: translateY(-10%);
     }
-  }
-</style>
+    @media (max-width: 820px){
+      body.page-quote .quote-overlay{
+        transform: translateY(-6%);
+      }
+    }
+
+    /* Clean up spacing inside the Jobber embed without touching global styles */
+    body.page-quote .qcard{
+      overflow: hidden;
+    }
+    body.page-quote .qcard h2{
+      margin: 0 0 10px !important;
+    }
+    body.page-quote .qcard .quote-form-title{
+      margin-bottom: 10px !important;
+    }
+
+    /* Try to tighten the Jobber form a bit (safe selectors; won't break if classes differ) */
+    body.page-quote #c639aa23-e770-4085-b066-c7bba042d9df-2246227 *{
+      box-sizing: border-box;
+    }
+    body.page-quote #c639aa23-e770-4085-b066-c7bba042d9df-2246227 label{
+      margin-bottom: 6px !important;
+    }
+    body.page-quote #c639aa23-e770-4085-b066-c7bba042d9df-2246227 input,
+    body.page-quote #c639aa23-e770-4085-b066-c7bba042d9df-2246227 select,
+    body.page-quote #c639aa23-e770-4085-b066-c7bba042d9df-2246227 textarea{
+      padding-top: 10px !important;
+      padding-bottom: 10px !important;
+    }
+  </style>
 </head>
 
 <body class="page-quote">
@@ -190,7 +89,6 @@
         </button>
 
         <nav class="nav header-nav" aria-label="Primary">
-          <!-- PUT THE ID BACK HERE -->
           <div class="nav-menu" id="navMenu">
 
             <div class="nav-group">
@@ -249,6 +147,7 @@
 
     </div>
   </header>
+
   <!-- TRUST BAR (global) -->
   <div class="trustbar trust-strip" role="note" aria-label="Trust signals">
     <div class="container">
@@ -258,6 +157,7 @@
       <div class="trust-item">St. Johns • Duval • Clay</div>
     </div>
   </div>
+
   <main id="page" data-page>
 
     <section class="hero2">
@@ -273,221 +173,12 @@
         <div class="quote-overlay">
           <div class="quote-grid">
             <div class="qcard">
-              <h2 class="quote-form-title" id="quote-form-title" tabindex="-1">Request Quote Form</h2>
-              <p class="step-indicator" id="quote-step-label">Step 1 of 2</p>
-              <div class="step-indicator-bar" id="quote-step-bar" data-step="1" aria-hidden="true"><span></span></div>
+              <h2 class="quote-form-title" id="quote-form-title" tabindex="-1">Request Quote</h2>
 
-              <form
-                class="quote-form"
-                id="quote-form"
-                action="https://formspree.io/f/xnjbyjkw"
-                method="POST"
-                novalidate
-              >
-                <input type="hidden" name="page" value="get-a-quote" />
-                <input type="hidden" name="source" value="website" />
+              <!-- REPLACED: old multi-step Formspree form removed -->
+              <div id="c639aa23-e770-4085-b066-c7bba042d9df-2246227"></div>
 
-                <!-- STEP 1 -->
-                <div data-step-panel="1">
-                  <div class="form-grid">
-
-                    <div class="row-2">
-                      <div class="form-field field" data-required-field>
-                        <label for="first-name">First Name *</label>
-                        <input
-                          id="first-name"
-                          name="first_name"
-                          type="text"
-                          required
-                          autocomplete="given-name"
-                          placeholder="First Name"
-                        />
-                        <div class="err" aria-live="polite">Required</div>
-                      </div>
-
-                      <div class="form-field field">
-                        <label for="last-name">Last Name</label>
-                        <input
-                          id="last-name"
-                          name="last_name"
-                          type="text"
-                          autocomplete="family-name"
-                          placeholder="Last Name"
-                        />
-                      </div>
-                    </div>
-
-                    <div class="row-1">
-                      <div class="form-field field" data-required-field>
-                        <label for="street-address">Street Address *</label>
-                        <input
-                          id="street-address"
-                          name="street"
-                          type="text"
-                          required
-                          autocomplete="street-address"
-                          placeholder="Street Address"
-                        />
-                        <div class="err" aria-live="polite">Required</div>
-                      </div>
-                    </div>
-
-                    <div class="row-1">
-                      <div class="form-field field" data-required-field>
-                        <label for="city">City *</label>
-                        <input
-                          id="city"
-                          name="city"
-                          type="text"
-                          required
-                          autocomplete="address-level2"
-                          placeholder="City"
-                        />
-                        <div class="err" aria-live="polite">Required</div>
-                      </div>
-                    </div>
-
-                    <div class="row-2">
-                      <div class="form-field field" data-required-field>
-                        <label for="state">State *</label>
-                        <input
-                          id="state"
-                          name="state"
-                          type="text"
-                          required
-                          autocomplete="address-level1"
-                          placeholder="State"
-                        />
-                        <div class="err" aria-live="polite">Required</div>
-                      </div>
-
-                      <div class="form-field field" data-required-field>
-                        <label for="zip">Zip *</label>
-                        <input
-                          id="zip"
-                          name="zip"
-                          type="text"
-                          inputmode="numeric"
-                          autocomplete="postal-code"
-                          pattern="[0-9]{5}"
-                          maxlength="5"
-                          required
-                          placeholder="Zip"
-                        />
-                        <div class="err" aria-live="polite">Required</div>
-                      </div>
-                    </div>
-
-                    <div class="row-1">
-                      <div class="form-field field" data-required-field>
-                        <label for="email">Email Address *</label>
-                        <input
-                          id="email"
-                          name="email"
-                          type="email"
-                          required
-                          autocomplete="email"
-                          placeholder="Enter your email address"
-                        />
-                        <div class="err" aria-live="polite">Required</div>
-                      </div>
-                    </div>
-
-                    <div class="row-1">
-                      <div class="form-field field" data-required-field>
-                        <label for="phone">Phone Number *</label>
-                        <input
-                          id="phone"
-                          name="phone"
-                          type="tel"
-                          required
-                          autocomplete="tel"
-                          placeholder="Phone Number"
-                        />
-                        <div class="err" aria-live="polite">Required</div>
-                      </div>
-                    </div>
-
-                  </div>
-
-                  <div class="form-field">
-                    <fieldset>
-                      <legend>How did you hear about us?</legend>
-                      <div class="radio-grid">
-                        <label><input type="radio" name="referrer" value="Search Engine" />Search Engine</label>
-                        <label><input type="radio" name="referrer" value="Social Media" />Social Media</label>
-                        <label><input type="radio" name="referrer" value="Referral" />Referral</label>
-                        <label><input type="radio" name="referrer" value="Other" />Other</label>
-                      </div>
-                    </fieldset>
-                  </div>
-
-                  <div class="step-actions">
-                    <button type="button" class="btn-primary" id="quote-next">Next</button>
-                  </div>
-                </div>
-
-                <!-- STEP 2 -->
-                <div data-step-panel="2" hidden>
-                  <div class="form-field">
-                    <h3 class="project-details-title" id="project-details-title" tabindex="-1">Project Details</h3>
-                  </div>
-
-                  <div class="form-field">
-                    <fieldset>
-                      <legend>Which of our services are you interested in?</legend>
-                      <div class="radio-grid">
-                        <label><input type="radio" name="service_interest" value="Driveway Paver Sealing" />Driveway Paver Sealing</label>
-                        <label><input type="radio" name="service_interest" value="Pool Deck Paver Sealing" />Pool Deck Paver Sealing</label>
-                        <label><input type="radio" name="service_interest" value="Travertine Paver Sealing" />Travertine Paver Sealing</label>
-                        <label><input type="radio" name="service_interest" value="Other" />Other</label>
-                      </div>
-                    </fieldset>
-                  </div>
-
-                  <div class="form-field">
-                    <label for="timeline">What timeline are you looking for?</label>
-                    <select id="timeline" name="timeline">
-                      <option value="ASAP">ASAP</option>
-                      <option value="1–2 weeks">1–2 weeks</option>
-                      <option value="2–4 weeks">2–4 weeks</option>
-                      <option value="1–2 months">1–2 months</option>
-                      <option value="Not sure">Not sure</option>
-                    </select>
-                  </div>
-
-                  <div class="form-field field">
-                    <label for="description">Project Description</label>
-                    <textarea
-                      id="description"
-                      name="project_description"
-                      placeholder="Tell us what you want sealed (driveway, pool deck, patio), approximate size, and any issues (fading, stains, joint sand loss)."
-                    ></textarea>
-                  </div>
-
-                  <div class="form-field">
-                    <div class="help" style="font-size:13px;opacity:.85;line-height:1.5;">
-                    </div>
-                  </div>
-
-                  <div class="form-field checkbox-row field" data-required-field>
-                    <label for="terms">
-                      <input id="terms" name="accept_terms" type="checkbox" required />
-                      I accept the terms and conditions.
-                    </label>
-                    <div class="err" aria-live="polite">Required</div>
-                  </div>
-
-                  <div class="step-actions">
-                    <button type="button" class="btn-secondary" id="quote-back">Back</button>
-                    <button type="submit" class="btn-primary" id="quote-submit">Submit</button>
-                  </div>
-                </div>
-
-                <div class="form-status" id="quote-status" aria-live="polite"></div>
-              </form>
             </div>
-
           </div>
         </div>
       </div>
@@ -540,7 +231,6 @@
           <div class="footer-meta">
             <div><strong>Phone:</strong> <a href="tel:+19045375000" class="footer-phone">904.537.5000</a></div>
 
-            <!-- UPDATED HOURS -->
             <div class="footer-hours">
               <strong>Hours:</strong>
               <span>Mon–Fri 8–5</span>
@@ -560,6 +250,7 @@
   </footer>
 
   <a class="mobile-callbar" href="tel:+19045375000" aria-label="Tap to call HydroSeal Pavers">📞 Tap to Call — 904.537.5000</a>
+
   <!-- Schema -->
   <script type="application/ld+json">
   {
@@ -616,6 +307,15 @@
   <script src="/assets/js/router.js" defer></script>
   <script src="/assets/js/nav.js" defer></script>
   <script src="/assets/js/home.js" defer></script>
-  <script src="/assets/js/quote-form.js" defer></script>
+
+  <!-- REMOVED: /assets/js/quote-form.js (no longer needed) -->
+
+  <!-- Jobber embed script (placed near end of body so container exists) -->
+  <script
+    src="https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js"
+    clienthub_id="c639aa23-e770-4085-b066-c7bba042d9df-2246227"
+    form_url="https://clienthub.getjobber.com/client_hubs/c639aa23-e770-4085-b066-c7bba042d9df/public/work_request/embedded_work_request_form?form_id=2246227">
+  </script>
+
 </body>
 </html>
