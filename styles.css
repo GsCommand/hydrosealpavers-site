@@ -1255,10 +1255,17 @@ button.nav-link,
     overflow:visible;
   }
 
+  .nav-group{
+    display:block;
+    width:100%;
+  }
+
   .nav-link{
     width:100%;
-    justify-content:space-between;
+    justify-content:center;
+    text-align:center;
     padding:12px;
+    min-height:44px;
   }
 
   /* dropdowns become inline stacks */
@@ -1304,6 +1311,43 @@ button.nav-link,
   .nav-mobile-ctas .btn-ghost{
     padding:7px 10px;
     min-height:36px;
+  }
+}
+
+/* Homepage hero overlay tuning (mobile-first, keeps desktop look) */
+body.page-home .home-hero-overlay{
+  transform: translateY(clamp(24px, 18vh, 220px));
+  width:100%;
+  display:flex;
+  justify-content:center;
+}
+
+@media (max-width:860px){
+  body.page-home .home-hero-overlay{
+    transform: translateY(clamp(6px, 4vh, 36px));
+  }
+
+  body.page-home .hero2 .container{
+    padding-top:22px;
+    padding-bottom:22px;
+  }
+}
+
+/* Warranty top section mobile order: image first, then text */
+@media (max-width:860px){
+  body.page-warranty .warranty-top-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  body.page-warranty .warranty-top-image{
+    order:1;
+    justify-self:start !important;
+    max-width:560px !important;
+    margin-top:12px;
+  }
+
+  body.page-warranty .warranty-top-text{
+    order:2;
   }
 }
 
