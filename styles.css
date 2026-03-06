@@ -1088,7 +1088,8 @@ footer{
   padding:8px 9px;
   border-radius:12px;
   line-height:1.1;
-  min-height:unset;
+  min-height:34px;
+  box-sizing:border-box;
   flex:0 0 auto;
 }
 
