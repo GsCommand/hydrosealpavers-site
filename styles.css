@@ -1323,20 +1323,28 @@ body.page-home .home-hero-overlay{
 }
 
 @media (max-width:860px){
+  body.page-home .hero2{
+    align-items:flex-start;
+    min-height: clamp(420px, 66vh, 620px);
+  }
+
   body.page-home .home-hero-overlay{
-    transform: translateY(clamp(6px, 4vh, 36px));
+    transform:none;
   }
 
   body.page-home .hero2 .container{
-    padding-top:22px;
-    padding-bottom:22px;
+    width:100%;
+    padding-top:16px;
+    padding-bottom:16px;
   }
 }
 
 /* Warranty top section mobile order: image first, then text */
 @media (max-width:860px){
   body.page-warranty .warranty-top-grid{
-    grid-template-columns:1fr !important;
+    display:flex !important;
+    flex-direction:column !important;
+    gap:14px !important;
   }
 
   body.page-warranty .warranty-top-image{
