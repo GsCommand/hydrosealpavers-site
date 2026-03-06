@@ -1592,6 +1592,11 @@ body.page-home .cert-badge{
 
 body.page-home img{max-width:100%; height:auto;}
 
+/* Keep homepage hero image filling the hero height on mobile/desktop. */
+body.page-home .hero2 > img{
+  height:100%;
+}
+
 @media (max-width:860px){
   body.page-home .cert-hero{
     grid-template-columns:1fr;
