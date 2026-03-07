@@ -159,17 +159,14 @@
     return path === "/warranty" || path === "/care-program";
   }
 
-  function isHomepagePath() {
-    const path = (window.location.pathname || "").replace(/\.html$/, "");
-    return path === "/" || path === "" || path === "/index";
-  }
-
   function moveTrustbarForMobile() {
-    if (isTrustbarExcludedPath() || !isHomepagePath()) return;
+    if (isTrustbarExcludedPath()) return;
 
     const trustbar = document.querySelector(".trustbar");
-    const heroWrap = document.querySelector(".home-hero-wrap");
-    if (!trustbar || !heroWrap) return;
+    if (!trustbar) return;
+
+    const heroAnchor = document.querySelector(".home-hero-wrap") || document.querySelector(".hero2");
+    if (!heroAnchor) return;
 
     if (!window.__hs_trustbar_state) {
       window.__hs_trustbar_state = {
@@ -181,8 +178,8 @@
     const state = window.__hs_trustbar_state;
 
     if (isMobile()) {
-      if (heroWrap.nextElementSibling !== trustbar) {
-        heroWrap.insertAdjacentElement("afterend", trustbar);
+      if (heroAnchor.nextElementSibling !== trustbar) {
+        heroAnchor.insertAdjacentElement("afterend", trustbar);
       }
       return;
     }
