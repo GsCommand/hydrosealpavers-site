@@ -138,6 +138,133 @@
     .hazard-amber::after{ content:""; position:absolute; inset:0; border-radius:inherit; box-shadow: inset 0 0 0 1px rgba(255,255,255,.45); pointer-events:none; }
     .hazard-amber h3{ color:var(--navy); margin-top:18px; }
     .hazard-amber p{ color:var(--muted); margin-bottom:12px; }
+
+    #county-links-clay .grid.grid-3{
+      gap: 14px;
+    }
+
+    #county-links-clay .service-card{
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      min-height: 104px;
+      padding: 10px 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background:
+        linear-gradient(135deg,
+          rgba(255,255,255,0.72) 0%,
+          rgba(255,237,213,0.88) 45%,
+          rgba(254,215,170,0.90) 100%);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(251,146,60,0.24);
+      box-shadow: 0 11px 26px rgba(20, 35, 60, 0.08);
+      border-radius: 14px;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease, color .2s ease;
+      color: var(--navy);
+    }
+
+    #county-links-clay .service-card h3,
+    #county-links-clay .service-card p,
+    #county-links-clay .service-card a{
+      text-align: center;
+    }
+
+    #county-links-clay .service-card::before{
+      content: "";
+      position: absolute;
+      inset: -28% -24% -24% -18%;
+      background:
+        radial-gradient(circle at top right,
+          rgba(251,146,60,0.20),
+          transparent 42%),
+        radial-gradient(circle at bottom left,
+          rgba(217,119,6,0.14),
+          transparent 45%);
+      filter: blur(8px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: .84;
+      transition: opacity .2s ease, filter .2s ease;
+    }
+
+    #county-links-clay .service-card > *{
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    #county-links-clay .service-card h3{
+      margin: 0 0 6px;
+      color: #7c2d12;
+      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: .1px;
+      line-height: 1.24;
+    }
+
+    #county-links-clay .service-card p{
+      margin: 0 0 8px;
+      font-size: 14px;
+      line-height: 1.4;
+      color: #9a3412;
+    }
+
+    #county-links-clay .service-card strong{
+      margin-top: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0;
+      color: #c2410c;
+      text-transform: none;
+      transition: color .2s ease;
+    }
+
+    #county-links-clay .service-card strong .arrow{
+      display: inline-block;
+      transition: transform .2s ease;
+    }
+
+    @media (hover:hover) and (pointer:fine){
+      #county-links-clay .service-card:hover,
+      #county-links-clay .service-card:focus-visible{
+        transform: translateY(-2px);
+        background:
+          linear-gradient(135deg,
+            rgba(255,255,255,0.82) 0%,
+            rgba(255,237,213,0.94) 42%,
+            rgba(254,215,170,0.96) 100%);
+        border-color: rgba(251,146,60,0.32);
+        box-shadow:
+          0 16px 34px rgba(124,45,18,0.14),
+          0 0 0 1px rgba(251,146,60,0.18),
+          0 0 24px rgba(251,146,60,0.14);
+      }
+
+      #county-links-clay .service-card:hover::before,
+      #county-links-clay .service-card:focus-visible::before{
+        opacity: .97;
+        filter: blur(9px);
+      }
+
+      #county-links-clay .service-card:hover strong,
+      #county-links-clay .service-card:focus-visible strong{
+        color: #9a3412;
+      }
+
+      #county-links-clay .service-card:hover strong .arrow,
+      #county-links-clay .service-card:focus-visible strong .arrow{
+        transform: translateX(2px);
+      }
+    }
+
     @media (max-width: 900px){ .hazard-split{ grid-template-columns: 1fr; } .hazard-hero{ min-height: 260px; } .hazard-hero img{ min-height:260px; } }
   </style>
 </head>
@@ -360,76 +487,40 @@
 
       <div class="grid grid-3" style="margin-top:16px;">
 
-        <a class="card service-card" href="/service-areas/clay-county/orange-park.html" style="
-          background:
-            radial-gradient(900px 240px at 18% 0%, rgba(251,146,60,.22), transparent 55%),
-            radial-gradient(900px 240px at 88% 0%, rgba(253,186,116,.20), transparent 55%),
-            linear-gradient(180deg, rgba(255,237,213,.9), #ffffff 72%);
-          border:1px solid rgba(251,146,60,.28);
-        ">
+        <a class="card service-card" href="/service-areas/clay-county/orange-park.html">
           <h3>Orange Park</h3>
-          <p>Architectural-grade stone and paver protection focused on color restoration and long-term durability.</p>
-          <strong>View Orange Park →</strong>
+          <p>Established Homes + Shade</p>
+          <strong>View Orange Park <span class="arrow" aria-hidden="true">→</span></strong>
         </a>
 
-        <a class="card service-card" href="/service-areas/clay-county/fleming-island.html" style="
-          background:
-            radial-gradient(900px 240px at 18% 0%, rgba(251,146,60,.22), transparent 55%),
-            radial-gradient(900px 240px at 88% 0%, rgba(253,186,116,.20), transparent 55%),
-            linear-gradient(180deg, rgba(255,237,213,.9), #ffffff 72%);
-          border:1px solid rgba(251,146,60,.28);
-        ">
+        <a class="card service-card" href="/service-areas/clay-county/fleming-island.html">
           <h3>Fleming Island</h3>
-          <p>Premium restoration for Eagle Harbor and gated estates. Specialized algae-resistant sealing for shaded lots.</p>
-          <strong>View Fleming Island →</strong>
+          <p>Waterfront + Family Areas</p>
+          <strong>View Fleming Island <span class="arrow" aria-hidden="true">→</span></strong>
         </a>
 
-        <a class="card service-card" href="/service-areas/clay-county/oakleaf-plantation.html" style="
-          background:
-            radial-gradient(900px 240px at 18% 0%, rgba(251,146,60,.22), transparent 55%),
-            radial-gradient(900px 240px at 88% 0%, rgba(253,186,116,.20), transparent 55%),
-            linear-gradient(180deg, rgba(255,237,213,.9), #ffffff 72%);
-          border:1px solid rgba(251,146,60,.28);
-        ">
+        <a class="card service-card" href="/service-areas/clay-county/oakleaf-plantation.html">
           <h3>Oakleaf Plantation</h3>
-          <p>High-performance joint stabilization and UV protection for high-traffic suburban driveways and patios.</p>
-          <strong>View Oakleaf Plantation →</strong>
+          <p>Newer Growth + Traffic</p>
+          <strong>View Oakleaf Plantation <span class="arrow" aria-hidden="true">→</span></strong>
         </a>
 
-        <a class="card service-card" href="/service-areas/clay-county/middleburg.html" style="
-          background:
-            radial-gradient(900px 240px at 18% 0%, rgba(251,146,60,.22), transparent 55%),
-            radial-gradient(900px 240px at 88% 0%, rgba(253,186,116,.20), transparent 55%),
-            linear-gradient(180deg, rgba(255,237,213,.9), #ffffff 72%);
-          border:1px solid rgba(251,146,60,.28);
-        ">
+        <a class="card service-card" href="/service-areas/clay-county/middleburg.html">
           <h3>Middleburg</h3>
-          <p>Driveway and patio paver sealing focused on joint stability, even coverage, and long-term protection.</p>
-          <strong>View Middleburg →</strong>
+          <p>Rural Lots + Sun</p>
+          <strong>View Middleburg <span class="arrow" aria-hidden="true">→</span></strong>
         </a>
 
-        <a class="card service-card" href="/service-areas/clay-county/green-cove-springs.html" style="
-          background:
-            radial-gradient(900px 240px at 18% 0%, rgba(251,146,60,.22), transparent 55%),
-            radial-gradient(900px 240px at 88% 0%, rgba(253,186,116,.20), transparent 55%),
-            linear-gradient(180deg, rgba(255,237,213,.9), #ffffff 72%);
-          border:1px solid rgba(251,146,60,.28);
-        ">
+        <a class="card service-card" href="/service-areas/clay-county/green-cove-springs.html">
           <h3>Green Cove Springs</h3>
-          <p>Deep cleaning and joint re-sanding to reduce dark staining, sand loss, and uneven wear in shaded areas.</p>
-          <strong>View Green Cove Springs →</strong>
+          <p>Historic Core + Riverfront</p>
+          <strong>View Green Cove Springs <span class="arrow" aria-hidden="true">→</span></strong>
         </a>
 
-        <a class="card service-card" href="/service-areas/clay-county/doctors-inlet.html" style="
-          background:
-            radial-gradient(900px 240px at 18% 0%, rgba(251,146,60,.22), transparent 55%),
-            radial-gradient(900px 240px at 88% 0%, rgba(253,186,116,.20), transparent 55%),
-            linear-gradient(180deg, rgba(255,237,213,.9), #ffffff 72%);
-          border:1px solid rgba(251,146,60,.28);
-        ">
+        <a class="card service-card" href="/service-areas/clay-county/doctors-inlet.html">
           <h3>Doctors Inlet</h3>
-          <p>Driveway-focused sealing built for tire wear, even coverage, and joints that hold up after heavy rain.</p>
-          <strong>View Doctors Inlet →</strong>
+          <p>Canopy Streets + Moisture</p>
+          <strong>View Doctors Inlet <span class="arrow" aria-hidden="true">→</span></strong>
         </a>
 
       </div>
