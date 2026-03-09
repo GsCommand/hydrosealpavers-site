@@ -258,11 +258,22 @@
       background: transparent;
     }
 
+    #county-links .grid.grid-3{
+      gap: 14px;
+    }
+
     /* St. Johns area cards (scoped to county links section only) */
     #county-links .service-card{
       position: relative;
       isolation: isolate;
       overflow: hidden;
+      min-height: 118px;
+      padding: 14px 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
       background:
         linear-gradient(135deg,
           rgba(255,255,255,0.72) 0%,
@@ -298,10 +309,11 @@
     #county-links .service-card > *{
       position: relative;
       z-index: 1;
+      text-align: center;
     }
 
     #county-links .service-card h3{
-      margin: 0 0 8px;
+      margin: 0 0 6px;
       color: #143a5a;
       font-size: 1.2rem;
       font-weight: 800;
@@ -310,14 +322,14 @@
     }
 
     #county-links .service-card p{
-      margin: 0;
+      margin: 0 0 8px;
       font-size: 14px;
       line-height: 1.4;
       color: #5a7288;
     }
 
     #county-links .service-card strong{
-      margin-top: 12px;
+      margin-top: 0;
       display: inline-flex;
       align-items: center;
       gap: 6px;
