@@ -260,19 +260,19 @@
 
     /* St. Johns area cards (scoped to county links section only) */
     #county-links .service-card{
-      background:
-        radial-gradient(780px 220px at 14% 0%, rgba(147, 103, 255, .25), transparent 56%),
-        radial-gradient(760px 210px at 86% 0%, rgba(113, 86, 227, .18), transparent 56%),
-        linear-gradient(180deg, rgba(110, 74, 219, .92), rgba(86, 56, 178, .96));
-      border: 1px solid rgba(255,255,255,.18);
-      box-shadow: 0 10px 24px rgba(65, 41, 140, 0.16);
-      transition: transform .2s ease, box-shadow .2s ease;
-      color: #fff;
+      background: linear-gradient(180deg, rgba(255,255,255,0.22), rgba(255,255,255,0.10));
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.38);
+      box-shadow: 0 10px 28px rgba(20, 52, 91, 0.10);
+      border-radius: 16px;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+      color: var(--navy);
     }
 
     #county-links .service-card h3{
-      margin: 0 0 6px;
-      color: #fff;
+      margin: 0 0 8px;
+      color: #0c2a49;
       letter-spacing: .1px;
       line-height: 1.24;
     }
@@ -281,7 +281,7 @@
       margin: 0;
       font-size: 14px;
       line-height: 1.4;
-      color: rgba(255,255,255,.88);
+      color: rgba(12, 42, 73, .72);
     }
 
     #county-links .service-card strong{
@@ -289,11 +289,11 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      font-size: 13.5px;
-      font-weight: 800;
-      letter-spacing: .18px;
-      color: #fff;
-      text-transform: uppercase;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0;
+      color: #1f5f96;
+      text-transform: none;
     }
 
     #county-links .service-card strong .arrow{
@@ -301,11 +301,18 @@
       transition: transform .2s ease;
     }
 
+    #county-links .service-card[aria-current="page"]{
+      border-color: rgba(47, 126, 194, .48);
+      box-shadow: 0 12px 30px rgba(25, 76, 130, .16), 0 0 0 2px rgba(47, 126, 194, .10);
+    }
+
     @media (hover:hover) and (pointer:fine){
       #county-links .service-card:hover,
       #county-links .service-card:focus-visible{
         transform: translateY(-2px);
-        box-shadow: 0 14px 28px rgba(65, 41, 140, 0.22);
+        background: linear-gradient(180deg, rgba(255,255,255,0.30), rgba(255,255,255,0.15));
+        border-color: rgba(255,255,255,.56);
+        box-shadow: 0 14px 34px rgba(20, 52, 91, 0.14);
       }
 
       #county-links .service-card:hover strong .arrow,
@@ -530,37 +537,37 @@
         <div class="grid grid-3" style="margin-top:16px;">
           <a class="card service-card" href="/service-areas/st-johns-county/nocatee.html">
             <h3>Nocatee</h3>
-            <p>Driveways • Pool Decks • Full Sun Exposure</p>
+            <p>Driveway &amp; Pool Deck Sealing</p>
             <strong>View Nocatee <span class="arrow" aria-hidden="true">→</span></strong>
           </a>
 
           <a class="card service-card" href="/service-areas/st-johns-county/ponte-vedra.html">
             <h3>Ponte Vedra</h3>
-            <p>Premium Pavers • Travertine • Clean Finish</p>
+            <p>Premium Paver &amp; Travertine Sealing</p>
             <strong>View Ponte Vedra <span class="arrow" aria-hidden="true">→</span></strong>
           </a>
 
           <a class="card service-card" href="/service-areas/st-johns-county/ponte-vedra-beach.html">
             <h3>Ponte Vedra Beach</h3>
-            <p>Coastal Conditions • Salt Air • Organic Stains</p>
+            <p>Coastal Paver Sealing</p>
             <strong>View Ponte Vedra Beach <span class="arrow" aria-hidden="true">→</span></strong>
           </a>
 
           <a class="card service-card" href="/service-areas/st-johns-county/palencia.html">
             <h3>Palencia</h3>
-            <p>Driveways • Patios • Stable, Clean Joints</p>
+            <p>Patio &amp; Driveway Sealing</p>
             <strong>View Palencia <span class="arrow" aria-hidden="true">→</span></strong>
           </a>
 
           <a class="card service-card" href="/service-areas/st-johns-county/julington-creek.html">
             <h3>Julington Creek</h3>
-            <p>Driveways • Patios • Walkways</p>
+            <p>Driveways, Patios &amp; Walkways</p>
             <strong>View Julington Creek <span class="arrow" aria-hidden="true">→</span></strong>
           </a>
 
           <a class="card service-card" href="/service-areas/st-johns-county/world-golf-village.html">
             <h3>World Golf Village</h3>
-            <p>Driveways • Patios • Easier Cleanup</p>
+            <p>Paver Sealing for Daily Wear</p>
             <strong>View World Golf Village <span class="arrow" aria-hidden="true">→</span></strong>
           </a>
         </div>
