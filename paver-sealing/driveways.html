@@ -52,6 +52,39 @@
 
     .driveway-reviews-section{ margin-top:30px; }
 
+    .sand-section-gap{ margin-top:18px; }
+    .sand-grid{
+      display:grid;
+      gap:12px;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+    }
+    .sand-swatch{
+      border:1px solid var(--line);
+      border-radius:12px;
+      background:#fff;
+      padding:10px;
+      display:grid;
+      gap:6px;
+      align-content:start;
+    }
+    .sand-swatch-image{
+      width:100%;
+      aspect-ratio:1 / 1;
+      border-radius:8px;
+      object-fit:cover;
+      display:block;
+    }
+    .sand-swatch .label{ font-weight:900; }
+    .sand-swatch .best-for{ margin:0; color:var(--muted); font-size:.95rem; }
+    .sand-bottom-cta-row{ margin-top:14px; display:flex; gap:10px; flex-wrap:wrap; }
+
+    @media (max-width:980px){
+      .sand-grid{ grid-template-columns:repeat(2, minmax(0,1fr)); }
+    }
+    @media (max-width:640px){
+      .sand-grid{ grid-template-columns:minmax(0,1fr); }
+    }
+
     @media (max-width: 860px){
       .driveway-split,
       .driveway-split-rev{
@@ -525,35 +558,55 @@
         </div>
       </section>
 
-      <!-- PHOTO + TEXT (BLOCK 2) — REVERSED -->
-      <section style="margin-top:18px;">
-        <div class="driveway-split-rev">
-          <div class="card">
-            <h2 style="margin:0 0 6px;">Our Professional 6 Step Process</h2>
-            <p style="margin:0; color:var(--muted);">
-              Understanding the process is what delivers consistent results. Proper prep, joint work, moisture control, and a controlled application
-              prevent blotchy finishes and premature failure.
-            </p>
+      <section class="sand-section-gap">
+        <div class="card">
+          <h2 style="margin:0 0 10px;">Available Joint Sand Colors</h2>
+          <p class="muted" style="margin:0 0 16px;">
+            We offer multiple Trident joint sand color options to better match your driveway, borders, and overall finished look.
+          </p>
 
-            <ol style="margin:14px 0 0; padding-left:18px; color:var(--muted);">
-              <li><strong>Inspection:</strong> surface, drainage, problem areas</li>
-              <li><strong>Clean:</strong> correct chemistry + controlled rinse</li>
-              <li><strong>Re-sand:</strong> reset and compact joints (polymeric only when appropriate)</li>
-              <li><strong>Dry &amp; verify:</strong> moisture checks + weather window control</li>
-              <li><strong>Seal:</strong> even coats, controlled application, clean edges</li>
-              <li><strong>Final walkthrough:</strong> cure times, care notes, and maintenance guidance</li>
-            </ol>
+          <div class="sand-grid">
+            <div class="sand-swatch">
+              <img class="sand-swatch-image" src="/assets/hero/joint-sand-pearl.webp" alt="Pearl joint sand color sample" loading="lazy" width="800" height="800"/>
+              <div class="label">Pearl</div>
+              <p class="best-for">Best for light travertine and pale pavers that need a clean, low-contrast finish.</p>
+            </div>
+
+            <div class="sand-swatch">
+              <img class="sand-swatch-image" src="/assets/hero/joint-sand-tan.jpeg" alt="Tan joint sand color sample" loading="lazy" width="800" height="800"/>
+              <div class="label">Tan</div>
+              <p class="best-for">Best for warm-toned driveways and patios where you want a timeless, natural blend.</p>
+            </div>
+
+            <div class="sand-swatch">
+              <img class="sand-swatch-image" src="/assets/hero/joint-sand-fieldstone.jpeg" alt="Fieldstone joint sand color sample" loading="lazy" width="800" height="800"/>
+              <div class="label">Fieldstone</div>
+              <p class="best-for">Best for mixed-color pavers and projects where subtle variation helps hide dust.</p>
+            </div>
+
+            <div class="sand-swatch">
+              <img class="sand-swatch-image" src="/assets/hero/joint-sand-gray.jpeg" alt="Gray joint sand color sample" loading="lazy" width="800" height="800"/>
+              <div class="label">Gray</div>
+              <p class="best-for">Best for cooler gray pavers and contemporary homes seeking balanced contrast.</p>
+            </div>
+
+            <div class="sand-swatch">
+              <img class="sand-swatch-image" src="/assets/hero/joint-sand-platinum.jpeg" alt="Platinum joint sand color sample" loading="lazy" width="800" height="800"/>
+              <div class="label">Platinum</div>
+              <p class="best-for">Best for silver and coastal color palettes that benefit from a brighter, modern finish.</p>
+            </div>
+
+            <div class="sand-swatch">
+              <img class="sand-swatch-image" src="/assets/hero/joint-sand-black.jpeg" alt="Black joint sand color sample" loading="lazy" width="800" height="800"/>
+              <div class="label">Black</div>
+              <p class="best-for">Best for high-contrast borders and bold design lines on lighter paver fields.</p>
+            </div>
           </div>
 
-          <div class="media-box media-h-md">
-            <img
-             src="/assets/hero/hydroseal-driveway.webp"
-loading="lazy"
-decoding="async"
-width="1200"
-height="675"
-
-            />
+          <div class="sand-bottom-cta-row">
+            <a class="btn btn-primary" href="/get-a-quote/">Request a Quote</a>
+            <a class="btn btn-ghost" href="tel:+19045375000">Call 904.537.5000</a>
+            <a class="btn btn-ghost" href="/paver-sealing/sand-options.html">View Full Sand Options</a>
           </div>
         </div>
       </section>
