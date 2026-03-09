@@ -1808,3 +1808,32 @@ body.page-quote #c639aa23-e770-4085-b066-c7bba042d9df-2246227 button{
   width: 100% !important;
   box-sizing: border-box !important;
 }
+
+/* === Sitewide FAQ visual normalization === */
+:where(section[id*="faq" i], .faq-acc, details.faq-item, details.card) summary,
+:where(section[id*="faq" i], .faq-acc, details.faq-item, details.card) .faq-q,
+:where(section[id*="faq" i], .faq-acc, details.faq-item, details.card) .faq-q span{
+  color:#0f172a !important;
+  font-weight:600 !important;
+}
+
+:where(section[id*="faq" i], .faq-acc, details.faq-item, details.card) .faq-body,
+:where(section[id*="faq" i], .faq-acc, details.faq-item, details.card) .faq-a,
+:where(section[id*="faq" i], .faq-acc, details.faq-item, details.card) .faq-body p,
+:where(section[id*="faq" i], .faq-acc, details.faq-item, details.card) .faq-a p,
+:where(section[id*="faq" i], .faq-acc, details.faq-item, details.card) .faq-body li,
+:where(section[id*="faq" i], .faq-acc, details.faq-item, details.card) .faq-a li,
+:where(section[id*="faq" i], .faq-acc, details.faq-item, details.card) .faq-body ul,
+:where(section[id*="faq" i], .faq-acc, details.faq-item, details.card) .faq-a ul,
+:where(section[id*="faq" i], .faq-acc, details.faq-item, details.card) .faq-body ol,
+:where(section[id*="faq" i], .faq-acc, details.faq-item, details.card) .faq-a ol{
+  color:#1f2937 !important;
+  font-weight:400 !important;
+  line-height:1.7 !important;
+}
+
+:where(section[id*="faq" i], .faq-acc, details.faq-item, details.card) .faq-body :is(strong, b),
+:where(section[id*="faq" i], .faq-acc, details.faq-item, details.card) .faq-a :is(strong, b){
+  font-weight:400 !important;
+  color:#1f2937 !important;
+}
