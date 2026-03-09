@@ -260,19 +260,44 @@
 
     /* St. Johns area cards (scoped to county links section only) */
     #county-links .service-card{
-      background: linear-gradient(180deg, rgba(255,255,255,0.22), rgba(255,255,255,0.10));
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(255,255,255,0.72), rgba(240,248,255,0.58));
       -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.38);
-      box-shadow: 0 10px 28px rgba(20, 52, 91, 0.10);
-      border-radius: 16px;
-      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+      border: 1px solid rgba(255,255,255,0.55);
+      box-shadow: 0 10px 24px rgba(20,52,91,0.08);
+      border-radius: 14px;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease, color .2s ease;
       color: var(--navy);
+    }
+
+    #county-links .service-card::before{
+      content: "";
+      position: absolute;
+      top: -36%;
+      left: -24%;
+      width: 72%;
+      height: 70%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(196, 229, 255, 0.22) 0%, rgba(196, 229, 255, 0) 72%);
+      pointer-events: none;
+      z-index: 0;
+      opacity: .7;
+      transition: opacity .2s ease;
+    }
+
+    #county-links .service-card > *{
+      position: relative;
+      z-index: 1;
     }
 
     #county-links .service-card h3{
       margin: 0 0 8px;
       color: #0c2a49;
+      font-size: 1.2rem;
+      font-weight: 800;
       letter-spacing: .1px;
       line-height: 1.24;
     }
@@ -281,7 +306,7 @@
       margin: 0;
       font-size: 14px;
       line-height: 1.4;
-      color: rgba(12, 42, 73, .72);
+      color: rgba(33, 70, 106, .76);
     }
 
     #county-links .service-card strong{
@@ -292,8 +317,9 @@
       font-size: 14px;
       font-weight: 700;
       letter-spacing: 0;
-      color: #1f5f96;
+      color: #2b6fa9;
       text-transform: none;
+      transition: color .2s ease;
     }
 
     #county-links .service-card strong .arrow{
@@ -310,9 +336,22 @@
       #county-links .service-card:hover,
       #county-links .service-card:focus-visible{
         transform: translateY(-2px);
-        background: linear-gradient(180deg, rgba(255,255,255,0.30), rgba(255,255,255,0.15));
-        border-color: rgba(255,255,255,.56);
-        box-shadow: 0 14px 34px rgba(20, 52, 91, 0.14);
+        background: linear-gradient(180deg, rgba(255,255,255,0.82), rgba(234,245,255,0.68));
+        border-color: rgba(255,255,255,0.78);
+        box-shadow:
+          0 16px 34px rgba(20,52,91,0.12),
+          0 0 0 1px rgba(74,144,226,0.16),
+          0 0 18px rgba(93,167,255,0.10);
+      }
+
+      #county-links .service-card:hover::before,
+      #county-links .service-card:focus-visible::before{
+        opacity: .92;
+      }
+
+      #county-links .service-card:hover strong,
+      #county-links .service-card:focus-visible strong{
+        color: #1f67a5;
       }
 
       #county-links .service-card:hover strong .arrow,
