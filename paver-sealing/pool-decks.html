@@ -115,6 +115,95 @@
       }
       .pre-reviews-split{ margin-bottom:22px; }
     }
+
+    .sand-bar-section{
+      padding: 18px 0 10px;
+    }
+
+    .sand-bar-shell{
+      background:#fff;
+      border:1px solid rgba(15,23,42,.08);
+      border-radius:18px;
+      padding:18px;
+      box-shadow:0 6px 18px rgba(0,0,0,.05);
+    }
+
+    .sand-bar-head{
+      margin:0 0 16px;
+    }
+
+    .sand-bar-head h2{
+      margin:0 0 8px;
+    }
+
+    .sand-bar-head p{
+      margin:0;
+      max-width:760px;
+    }
+
+    .sand-bar-grid{
+      display:grid;
+      grid-template-columns:repeat(6,minmax(0,1fr));
+      gap:14px;
+      align-items:start;
+    }
+
+    .sand-bar-item{
+      min-width:0;
+    }
+
+    .sand-bar-item img{
+      width:100%;
+      aspect-ratio:1 / 1;
+      object-fit:cover;
+      display:block;
+      border-radius:12px;
+      margin:0 0 10px;
+    }
+
+    .sand-bar-item h3{
+      margin:0 0 6px;
+      font-size:1rem;
+      line-height:1.2;
+    }
+
+    .sand-bar-item p{
+      margin:0;
+      font-size:.92rem;
+      line-height:1.45;
+    }
+
+    @media (max-width:1100px){
+      .sand-bar-grid{
+        grid-template-columns:repeat(3,minmax(0,1fr));
+      }
+    }
+
+    @media (max-width:700px){
+      .sand-bar-shell{
+        padding:16px;
+        border-radius:16px;
+      }
+
+      .sand-bar-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:12px;
+      }
+    }
+
+    @media (max-width:480px){
+      .sand-bar-section{
+        padding:14px 0 8px;
+      }
+
+      .sand-bar-grid{
+        grid-template-columns:1fr;
+      }
+
+      .sand-bar-item img{
+        border-radius:10px;
+      }
+    }
   </style>
 </head>
 
@@ -662,6 +751,55 @@
               });
             })();
           </script>
+        </div>
+      </section>
+
+      <section class="sand-bar-section">
+        <div class="container">
+          <div class="sand-bar-shell">
+            <div class="sand-bar-head">
+              <h2>Joint Sand Color Options</h2>
+              <p>We offer multiple Trident joint sand colors to better match your pavers, borders, and overall finished look.</p>
+            </div>
+
+            <div class="sand-bar-grid">
+              <article class="sand-bar-item">
+                <img src="/assets/hero/joint-sand-pearl.webp" alt="Pearl joint sand color sample" loading="lazy" width="800" height="800">
+                <h3>Pearl</h3>
+                <p>Best for light travertine and pale pavers that need a clean, low-contrast finish.</p>
+              </article>
+
+              <article class="sand-bar-item">
+                <img src="/assets/hero/joint-sand-tan.jpeg" alt="Tan joint sand color sample" loading="lazy" width="800" height="800">
+                <h3>Tan</h3>
+                <p>Best for warm-toned driveways and patios where you want a timeless, natural blend.</p>
+              </article>
+
+              <article class="sand-bar-item">
+                <img src="/assets/hero/joint-sand-fieldstone.jpeg" alt="Fieldstone joint sand color sample" loading="lazy" width="800" height="800">
+                <h3>Fieldstone</h3>
+                <p>Best for mixed-color pavers and projects where subtle variation helps hide dust.</p>
+              </article>
+
+              <article class="sand-bar-item">
+                <img src="/assets/hero/joint-sand-gray.jpeg" alt="Gray joint sand color sample" loading="lazy" width="800" height="800">
+                <h3>Gray</h3>
+                <p>Best for cooler gray pavers and contemporary homes seeking balanced contrast.</p>
+              </article>
+
+              <article class="sand-bar-item">
+                <img src="/assets/hero/joint-sand-platinum.jpeg" alt="Platinum joint sand color sample" loading="lazy" width="800" height="800">
+                <h3>Platinum</h3>
+                <p>Best for silver and coastal color palettes that benefit from a brighter, modern finish.</p>
+              </article>
+
+              <article class="sand-bar-item">
+                <img src="/assets/hero/joint-sand-black.jpeg" alt="Black joint sand color sample" loading="lazy" width="800" height="800">
+                <h3>Black</h3>
+                <p>Best for high-contrast borders and bold design lines on lighter paver fields.</p>
+              </article>
+            </div>
+          </div>
         </div>
       </section>
 
