@@ -1843,3 +1843,30 @@ body.page-quote #c639aa23-e770-4085-b066-c7bba042d9df-2246227 button{
   font-weight:400 !important;
   color:#1f2937 !important;
 }
+
+
+/* Shared breadcrumb */
+.breadcrumb{
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  background:#fff;
+}
+.breadcrumb .container{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 0;
+  font-size:14px;
+  color:var(--muted);
+  overflow-x:auto;
+  white-space:nowrap;
+}
+.breadcrumb a{
+  color:var(--navy);
+  text-decoration:none;
+}
+.breadcrumb a:hover{ text-decoration:underline; }
+.breadcrumb [aria-current="page"]{
+  color:var(--text);
+  font-weight:700;
+}
