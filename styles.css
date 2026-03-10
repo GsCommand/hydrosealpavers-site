@@ -572,8 +572,10 @@ body.page-home [data-include].is-loaded{
   opacity:1;
 }
 body.page-home .elfsight-app-8d93a5a4-3fe5-4e4e-a7d5-1856bb997b36{
-  min-height:520px;
   display:block;
+}
+body.page-home .elfsight-app-8d93a5a4-3fe5-4e4e-a7d5-1856bb997b36:empty{
+  display:none;
 }
 body.page-home .home-hero-wrap{
   display:flex;
