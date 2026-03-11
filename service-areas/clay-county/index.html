@@ -179,6 +179,17 @@
       gap: 14px;
     }
 
+    #county-links-clay .clay-tier-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:14px;
+      margin-top:16px;
+    }
+
+    #county-links-clay .clay-tier-grid + h3{
+      margin-top:24px;
+    }
+
     #county-links-clay .service-card{
       position: relative;
       isolation: isolate;
@@ -302,6 +313,18 @@
     }
 
     @media (max-width: 900px){ .hazard-split{ grid-template-columns: 1fr; } .hazard-hero{ min-height: 260px; } .hazard-hero img{ min-height:260px; } }
+
+    @media (max-width: 980px){
+      #county-links-clay .clay-tier-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+    }
+
+    @media (max-width: 640px){
+      #county-links-clay .clay-tier-grid{
+        grid-template-columns:1fr;
+      }
+    }
   </style>
 </head>
 
@@ -510,47 +533,62 @@
   <!-- COUNTY LINKS (soft orange → white gradient cards) -->
   <section class="section" id="county-links-clay">
     <div class="container">
-      <h2 class="section-title">Areas We Serve in Clay County</h2>
+      <h2 class="section-title">Featured Areas</h2>
       <p class="section-sub">
-        Select your community below to see local service details. Each page includes neighborhood-specific notes and service options.
+        Select your community below to see local service details and HydroSeal recommendations for Clay County conditions.
       </p>
 
-      <div class="grid grid-3" style="margin-top:16px;">
-
-        <a class="card service-card" href="/service-areas/clay-county/orange-park">
-          <h3>Orange Park</h3>
-          <p>Established Homes + Shade</p>
-          <strong>View Orange Park <span class="arrow" aria-hidden="true">→</span></strong>
-        </a>
-
+      <div class="clay-tier-grid">
         <a class="card service-card" href="/service-areas/clay-county/fleming-island">
           <h3>Fleming Island</h3>
-          <p>Waterfront + Family Areas</p>
+          <p>Waterfront &amp; Family Areas</p>
           <strong>View Fleming Island <span class="arrow" aria-hidden="true">→</span></strong>
         </a>
 
         <a class="card service-card" href="/service-areas/clay-county/oakleaf-plantation">
           <h3>Oakleaf Plantation</h3>
-          <p>Newer Growth + Traffic</p>
+          <p>Newer Growth &amp; Traffic</p>
           <strong>View Oakleaf Plantation <span class="arrow" aria-hidden="true">→</span></strong>
+        </a>
+
+        <a class="card service-card" href="/service-areas/clay-county/orange-park">
+          <h3>Orange Park</h3>
+          <p>Established Homes &amp; Shade</p>
+          <strong>View Orange Park <span class="arrow" aria-hidden="true">→</span></strong>
         </a>
 
         <a class="card service-card" href="/service-areas/clay-county/middleburg">
           <h3>Middleburg</h3>
-          <p>Rural Lots + Sun</p>
+          <p>Rural Lots &amp; Sun</p>
           <strong>View Middleburg <span class="arrow" aria-hidden="true">→</span></strong>
         </a>
+      </div>
+
+      <h3 class="section-title" style="font-size:clamp(1.4rem,2.2vw,1.8rem);">More Clay Communities</h3>
+      <div class="clay-tier-grid">
 
         <a class="card service-card" href="/service-areas/clay-county/green-cove-springs">
           <h3>Green Cove Springs</h3>
-          <p>Historic Core + Riverfront</p>
+          <p>Historic Core &amp; Riverfront</p>
           <strong>View Green Cove Springs <span class="arrow" aria-hidden="true">→</span></strong>
         </a>
 
         <a class="card service-card" href="/service-areas/clay-county/doctors-inlet">
           <h3>Doctors Inlet</h3>
-          <p>Canopy Streets + Moisture</p>
+          <p>Canopy Streets &amp; Moisture</p>
           <strong>View Doctors Inlet <span class="arrow" aria-hidden="true">→</span></strong>
+        </a>
+
+        <a class="card service-card" href="/service-areas/clay-county/eagle-harbor">
+          <h3>Eagle Harbor</h3>
+          <p>Golf &amp; Waterfront Living</p>
+          <strong>View Eagle Harbor <span class="arrow" aria-hidden="true">→</span></strong>
+        </a>
+
+        <a class="card service-card" href="/service-areas/clay-county/eagle-landing">
+          <h3>Eagle Landing</h3>
+          <p>Amenity-Rich Neighborhoods</p>
+          <strong>View Eagle Landing <span class="arrow" aria-hidden="true">→</span></strong>
         </a>
 
       </div>
