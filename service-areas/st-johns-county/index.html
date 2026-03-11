@@ -241,9 +241,23 @@
       transform:none;
     }
 
-    
-    #county-links .grid.grid-3{
-      gap: 14px;
+
+    #county-links .county-area-group + .county-area-group{
+      margin-top: 18px;
+    }
+
+    #county-links .county-area-heading{
+      margin: 0 0 10px;
+      font-size: 1rem;
+      font-weight: 800;
+      color: #143a5a;
+      letter-spacing: .2px;
+    }
+
+    #county-links .county-area-grid{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
     }
 
     /* St. Johns area cards (scoped to county links section only) */
@@ -251,8 +265,8 @@
       position: relative;
       isolation: isolate;
       overflow: hidden;
-      min-height: 104px;
-      padding: 10px 10px;
+      min-height: 94px;
+      padding: 12px 11px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -303,18 +317,18 @@
     }
 
     #county-links .service-card h3{
-      margin: 0 0 6px;
+      margin: 0 0 4px;
       color: #143a5a;
-      font-size: 1.2rem;
+      font-size: 1.05rem;
       font-weight: 800;
       letter-spacing: .1px;
-      line-height: 1.24;
+      line-height: 1.2;
     }
 
     #county-links .service-card p{
-      margin: 0 0 8px;
-      font-size: 14px;
-      line-height: 1.4;
+      margin: 0 0 6px;
+      font-size: 13px;
+      line-height: 1.35;
       color: #5a7288;
     }
 
@@ -323,7 +337,7 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
       letter-spacing: 0;
       color: #2a7fb8;
@@ -339,6 +353,18 @@
     #county-links .service-card[aria-current="page"]{
       border-color: rgba(71,184,178,0.32);
       box-shadow: 0 12px 30px rgba(20,58,90,0.14), 0 0 0 2px rgba(71,184,178,0.10);
+    }
+
+    @media (min-width: 700px){
+      #county-links .county-area-grid{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 1100px){
+      #county-links .county-area-grid{
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
     }
 
     @media (hover:hover) and (pointer:fine){
@@ -601,42 +627,86 @@
           Choose your community below to view local paver sealing details, including neighborhood-specific notes, surface considerations, and available service options.
         </p>
 
-        <div class="grid grid-3" style="margin-top:16px;">
-          <a class="card service-card" href="/service-areas/st-johns-county/nocatee">
-            <h3>Nocatee</h3>
-            <p>Driveway &amp; Pool Deck Sealing</p>
-            <strong>View Nocatee <span class="arrow" aria-hidden="true">→</span></strong>
-          </a>
+        <div class="county-area-group" style="margin-top:16px;">
+          <h3 class="county-area-heading">Featured Areas</h3>
+          <div class="county-area-grid">
+            <a class="card service-card" href="/service-areas/st-johns-county/nocatee">
+              <h3>Nocatee</h3>
+              <p>Driveway &amp; Pool Deck Sealing</p>
+              <strong>View Nocatee <span class="arrow" aria-hidden="true">→</span></strong>
+            </a>
 
-          <a class="card service-card" href="/service-areas/st-johns-county/ponte-vedra">
-            <h3>Ponte Vedra</h3>
-            <p>Premium Paver &amp; Travertine Sealing</p>
-            <strong>View Ponte Vedra <span class="arrow" aria-hidden="true">→</span></strong>
-          </a>
+            <a class="card service-card" href="/service-areas/st-johns-county/ponte-vedra">
+              <h3>Ponte Vedra</h3>
+              <p>Premium Paver &amp; Travertine Sealing</p>
+              <strong>View Ponte Vedra <span class="arrow" aria-hidden="true">→</span></strong>
+            </a>
 
-          <a class="card service-card" href="/service-areas/st-johns-county/ponte-vedra-beach">
-            <h3>Ponte Vedra Beach</h3>
-            <p>Coastal Paver Sealing</p>
-            <strong>View Ponte Vedra Beach <span class="arrow" aria-hidden="true">→</span></strong>
-          </a>
+            <a class="card service-card" href="/service-areas/st-johns-county/ponte-vedra-beach">
+              <h3>Ponte Vedra Beach</h3>
+              <p>Coastal Paver Sealing</p>
+              <strong>View Ponte Vedra Beach <span class="arrow" aria-hidden="true">→</span></strong>
+            </a>
 
-          <a class="card service-card" href="/service-areas/st-johns-county/palencia">
-            <h3>Palencia</h3>
-            <p>Patio &amp; Driveway Sealing</p>
-            <strong>View Palencia <span class="arrow" aria-hidden="true">→</span></strong>
-          </a>
+            <a class="card service-card" href="/service-areas/st-johns-county/julington-creek">
+              <h3>Julington Creek</h3>
+              <p>Driveways, Patios &amp; Walkways</p>
+              <strong>View Julington Creek <span class="arrow" aria-hidden="true">→</span></strong>
+            </a>
+          </div>
+        </div>
 
-          <a class="card service-card" href="/service-areas/st-johns-county/julington-creek">
-            <h3>Julington Creek</h3>
-            <p>Driveways, Patios &amp; Walkways</p>
-            <strong>View Julington Creek <span class="arrow" aria-hidden="true">→</span></strong>
-          </a>
+        <div class="county-area-group">
+          <h3 class="county-area-heading">More St. Johns Communities</h3>
+          <div class="county-area-grid">
+            <a class="card service-card" href="/service-areas/st-johns-county/palm-valley">
+              <h3>Palm Valley</h3>
+              <p>Pool Deck &amp; Patio Sealing</p>
+              <strong>View Palm Valley <span class="arrow" aria-hidden="true">→</span></strong>
+            </a>
 
-          <a class="card service-card" href="/service-areas/st-johns-county/world-golf-village">
-            <h3>World Golf Village</h3>
-            <p>Paver Sealing for Daily Wear</p>
-            <strong>View World Golf Village <span class="arrow" aria-hidden="true">→</span></strong>
-          </a>
+            <a class="card service-card" href="/service-areas/st-johns-county/palencia">
+              <h3>Palencia</h3>
+              <p>Patio &amp; Driveway Sealing</p>
+              <strong>View Palencia <span class="arrow" aria-hidden="true">→</span></strong>
+            </a>
+
+            <a class="card service-card" href="/service-areas/st-johns-county/world-golf-village">
+              <h3>World Golf Village</h3>
+              <p>Paver Sealing for Daily Wear</p>
+              <strong>View World Golf Village <span class="arrow" aria-hidden="true">→</span></strong>
+            </a>
+
+            <a class="card service-card" href="/service-areas/st-johns-county/silverleaf">
+              <h3>SilverLeaf</h3>
+              <p>Newer Home Paver Protection</p>
+              <strong>View SilverLeaf <span class="arrow" aria-hidden="true">→</span></strong>
+            </a>
+
+            <a class="card service-card" href="/service-areas/st-johns-county/shearwater">
+              <h3>Shearwater</h3>
+              <p>Pool Deck &amp; Patio Sealing</p>
+              <strong>View Shearwater <span class="arrow" aria-hidden="true">→</span></strong>
+            </a>
+
+            <a class="card service-card" href="/service-areas/st-johns-county/beachwalk">
+              <h3>Beachwalk</h3>
+              <p>Lagoon-Area Paver Protection</p>
+              <strong>View Beachwalk <span class="arrow" aria-hidden="true">→</span></strong>
+            </a>
+
+            <a class="card service-card" href="/service-areas/st-johns-county/rivertown">
+              <h3>RiverTown</h3>
+              <p>Moisture-Exposed Paver Sealing</p>
+              <strong>View RiverTown <span class="arrow" aria-hidden="true">→</span></strong>
+            </a>
+
+            <a class="card service-card" href="/service-areas/st-johns-county/fruit-cove">
+              <h3>Fruit Cove</h3>
+              <p>Paver Restoration &amp; Sealing</p>
+              <strong>View Fruit Cove <span class="arrow" aria-hidden="true">→</span></strong>
+            </a>
+          </div>
         </div>
       </div>
     </section>
