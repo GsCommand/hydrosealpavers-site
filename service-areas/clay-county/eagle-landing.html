@@ -3,62 +3,147 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Paver Sealing Eagle Landing FL | HydroSeal</title>
-  <meta name="description" content="Professional paver sealing in Eagle Landing, FL. HydroSeal serves Eagle Landing with driveway, patio, and pool deck sealing. Full page coming soon." />
-  <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://hydrosealpavers.com/service-areas/clay-county/eagle-landing" />
 
+  <!-- SEO -->
+  <title>Paver Sealing Eagle Landing FL | HydroSeal</title>
+  <meta name="description" content="Paver sealing in Eagle Landing, FL for driveways, patios, and pool decks. HydroSeal protects active outdoor spaces with professional cleaning, re-sanding, and sealer application." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://hydrosealpavers.com/service-areas/clay-county/eagle-landing" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="HydroSeal" />
   <meta property="og:title" content="Paver Sealing Eagle Landing FL | HydroSeal" />
-  <meta property="og:description" content="Professional paver sealing in Eagle Landing, FL. HydroSeal serves Eagle Landing with driveway, patio, and pool deck sealing. Full page coming soon." />
+  <meta property="og:description" content="Paver sealing in Eagle Landing, FL for driveways, patios, and pool decks. HydroSeal protects active outdoor spaces with professional cleaning, re-sanding, and sealer application." />
   <meta property="og:url" content="https://hydrosealpavers.com/service-areas/clay-county/eagle-landing" />
-
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:image" content="https://hydrosealpavers.com/assets/hero/hydroseal-paver-driveway-square.webp" />
+  <meta property="og:image:alt" content="Eagle Landing driveway pavers with even sealed finish" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Paver Sealing Eagle Landing FL | HydroSeal" />
-  <meta name="twitter:description" content="Professional paver sealing in Eagle Landing, FL. HydroSeal serves Eagle Landing with driveway, patio, and pool deck sealing. Full page coming soon." />
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {"@type":"ListItem","position":1,"name":"Home","item":"https://hydrosealpavers.com/"},
-      {"@type":"ListItem","position":2,"name":"Service Areas","item":"https://hydrosealpavers.com/service-areas/"},
-      {"@type":"ListItem","position":3,"name":"Clay County","item":"https://hydrosealpavers.com/service-areas/clay-county/"},
-      {"@type":"ListItem","position":4,"name":"Eagle Landing","item":"https://hydrosealpavers.com/service-areas/clay-county/eagle-landing"}
-    ]
-  }
-  </script>
+  <meta name="twitter:description" content="Paver sealing in Eagle Landing, FL for driveways, patios, and pool decks. HydroSeal protects active outdoor spaces with professional cleaning, re-sanding, and sealer application." />
+  <meta name="twitter:image" content="https://hydrosealpavers.com/assets/hero/hydroseal-paver-driveway-square.webp" />
 
   <link rel="stylesheet" href="/styles.css" />
+
   <style>
-    .placeholder-card{
-      max-width: 840px;
-      margin: 0 auto;
-      border: 1px solid rgba(15,110,168,.18);
-      border-radius: 14px;
-      background: #fff;
-      box-shadow: 0 10px 28px rgba(20,58,90,.08);
-      padding: clamp(18px, 4vw, 30px);
+    .media-box{ overflow:hidden; border-radius:18px; }
+    .media-box img{ width:100%; height:100%; display:block; object-fit:cover; }
+    .media-h-md{ height:360px; }
+
+    .service-split,
+    .service-split-rev{
+      display:grid;
+      gap:18px;
+      align-items:stretch;
     }
-    .placeholder-alert{
-      border-left: 4px solid #2a7fb8;
-      background: #f4fbff;
-      padding: 12px 14px;
-      margin: 14px 0 18px;
-      color: #23445f;
-      font-weight: 600;
+    .service-split{ grid-template-columns:1.1fr .9fr; }
+    .service-split-rev{ grid-template-columns:.9fr 1.1fr; }
+
+    @media (min-width: 861px){
+      .service-split > .card,
+      .service-split-rev > .card,
+      .service-split > .media-box,
+      .service-split-rev > .media-box{
+        height:100%;
+      }
+
+      .service-split > .card,
+      .service-split-rev > .card{
+        display:flex;
+        flex-direction:column;
+        justify-content:flex-start;
+      }
+
+      .service-split .media-h-md,
+      .service-split-rev .media-h-md{
+        height:100%;
+        min-height:360px;
+      }
     }
-    .placeholder-actions{
+
+    @media (min-width: 861px){
+      .service-split-equal > .card,
+      .service-split-equal > .media-box{
+        height:100%;
+      }
+
+      .service-split-equal .media-h-md{
+        height:100%;
+        min-height:360px;
+      }
+    }
+
+    .service-reviews-section{ margin-top:30px; }
+
+    @media (max-width: 860px){
+      .service-split,
+      .service-split-rev{
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+      }
+      .service-split-rev .card{ order: 1; }
+      .service-split-rev .media-box{ order: 2; }
+    }
+    @media (max-width: 520px){
+      .media-h-md{ height:240px; }
+    }
+
+    #local-faq details.faq-item{
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius:0;
+      overflow:hidden;
+    }
+    #local-faq details.faq-item > summary{
+      cursor:pointer;
+      list-style:none;
+      padding:16px;
       display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:16px;
+      align-items:center;
+      justify-content:space-between;
+      font-weight:900;
+      user-select:none;
+    }
+    #local-faq summary::-webkit-details-marker{ display:none; }
+    #local-faq summary::after{
+      content:"▾";
+      font-weight:1000;
+      color: var(--navy);
+      transition: transform .18s ease;
+    }
+    #local-faq details[open] summary::after{ transform: rotate(180deg); }
+
+    #local-faq .faq-body{
+      max-height:0;
+      overflow:hidden;
+      opacity:0;
+      padding:0 16px;
+      transform: translateY(-6px);
+      transition:
+        max-height .28s ease,
+        opacity .22s ease,
+        transform .22s ease;
+      background:
+        radial-gradient(900px 240px at 20% 0%, rgba(57,191,234,.22), transparent 55%),
+        radial-gradient(900px 240px at 90% 0%, rgba(15,110,168,.14), transparent 55%),
+        linear-gradient(180deg, rgba(57,191,234,.10), #f8fbff 70%);
+      border-top:1px solid rgba(15,110,168,.25);
+    }
+    #local-faq details[open] .faq-body{
+      max-height:900px;
+      opacity:1;
+      padding:16px;
+      transform:none;
     }
   </style>
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://hydrosealpavers.com/#website","url":"https://hydrosealpavers.com/","name":"HydroSeal"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://hydrosealpavers.com/service-areas/clay-county/eagle-landing#webpage","url":"https://hydrosealpavers.com/service-areas/clay-county/eagle-landing","name":"Paver Sealing Eagle Landing FL | HydroSeal","isPartOf":{"@id":"https://hydrosealpavers.com/#website"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://hydrosealpavers.com/"},{"@type":"ListItem","position":2,"name":"Service Areas","item":"https://hydrosealpavers.com/service-areas"},{"@type":"ListItem","position":3,"name":"Clay County","item":"https://hydrosealpavers.com/service-areas/clay-county"},{"@type":"ListItem","position":4,"name":"Eagle Landing","item":"https://hydrosealpavers.com/service-areas/clay-county/eagle-landing"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":["LocalBusiness","HomeAndConstructionBusiness"],"@id":"https://hydrosealpavers.com/#business","name":"HydroSeal","url":"https://hydrosealpavers.com/","telephone":"+1-904-537-5000","image":"https://hydrosealpavers.com/assets/hero/hydroseal-paver-driveway-square.webp","logo":"https://hydrosealpavers.com/assets/hero/Hydrosealpaversealing.png","address":{"@type":"PostalAddress","addressLocality":"Jacksonville","addressRegion":"FL","addressCountry":"US"},"areaServed":[{"@type":"AdministrativeArea","name":"Clay County, FL"},{"@type":"AdministrativeArea","name":"Duval County, FL"},{"@type":"AdministrativeArea","name":"St. Johns County, FL"},{"@type":"City","name":"Eagle Landing, FL"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","@id":"https://hydrosealpavers.com/service-areas/clay-county/eagle-landing#service","name":"Paver Sealing in Eagle Landing, FL","serviceType":"Driveway, Patio, and Pool Deck Paver Sealing","provider":{"@id":"https://hydrosealpavers.com/#business"},"areaServed":[{"@type":"City","name":"Eagle Landing, FL"},{"@type":"AdministrativeArea","name":"Clay County, FL"}],"url":"https://hydrosealpavers.com/service-areas/clay-county/eagle-landing"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","@id":"https://hydrosealpavers.com/service-areas/clay-county/eagle-landing#faq","mainEntity":[{"@type":"Question","name":"How long should we wait before driving on a sealed driveway?","acceptedAnswer":{"@type":"Answer","text":"Driveways usually need a longer cure window than patios or walkways. We typically recommend 24–48 hours before vehicle traffic based on weather conditions."}},{"@type":"Question","name":"Do active family areas need more frequent resealing?","acceptedAnswer":{"@type":"Answer","text":"Often, yes. High-use patios and pool decks can wear faster than low-traffic areas. We evaluate traffic patterns and recommend a practical maintenance timeline."}},{"@type":"Question","name":"Can you handle driveway and pool deck sealing in the same visit?","acceptedAnswer":{"@type":"Answer","text":"Yes. We stage work so each area gets proper prep and cure time. This keeps the final result consistent across connected outdoor spaces."}},{"@type":"Question","name":"Will sealing reduce cleanup from cookouts and pool activity?","acceptedAnswer":{"@type":"Answer","text":"Yes. Sealed pavers absorb spills and grime more slowly, making cleanup easier. It does not eliminate maintenance, but it improves day-to-day care."}},{"@type":"Question","name":"Is joint sand really necessary if pavers still look stable?","acceptedAnswer":{"@type":"Answer","text":"Yes. Joint sand can degrade before movement becomes obvious. Resetting and compacting sand helps preserve lockup and edge performance."}},{"@type":"Question","name":"What if parts of our deck get more sun than others?","acceptedAnswer":{"@type":"Answer","text":"Mixed exposure is common in Eagle Landing. We adjust timing and application to keep cure and finish as uniform as possible."}}]}</script>
 </head>
 <body>
+
   <header class="header">
     <div class="container header-row">
       <a class="brand" href="/" aria-label="HydroSeal home">
@@ -68,134 +153,55 @@
         <button class="nav-toggle" type="button" aria-controls="navMenu" aria-expanded="false" aria-label="Open menu"><span class="nav-toggle-bars" aria-hidden="true"></span></button>
         <nav class="nav header-nav" aria-label="Primary">
           <div class="nav-menu" id="navMenu">
-            <div class="nav-group">
-              <button class="nav-link nav-parent" type="button" aria-expanded="false">Paver Sealing</button>
-              <div class="dropdown" role="menu" aria-label="Paver Sealing">
-                <a role="menuitem" href="/paver-sealing/driveways">Driveways</a>
-                <a role="menuitem" href="/paver-sealing/pool-decks">Pool Decks</a>
-                <a role="menuitem" href="/paver-sealing/travertine-sealing">Travertine Sealing</a>
-              </div>
-            </div>
-            <div class="nav-group">
-              <button class="nav-link nav-parent" type="button" aria-expanded="false">Commercial</button>
-              <div class="dropdown" role="menu" aria-label="Commercial">
-                <a role="menuitem" href="/commercial/hoa-communities">HOA Communities</a>
-                <a role="menuitem" href="/commercial/apartment-complexes">Apartments</a>
-                <a role="menuitem" href="/commercial/builders-new-construction">Builders / New Construction</a>
-                <a role="menuitem" href="/commercial/retail-centers">Retail Centers</a>
-                <a role="menuitem" href="/commercial/office-buildings">Office Buildings</a>
-              </div>
-            </div>
-            <div class="nav-group">
-              <button class="nav-link nav-parent" type="button" aria-expanded="false">Service Areas</button>
-              <div class="dropdown" role="menu" aria-label="Service Areas">
-                <a role="menuitem" href="/service-areas/st-johns-county/">St. Johns County</a>
-                <a role="menuitem" href="/service-areas/duval-county/">Duval County</a>
-                <a role="menuitem" href="/service-areas/clay-county/">Clay County</a>
-              </div>
-            </div>
+            <div class="nav-group"><button class="nav-link nav-parent" type="button" aria-expanded="false">Paver Sealing</button><div class="dropdown" role="menu" aria-label="Paver Sealing"><a role="menuitem" href="/paver-sealing/driveways">Driveways</a><a role="menuitem" href="/paver-sealing/pool-decks">Pool Decks</a><a role="menuitem" href="/paver-sealing/travertine-sealing">Travertine Sealing</a></div></div>
+            <div class="nav-group"><button class="nav-link nav-parent" type="button" aria-expanded="false">Commercial</button><div class="dropdown" role="menu" aria-label="Commercial"><a role="menuitem" href="/commercial/hoa-communities">HOA Communities</a><a role="menuitem" href="/commercial/apartment-complexes">Apartments</a><a role="menuitem" href="/commercial/builders-new-construction">Builders / New Construction</a><a role="menuitem" href="/commercial/retail-centers">Retail Centers</a><a role="menuitem" href="/commercial/office-buildings">Office Buildings</a></div></div>
+            <div class="nav-group"><button class="nav-link nav-parent" type="button" aria-expanded="false">Service Areas</button><div class="dropdown" role="menu" aria-label="Service Areas"><a role="menuitem" href="/service-areas/st-johns-county/">St. Johns County</a><a role="menuitem" href="/service-areas/duval-county/">Duval County</a><a role="menuitem" href="/service-areas/clay-county/">Clay County</a></div></div>
             <a class="nav-link" href="/care-program/">Care Program</a>
             <a class="nav-link" href="/warranty/">Warranty</a>
-            <div class="nav-mobile-ctas" role="presentation">
-              <a class="btn btn-ghost" href="tel:+19045375000">Call 904.537.5000</a>
-              <a class="btn btn-primary" href="/get-a-quote/">Request a Quote</a>
-            </div>
+            <div class="nav-mobile-ctas" role="presentation"><a class="btn btn-ghost" href="tel:+19045375000">Call 904.537.5000</a><a class="btn btn-primary" href="/get-a-quote/">Request a Quote</a></div>
           </div>
         </nav>
         <button class="nav-overlay" type="button" hidden aria-label="Close menu"></button>
       </div>
-      <div class="header-ctas">
-        <a class="btn btn-ghost" href="tel:+19045375000">Call 904.537.5000</a>
-        <a class="btn btn-primary" href="/get-a-quote/">Request a Quote</a>
-      </div>
+      <div class="header-ctas"><a class="btn btn-ghost" href="tel:+19045375000">Call 904.537.5000</a><a class="btn btn-primary" href="/get-a-quote/">Request a Quote</a></div>
     </div>
   </header>
 
-  <div class="trustbar trust-strip" role="note" aria-label="Trust signals">
-    <div class="container">
-      <div class="trust-item">Licensed &amp; Insured</div>
-      <div class="trust-item">Trident Master Certified</div>
-      <div class="trust-item">2-Year Warranty</div>
-      <div class="trust-item">St. Johns • Duval • Clay</div>
-    </div>
-  </div>
+  <div class="trustbar trust-strip" role="note" aria-label="Trust signals"><div class="container"><div class="trust-item">Licensed &amp; Insured</div><div class="trust-item">Trident Master Certified</div><div class="trust-item">2-Year Warranty</div><div class="trust-item">St. Johns • Duval • Clay</div></div></div>
 
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <div class="container">
-      <a href="/">Home</a>
-      <span aria-hidden="true">&gt;</span>
-      <a href="/service-areas/">Service Areas</a>
-      <span aria-hidden="true">&gt;</span>
-      <a href="/service-areas/clay-county/">Clay County</a>
-      <span aria-hidden="true">&gt;</span>
-      <span aria-current="page">Eagle Landing</span>
-    </div>
-  </nav>
+  <nav class="breadcrumb" aria-label="Breadcrumb"><div class="container"><a href="/">Home</a><span aria-hidden="true">&gt;</span><a href="/service-areas">Service Areas</a><span aria-hidden="true">&gt;</span><a href="/service-areas/clay-county">Clay County</a><span aria-hidden="true">&gt;</span><span aria-current="page">Eagle Landing</span></div></nav>
 
   <main id="page" data-page>
-    <!-- TODO: EXPAND THIS INTO FULL LOCAL PAGE -->
-    <section class="section">
-      <div class="container">
-        <div class="placeholder-card">
-          <h1 style="margin:0;">Paver Sealing in Eagle Landing, FL</h1>
-          <div class="placeholder-alert">
-            This page is being expanded.<br />
-            HydroSeal serves this area and a full local page is coming soon.
-          </div>
-          <p style="margin:0; color:var(--muted);">HydroSeal currently serves homeowners in Eagle Landing. We are building out this local page with full service details, project notes, and area-specific guidance.</p>
-          <div class="placeholder-actions">
-            <a class="btn btn-ghost" href="tel:+19045375000">Call 904.537.5000</a>
-            <a class="btn btn-primary" href="/get-a-quote/">Request a Quote</a>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="section" style="padding-top:18px;"><div class="container"><h1 style="margin:8px 0 0;">Paver Sealing in Eagle Landing, FL</h1><p class="muted" style="margin-top:10px; max-width:760px;">Eagle Landing homeowners rely on outdoor spaces year-round, from driveways with daily traffic to pool decks and patios used every weekend. We seal pavers with a prep-first process that keeps surfaces looking sharp in a polished, amenity-rich community.</p></div></section>
+
+    <section class="section" style="padding-top:6px;"><div class="container"><div class="service-split service-split-equal">
+      <div class="media-box media-h-md"><img src="/assets/hero/hydroseal-paver-driveway-square.webp" alt="Eagle Landing driveway pavers with even sealed finish" loading="eager" decoding="async" width="1200" height="1200" /></div>
+      <div class="card"><h2 style="margin:0 0 6px;">What Paver Sealing Does in Eagle Landing</h2><p style="margin:0; color:var(--muted);">Sealing helps Eagle Landing pavers hold their finish under constant use. We clean deeply, reset joints, and apply premium protection so outdoor spaces stay cleaner and better defined between maintenance cycles.</p><ul style="margin:14px 0 0; padding-left:18px; color:var(--muted);"><li><strong>Maintains</strong> a polished appearance in a detail-focused neighborhood</li><li><strong>Helps</strong> resist staining from regular family and guest use</li><li><strong>Strengthens</strong> joint performance in high-traffic outdoor areas</li><li><strong>Improves</strong> consistency across driveways, patios, and pool decks</li><li><strong>Supports</strong> easier upkeep between reseal intervals</li></ul></div>
+    </div></div></section>
+
+    <section style="margin-top:18px;" class="section"><div class="container"><div class="service-split-rev">
+      <div class="card"><h2 style="margin:0 0 6px;">Outdoor Living and Paver Maintenance in Eagle Landing</h2><p style="margin:0; color:var(--muted);">Active outdoor living means different wear patterns on every section. Our process addresses traffic-heavy driveways and splash-prone pool zones without sacrificing finish consistency.</p><ol style="margin:14px 0 0; padding-left:18px; color:var(--muted);"><li><strong>Inspection:</strong> site-specific traffic, drainage, and exposure review</li><li><strong>Clean:</strong> targeted chemistry and controlled surface cleaning</li><li><strong>Re-sand:</strong> install and compact kiln-dried joint sand</li><li><strong>Dry &amp; verify:</strong> moisture checks and weather-window confirmation</li><li><strong>Seal:</strong> even application with controlled finish level</li><li><strong>Final walkthrough:</strong> cure timeline, care notes, and reseal guidance</li></ol></div>
+      <div class="media-box media-h-md"><img src="/assets/hero/clay-county-paver-sealing-pool-deck.jpeg" alt="Eagle Landing pool deck paver surface prepared for sealing" loading="lazy" decoding="async" width="1200" height="675" /></div>
+    </div></div></section>
+
+    <section class="service-reviews-section" aria-label="What our customers are saying"></section>
+
+    <section class="section" id="local-faq"><div class="container"><h2>Eagle Landing Paver Sealing Questions</h2><div class="stack" style="margin-top:16px;"><details class="faq-item"><summary><strong>How long should we wait before driving on a sealed driveway?</strong></summary><div class="faq-body"><p class="muted">Driveways usually need a longer cure window than patios or walkways.</p><p class="muted">We typically recommend 24–48 hours before vehicle traffic based on weather conditions.</p></div></details><details class="faq-item"><summary><strong>Do active family areas need more frequent resealing?</strong></summary><div class="faq-body"><p class="muted">Often, yes. High-use patios and pool decks can wear faster than low-traffic areas.</p><p class="muted">We evaluate traffic patterns and recommend a practical maintenance timeline.</p></div></details><details class="faq-item"><summary><strong>Can you handle driveway and pool deck sealing in the same visit?</strong></summary><div class="faq-body"><p class="muted">Yes. We stage work so each area gets proper prep and cure time.</p><p class="muted">This keeps the final result consistent across connected outdoor spaces.</p></div></details><details class="faq-item"><summary><strong>Will sealing reduce cleanup from cookouts and pool activity?</strong></summary><div class="faq-body"><p class="muted">Yes. Sealed pavers absorb spills and grime more slowly, making cleanup easier.</p><p class="muted">It does not eliminate maintenance, but it improves day-to-day care.</p></div></details><details class="faq-item"><summary><strong>Is joint sand really necessary if pavers still look stable?</strong></summary><div class="faq-body"><p class="muted">Yes. Joint sand can degrade before movement becomes obvious.</p><p class="muted">Resetting and compacting sand helps preserve lockup and edge performance.</p></div></details><details class="faq-item"><summary><strong>What if parts of our deck get more sun than others?</strong></summary><div class="faq-body"><p class="muted">Mixed exposure is common in Eagle Landing.</p><p class="muted">We adjust timing and application to keep cure and finish as uniform as possible.</p></div></details></div></div></section>
+
+    <section class="section" aria-label="Follow HydroSeal" style="padding-top:0;"><div class="container"><script src="https://static.elfsight.com/platform/platform.js" async></script><div class="elfsight-app-8d93a5a4-3fe5-4e4e-a7d5-1856bb997b36" data-elfsight-app-lazy></div></div></section>
+
+    <section class="section" style="margin-top:18px;"><div class="container"><div class="card" style="text-align:center;"><h2 style="margin:0;">Get Your Eagle Landing Paver Sealing Quote Today</h2><div style="margin-top:14px; display:flex; justify-content:center; flex-wrap:wrap; gap:10px;"><a class="btn btn-primary" href="/get-a-quote/">Request a Quote</a></div></div></div></section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container site-footer__inner">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <div class="footer-brand__row">
-            <img src="/assets/hero/Hydrosealpaversealing.png" alt="HydroSeal" loading="lazy" class="footer-logo" width="2884" height="1127" />
-          </div>
-          <p class="footer-copy">Premium paver sealing and protection for driveways, pool decks, and travertine across St. Johns, Duval, and Clay County. Clean prep. Even finish. Results you can see.</p>
-        </div>
-        <div>
-          <div class="footer-title">Services</div>
-          <div class="footer-links">
-            <a href="/paver-sealing/driveways">Driveway Paver Sealing</a>
-            <a href="/paver-sealing/pool-decks">Pool Deck Sealing</a>
-            <a href="/paver-sealing/travertine-sealing">Travertine Sealing</a>
-          </div>
-        </div>
-        <div>
-          <div class="footer-title">Service Areas</div>
-          <div class="footer-links">
-            <a href="/service-areas/st-johns-county/">St. Johns County</a>
-            <a href="/service-areas/duval-county/">Duval County</a>
-            <a href="/service-areas/clay-county/">Clay County</a>
-          </div>
-        </div>
-        <div>
-          <div class="footer-title">Contact</div>
-          <div class="footer-meta">
-            <div><strong>Phone:</strong> <a href="tel:+19045375000" class="footer-phone">904.537.5000</a></div>
-            <div class="footer-hours"><strong>Hours:</strong><span>Mon–Fri 8–5</span><span>Sat 9–1</span></div>
-            <div><strong>Email:</strong> <a href="mailto:info@hydrosealpavers.com">info@hydrosealpavers.com</a></div>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <div>© <span id="y"></span> HydroSeal. All rights reserved.</div>
-        <div class="footer-bottom__links"></div>
-      </div>
-    </div>
-  </footer>
+  <script>(function () {const faq = document.querySelector('#local-faq'); if (!faq) return; const items = faq.querySelectorAll('details'); items.forEach(item => {item.addEventListener('toggle', () => {if (!item.open) return; items.forEach(other => { if (other !== item) other.removeAttribute('open'); });});});})();</script>
+
+  <footer class="site-footer"><div class="container site-footer__inner"><div class="footer-grid"><div class="footer-brand"><div class="footer-brand__row"><img src="/assets/hero/Hydrosealpaversealing.png" alt="HydroSeal" loading="lazy" class="footer-logo" width="2884" height="1127" /></div><p class="footer-copy">Premium paver sealing and protection for driveways, pool decks, and travertine across St. Johns, Duval, and Clay County. Clean prep. Even finish. Results you can see.</p></div><div><div class="footer-title">Services</div><div class="footer-links"><a href="/paver-sealing/driveways">Driveway Paver Sealing</a><a href="/paver-sealing/pool-decks">Pool Deck Sealing</a><a href="/paver-sealing/travertine-sealing">Travertine Sealing</a></div></div><div><div class="footer-title">Service Areas</div><div class="footer-links"><a href="/service-areas/st-johns-county/">St. Johns County</a><a href="/service-areas/duval-county/">Duval County</a><a href="/service-areas/clay-county/">Clay County</a></div></div><div><div class="footer-title">Contact</div><div class="footer-meta"><div><strong>Phone:</strong> <a href="tel:+19045375000" class="footer-phone">904.537.5000</a></div><div class="footer-hours"><strong>Hours:</strong><span>Mon–Fri 8–5</span><span>Sat 9–1</span></div><div><strong>Email:</strong> <a href="mailto:info@hydrosealpavers.com">info@hydrosealpavers.com</a></div></div></div></div><div class="footer-bottom"><div>© <span id="y"></span> HydroSeal. All rights reserved.</div><div class="footer-bottom__links"></div></div></div></footer>
 
   <a class="mobile-callbar" href="tel:+19045375000" aria-label="Tap to call HydroSeal">📞 Tap to Call — 904.537.5000</a>
-
   <script src="/assets/js/router.js" defer></script>
   <script src="/assets/js/nav.js" defer></script>
+  <script src="/assets/js/home.js" defer></script>
+  <script src="/assets/js/quote-form.js" defer></script>
+
 </body>
 </html>
