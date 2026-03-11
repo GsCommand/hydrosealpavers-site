@@ -422,8 +422,22 @@
   </style>
 
 <style>
-  #county-links-duval .grid.grid-3{
-    gap: 14px;
+  #county-links-duval .county-area-group + .county-area-group{
+    margin-top: 18px;
+  }
+
+  #county-links-duval .county-area-heading{
+    margin: 0 0 10px;
+    font-size: 1rem;
+    font-weight: 800;
+    color: #143a5a;
+    letter-spacing: .2px;
+  }
+
+  #county-links-duval .county-area-grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 
   #county-links-duval .service-card{
@@ -431,48 +445,46 @@
     isolation: isolate;
     overflow: hidden;
     min-height: 104px;
-    padding: 10px 10px;
+    padding: 12px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background:
-      linear-gradient(135deg,
-        rgba(255,255,255,0.70) 0%,
-        rgba(214,232,255,0.86) 45%,
-        rgba(188,218,248,0.90) 100%);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(34,101,168,0.28);
-    box-shadow: 0 11px 26px rgba(20, 35, 60, 0.08);
     border-radius: 14px;
     transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease, color .2s ease;
     color: var(--navy);
   }
 
-  #county-links-duval .service-card h3,
-  #county-links-duval .service-card p,
-  #county-links-duval .service-card a{
-    text-align: center;
+  #county-links-duval .featured-card{
+    background: linear-gradient(135deg, rgba(255,255,255,0.72) 0%, rgba(214,232,255,0.86) 45%, rgba(188,218,248,0.90) 100%);
+    border: 1px solid rgba(34,101,168,0.28);
+    box-shadow: 0 11px 26px rgba(20, 35, 60, 0.08);
+  }
+
+  #county-links-duval .secondary-card{
+    background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(247,251,255,0.98));
+    border: 1px solid rgba(15,110,168,.18);
+    box-shadow: 0 8px 22px rgba(20, 35, 60, 0.05);
+    min-height: 94px;
   }
 
   #county-links-duval .service-card::before{
     content: "";
     position: absolute;
     inset: -28% -24% -24% -18%;
-    background:
-      radial-gradient(circle at top right,
-        rgba(26,96,168,0.24),
-        transparent 42%),
-      radial-gradient(circle at bottom left,
-        rgba(20,67,126,0.18),
-        transparent 45%);
+    background: radial-gradient(circle at top right, rgba(26,96,168,0.24), transparent 42%), radial-gradient(circle at bottom left, rgba(20,67,126,0.18), transparent 45%);
     filter: blur(8px);
     pointer-events: none;
     z-index: 0;
     opacity: .84;
     transition: opacity .2s ease, filter .2s ease;
+  }
+
+  #county-links-duval .secondary-card::before{
+    opacity: .45;
   }
 
   #county-links-duval .service-card > *{
@@ -484,7 +496,7 @@
   #county-links-duval .service-card h3{
     margin: 0 0 6px;
     color: #143a5a;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 800;
     letter-spacing: .1px;
     line-height: 1.24;
@@ -504,9 +516,7 @@
     gap: 6px;
     font-size: 14px;
     font-weight: 700;
-    letter-spacing: 0;
     color: #1f5f98;
-    text-transform: none;
     transition: color .2s ease;
   }
 
@@ -515,20 +525,24 @@
     transition: transform .2s ease;
   }
 
+  @media (min-width: 700px){
+    #county-links-duval .county-area-grid{
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 980px){
+    #county-links-duval .county-area-grid{
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
   @media (hover:hover) and (pointer:fine){
     #county-links-duval .service-card:hover,
     #county-links-duval .service-card:focus-visible{
       transform: translateY(-2px);
-      background:
-        linear-gradient(135deg,
-          rgba(255,255,255,0.80) 0%,
-          rgba(202,224,252,0.92) 42%,
-          rgba(176,211,246,0.95) 100%);
       border-color: rgba(34,101,168,0.34);
-      box-shadow:
-        0 16px 34px rgba(20,58,90,0.14),
-        0 0 0 1px rgba(34,101,168,0.16),
-        0 0 24px rgba(34,101,168,0.16);
+      box-shadow: 0 16px 34px rgba(20,58,90,0.14), 0 0 0 1px rgba(34,101,168,0.16), 0 0 24px rgba(34,101,168,0.16);
     }
 
     #county-links-duval .service-card:hover::before,
@@ -554,72 +568,113 @@
 
 
      
-<!-- COUNTY LINKS (ONLY YOUR CURRENT PAGES) -->
+<!-- COUNTY LINKS -->
 <section class="section" id="county-links-duval">
   <div class="container">
-    <h2 class="section-title">Duval County Service Areas</h2>
-   
+    <h2 class="section-title">Areas We Serve in Duval County</h2>
+    <p class="section-sub">
+      Choose your community below to view local paver sealing details, including neighborhood-specific notes, surface considerations, and available service options.
+    </p>
 
-    <div class="grid grid-3" style="margin-top:16px;">
+    <div class="county-area-group" style="margin-top:16px;">
+      <h3 class="county-area-heading">Featured Areas</h3>
+      <div class="county-area-grid">
+        <a class="card service-card featured-card" href="/service-areas/duval-county/southside">
+          <h3>Southside</h3>
+          <p>Established Homes &amp; Outdoor Spaces</p>
+          <strong>View Southside <span class="arrow" aria-hidden="true">→</span></strong>
+        </a>
 
-      <a class="card service-card" href="/service-areas/duval-county/southside">
-        <h3>Southside</h3>
-        <p>Urban Core + San Marco</p>
-        <strong>View Southside <span class="arrow" aria-hidden="true">→</span></strong>
-      </a>
+        <a class="card service-card featured-card" href="/service-areas/duval-county/mandarin">
+          <h3>Mandarin</h3>
+          <p>Mature Trees &amp; Shade</p>
+          <strong>View Mandarin <span class="arrow" aria-hidden="true">→</span></strong>
+        </a>
 
-      <a class="card service-card" href="/service-areas/duval-county/mandarin">
-        <h3>Mandarin</h3>
-        <p>Mature Trees + Shade</p>
-        <strong>View Mandarin <span class="arrow" aria-hidden="true">→</span></strong>
-      </a>
+        <a class="card service-card featured-card" href="/service-areas/duval-county/intracoastal-east">
+          <h3>Intracoastal East</h3>
+          <p>Coastal Breezes &amp; Paver Wear</p>
+          <strong>View Intracoastal East <span class="arrow" aria-hidden="true">→</span></strong>
+        </a>
 
-      <a class="card service-card" href="/service-areas/duval-county/riverside-avondale">
-        <h3>Riverside / Avondale</h3>
-        <p>Historic Blocks + Patios</p>
-        <strong>View Riverside / Avondale <span class="arrow" aria-hidden="true">→</span></strong>
-      </a>
+        <a class="card service-card featured-card" href="/service-areas/duval-county/beaches">
+          <h3>The Beaches</h3>
+          <p>Salt Air &amp; UV Exposure</p>
+          <strong>View The Beaches <span class="arrow" aria-hidden="true">→</span></strong>
+        </a>
+      </div>
+    </div>
 
-      <a class="card service-card" href="/service-areas/duval-county/ortega">
-        <h3>Ortega</h3>
-        <p>Estate Drives + Courtyards</p>
-        <strong>View Ortega <span class="arrow" aria-hidden="true">→</span></strong>
-      </a>
-
-      <a class="card service-card" href="/service-areas/duval-county/intracoastal-east">
-        <h3>Intracoastal East</h3>
-        <p>Coastal Breezes + Sand</p>
-        <strong>View Intracoastal East <span class="arrow" aria-hidden="true">→</span></strong>
-      </a>
-
-      <a class="card service-card" href="/service-areas/duval-county/beaches">
-        <h3>The Beaches</h3>
-        <p>Salt Air + UV</p>
-        <strong>View Beaches <span class="arrow" aria-hidden="true">→</span></strong>
-      </a>
-
+    <div class="county-area-group">
+      <h3 class="county-area-heading">More Duval Communities</h3>
+      <div class="county-area-grid">
+        <a class="card service-card secondary-card" href="/service-areas/duval-county/atlantic-beach">
+          <h3>Atlantic Beach</h3>
+          <p>Coastal Paver Sealing</p>
+          <strong>View Atlantic Beach <span class="arrow" aria-hidden="true">→</span></strong>
+        </a>
+        <a class="card service-card secondary-card" href="/service-areas/duval-county/neptune-beach">
+          <h3>Neptune Beach</h3>
+          <p>Patios &amp; Pool Decks</p>
+          <strong>View Neptune Beach <span class="arrow" aria-hidden="true">→</span></strong>
+        </a>
+        <a class="card service-card secondary-card" href="/service-areas/duval-county/jacksonville-beach">
+          <h3>Jacksonville Beach</h3>
+          <p>Driveways &amp; Outdoor Living</p>
+          <strong>View Jacksonville Beach <span class="arrow" aria-hidden="true">→</span></strong>
+        </a>
+        <a class="card service-card secondary-card" href="/service-areas/duval-county/deerwood">
+          <h3>Deerwood</h3>
+          <p>Driveway &amp; Patio Sealing</p>
+          <strong>View Deerwood <span class="arrow" aria-hidden="true">→</span></strong>
+        </a>
+        <a class="card service-card secondary-card" href="/service-areas/duval-county/deer-creek">
+          <h3>Deer Creek</h3>
+          <p>Established Home Paver Care</p>
+          <strong>View Deer Creek <span class="arrow" aria-hidden="true">→</span></strong>
+        </a>
+        <a class="card service-card secondary-card" href="/service-areas/duval-county/queens-harbour">
+          <h3>Queens Harbour</h3>
+          <p>Premium Waterfront Hardscapes</p>
+          <strong>View Queens Harbour <span class="arrow" aria-hidden="true">→</span></strong>
+        </a>
+        <a class="card service-card secondary-card" href="/service-areas/duval-county/pablo-bay">
+          <h3>Pablo Bay</h3>
+          <p>Patio &amp; Walkway Sealing</p>
+          <strong>View Pablo Bay <span class="arrow" aria-hidden="true">→</span></strong>
+        </a>
+        <a class="card service-card secondary-card" href="/service-areas/duval-county/pablo-bay-reserve">
+          <h3>Pablo Bay Reserve</h3>
+          <p>Paver Protection &amp; Maintenance</p>
+          <strong>View Pablo Bay Reserve <span class="arrow" aria-hidden="true">→</span></strong>
+        </a>
+      </div>
     </div>
   </div>
 </section>
 
-  <!-- MICRO CTA (same width as the Areas We Serve grid) -->
-  <div class="grid grid-3" style="margin-top:14px;">
+  <div class="grid grid-3" style="margin-top:14px; margin-bottom:24px;">
     <div></div>
 
-    <div class="card" style="
-      text-align:center;
-      border:1px solid rgba(15,110,168,.18);
-      background:
-        radial-gradient(900px 240px at 20% 0%, rgba(57,191,234,.14), transparent 55%),
-        radial-gradient(900px 240px at 90% 0%, rgba(15,110,168,.10), transparent 55%),
-        linear-gradient(180deg, rgba(57,191,234,.08), #ffffff 70%);
-    ">
-      <p style="margin:0; color:var(--muted); font-weight:700;">
-        Don’t see your neighborhood? <strong style="color:var(--navy);">Call us — we likely cover it.</strong>
+    <div class="card" style="text-align:center; border:1px solid rgba(15,110,168,.18); background: radial-gradient(900px 240px at 20% 0%, rgba(57,191,234,.14), transparent 55%), radial-gradient(900px 240px at 90% 0%, rgba(15,110,168,.10), transparent 55%), linear-gradient(180deg, rgba(57,191,234,.08), #ffffff 70%);">
+      <h3 style="margin:0 0 6px; color:var(--navy); font-size:1.05rem;">Recently Added Neighborhoods</h3>
+      <p style="margin:0; color:var(--muted); font-weight:600; font-size:.96rem; line-height:1.45;">
+        We’re continuing to expand our Duval County coverage with more neighborhood pages and local service-area details.
       </p>
 
+      <div style="margin-top:12px; display:flex; justify-content:center; flex-wrap:wrap; gap:6px 12px; font-size:.92rem; line-height:1.35;">
+        <a href="/service-areas/duval-county/glen-kernan" style="color:#1b78b0; font-weight:600; text-decoration:none;">Glen Kernan</a>
+        <a href="/service-areas/duval-county/bartram-park" style="color:#1b78b0; font-weight:600; text-decoration:none;">Bartram Park</a>
+        <a href="/service-areas/duval-county/etown" style="color:#1b78b0; font-weight:600; text-decoration:none;">eTown</a>
+        <a href="/service-areas/duval-county/tamaya" style="color:#1b78b0; font-weight:600; text-decoration:none;">Tamaya</a>
+        <a href="/service-areas/duval-county/isle-of-palms" style="color:#1b78b0; font-weight:600; text-decoration:none;">Isle of Palms</a>
+        <a href="/service-areas/duval-county/south-beach-parkway" style="color:#1b78b0; font-weight:600; text-decoration:none;">South Beach Parkway</a>
+        <a href="/service-areas/duval-county/ortega" style="color:#1b78b0; font-weight:600; text-decoration:none;">Ortega</a>
+        <a href="/service-areas/duval-county/riverside-avondale" style="color:#1b78b0; font-weight:600; text-decoration:none;">Riverside / Avondale</a>
+      </div>
+
       <div style="margin-top:12px; display:flex; justify-content:center; flex-wrap:wrap; gap:10px;">
-        <a class="btn btn-primary" href="tel:+19045375000">Call 904.537.5000</a>
+        <a class="btn btn-primary" href="tel:+19045375000" style="opacity:.92;">Call 904.537.5000</a>
       </div>
     </div>
 
