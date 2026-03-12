@@ -186,13 +186,13 @@
       .service-cta{ width:100%; max-width:420px; }
     }
 
-    #patio-faq details.faq-item{
+    details.faq-item{
       border:1px solid var(--line);
       background:#fff;
       border-radius:0;
       overflow:hidden;
     }
-    #patio-faq details.faq-item > summary{
+    details.faq-item > summary{
       cursor:pointer;
       list-style:none;
       padding:16px;
@@ -202,16 +202,16 @@
       font-weight:900;
       user-select:none;
     }
-    #patio-faq summary::-webkit-details-marker{ display:none; }
-    #patio-faq summary::after{
+    details.faq-item > summary::-webkit-details-marker{ display:none; }
+    details.faq-item > summary::after{
       content:"▾";
       font-weight:1000;
       color: var(--navy);
       transition: transform .18s ease;
     }
-    #patio-faq details[open] summary::after{ transform: rotate(180deg); }
+    details.faq-item[open] > summary::after{ transform: rotate(180deg); }
 
-    #patio-faq .faq-body{
+    details.faq-item .faq-body{
       max-height:0;
       overflow:hidden;
       opacity:0;
@@ -227,7 +227,7 @@
         linear-gradient(180deg, rgba(57,191,234,.10), #f8fbff 70%);
       border-top:1px solid rgba(15,110,168,.25);
     }
-    #patio-faq details[open] .faq-body{
+    details.faq-item[open] .faq-body{
       max-height:900px;
       opacity:1;
       padding:16px;
@@ -356,7 +356,7 @@
     <section class="section" style="padding-top:18px;">
       <div class="container">
         <h1 style="margin:8px 0 0;">Mandarin Paver Sealing</h1>
-        <p class="muted" style="margin-top:10px; max-width:760px;">Mandarin homes often feature mature trees and shaded outdoor spaces that can hold moisture and encourage algae or mildew growth on pavers. HydroSeal provides professional sealing for driveways, patios, and walkways with a prep approach built for those conditions.</p>
+        <p class="muted" style="margin-top:10px; max-width:760px;">Mandarin properties deal with heavy tree canopy, slower dry-down, and river humidity that can accelerate mildew on older paver systems. HydroSeal restores driveways, patios, and walkways across established subdivisions and river-adjacent homes with chemistry and timing tailored to shade-driven moisture pressure.</p>
       </div>
     </section>
 
@@ -403,7 +403,11 @@
       </div>
     </section>
 
-    <section class="service-reviews-section" aria-label="What our customers are saying"></section>
+<section class="section" style="padding-top:10px;">
+      <div class="container">
+        <p class="muted" style="margin:0; max-width:830px;">We also work throughout nearby areas including <a href="/service-areas/duval-county/southside">Southside</a> and <a href="/service-areas/duval-county/bartram-park">Bartram Park</a>, plus broader coverage across <a href="/service-areas/duval-county/">Duval County</a>. For owners managing shade-related upkeep on older hardscapes, our <a href="/care-program/">Care Program</a> provides a cleaner long-term path.</p>
+      </div>
+    </section>
 
     <section class="section" id="mandarin-faq">
       <div class="container">

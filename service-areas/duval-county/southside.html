@@ -186,13 +186,13 @@
       .service-cta{ width:100%; max-width:420px; }
     }
 
-    #patio-faq details.faq-item{
+    details.faq-item{
       border:1px solid var(--line);
       background:#fff;
       border-radius:0;
       overflow:hidden;
     }
-    #patio-faq details.faq-item > summary{
+    details.faq-item > summary{
       cursor:pointer;
       list-style:none;
       padding:16px;
@@ -202,16 +202,16 @@
       font-weight:900;
       user-select:none;
     }
-    #patio-faq summary::-webkit-details-marker{ display:none; }
-    #patio-faq summary::after{
+    details.faq-item > summary::-webkit-details-marker{ display:none; }
+    details.faq-item > summary::after{
       content:"▾";
       font-weight:1000;
       color: var(--navy);
       transition: transform .18s ease;
     }
-    #patio-faq details[open] summary::after{ transform: rotate(180deg); }
+    details.faq-item[open] > summary::after{ transform: rotate(180deg); }
 
-    #patio-faq .faq-body{
+    details.faq-item .faq-body{
       max-height:0;
       overflow:hidden;
       opacity:0;
@@ -227,7 +227,7 @@
         linear-gradient(180deg, rgba(57,191,234,.10), #f8fbff 70%);
       border-top:1px solid rgba(15,110,168,.25);
     }
-    #patio-faq details[open] .faq-body{
+    details.faq-item[open] .faq-body{
       max-height:900px;
       opacity:1;
       padding:16px;
@@ -356,7 +356,7 @@
     <section class="section" style="padding-top:18px;">
       <div class="container">
         <h1 style="margin:8px 0 0;">Southside Jacksonville Paver Sealing</h1>
-        <p class="muted" style="margin-top:10px; max-width:760px;">Southside Jacksonville includes a broad mix of established and newer neighborhoods where paver driveways, patios, and pool decks see constant use. HydroSeal delivers professional sealing that keeps these surfaces cleaner, more uniform, and better protected against everyday wear and Florida weather.</p>
+        <p class="muted" style="margin-top:10px; max-width:760px;">Southside is a broad anchor market with established communities, gated neighborhoods, and custom outdoor spaces where many paver systems are now 25–40 years old. HydroSeal provides consistent, process-driven restoration and sealing across mixed property types without treating the area like a one-size-fits-all job.</p>
       </div>
     </section>
 
@@ -403,7 +403,11 @@
       </div>
     </section>
 
-    <section class="service-reviews-section" aria-label="What our customers are saying"></section>
+<section class="section" style="padding-top:10px;">
+      <div class="container">
+        <p class="muted" style="margin:0; max-width:860px;">Across Southside, we support nearby communities such as <a href="/service-areas/duval-county/deerwood">Deerwood</a>, <a href="/service-areas/duval-county/deer-creek">Deer Creek</a>, <a href="/service-areas/duval-county/etown">eTown</a>, <a href="/service-areas/duval-county/bartram-park">Bartram Park</a>, and <a href="/service-areas/duval-county/glen-kernan">Glen Kernan</a>. Owners managing multiple hardscape zones often choose the <a href="/care-program/">Care Program</a> for predictable upkeep.</p>
+      </div>
+    </section>
 
     <section class="section" id="southside-faq">
       <div class="container">

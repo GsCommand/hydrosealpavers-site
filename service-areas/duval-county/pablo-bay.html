@@ -186,13 +186,13 @@
       .service-cta{ width:100%; max-width:420px; }
     }
 
-    #patio-faq details.faq-item{
+    details.faq-item{
       border:1px solid var(--line);
       background:#fff;
       border-radius:0;
       overflow:hidden;
     }
-    #patio-faq details.faq-item > summary{
+    details.faq-item > summary{
       cursor:pointer;
       list-style:none;
       padding:16px;
@@ -202,16 +202,16 @@
       font-weight:900;
       user-select:none;
     }
-    #patio-faq summary::-webkit-details-marker{ display:none; }
-    #patio-faq summary::after{
+    details.faq-item > summary::-webkit-details-marker{ display:none; }
+    details.faq-item > summary::after{
       content:"▾";
       font-weight:1000;
       color: var(--navy);
       transition: transform .18s ease;
     }
-    #patio-faq details[open] summary::after{ transform: rotate(180deg); }
+    details.faq-item[open] > summary::after{ transform: rotate(180deg); }
 
-    #patio-faq .faq-body{
+    details.faq-item .faq-body{
       max-height:0;
       overflow:hidden;
       opacity:0;
@@ -227,7 +227,7 @@
         linear-gradient(180deg, rgba(57,191,234,.10), #f8fbff 70%);
       border-top:1px solid rgba(15,110,168,.25);
     }
-    #patio-faq details[open] .faq-body{
+    details.faq-item[open] .faq-body{
       max-height:900px;
       opacity:1;
       padding:16px;
@@ -356,7 +356,7 @@
     <section class="section" style="padding-top:18px;">
       <div class="container">
         <h1 style="margin:8px 0 0;">Pablo Bay Paver Sealing</h1>
-        <p class="muted" style="margin-top:10px; max-width:760px;">Pablo Bay homes use paver driveways, patios, and walkways hard every week, and everyday traffic can quickly expose weak joints and fading finishes. HydroSeal provides professional sealing that keeps surfaces cleaner, more uniform, and better protected against routine wear.</p>
+        <p class="muted" style="margin-top:10px; max-width:760px;">Pablo Bay is a curb-appeal-driven neighborhood where 15–20 year paver systems are entering practical reseal and restoration timing. HydroSeal helps families protect driveways, entries, patios, and pool areas affected by pond humidity, irrigation overspray, and steady day-to-day use.</p>
       </div>
     </section>
 
@@ -403,7 +403,7 @@
       </div>
     </section>
 
-    <section class="service-reviews-section" aria-label="What our customers are saying"></section>
+
 
     <section class="section" id="pablo-bay-faq">
       <div class="container">
@@ -467,6 +467,12 @@
       <div class="container">
         <script src="https://static.elfsight.com/platform/platform.js" async></script>
         <div class="elfsight-app-8d93a5a4-3fe5-4e4e-a7d5-1856bb997b36" data-elfsight-app-lazy></div>
+      </div>
+    </section>
+
+<section class="section" style="padding-top:10px;">
+      <div class="container">
+        <p class="muted" style="margin:0; max-width:820px;">We regularly support nearby communities including <a href="/service-areas/duval-county/pablo-creek-reserve">Pablo Creek Reserve</a>, <a href="/service-areas/duval-county/intracoastal-east">Intracoastal East</a>, and <a href="/service-areas/duval-county/tamaya">Tamaya</a>. For HOA-focused owners who want easier long-term upkeep, our <a href="/care-program/">Care Program</a> is a strong fit, and we can review appropriate <a href="/paver-sealing/sand-options">joint sand options</a> when re-sanding is needed.</p>
       </div>
     </section>
 

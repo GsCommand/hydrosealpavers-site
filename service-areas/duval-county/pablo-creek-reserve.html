@@ -186,13 +186,13 @@
       .service-cta{ width:100%; max-width:420px; }
     }
 
-    #patio-faq details.faq-item{
+    details.faq-item{
       border:1px solid var(--line);
       background:#fff;
       border-radius:0;
       overflow:hidden;
     }
-    #patio-faq details.faq-item > summary{
+    details.faq-item > summary{
       cursor:pointer;
       list-style:none;
       padding:16px;
@@ -202,16 +202,16 @@
       font-weight:900;
       user-select:none;
     }
-    #patio-faq summary::-webkit-details-marker{ display:none; }
-    #patio-faq summary::after{
+    details.faq-item > summary::-webkit-details-marker{ display:none; }
+    details.faq-item > summary::after{
       content:"▾";
       font-weight:1000;
       color: var(--navy);
       transition: transform .18s ease;
     }
-    #patio-faq details[open] summary::after{ transform: rotate(180deg); }
+    details.faq-item[open] > summary::after{ transform: rotate(180deg); }
 
-    #patio-faq .faq-body{
+    details.faq-item .faq-body{
       max-height:0;
       overflow:hidden;
       opacity:0;
@@ -227,7 +227,7 @@
         linear-gradient(180deg, rgba(57,191,234,.10), #f8fbff 70%);
       border-top:1px solid rgba(15,110,168,.25);
     }
-    #patio-faq details[open] .faq-body{
+    details.faq-item[open] .faq-body{
       max-height:900px;
       opacity:1;
       padding:16px;
@@ -356,7 +356,7 @@
     <section class="section" style="padding-top:18px;">
       <div class="container">
         <h1 style="margin:8px 0 0;">Paver Sealing in Pablo Creek Reserve, FL</h1>
-        <p class="muted" style="margin-top:10px; max-width:760px;">Pablo Creek Reserve properties are known for clean, polished outdoor spaces where paver appearance is part of the overall home presentation. HydroSeal provides premium sealing that protects those surfaces from weathering while keeping finishes consistent and easy to maintain.</p>
+        <p class="muted" style="margin-top:10px; max-width:760px;">Pablo Creek Reserve is a low-density luxury community where large motor courts, oversized driveways, and outdoor entertaining zones demand uniform, high-end results. HydroSeal restores and seals these custom-home hardscapes with detail control suited to 15–20 year surfaces now entering prime restoration territory.</p>
       </div>
     </section>
 
@@ -403,7 +403,11 @@
       </div>
     </section>
 
-    <section class="service-reviews-section" aria-label="What our customers are saying"></section>
+<section class="section" style="padding-top:8px;">
+      <div class="container">
+        <p class="muted" style="margin:0; max-width:850px;">If you are evaluating nearby luxury neighborhoods, we also serve <a href="/service-areas/duval-county/pablo-bay">Pablo Bay</a>, <a href="/service-areas/duval-county/intracoastal-east">Intracoastal East</a>, and <a href="/service-areas/duval-county/queens-harbour">Queens Harbour</a>. Many large-estate clients pair restoration with our <a href="/care-program/">Care Program</a>, and ask for the project scope under our <a href="/warranty/">warranty</a>.</p>
+      </div>
+    </section>
 
     <section class="section" id="pablo-creek-reserve-faq">
       <div class="container">
