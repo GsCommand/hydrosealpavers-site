@@ -95,7 +95,7 @@
 
       if (!parent.dataset.bound) {
         parent.dataset.bound = "1";
-        parent.setAttribute("aria-haspopup", "true");
+        parent.setAttribute("aria-haspopup", "menu");
         parent.setAttribute("aria-expanded", "false");
 
         const toggleGroup = (e) => {
