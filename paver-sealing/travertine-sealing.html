@@ -506,15 +506,17 @@
           z-index:0;
         }
 
-        .driveway-cta:hover{
-          transform: scale(1.03) translateY(-1px);
-          box-shadow: 0 14px 34px rgba(17,24,39,.14);
-          filter: brightness(1.02);
-        }
-        .driveway-cta:hover::before{
-          opacity:.35;
-          transform: scale(1);
-          filter: blur(7px);
+        @media (hover:hover) and (pointer:fine){
+          .driveway-cta:hover{
+            transform: scale(1.03) translateY(-1px);
+            box-shadow: 0 14px 34px rgba(17,24,39,.14);
+            filter: brightness(1.02);
+          }
+          .driveway-cta:hover::before{
+            opacity:.35;
+            transform: scale(1);
+            filter: blur(7px);
+          }
         }
 
         .driveway-cta:active{
@@ -1078,7 +1080,6 @@
 
   <script src="/assets/js/router.js" defer></script>
   <script src="/assets/js/nav.js" defer></script>
-  <script src="/assets/js/quote-form.js" defer></script>
   <script src="/assets/js/analytics.js" defer></script>
 </body>
 </html>
