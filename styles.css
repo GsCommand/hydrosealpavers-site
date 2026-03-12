@@ -889,6 +889,188 @@ body.page-home .home-hero-wrap #trustbar-slot{ order:2; }
   .ba-img{ height: 220px !important; }
 }
 
+/* Duval County child page shared layout + FAQ styles */
+body.duval-child-page .service-split,
+body.duval-child-page .service-split-rev{
+  display:grid;
+  gap:18px;
+  align-items:stretch;
+}
+body.duval-child-page .service-split{ grid-template-columns:1.1fr .9fr; }
+body.duval-child-page .service-split-rev{ grid-template-columns:.9fr 1.1fr; }
+
+@media (min-width:861px){
+  body.duval-child-page .service-split > .card,
+  body.duval-child-page .service-split-rev > .card,
+  body.duval-child-page .service-split > .media-box,
+  body.duval-child-page .service-split-rev > .media-box{
+    height:100%;
+  }
+
+  body.duval-child-page .service-split > .card,
+  body.duval-child-page .service-split-rev > .card{
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+  }
+
+  body.duval-child-page .service-split .media-h-md,
+  body.duval-child-page .service-split-rev .media-h-md,
+  body.duval-child-page .service-split-equal .media-h-md{
+    height:100%;
+    min-height:360px;
+  }
+
+  body.duval-child-page .service-split-equal > .card,
+  body.duval-child-page .service-split-equal > .media-box{
+    height:100%;
+  }
+}
+
+body.duval-child-page .service-reviews-section{ margin-top:30px; }
+
+@media (max-width:860px){
+  body.duval-child-page .service-split,
+  body.duval-child-page .service-split-rev{
+    grid-template-columns:1fr !important;
+    gap:14px !important;
+  }
+  body.duval-child-page .service-split-rev .card{ order:1; }
+  body.duval-child-page .service-split-rev .media-box{ order:2; }
+}
+
+@media (max-width:520px){
+  body.duval-child-page .media-h-md{ height:240px; }
+}
+
+body.duval-child-page .service-cta-row{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+body.duval-child-page .service-cta{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px 16px;
+  border-radius:14px;
+  font-weight:900;
+  letter-spacing:.01em;
+  text-decoration:none;
+  min-width:170px;
+  border:1px solid rgba(255,255,255,.16);
+  box-shadow:0 10px 26px rgba(17,24,39,.10);
+  transition:transform .16s ease, box-shadow .16s ease, filter .16s ease;
+  transform:translateZ(0);
+  isolation:isolate;
+}
+body.duval-child-page .service-cta::before{
+  content:"";
+  position:absolute;
+  inset:-4px;
+  border-radius:16px;
+  z-index:-1;
+  opacity:0;
+  filter:blur(6px);
+  transform:scale(.98);
+  transition:opacity .16s ease, transform .16s ease, filter .16s ease;
+}
+body.duval-child-page .service-cta::after{
+  content:"";
+  position:absolute;
+  inset:1px;
+  border-radius:13px;
+  background:linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,0) 55%);
+  opacity:.55;
+  pointer-events:none;
+  z-index:0;
+}
+@media (hover:hover) and (pointer:fine){
+  body.duval-child-page .service-cta:hover{
+    transform:scale(1.03) translateY(-1px);
+    box-shadow:0 14px 34px rgba(17,24,39,.14);
+    filter:brightness(1.02);
+  }
+  body.duval-child-page .service-cta:hover::before{
+    opacity:.35;
+    transform:scale(1);
+    filter:blur(7px);
+  }
+}
+body.duval-child-page .service-cta:active{
+  transform:scale(1.01) translateY(0);
+  box-shadow:0 10px 26px rgba(17,24,39,.12);
+}
+body.duval-child-page .service-cta-blue{
+  background:linear-gradient(180deg, #0f6ea8 0%, #0b5f94 100%);
+  color:#fff;
+}
+body.duval-child-page .service-cta-blue::before{ background:rgba(57,191,234,.45); }
+body.duval-child-page .service-cta-cyan{
+  background:linear-gradient(180deg, #39bfea 0%, #1ea7d4 100%);
+  color:#032437;
+}
+body.duval-child-page .service-cta-cyan::before{ background:rgba(15,110,168,.35); }
+
+body.duval-child-page .local-content a:not(.btn){
+  color:var(--blue);
+  text-decoration:underline;
+  text-underline-offset:2px;
+  text-decoration-thickness:1px;
+}
+body.duval-child-page .local-content a:not(.btn):hover,
+body.duval-child-page .local-content a:not(.btn):focus-visible{
+  color:#0b5f94;
+  text-decoration-thickness:2px;
+}
+
+body.duval-child-page :is(#patio-faq, [data-accordion="single"]) details.faq-item{
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:0;
+  overflow:hidden;
+}
+body.duval-child-page :is(#patio-faq, [data-accordion="single"]) details.faq-item > summary{
+  cursor:pointer;
+  list-style:none;
+  padding:16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  font-weight:900;
+  user-select:none;
+}
+body.duval-child-page :is(#patio-faq, [data-accordion="single"]) summary::-webkit-details-marker{ display:none; }
+body.duval-child-page :is(#patio-faq, [data-accordion="single"]) summary::after{
+  content:"▾";
+  font-weight:1000;
+  color:var(--navy);
+  transition:transform .18s ease;
+}
+body.duval-child-page :is(#patio-faq, [data-accordion="single"]) details[open] summary::after{ transform:rotate(180deg); }
+body.duval-child-page :is(#patio-faq, [data-accordion="single"]) .faq-body{
+  max-height:0;
+  overflow:hidden;
+  opacity:0;
+  padding:0 16px;
+  transform:translateY(-6px);
+  transition:max-height .28s ease, opacity .22s ease, transform .22s ease;
+  background:
+    radial-gradient(900px 240px at 20% 0%, rgba(57,191,234,.22), transparent 55%),
+    radial-gradient(900px 240px at 90% 0%, rgba(15,110,168,.14), transparent 55%),
+    linear-gradient(180deg, rgba(57,191,234,.10), #f8fbff 70%);
+  border-top:1px solid rgba(15,110,168,.25);
+}
+body.duval-child-page :is(#patio-faq, [data-accordion="single"]) details[open] .faq-body{
+  max-height:900px;
+  opacity:1;
+  padding:16px;
+  transform:none;
+}
+
 /* County pages: Hazard Split */
 .hazard-split{
   display:grid;
