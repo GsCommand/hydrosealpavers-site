@@ -94,9 +94,6 @@
       oldScript.replaceWith(s);
     });
 
-    // 3) Footer year
-    const y = document.getElementById("y");
-    if (y) y.textContent = new Date().getFullYear();
 
   } finally {
     document.body.classList.remove("includes-loading");

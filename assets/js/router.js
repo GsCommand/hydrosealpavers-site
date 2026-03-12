@@ -6,5 +6,6 @@
   }
 
   initSharedUi();
+  document.addEventListener("includes:ready", initSharedUi);
   document.dispatchEvent(new Event("page:load"));
 })();
