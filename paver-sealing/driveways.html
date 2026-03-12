@@ -168,7 +168,7 @@
       }
 
       .sand-bar-grid{
-        grid-template-columns:1fr;
+        grid-template-columns:repeat(2,minmax(0,1fr));
       }
 
       .sand-bar-item img{
@@ -237,15 +237,17 @@
       z-index:0;
     }
 
-    .driveway-cta:hover{
-      transform: scale(1.03) translateY(-1px);
-      box-shadow: 0 14px 34px rgba(17,24,39,.14);
-      filter: brightness(1.02);
-    }
-    .driveway-cta:hover::before{
-      opacity:.35;
-      transform: scale(1);
-      filter: blur(7px);
+    @media (hover:hover) and (pointer:fine){
+      .driveway-cta:hover{
+        transform: scale(1.03) translateY(-1px);
+        box-shadow: 0 14px 34px rgba(17,24,39,.14);
+        filter: brightness(1.02);
+      }
+      .driveway-cta:hover::before{
+        opacity:.35;
+        transform: scale(1);
+        filter: blur(7px);
+      }
     }
 
     .driveway-cta:active{
@@ -620,7 +622,7 @@
 
           <h1 style="
             margin:0;
-            font-size:40px;
+            font-size:clamp(2rem,6vw,40px);
             line-height:1.08;
             color:#fff;
             text-shadow:0 12px 34px rgba(0,0,0,.45);
@@ -797,7 +799,7 @@
 
       
       <!-- DRIVEWAY FAQ -->
-      <section class="section" id="driveway-faq">
+      <section class="section" id="driveway-faq" data-accordion="single">
         <div class="container">
           <h2>Driveway Sealing Questions</h2>
 
@@ -884,19 +886,6 @@
         </div>
       </section>
 
-      <script>
-        (function () {
-          const faq = document.querySelector('#driveway-faq');
-          if (!faq) return;
-          const items = faq.querySelectorAll('details');
-          items.forEach(item => {
-            item.addEventListener('toggle', () => {
-              if (!item.open) return;
-              items.forEach(other => { if (other !== item) other.removeAttribute('open'); });
-            });
-          });
-        })();
-      </script>
 
       <section class="section" style="margin-top:18px;">
         <div class="container">
@@ -987,7 +976,7 @@
 
   <script src="/assets/js/router.js" defer></script>
   <script src="/assets/js/nav.js" defer></script>
-  <script src="/assets/js/quote-form.js" defer></script>
+  <script src="/assets/js/accordion.js" defer></script>
   <script src="/assets/js/analytics.js" defer></script>
 </body>
 </html>
