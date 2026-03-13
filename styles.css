@@ -350,6 +350,30 @@ h3{ color: var(--h3-blue); }
   opacity:.95;
 }
 
+/* About page: keep hero copy without image media */
+.about-hero-noimage{
+  min-height:auto;
+  background:transparent;
+  overflow:visible;
+}
+.about-hero-noimage .container{padding:20px 16px 8px}
+.about-hero-noimage .about-hero-copy-wrap{transform:none}
+.about-hero-noimage .about-hero-panel{
+  background:transparent;
+  border:0;
+  padding:0;
+  backdrop-filter:none;
+  -webkit-backdrop-filter:none;
+}
+.about-hero-noimage .about-hero-title{
+  color:var(--ink);
+  text-shadow:none;
+}
+.about-hero-noimage .about-hero-tagline{
+  color:var(--muted);
+  text-shadow:none;
+}
+
 /* Notice box */
 .notice{
   border:1px solid var(--line);
