@@ -2032,9 +2032,6 @@ body.page-home #faq details[open] .faq-body{
    Drop: all the old multi-step/formspree form styling
    ======================= */
 
-/* If you truly don't want trustbar on quote page, keep ONE selector */
-body.page-quote .trustbar{ display:none !important; }
-
 body.page-quote{
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
