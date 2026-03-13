@@ -2188,9 +2188,18 @@ body.page-quote #c639aa23-e770-4085-b066-c7bba042d9df-2246227 button{
 }
 .clay-link-grid{
   margin-top:10px;
+  margin-bottom:0;
+  padding:0;
+  list-style:none;
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
   gap:8px;
+}
+.clay-link-item{
+  margin:0;
+}
+.clay-local-links a{
+  color:var(--navy);
 }
 .clay-link-grid a{
   display:block;
@@ -2199,14 +2208,27 @@ body.page-quote #c639aa23-e770-4085-b066-c7bba042d9df-2246227 button{
   padding:8px 10px;
   font-size:.95rem;
   font-weight:600;
-  color:var(--navy);
+  line-height:1.35;
   background:rgba(255,255,255,.9);
+  transition:background-color .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.clay-link-grid a:hover,
+.clay-link-grid a:focus-visible{
+  border-color:rgba(15,110,168,.45);
+  background:#fff;
+  box-shadow:0 0 0 3px rgba(15,110,168,.12);
 }
 .clay-chip-row{
   margin-top:10px;
+  margin-bottom:0;
+  padding:0;
+  list-style:none;
   display:flex;
   flex-wrap:wrap;
   gap:8px;
+}
+.clay-chip-item{
+  margin:0;
 }
 .clay-chip-link{
   display:inline-flex;
@@ -2215,8 +2237,14 @@ body.page-quote #c639aa23-e770-4085-b066-c7bba042d9df-2246227 button{
   border-radius:999px;
   padding:6px 12px;
   font-size:.9rem;
-  color:var(--navy);
   background:linear-gradient(180deg,#fff 0%, rgba(15,110,168,.05) 100%);
+  transition:background-color .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.clay-chip-link:hover,
+.clay-chip-link:focus-visible{
+  border-color:rgba(15,110,168,.4);
+  background:#fff;
+  box-shadow:0 0 0 3px rgba(15,110,168,.1);
 }
 @media (max-width:720px){
   .clay-link-grid{
