@@ -36,23 +36,38 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": ["LocalBusiness","HomeAndConstructionBusiness"],
+      "@type": "LocalBusiness",
       "@id": "https://hydrosealpavers.com/#business",
       "name": "HydroSeal",
       "url": "https://hydrosealpavers.com/",
       "telephone": "+1-904-537-5000",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Jacksonville",
-        "addressRegion": "FL",
-        "addressCountry": "US"
-      },
       "areaServed": [
-        { "@type": "City", "name": "Jacksonville", "addressRegion": "FL", "addressCountry": "US" },
-        { "@type": "City", "name": "Ponte Vedra", "addressRegion": "FL", "addressCountry": "US" },
-        { "@type": "City", "name": "Ponte Vedra Beach", "addressRegion": "FL", "addressCountry": "US" },
-        { "@type": "AdministrativeArea", "name": "Duval County, FL" },
-        { "@type": "AdministrativeArea", "name": "St. Johns County, FL" }
+        {
+          "@type": "City",
+          "name": "Jacksonville",
+          "addressRegion": "FL",
+          "addressCountry": "US"
+        },
+        {
+          "@type": "City",
+          "name": "Ponte Vedra",
+          "addressRegion": "FL",
+          "addressCountry": "US"
+        },
+        {
+          "@type": "City",
+          "name": "Ponte Vedra Beach",
+          "addressRegion": "FL",
+          "addressCountry": "US"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Duval County, FL"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "St. Johns County, FL"
+        }
       ]
     },
     {
@@ -67,20 +82,36 @@
       "url": "https://hydrosealpavers.com/travertine-sealing-jacksonville/",
       "name": "Travertine Sealing Jacksonville FL | HydroSeal",
       "description": "Travertine sealing in Jacksonville, FL. Stone-safe cleaning + breathable sealer for pool decks, patios & walkways. Optional anti-slip upgrade.",
-      "isPartOf": { "@id": "https://hydrosealpavers.com/#website" },
-      "about": { "@id": "https://hydrosealpavers.com/#business" },
+      "isPartOf": {
+        "@id": "https://hydrosealpavers.com/#website"
+      },
+      "about": {
+        "@id": "https://hydrosealpavers.com/#business"
+      },
       "primaryImageOfPage": {
         "@type": "ImageObject",
         "url": "https://hydrosealpavers.com/assets/hero/hydroseal-tavertine.png"
       },
-      "breadcrumb": { "@id": "https://hydrosealpavers.com/travertine-sealing-jacksonville/#breadcrumb" }
+      "breadcrumb": {
+        "@id": "https://hydrosealpavers.com/travertine-sealing-jacksonville/#breadcrumb"
+      }
     },
     {
       "@type": "BreadcrumbList",
       "@id": "https://hydrosealpavers.com/travertine-sealing-jacksonville/#breadcrumb",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://hydrosealpavers.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Travertine Sealing", "item": "https://hydrosealpavers.com/travertine-sealing-jacksonville/" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://hydrosealpavers.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Travertine Sealing",
+          "item": "https://hydrosealpavers.com/travertine-sealing-jacksonville/"
+        }
       ]
     },
     {
@@ -88,10 +119,22 @@
       "@id": "https://hydrosealpavers.com/travertine-sealing-jacksonville/#service",
       "name": "Travertine Sealing",
       "serviceType": "Travertine sealing for pool decks, patios, walkways, and outdoor stone surfaces",
-      "provider": { "@id": "https://hydrosealpavers.com/#business" },
+      "provider": {
+        "@id": "https://hydrosealpavers.com/#business"
+      },
       "areaServed": [
-        { "@type": "City", "name": "Jacksonville", "addressRegion": "FL", "addressCountry": "US" },
-        { "@type": "City", "name": "Ponte Vedra", "addressRegion": "FL", "addressCountry": "US" }
+        {
+          "@type": "City",
+          "name": "Jacksonville",
+          "addressRegion": "FL",
+          "addressCountry": "US"
+        },
+        {
+          "@type": "City",
+          "name": "Ponte Vedra",
+          "addressRegion": "FL",
+          "addressCountry": "US"
+        }
       ],
       "offers": {
         "@type": "Offer",
@@ -107,32 +150,50 @@
         {
           "@type": "Question",
           "name": "Should travertine pool decks be sealed in Florida?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Travertine is porous natural stone and Florida pool decks face constant moisture, sunscreen oils, organic growth, and pool splash-out. Sealing helps reduce absorption so staining is less likely and routine cleaning is easier. The key is using a breathable, stone-safe sealer and sealing only after proper dry time." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Travertine is porous natural stone and Florida pool decks face constant moisture, sunscreen oils, organic growth, and pool splash-out. Sealing helps reduce absorption so staining is less likely and routine cleaning is easier. The key is using a breathable, stone-safe sealer and sealing only after proper dry time."
+          }
         },
         {
           "@type": "Question",
           "name": "What type of sealer is best for travertine pool decks?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Most travertine pool decks perform best with a penetrating (impregnating) sealer that soaks into the stone instead of forming a surface film. It helps resist staining while keeping a natural look. The right choice depends on stone condition, porosity, and how the area is used." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most travertine pool decks perform best with a penetrating (impregnating) sealer that soaks into the stone instead of forming a surface film. It helps resist staining while keeping a natural look. The right choice depends on stone condition, porosity, and how the area is used."
+          }
         },
         {
           "@type": "Question",
           "name": "Will sealing travertine make my pool deck slippery?",
-          "acceptedAnswer": { "@type": "Answer", "text": "It can if the wrong product is used or it’s over-applied. Slippery pool decks usually come from sealers that leave too much material on the surface. We prioritize controlled, low-sheen finishes for pool areas, and an anti-slip additive can be added if extra traction is desired." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It can if the wrong product is used or it’s over-applied. Slippery pool decks usually come from sealers that leave too much material on the surface. We prioritize controlled, low-sheen finishes for pool areas, and an anti-slip additive can be added if extra traction is desired."
+          }
         },
         {
           "@type": "Question",
           "name": "How do you clean travertine pool decks without damaging the stone?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Travertine can be etched by harsh chemicals and aggressive pressure. Proper cleaning uses stone-appropriate chemistry, controlled dwell time, thorough rinsing, and careful pressure control. The goal is to remove algae film, sunscreen oils, embedded grime, rust spots, and discoloration while preserving the stone’s texture and color." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Travertine can be etched by harsh chemicals and aggressive pressure. Proper cleaning uses stone-appropriate chemistry, controlled dwell time, thorough rinsing, and careful pressure control. The goal is to remove algae film, sunscreen oils, embedded grime, rust spots, and discoloration while preserving the stone’s texture and color."
+          }
         },
         {
           "@type": "Question",
           "name": "How long does travertine sealer last on pool decks?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Longevity depends on sun exposure, moisture, traffic, and maintenance. Pool decks typically wear faster than patios due to constant wet conditions and foot traffic. The best approach is maintenance cleaning and resealing before full wear-through to keep color consistent and avoid heavier restoration later." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Longevity depends on sun exposure, moisture, traffic, and maintenance. Pool decks typically wear faster than patios due to constant wet conditions and foot traffic. The best approach is maintenance cleaning and resealing before full wear-through to keep color consistent and avoid heavier restoration later."
+          }
         },
         {
           "@type": "Question",
           "name": "How soon can we walk on the travertine and use the pool after sealing?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Cure time depends on humidity, airflow, shade, and whether the area is screened. Many jobs require about 24 hours before foot traffic and 24–48 hours before normal pool use. We provide site-specific return-to-use guidance on service day." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cure time depends on humidity, airflow, shade, and whether the area is screened. Many jobs require about 24 hours before foot traffic and 24–48 hours before normal pool use. We provide site-specific return-to-use guidance on service day."
+          }
         }
       ]
     }
