@@ -2417,3 +2417,68 @@ body.page-service-areas .service-areas-intro-ctas{
   gap: 12px;
   margin-top: 18px;
 }
+.hs-reminder-badges{
+  padding: 14px 0 18px;
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+.hs-reminder-badges .container{
+  max-width: 1120px;
+}
+
+.hs-reminder-badges__grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:16px;
+  align-items:center;
+}
+
+.hs-reminder-badges__item{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-width:0;
+}
+
+.hs-reminder-badges__item img{
+  display:block;
+  width:100%;
+  max-width:320px;
+  height:auto;
+  max-height:110px;
+  object-fit:contain;
+  margin:0 auto;
+}
+
+.hs-trust-caption{
+  text-align:center;
+  font-weight:600;
+  color:#0f2f57;
+  margin-top:10px;
+  margin-bottom:4px;
+  font-size:1rem;
+  letter-spacing:.02em;
+}
+
+@media (max-width: 900px){
+  .hs-reminder-badges__grid{
+    gap:12px;
+  }
+
+  .hs-reminder-badges__item img{
+    max-width:260px;
+    max-height:92px;
+  }
+}
+
+@media (max-width: 640px){
+  .hs-reminder-badges__grid{
+    grid-template-columns:1fr;
+  }
+
+  .hs-reminder-badges__item img{
+    max-width:280px;
+    max-height:none;
+  }
+}
