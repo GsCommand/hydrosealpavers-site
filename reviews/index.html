@@ -98,7 +98,25 @@ margin-top:0;
 }
 
 .review-help ul{
-padding-left:20px;
+list-style:none;
+padding-left:0;
+margin:0;
+}
+
+.review-help li{
+position:relative;
+padding-left:22px;
+margin-bottom:8px;
+}
+
+.review-help li::before{
+content:"★";
+position:absolute;
+left:0;
+top:0;
+color:#f2b01e;
+font-size:14px;
+line-height:1.4;
 }
 
 .footer{
@@ -160,13 +178,12 @@ Already left a review? Thank you — your support helps HydroSeal grow locally a
 <li>Your experience working with HydroSeal</li>
 </ul>
 
-<p><strong>Example:</strong></p>
+<p><strong>Example: ★★★★★</strong></p>
 
 <p>
 HydroSeal sealed our driveway in Jacksonville and the difference was incredible. 
 The pavers were faded and losing sand, and now they look brand new. 
-They cleaned everything thoroughly, re-sanded the joints, and applied the sealer evenly. 
-Very professional and easy to work with.
+They cleaned everything thoroughly and were very professional and easy to work with.
 </p>
 
 </div>
