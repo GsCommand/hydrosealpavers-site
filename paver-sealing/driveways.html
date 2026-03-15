@@ -338,6 +338,61 @@
       padding:16px;
       transform:none;
     }
+
+    .hs-reminder-badges{
+      padding: 14px 0 18px;
+    }
+
+    .hs-reminder-badges .container{
+      max-width: 1120px;
+    }
+
+    .hs-reminder-badges__grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:16px;
+      align-items:center;
+    }
+
+    .hs-reminder-badges__item{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-width:0;
+    }
+
+    .hs-reminder-badges__item img{
+      display:block;
+      width:100%;
+      max-width:320px;
+      height:auto;
+      max-height:110px;
+      object-fit:contain;
+      margin:0 auto;
+    }
+
+    @media (max-width: 900px){
+      .hs-reminder-badges__grid{
+        gap:12px;
+      }
+
+      .hs-reminder-badges__item img{
+        max-width:260px;
+        max-height:92px;
+      }
+    }
+
+    @media (max-width: 640px){
+      .hs-reminder-badges__grid{
+        grid-template-columns:1fr;
+      }
+
+      .hs-reminder-badges__item img{
+        max-width:280px;
+        max-height:none;
+      }
+    }
+
   </style>
 
   <!-- LocalBusiness entity (site-wide) -->
@@ -950,7 +1005,44 @@
         </div>
       </section>
 
-<div data-include="/partials/reminder-badges.html"></div>
+<section class="hs-reminder-badges" aria-label="HydroSeal trust badges">
+  <div class="container">
+    <div class="hs-reminder-badges__grid">
+      <div class="hs-reminder-badges__item">
+        <img
+          src="/assets/hero/hydroseal-licensed-insured.png"
+          alt="Licensed and Insured"
+          loading="lazy"
+          decoding="async"
+          width="1200"
+          height="600"
+        />
+      </div>
+
+      <div class="hs-reminder-badges__item">
+        <img
+          src="/assets/hero/Trident-Master-white.png"
+          alt="Trident Master Certified"
+          loading="lazy"
+          decoding="async"
+          width="1200"
+          height="600"
+        />
+      </div>
+
+      <div class="hs-reminder-badges__item">
+        <img
+          src="/assets/hero/hydroseal-2-year-warranty.png"
+          alt="2-Year Warranty"
+          loading="lazy"
+          decoding="async"
+          width="1200"
+          height="600"
+        />
+      </div>
+    </div>
+  </div>
+</section>
     
 
       <section class="section" style="margin-top:18px;">
