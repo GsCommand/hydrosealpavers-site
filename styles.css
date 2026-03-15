@@ -2418,9 +2418,8 @@ body.page-service-areas .service-areas-intro-ctas{
   margin-top: 18px;
 }
 .hs-reminder-badges{
-  padding: 14px 0 18px;
-  margin-top: 24px;
-  margin-bottom: 12px;
+  padding: 14px 0 8px;
+  margin: 24px 0 10px;
 }
 
 .hs-reminder-badges .container{
@@ -2456,7 +2455,7 @@ body.page-service-areas .service-areas-intro-ctas{
   font-weight:600;
   color:#0f2f57;
   margin-top:10px;
-  margin-bottom:4px;
+  margin-bottom:0;
   font-size:1rem;
   letter-spacing:.02em;
 }
