@@ -2383,3 +2383,37 @@ body.page-quote #c639aa23-e770-4085-b066-c7bba042d9df-2246227 button{
     max-height: none !important;
   }
 }
+
+/* Service Areas page hero + intro layout */
+body.page-service-areas .service-areas-hero{
+  position: relative;
+  min-height: clamp(220px, 34vw, 420px);
+  overflow: hidden;
+}
+
+body.page-service-areas .service-areas-intro-section{
+  padding: clamp(28px, 5vw, 56px) 0 24px;
+}
+
+body.page-service-areas .service-areas-intro{
+  max-width: 860px;
+}
+
+body.page-service-areas .service-areas-intro h1{
+  margin: 0 0 12px;
+  color: #0f2f57;
+  line-height: 1.08;
+}
+
+body.page-service-areas .service-areas-intro p{
+  margin: 0;
+  color: #304760;
+  line-height: 1.7;
+}
+
+body.page-service-areas .service-areas-intro-ctas{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
