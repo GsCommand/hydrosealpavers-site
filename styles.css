@@ -2318,3 +2318,68 @@ body.page-quote #c639aa23-e770-4085-b066-c7bba042d9df-2246227 button{
     max-width:300px;
   }
 }
+
+#reminder-badges.reminder-badges-section {
+  padding: 14px 0 18px;
+}
+
+#reminder-badges .reminder-badges-shell {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+#reminder-badges .reminder-badges-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+  align-items: center !important;
+}
+
+#reminder-badges .reminder-badge-item {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 0 !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+#reminder-badges .reminder-badge-item img {
+  display: block !important;
+  width: 100% !important;
+  max-width: 320px !important;
+  height: auto !important;
+  max-height: 110px !important;
+  object-fit: contain !important;
+  margin: 0 auto !important;
+}
+
+#reminder-badges img,
+#reminder-badges picture,
+#reminder-badges figure {
+  float: none !important;
+}
+
+@media (max-width: 900px) {
+  #reminder-badges .reminder-badges-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+
+  #reminder-badges .reminder-badge-item img {
+    max-width: 260px !important;
+    max-height: 92px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  #reminder-badges .reminder-badges-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  #reminder-badges .reminder-badge-item img {
+    max-width: 280px !important;
+    max-height: none !important;
+  }
+}
