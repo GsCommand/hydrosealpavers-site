@@ -2269,3 +2269,60 @@ body.page-quote #c639aa23-e770-4085-b066-c7bba042d9df-2246227 button{
     grid-template-columns:1fr;
   }
 }
+
+/* Reminder trust badges component */
+.reminder-badges-section{
+  padding: 20px 0 10px;
+}
+
+.reminder-badges-section .reminder-badges-shell{
+  max-width: 1120px;
+}
+
+.reminder-badges-section .reminder-badges-grid{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items:center;
+  gap: clamp(18px, 3vw, 34px);
+}
+
+.reminder-badges-section .reminder-badge-item{
+  min-height: 132px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: clamp(10px, 1.5vw, 16px);
+}
+
+.reminder-badges-section .reminder-badge-item img{
+  width:100%;
+  max-width:300px;
+  height:102px;
+  object-fit:contain;
+  object-position:center;
+}
+
+.reminder-badges-section .reminder-badge-item--center{
+  justify-self:center;
+}
+
+@media (max-width: 860px){
+  .reminder-badges-section{
+    padding: 16px 0 6px;
+  }
+
+  .reminder-badges-section .reminder-badges-grid{
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .reminder-badges-section .reminder-badge-item{
+    min-height: 108px;
+    padding: 8px 12px;
+  }
+
+  .reminder-badges-section .reminder-badge-item img{
+    max-width:320px;
+    height:84px;
+  }
+}
