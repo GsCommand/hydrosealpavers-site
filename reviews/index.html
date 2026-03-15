@@ -97,26 +97,22 @@ text-align:left;
 margin-top:0;
 }
 
-.review-help ul{
+.star{
+color:#f5b400;
+font-size:16px;
+margin-right:6px;
+display:inline-block;
+}
+
+.review-tips{
 list-style:none;
 padding-left:0;
 margin:0;
 }
 
-.review-help li{
-position:relative;
-padding-left:22px;
+.review-tips li{
 margin-bottom:8px;
-}
-
-.review-help li::before{
-content:"★";
-position:absolute;
-left:0;
-top:0;
-color:#f2b01e;
-font-size:14px;
-line-height:1.4;
+line-height:1.5;
 }
 
 .footer{
@@ -171,14 +167,14 @@ Already left a review? Thank you — your support helps HydroSeal grow locally a
 
 <p>Most homeowners mention a few quick details about their project:</p>
 
-<ul>
-<li>What type of area we restored (driveway, patio, pool deck)</li>
-<li>How the pavers looked before and after</li>
-<li>Your neighborhood or city (to help local homeowners)</li>
-<li>Your experience working with HydroSeal</li>
+<ul class="review-tips">
+<li><span class="star">⭐</span>What type of area we restored (driveway, patio, pool deck)</li>
+<li><span class="star">⭐</span>How the pavers looked before and after</li>
+<li><span class="star">⭐</span>Your neighborhood or city (to help local homeowners)</li>
+<li><span class="star">⭐</span>Your experience working with HydroSeal</li>
 </ul>
 
-<p><strong>Example: ★★★★★</strong></p>
+<p><strong><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span>Example:</strong></p>
 
 <p>
 HydroSeal sealed our driveway in Jacksonville and the difference was incredible. 
