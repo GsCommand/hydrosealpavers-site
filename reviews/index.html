@@ -154,25 +154,6 @@
       color:#304760;
     }
 
-    body.page-reviews .reviews-trustline{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin: 2px 0 2px;
-    }
-
-    body.page-reviews .reviews-trustline span{
-      display:inline-flex;
-      align-items:center;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid #d8e4f1;
-      background:#f7fbff;
-      color:#0f2f57;
-      font-size:.9rem;
-      font-weight:700;
-    }
-
     body.page-reviews .review-choice-grid{
       display:grid;
       gap:14px;
@@ -312,6 +293,123 @@
       color:#304760;
     }
 
+    body.page-reviews .review-help-block{
+      margin: 18px 0 20px;
+      padding: 18px;
+      border: 1px solid #d8e4f1;
+      border-radius: 16px;
+      background: linear-gradient(180deg, #fbfdff 0%, #f7fbff 100%);
+    }
+
+    body.page-reviews .review-help-top{
+      margin-bottom: 14px;
+    }
+
+    body.page-reviews .review-help-title{
+      margin: 0 0 8px;
+      color: #0f2f57;
+      font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+      line-height: 1.15;
+    }
+
+    body.page-reviews .review-help-intro{
+      margin: 0;
+      color: #304760;
+    }
+
+    body.page-reviews .review-help-grid{
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    body.page-reviews .review-help-panel{
+      padding: 16px;
+      border: 1px solid #d8e4f1;
+      border-radius: 14px;
+      background: #fff;
+      box-shadow: 0 6px 18px rgba(13, 38, 68, 0.04);
+    }
+
+    body.page-reviews .review-help-panel h3{
+      margin: 0 0 10px;
+      color: #0f2f57;
+      font-size: 1rem;
+    }
+
+    body.page-reviews .review-help-panel p{
+      margin: 0;
+      color: #304760;
+      line-height: 1.65;
+    }
+
+    body.page-reviews .review-help-list{
+      margin: 0;
+      padding-left: 18px;
+      color: #304760;
+    }
+
+    body.page-reviews .review-help-list li + li{
+      margin-top: 8px;
+    }
+
+    body.page-reviews .review-prompt-wrap{
+      margin-top: 4px;
+    }
+
+    body.page-reviews .review-prompt-title{
+      margin: 0 0 6px;
+      color: #0f2f57;
+      font-size: 1rem;
+    }
+
+    body.page-reviews .review-prompt-subcopy{
+      margin: 0 0 12px;
+      color: #4d657f;
+      font-size: .94rem;
+    }
+
+    body.page-reviews .review-prompt-grid{
+      display: grid;
+      gap: 10px;
+    }
+
+    body.page-reviews .review-prompt-chip{
+      width: 100%;
+      text-align: left;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid #cfe0ef;
+      background: #eef7ff;
+      color: #0f2f57;
+      font: inherit;
+      font-weight: 700;
+      line-height: 1.5;
+      cursor: pointer;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+    }
+
+    body.page-reviews .review-prompt-chip:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px rgba(13, 38, 68, 0.06);
+      border-color: #b7d4ea;
+      background: #e6f3ff;
+    }
+
+    body.page-reviews .review-prompt-chip.is-copied{
+      background: #dff4ea;
+      border-color: #98d8bd;
+      color: #0f5a46;
+    }
+
+    body.page-reviews .review-help-support{
+      margin: 14px 0 0;
+      color: #4d657f;
+      font-size: .93rem;
+      text-align: center;
+    }
+
     @media (min-width: 901px){
       body.page-reviews .trustbar > .container{
         display: grid;
@@ -325,6 +423,10 @@
     }
 
     @media (max-width: 760px){
+      body.page-reviews .review-help-grid{
+        grid-template-columns: 1fr;
+      }
+
       body.page-reviews .reviews-photo-strip{
         grid-template-columns:1fr;
       }
@@ -442,21 +544,68 @@
     <section class="reviews-page-section" aria-labelledby="reviews-page-heading">
       <div class="container">
         <div class="reviews-intro">
-          <h1 id="reviews-page-heading">Happy With Your Experience So Far?</h1>
-          <p>Choose the platform you prefer. Google helps HydroSeal the most, but Facebook and Houzz are here too. You can also share us with a neighbor.</p>
+          <h1 id="reviews-page-heading">Leave a Review for HydroSeal</h1>
         </div>
 
         <div class="reviews-card-wrap">
           <div class="reviews-card">
             <div class="reviews-head">
-              <h2 class="reviews-headline">Thank you for trusting HydroSeal with your project.</h2>
+              <h2 class="reviews-headline">Thank you for Trusting HydroSeal with your project.</h2>
               <p class="reviews-subcopy">If we restored your driveway, patio, pool deck, or walkway and you’re happy with the result, a quick review helps other homeowners feel more confident choosing us.</p>
-              <div class="reviews-trustline" aria-label="HydroSeal trust signals">
-                <span>Licensed</span>
-                <span>Insured</span>
-                <span>Trident Certified</span>
-              </div>
             </div>
+
+            <section class="review-help-block" aria-labelledby="review-help-title">
+              <div class="review-help-top">
+                <h2 id="review-help-title" class="review-help-title">What should I write in my review?</h2>
+                <p class="review-help-intro">
+                  Most customers find it easiest to mention a few quick details about their project and experience with HydroSeal.
+                </p>
+              </div>
+
+              <div class="review-help-grid">
+                <div class="review-help-panel review-help-panel--list">
+                  <h3>Helpful things to mention</h3>
+                  <ul class="review-help-list">
+                    <li>What type of area we restored or sealed</li>
+                    <li>How the pavers looked before and after</li>
+                    <li>How the cleaning and sanding process went</li>
+                    <li>What it was like working with HydroSeal</li>
+                  </ul>
+                </div>
+
+                <div class="review-help-panel review-help-panel--example">
+                  <h3>Example Review</h3>
+                  <p>
+                    HydroSeal did an excellent job sealing our driveway in Jacksonville. The pavers were faded and losing sand, and now they look brand new. The team cleaned everything thoroughly, re-sanded the joints, and applied the sealer evenly. Very professional and easy to work with. Highly recommend.
+                  </p>
+                </div>
+              </div>
+
+              <div class="review-prompt-wrap">
+                <h3 class="review-prompt-title">Quick Review Ideas</h3>
+                <p class="review-prompt-subcopy">Tap any option to copy it, then paste it into your review.</p>
+
+                <div class="review-prompt-grid">
+                  <button class="review-prompt-chip" type="button" data-review-copy="HydroSeal made our driveway look brand new. Great cleaning and sealing work.">
+                    HydroSeal made our driveway look brand new. Great cleaning and sealing work.
+                  </button>
+
+                  <button class="review-prompt-chip" type="button" data-review-copy="Very professional service. Our pool deck looks amazing after the paver sealing.">
+                    Very professional service. Our pool deck looks amazing after the paver sealing.
+                  </button>
+
+                  <button class="review-prompt-chip" type="button" data-review-copy="Easy to work with and great results. Highly recommend HydroSeal for paver sealing.">
+                    Easy to work with and great results. Highly recommend HydroSeal for paver sealing.
+                  </button>
+                </div>
+              </div>
+
+              <p class="review-help-support">
+                Google reviews help local homeowners find trusted companies. Thank you for supporting a Jacksonville small business.
+              </p>
+            </section>
+
+            <p class="reviews-subcopy">Choose the platform you prefer. Google helps HydroSeal the most, but Facebook and Houzz are here too. You can also share us with a neighbor.</p>
 
             <div class="review-choice-grid">
               <a class="review-choice-btn primary" data-platform="google" href="https://g.page/r/YOUR_GOOGLE_REVIEW_LINK_HERE/review" target="_blank" rel="noopener noreferrer">
@@ -641,6 +790,34 @@
           window.location.href = shareData.url;
         }
       }
+    });
+
+    const reviewPromptButtons = document.querySelectorAll('[data-review-copy]');
+
+    async function copyReviewPrompt(btn) {
+      const text = btn.getAttribute('data-review-copy');
+      const original = btn.textContent.trim();
+
+      try {
+        await navigator.clipboard.writeText(text);
+        btn.classList.add('is-copied');
+        btn.textContent = 'Copied! Paste this into your review.';
+        setTimeout(() => {
+          btn.classList.remove('is-copied');
+          btn.textContent = original;
+        }, 1800);
+      } catch (e) {
+        btn.classList.add('is-copied');
+        btn.textContent = 'Copy failed — try selecting this text manually.';
+        setTimeout(() => {
+          btn.classList.remove('is-copied');
+          btn.textContent = original;
+        }, 1800);
+      }
+    }
+
+    reviewPromptButtons.forEach(btn => {
+      btn.addEventListener('click', () => copyReviewPrompt(btn));
     });
   </script>
 
