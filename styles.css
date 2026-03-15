@@ -2276,28 +2276,32 @@ body.page-quote #c639aa23-e770-4085-b066-c7bba042d9df-2246227 button{
 }
 
 .reminder-badges-section .reminder-badges-shell{
-  max-width: 1120px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 16px;
 }
 
 .reminder-badges-section .reminder-badges-grid{
   display:grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items:center;
-  gap: clamp(18px, 3vw, 34px);
+  justify-items:center;
+  gap: 18px;
 }
 
 .reminder-badges-section .reminder-badge-item{
-  min-height: 132px;
+  min-height: 72px;
   display:flex;
   align-items:center;
   justify-content:center;
-  padding: clamp(10px, 1.5vw, 16px);
+  width:100%;
+  padding: 0;
 }
 
 .reminder-badges-section .reminder-badge-item img{
   width:100%;
-  max-width:300px;
-  height:102px;
+  max-width:180px;
+  height:72px;
   object-fit:contain;
   object-position:center;
 }
@@ -2317,12 +2321,11 @@ body.page-quote #c639aa23-e770-4085-b066-c7bba042d9df-2246227 button{
   }
 
   .reminder-badges-section .reminder-badge-item{
-    min-height: 108px;
-    padding: 8px 12px;
+    min-height: 64px;
   }
 
   .reminder-badges-section .reminder-badge-item img{
-    max-width:320px;
-    height:84px;
+    max-width:160px;
+    height:64px;
   }
 }
