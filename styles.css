@@ -1116,6 +1116,50 @@ body.duval-child-page :is(#patio-faq, [data-accordion="single"]) details[open] .
   transform:none;
 }
 
+body.page-clay-county #local-faq details.faq-item{
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:0;
+  overflow:hidden;
+}
+body.page-clay-county #local-faq details.faq-item > summary{
+  cursor:pointer;
+  list-style:none;
+  padding:16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  font-weight:900;
+  user-select:none;
+}
+body.page-clay-county #local-faq summary::-webkit-details-marker{ display:none; }
+body.page-clay-county #local-faq summary::after{
+  content:"▾";
+  font-weight:1000;
+  color:var(--navy);
+  transition:transform .18s ease;
+}
+body.page-clay-county #local-faq details[open] summary::after{ transform:rotate(180deg); }
+body.page-clay-county #local-faq .faq-body{
+  max-height:0;
+  overflow:hidden;
+  opacity:0;
+  padding:0 16px;
+  transform:translateY(-6px);
+  transition:max-height .28s ease, opacity .22s ease, transform .22s ease;
+  background:
+    radial-gradient(900px 240px at 20% 0%, rgba(57,191,234,.22), transparent 55%),
+    radial-gradient(900px 240px at 90% 0%, rgba(15,110,168,.14), transparent 55%),
+    linear-gradient(180deg, rgba(57,191,234,.10), #f8fbff 70%);
+  border-top:1px solid rgba(15,110,168,.25);
+}
+body.page-clay-county #local-faq details[open] .faq-body{
+  max-height:900px;
+  opacity:1;
+  padding:16px;
+  transform:none;
+}
+
 /* County pages: Hazard Split */
 .hazard-split{
   display:grid;
