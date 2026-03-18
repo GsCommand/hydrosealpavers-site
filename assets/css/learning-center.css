@@ -446,3 +446,145 @@ body.page-learning-center {
     transition: none !important;
   }
 }
+
+.lc-topic-page .lc-hero,
+.lc-article-page .lc-hero {
+  background:
+    linear-gradient(180deg, rgba(10, 39, 68, 0.9), rgba(14, 59, 101, 0.84)),
+    var(--lc-hero-image) center/cover no-repeat;
+}
+
+.lc-hero-shell--left,
+.lc-section-heading--left {
+  max-width: 860px;
+  text-align: left;
+}
+
+.lc-category-intro {
+  padding: 28px 0 0;
+}
+
+.lc-inline-note {
+  padding: 18px 20px;
+  border: 1px solid #dbe6ef;
+  border-radius: 20px;
+  background: #f7fbfe;
+  color: #33536f;
+  line-height: 1.75;
+}
+
+.lc-category-group + .lc-category-group {
+  margin-top: 44px;
+}
+
+.lc-read-more {
+  margin-top: auto;
+  color: #0f6aa7;
+  font-weight: 800;
+}
+
+.lc-article-body {
+  padding: 72px 0;
+}
+
+.lc-article-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(280px, 0.9fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.lc-article-content {
+  min-width: 0;
+}
+
+.lc-article-section {
+  padding: 30px 0;
+  border-bottom: 1px solid #e5edf4;
+}
+
+.lc-article-section:first-child {
+  padding-top: 0;
+}
+
+.lc-article-section h2,
+.lc-side-card h2 {
+  margin: 0 0 12px;
+  color: #0f2e4f;
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
+}
+
+.lc-article-section p,
+.lc-side-card p {
+  margin: 0;
+  color: #5f7182;
+  line-height: 1.8;
+}
+
+.lc-side-card {
+  padding: 22px;
+  border: 1px solid #dbe6ef;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(17, 46, 78, 0.06);
+}
+
+.lc-side-card + .lc-side-card {
+  margin-top: 18px;
+}
+
+.lc-related-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lc-related-list a {
+  display: block;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: #f7fbfe;
+  color: #0f2e4f;
+  font-weight: 700;
+}
+
+.lc-related-list a span {
+  display: block;
+  margin-top: 4px;
+  color: #5f7182;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.lc-faq-item {
+  padding: 16px 18px;
+  border: 1px solid #dbe6ef;
+  border-radius: 18px;
+  background: #f9fcfe;
+}
+
+.lc-faq-item + .lc-faq-item {
+  margin-top: 14px;
+}
+
+.lc-faq-item summary {
+  cursor: pointer;
+  color: #0f2e4f;
+  font-weight: 800;
+}
+
+.lc-faq-item p {
+  margin-top: 12px;
+}
+
+.lc-soft-cta--inline {
+  padding: 32px 0 0 !important;
+}
+
+@media (max-width: 900px) {
+  .lc-article-layout {
+    grid-template-columns: 1fr;
+  }
+}
