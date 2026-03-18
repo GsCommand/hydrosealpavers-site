@@ -209,7 +209,6 @@ body.page-learning-center {
 .page-learning-center .lc-topic-card {
   position: relative;
   color: inherit;
-  padding: 24px;
 }
 
 .page-learning-center .lc-topic-card .lc-card-copy {
@@ -217,16 +216,20 @@ body.page-learning-center {
 }
 
 .page-learning-center .lc-topic-icon {
+  position: absolute;
+  top: 24px;
+  left: 24px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 54px;
   height: 54px;
-  margin-bottom: 18px;
+  margin-bottom: 0;
   border-radius: 18px;
-  background: linear-gradient(135deg, #e7f4fb, #d8edf8);
+  background: linear-gradient(135deg, rgba(231, 244, 251, 0.96), rgba(216, 237, 248, 0.96));
   color: #0f4b78;
   font-weight: 800;
+  box-shadow: 0 10px 22px rgba(15, 46, 79, 0.16);
 }
 
 .page-learning-center .lc-card h3 {
