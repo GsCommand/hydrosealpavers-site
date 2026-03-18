@@ -320,6 +320,27 @@ body.page-learning-center {
   text-align: center;
 }
 
+.page-learning-center .lc-quick-videos {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbfe 100%);
+}
+
+.page-learning-center .lc-quick-videos .lc-video-grid {
+  align-items: stretch;
+}
+
+.page-learning-center .lc-quick-videos .lc-video-card {
+  min-height: 100%;
+}
+
+.page-learning-center .lc-quick-videos .lc-video-card .lc-card-copy {
+  gap: 0;
+}
+
+.page-learning-center .lc-video-link {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
 .page-learning-center .lc-soft-cta {
   background: linear-gradient(180deg, #f5fbff, #eef7fc);
 }
