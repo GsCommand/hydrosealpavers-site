@@ -1701,6 +1701,19 @@ body.page-home .home-hero-overlay{
   }
 }
 
+@media (max-width:768px){
+  body.page-home .home-hero-overlay{
+    position:absolute;
+    left:50%;
+    top:auto;
+    bottom:18px;
+    transform:translateX(-50%);
+    width:calc(100% - 32px);
+    max-width:520px;
+    margin:0;
+  }
+}
+
 /* Warranty top section mobile order: image first, then text */
 @media (max-width:860px){
   body.page-warranty .warranty-top-grid{
