@@ -9,7 +9,7 @@
 
   function closestTrackable(el) {
     if (!(el instanceof Element)) return null;
-    return el.closest('a[href^="tel:"], a[href="/get-a-quote"], a[href="/get-a-quote/"], a[href^="/get-a-quote?"], a[href^="/get-a-quote/?"], a[href^="/get-a-quote#"], button[data-quote-link]');
+    return el.closest('a[href^="tel:"], a[href="/get-a-quote"], a[href^="/get-a-quote?"], a[href^="/get-a-quote#"], button[data-quote-link]');
   }
 
   document.addEventListener(
@@ -27,7 +27,7 @@
       }
 
       if (
-        target.matches('a[href="/get-a-quote"], a[href="/get-a-quote/"], a[href^="/get-a-quote?"], a[href^="/get-a-quote/?"], a[href^="/get-a-quote#"], button[data-quote-link]')
+        target.matches('a[href="/get-a-quote"], a[href^="/get-a-quote?"], a[href^="/get-a-quote#"], button[data-quote-link]')
       ) {
         track("request_quote_click", {
           page_path: window.location.pathname,
