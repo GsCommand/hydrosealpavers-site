@@ -97,11 +97,15 @@
       color:#223247;
     }
     .nearby-service-note a{
-      color:inherit;
-      text-decoration-color:rgba(34,50,71,.35);
+      color:var(--brand-link, #0f766e);
+      font-weight:600;
+      text-decoration:none;
       text-underline-offset:2px;
+      transition:color .18s ease, text-decoration-color .18s ease;
     }
     .nearby-service-note a:hover{
+      color:var(--brand-link-hover, #0b5e59);
+      text-decoration:underline;
       text-decoration-color:currentColor;
     }
 
