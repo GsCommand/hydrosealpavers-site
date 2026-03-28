@@ -87,6 +87,30 @@
 
     .service-reviews-section{ margin-top:30px; }
 
+    .intro-split{
+      display:grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap:24px;
+      align-items:start;
+    }
+    .intro-split__text p{ max-width:none !important; }
+    .intro-split__slider{
+      border-radius:18px;
+      overflow:hidden;
+      min-height:320px;
+      background:#fff;
+      border:1px solid var(--line);
+      padding:8px;
+    }
+
+    @media (min-width: 981px){
+      .intro-split{
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+        gap:34px;
+      }
+      .intro-split__slider{ min-height:360px; }
+    }
+
     @media (max-width: 860px){
       .service-split,
       .service-split-rev{
@@ -352,9 +376,16 @@
   <main id="page" data-page>
     <section class="section" style="padding-top:26px;">
       <div class="container">
-        <h1 style="margin:0;">Paver Sealing in Nocatee, FL</h1>
-        <p class="muted" style="margin-top:8px; max-width:860px;">From Crosswater to Coastal Oaks, Nocatee has one of the highest concentrations of decorative paver driveways, pool decks, and outdoor living spaces in Northeast Florida. HydroSeal provides neighborhood-specific <a href="/paver-sealing">paver sealing</a> that helps these high-visibility surfaces resist fading, joint washout, and the patchy look that can develop with sun exposure and frequent irrigation. With so many homes built in phases over the last decade, we regularly service both first-time sealings and full restoration projects on aging installations.</p>
-        <p class="muted" style="margin-top:10px; max-width:860px;">Nocatee’s mix of open sun, afternoon storms, and heavy daily use puts real wear on pavers, especially around drive aprons and pool traffic zones. Our process focuses on correct prep and re-sanding before sealing so the finish looks uniform and performs longer in active family settings. If you are comparing nearby communities, our crews also work extensively in <a href="/service-areas/st-johns-county/palencia.html">Palencia</a> and <a href="/service-areas/st-johns-county/palm-valley.html">Palm Valley</a> where conditions differ but expectations are just as high.</p>
+        <div class="intro-split">
+          <div class="intro-split__text">
+            <h1 style="margin:0;">Paver Sealing in Nocatee, FL</h1>
+            <p class="muted" style="margin-top:8px;">From Crosswater to Coastal Oaks, Nocatee has one of the highest concentrations of decorative paver driveways, pool decks, and outdoor living spaces in Northeast Florida. HydroSeal provides neighborhood-specific <a href="/paver-sealing">paver sealing</a> that helps these high-visibility surfaces resist fading, joint washout, and the patchy look that can develop with sun exposure and frequent irrigation. With so many homes built in phases over the last decade, we regularly service both first-time sealings and full restoration projects on aging installations.</p>
+            <p class="muted" style="margin-top:10px;">Nocatee’s mix of open sun, afternoon storms, and heavy daily use puts real wear on pavers, especially around drive aprons and pool traffic zones. Our process focuses on correct prep and re-sanding before sealing so the finish looks uniform and performs longer in active family settings. If you are comparing nearby communities, our crews also work extensively in <a href="/service-areas/st-johns-county/palencia.html">Palencia</a> and <a href="/service-areas/st-johns-county/palm-valley.html">Palm Valley</a> where conditions differ but expectations are just as high.</p>
+          </div>
+          <div class="intro-split__slider" aria-label="Nocatee paver sealing before and after slider">
+            <div class="elfsight-app-1ac40f22-7acd-45c3-839e-6716f56e8387" data-elfsight-app-lazy></div>
+          </div>
+        </div>
       </div>
     </section>
 
