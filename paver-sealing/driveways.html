@@ -212,8 +212,10 @@
       justify-content:center;
       align-items:center;
       gap:16px;
-      margin-top:24px;
-      margin-bottom:34px;
+      width:min(100%,1200px);
+      margin:24px auto 34px;
+      padding:0 16px;
+      box-sizing:border-box;
     }
 
     .bottom-social-links a{
@@ -230,8 +232,7 @@
     @media (max-width:640px){
       .bottom-social-links{
         gap:14px;
-        margin-top:20px;
-        margin-bottom:28px;
+        margin:20px auto 28px;
         flex-wrap:wrap;
       }
     }
