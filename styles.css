@@ -2561,43 +2561,33 @@ body.page-service-areas .service-areas-intro-ctas{
 
 
 
-.intro-trust-section {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 190px;
-  gap: 28px;
-  align-items: start;
-  margin-bottom: 28px;
-}
-
-.intro-trust-copy {
-  min-width: 0;
+.intro-copy-section {
+  position: relative;
+  padding-right: 220px;
 }
 
 .intro-trust-badge {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 190px;
 }
 
 .intro-trust-badge img {
   display: block;
   width: 100%;
-  max-width: 190px;
   height: auto;
 }
 
 @media (max-width: 900px) {
-  .intro-trust-section {
-    grid-template-columns: 1fr;
-    gap: 16px;
+  .intro-copy-section {
+    padding-right: 0;
   }
 
   .intro-trust-badge {
-    justify-content: flex-start;
-  }
-
-  .intro-trust-badge img {
-    max-width: 130px;
+    position: static;
+    width: 130px;
+    margin-top: 16px;
   }
 }
 
