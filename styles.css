@@ -2563,9 +2563,10 @@ body.page-service-areas .service-areas-intro-ctas{
 
 .intro-trust-section {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 200px;
-  gap: 32px;
+  grid-template-columns: minmax(0, 1fr) 190px;
+  gap: 28px;
   align-items: start;
+  margin-bottom: 28px;
 }
 
 .intro-trust-copy {
@@ -2574,11 +2575,12 @@ body.page-service-areas .service-areas-intro-ctas{
 
 .intro-trust-badge {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: flex-start;
 }
 
 .intro-trust-badge img {
+  display: block;
   width: 100%;
   max-width: 190px;
   height: auto;
@@ -2587,7 +2589,7 @@ body.page-service-areas .service-areas-intro-ctas{
 @media (max-width: 900px) {
   .intro-trust-section {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 16px;
   }
 
   .intro-trust-badge {
