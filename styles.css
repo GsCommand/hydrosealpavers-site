@@ -2562,13 +2562,18 @@ body.page-service-areas .service-areas-intro-ctas{
 
 .related-links-section {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 32px;
   background: #f8fafc;
   border: 1px solid #e5e7eb;
   border-radius: 16px;
   padding: 28px;
   margin: 48px 0;
+  align-items: start;
+}
+
+.related-links-column {
+  min-width: 0;
 }
 
 .related-links-column h3 {
