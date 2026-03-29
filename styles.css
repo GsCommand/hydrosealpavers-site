@@ -2579,6 +2579,82 @@ body.page-service-areas .service-areas-intro-ctas{
   height: auto;
 }
 
+.local-pricing-card{
+  margin-top:18px;
+  max-width:760px;
+  padding:20px 22px;
+  border:1px solid rgba(15,110,168,.14);
+  border-radius:16px;
+  background:#f8fbfd;
+  box-shadow:0 10px 30px rgba(0,0,0,.04);
+}
+
+.local-pricing-card__headline{
+  margin:0;
+  font-size:1.08rem;
+  line-height:1.5;
+  color:#1f2937;
+}
+
+.local-pricing-card__subtext{
+  margin:8px 0 0;
+  font-size:.98rem;
+  line-height:1.6;
+  color:#5b6573;
+}
+
+.local-pricing-card__actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:16px;
+}
+
+.local-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:42px;
+  padding:0 16px;
+  border-radius:8px;
+  font-weight:700;
+  font-size:.95rem;
+  line-height:1;
+  text-decoration:none;
+  transition:all .2s ease;
+  border:1px solid transparent;
+  letter-spacing:.01em;
+}
+
+.local-btn:hover{
+  transform:translateY(-1px);
+}
+
+.local-btn--primary{
+  background:linear-gradient(180deg, #1b7fbd 0%, #0f6ea8 100%);
+  color:#fff;
+  border-color:#0c5d8e;
+  box-shadow:0 8px 18px rgba(15,110,168,.18);
+}
+
+.local-btn--primary:hover{
+  background:linear-gradient(180deg, #2188c9 0%, #0c5d8e 100%);
+  color:#fff;
+}
+
+.local-btn--secondary{
+  background:linear-gradient(180deg, #d6dee6 0%, #b9c4cf 100%);
+  color:#243746;
+  border-color:#aab6c2;
+  box-shadow:0 6px 14px rgba(0,0,0,.08);
+}
+
+.local-btn--secondary:hover{
+  background:linear-gradient(180deg, #e0e6ec 0%, #c2ccd6 100%);
+  color:#1f2f3b;
+  border-color:#9eacb8;
+}
+
 @media (max-width: 900px) {
   .intro-copy-section {
     padding-right: 0;
