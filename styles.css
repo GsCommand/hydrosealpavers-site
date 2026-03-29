@@ -2558,3 +2558,47 @@ body.page-service-areas .service-areas-intro-ctas{
     max-height:none;
   }
 }
+
+
+.related-links-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 28px;
+  margin: 48px 0;
+}
+
+.related-links-section h3 {
+  color: #0f5fd7;
+  margin-bottom: 16px;
+}
+
+.related-links-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.related-links-section li + li {
+  margin-top: 10px;
+}
+
+.related-links-section a {
+  color: #0d8cab;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.related-links-section a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .related-links-section {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
