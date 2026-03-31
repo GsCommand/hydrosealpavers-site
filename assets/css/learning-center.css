@@ -1070,3 +1070,15 @@ body.page-learning-center-detail {
     padding: 18px;
   }
 }
+
+/* Pool Deck Sealing in Jacksonville page-specific parity adjustments */
+.page-learning-center.lc-article-page.lc-article-pool-deck-jax .learning-center-hero {
+  background:
+    linear-gradient(100deg, rgba(5, 20, 39, 0.93) 0%, rgba(7, 32, 57, 0.88) 44%, rgba(9, 43, 72, 0.62) 100%),
+    var(--learning-center-hero-image) right center / cover no-repeat;
+}
+
+.page-learning-center.lc-article-page.lc-article-pool-deck-jax .learning-center-main h2,
+.page-learning-center.lc-article-page.lc-article-pool-deck-jax .learning-center-main h3 {
+  color: #0f6aa7;
+}
