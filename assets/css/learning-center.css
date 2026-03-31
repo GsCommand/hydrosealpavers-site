@@ -1095,8 +1095,8 @@ body.page-learning-center-detail {
   background:
     linear-gradient(
       180deg,
-      rgba(11, 43, 73, 0.28),
-      rgba(15, 58, 96, 0.18)
+      rgba(11, 43, 73, 0.14),
+      rgba(15, 58, 96, 0.09)
     ),
     url("/assets/hero/Jacksonville-paver-sealing-pool-deck.webp")
     center center / cover no-repeat;
