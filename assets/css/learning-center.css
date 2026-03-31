@@ -859,3 +859,214 @@ body.page-learning-center-detail {
     padding: 24px 20px;
   }
 }
+
+/* Pool deck learning center redesign (article-scoped) */
+.page-learning-center.lc-article-page .learning-center-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 26px 0 64px;
+  color: #fff;
+  background:
+    linear-gradient(98deg, rgba(6, 22, 42, 0.9) 0%, rgba(8, 36, 63, 0.86) 46%, rgba(10, 45, 74, 0.7) 100%),
+    var(--learning-center-hero-image, url('/assets/hero/paver-sealing-jacksonville-driveway.webp')) center/cover no-repeat;
+}
+
+.page-learning-center.lc-article-page .learning-center-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 920px;
+}
+
+.page-learning-center.lc-article-page .learning-center-breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  color: rgba(235, 243, 249, 0.84);
+  font-size: 0.92rem;
+}
+
+.page-learning-center.lc-article-page .learning-center-breadcrumbs a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.page-learning-center.lc-article-page .learning-center-eyebrow {
+  display: inline-flex;
+  margin-bottom: 12px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  background: rgba(255, 255, 255, 0.14);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.page-learning-center.lc-article-page .learning-center-hero h1 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(2rem, 4.4vw, 3.5rem);
+  line-height: 1.08;
+}
+
+.page-learning-center.lc-article-page .learning-center-dek {
+  max-width: 72ch;
+  margin: 16px 0 14px;
+  color: rgba(233, 242, 250, 0.95);
+  line-height: 1.72;
+}
+
+.page-learning-center.lc-article-page .learning-center-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.page-learning-center.lc-article-page .learning-center-meta span {
+  padding: 7px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 999px;
+  background: rgba(8, 29, 51, 0.55);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.page-learning-center.lc-article-page .learning-center-hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.page-learning-center.lc-article-page .learning-center-hero-links a {
+  display: inline-flex;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.page-learning-center.lc-article-page .learning-center-main {
+  padding: 44px 0 72px;
+  background: #fff;
+}
+
+.page-learning-center.lc-article-page .learning-center-main article {
+  max-width: 760px;
+}
+
+.page-learning-center.lc-article-page .learning-center-main h2,
+.page-learning-center.lc-article-page .learning-center-main h3 {
+  color: #103c62;
+}
+
+.page-learning-center.lc-article-page .learning-center-main h2 {
+  margin: 34px 0 12px;
+  font-size: clamp(1.48rem, 2.1vw, 2rem);
+}
+
+.page-learning-center.lc-article-page .learning-center-main h3 {
+  margin: 22px 0 8px;
+  font-size: clamp(1.12rem, 1.6vw, 1.32rem);
+}
+
+.page-learning-center.lc-article-page .learning-center-main p,
+.page-learning-center.lc-article-page .learning-center-main li {
+  color: #324f67;
+  line-height: 1.8;
+}
+
+.page-learning-center.lc-article-page .learning-center-main ul {
+  padding-left: 1.2rem;
+}
+
+.page-learning-center.lc-article-page .learning-center-quick-takeaways {
+  margin: 0 0 22px;
+}
+
+.page-learning-center.lc-article-page .learning-center-quick-takeaways h2 {
+  margin-top: 0;
+}
+
+.page-learning-center.lc-article-page .learning-center-compare {
+  margin: 14px 0 6px;
+  overflow-x: auto;
+}
+
+.page-learning-center.lc-article-page .learning-center-compare table {
+  width: 100%;
+  min-width: 680px;
+  border-collapse: collapse;
+}
+
+.page-learning-center.lc-article-page .learning-center-compare th,
+.page-learning-center.lc-article-page .learning-center-compare td {
+  border-bottom: 1px solid #d5e3ee;
+  padding: 11px 10px;
+  text-align: left;
+}
+
+.page-learning-center.lc-article-page .learning-center-compare th {
+  background: #edf6fc;
+  color: #103b5f;
+}
+
+.page-learning-center.lc-article-page .learning-center-faq {
+  margin-top: 34px;
+}
+
+.page-learning-center.lc-article-page .learning-center-faq details {
+  margin-bottom: 10px;
+  border: 1px solid #d7e5ef;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.page-learning-center.lc-article-page .learning-center-faq summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 12px 14px;
+  color: #123b5f;
+  font-weight: 700;
+}
+
+.page-learning-center.lc-article-page .learning-center-faq p {
+  margin: 0;
+  padding: 0 14px 14px;
+}
+
+.page-learning-center.lc-article-page .learning-center-cta-box {
+  margin-top: 36px;
+  padding: 22px;
+  border: 1px solid #c8deed;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #eff8ff 0%, #fff 100%);
+}
+
+.page-learning-center.lc-article-page .learning-center-cta-box h2,
+.page-learning-center.lc-article-page .learning-center-cta-box h3 {
+  margin-top: 0;
+}
+
+.page-learning-center.lc-article-page .learning-center-related {
+  margin-top: 32px;
+}
+
+@media (max-width: 760px) {
+  .page-learning-center.lc-article-page .learning-center-hero {
+    padding: 18px 0 44px;
+  }
+
+  .page-learning-center.lc-article-page .learning-center-main {
+    padding: 30px 0 56px;
+  }
+
+  .page-learning-center.lc-article-page .learning-center-cta-box {
+    padding: 18px;
+  }
+}
