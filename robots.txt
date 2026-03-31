@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://hydrosealpavers.com/sitemap.xml
+Sitemap: https://hydrosealpavers.com/rss.xml
