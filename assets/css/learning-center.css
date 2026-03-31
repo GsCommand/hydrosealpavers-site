@@ -1093,8 +1093,13 @@ body.page-learning-center-detail {
   min-height: 355px;
   color: #fff;
   background:
-    linear-gradient(180deg, rgba(11, 43, 73, 0.76), rgba(15, 58, 96, 0.58)),
-    var(--learning-center-hero-image) center / cover no-repeat;
+    linear-gradient(
+      180deg,
+      rgba(11, 43, 73, 0.28),
+      rgba(15, 58, 96, 0.18)
+    ),
+    url("/assets/hero/Jacksonville-paver-sealing-pool-deck.webp")
+    center center / cover no-repeat;
 }
 
 .page-learning-center.lc-article-page.lc-article-pool-deck-jax .hero-inner,
