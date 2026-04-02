@@ -983,8 +983,8 @@ body.page-home .home-hero-wrap #trustbar-slot{ order:2; }
 .media-h-md{ height: 360px; }
 
 .second-section-driveway-image{
-  height: 234px !important;
-  min-height: 234px !important;
+  height: 100% !important;
+  min-height: 0 !important;
 }
 
 .second-section-driveway-image > img{
@@ -997,8 +997,8 @@ body.page-home .home-hero-wrap #trustbar-slot{ order:2; }
 @media (max-width: 900px){
   .media-h-md{ height: 240px; }
   .second-section-driveway-image{
-    height: 156px !important;
-    min-height: 156px !important;
+    height: 100% !important;
+    min-height: 0 !important;
   }
   .ba-img{ height: 220px !important; }
 }
@@ -1051,8 +1051,8 @@ body.page-clay-county .service-split-rev{ grid-template-columns:.9fr 1.1fr; }
   body.duval-child-page .service-split-rev .second-section-driveway-image,
   body.page-clay-county .service-split-rev .second-section-driveway-image,
   body.page-st-johns-county .service-split-rev .second-section-driveway-image{
-    height:234px !important;
-    min-height:234px !important;
+    height:100% !important;
+    min-height:0 !important;
   }
 
   body.duval-child-page .service-split-equal > .card,
@@ -1084,8 +1084,8 @@ body.page-clay-county .service-reviews-section{ margin-top:30px; }
   body.duval-child-page .media-h-md,
   body.page-clay-county .media-h-md{ height:240px; }
   .second-section-driveway-image{
-    height:156px !important;
-    min-height:156px !important;
+    height:100% !important;
+    min-height:0 !important;
   }
 }
 
