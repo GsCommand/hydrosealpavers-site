@@ -991,6 +991,7 @@ body.page-home .home-hero-wrap #trustbar-slot{ order:2; }
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 35%;
   display: block;
 }
 
