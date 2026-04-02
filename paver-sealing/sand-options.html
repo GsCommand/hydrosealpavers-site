@@ -46,6 +46,12 @@
       background-size:cover;
       background-position:center;
       background-repeat:no-repeat;
+      min-height:clamp(210px, 28vw, 320px);
+      padding-top:32px;
+      padding-bottom:32px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
     }
     .sand-hero-cta-row,
     .sand-bottom-cta-row{
@@ -324,12 +330,13 @@
     <div class="container">
 
       <div class="card sand-hero-card sand-options-hero-card">
-        <h1 class="sand-hero-title">Joint Sand Color Options</h1>
         <div class="sand-hero-cta-row">
           <a class="btn btn-primary" href="/get-a-quote">Request a Quote</a>
           <a class="btn btn-ghost" href="tel:+19045375000">Call 904.537.5000</a>
         </div>
       </div>
+
+      <h1 style="margin:18px 0 0; text-align:center; color:var(--blue);">Joint Sand Color Options</h1>
 
       <section class="sand-section-gap">
         <div class="grid grid-2">
