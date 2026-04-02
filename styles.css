@@ -994,6 +994,15 @@ body.page-home .home-hero-wrap #trustbar-slot{ order:2; }
   display: block;
 }
 
+
+.second-section-driveway-wrap{
+  display:flex;
+}
+
+.second-section-driveway-wrap > img{
+  flex:1 1 auto;
+}
+
 @media (max-width: 900px){
   .media-h-md{ height: 240px; }
   .second-section-driveway-image{
@@ -1050,9 +1059,11 @@ body.page-clay-county .service-split-rev{ grid-template-columns:.9fr 1.1fr; }
 
   body.duval-child-page .service-split-rev .second-section-driveway-image,
   body.page-clay-county .service-split-rev .second-section-driveway-image,
-  body.page-st-johns-county .service-split-rev .second-section-driveway-image{
+  body.page-st-johns-county .service-split-rev .second-section-driveway-image,
+  .service-split-rev .second-section-driveway-wrap{
     height:100% !important;
     min-height:0 !important;
+    align-self:stretch;
   }
 
   body.duval-child-page .service-split-equal > .card,
