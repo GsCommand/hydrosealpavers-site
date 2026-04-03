@@ -1133,6 +1133,15 @@ body.duval-child-page .hero-title-sub{
   }
 }
 
+@media (max-width:768px){
+  body.page-clay-local .hero-title-main{
+    font-size:clamp(1.30rem, 5.2vw, 2rem);
+  }
+  body.page-clay-local .hero-title-sub{
+    font-size:clamp(1.08rem, 4.35vw, 1.5rem);
+  }
+}
+
 @media (max-width:520px){
   body.duval-child-page .media-h-md,
   body.page-clay-county .media-h-md{ height:240px; }
