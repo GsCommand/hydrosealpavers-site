@@ -126,11 +126,11 @@
     }
 
 
-    .hero-title {
+    .hero .hero-title,
+    main#page .hero-title,
+    body .hero-title {
       margin: 0 0 0.45em 0;
-      color: #1663b7;
-      font-size: clamp(1.95rem, 3.8vw, 3.35rem);
-      font-weight: 900;
+      color: #2b78b8;
       line-height: 1.08;
       letter-spacing: -0.03em;
       text-shadow:
@@ -138,11 +138,30 @@
         0 8px 18px rgba(0, 0, 0, 0.12);
     }
 
+    .hero-title-main {
+      font-size: clamp(1.95rem, 3.8vw, 3.35rem);
+      font-weight: 900;
+    }
+
+    .hero-title-sub {
+      font-size: clamp(1.46rem, 2.85vw, 2.5rem);
+      font-weight: 900;
+    }
+
     @media (max-width: 768px) {
-      .hero-title {
-        font-size: clamp(1.7rem, 6.8vw, 2.35rem);
-        line-height: 1.1;
+      .hero .hero-title,
+      main#page .hero-title,
+      body .hero-title {
         margin-bottom: 0.38em;
+        line-height: 1.1;
+      }
+
+      .hero-title-main {
+        font-size: clamp(1.7rem, 6.8vw, 2.35rem);
+      }
+
+      .hero-title-sub {
+        font-size: clamp(1.28rem, 5.1vw, 1.76rem);
       }
     }
     .service-cta-row{
@@ -393,7 +412,10 @@
       <div class="container">
         <section class="intro-copy-section">
           <div class="intro-split__text">
-            <h1 class="hero-title">Paver Sealing in Nocatee, FL</h1>
+            <h1 class="hero-title">
+              <span class="hero-title-main">Paver Sealing</span>
+              <span class="hero-title-sub">in Nocatee, FL</span>
+            </h1>
             <p class="muted" style="margin-top:8px;">Nocatee’s oversized three-car driveways, backyard summer kitchens, and broad pool decks see constant sun, irrigation overspray, and daily use from active families. In many parts of the community, the first signs of wear show up around driveway borders and near pool decks where pavers lose color faster than shaded areas.</p>
             <p class="muted" style="margin-top:10px;">Many Nocatee owners schedule paver sealing once sand begins thinning near the garage apron or around outdoor living spaces. Larger projects are often paired with <a href="/paver-sealing/driveways">driveway sealing</a>, <a href="/paver-sealing/pool-decks">pool deck sealing</a>, or nearby <a href="/service-areas/st-johns-county/crosswater">Crosswater paver sealing</a>.</p>
           </div>
