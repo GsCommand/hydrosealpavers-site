@@ -136,6 +136,38 @@
       .pre-reviews-split{ margin-bottom:22px; }
     }
 
+    .pool-decks-dual-slider{
+      padding: 8px 0 18px;
+    }
+
+    .pool-decks-dual-slider__grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:14px;
+      align-items:stretch;
+    }
+
+    .pool-decks-dual-slider__item{
+      min-height:360px;
+      display:flex;
+      align-items:stretch;
+    }
+
+    .pool-decks-dual-slider__item > div{
+      width:100%;
+      min-height:100%;
+    }
+
+    @media (max-width:860px){
+      .pool-decks-dual-slider__grid{
+        grid-template-columns:1fr;
+      }
+
+      .pool-decks-dual-slider__item{
+        min-height:300px;
+      }
+    }
+
     .sand-bar-section{
       padding: 18px 0 10px;
     }
@@ -696,6 +728,22 @@
 
 
     
+      <section class="pool-decks-dual-slider" aria-label="Pool deck before and after sliders">
+        <div class="container">
+          <script src="https://elfsightcdn.com/platform.js" async></script>
+          <div class="pool-decks-dual-slider__grid">
+            <div class="pool-decks-dual-slider__item">
+              <!-- Elfsight Before and After Slider | Untitled Before and After Slider 2 -->
+              <div class="elfsight-app-1ac40f22-7acd-45c3-839e-6716f56e8387" data-elfsight-app-lazy></div>
+            </div>
+            <div class="pool-decks-dual-slider__item">
+              <!-- Elfsight Before and After Slider | Untitled Before and After Slider 3 -->
+              <div class="elfsight-app-c3e42bf3-8fb5-4b35-ab26-fbf2c939eaf2" data-elfsight-app-lazy></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       
       <section class="sand-bar-section">
         <div class="container">
