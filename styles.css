@@ -1090,6 +1090,27 @@ body.page-clay-county .service-split-rev{ grid-template-columns:.9fr 1.1fr; }
 body.duval-child-page .service-reviews-section,
 body.page-clay-county .service-reviews-section{ margin-top:30px; }
 
+body.duval-child-page .hero .hero-title,
+body.duval-child-page .hero-title{
+  margin: 0 0 0.45em 0;
+  color: #0046be;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  text-shadow:
+    1px 1px 2px rgba(0, 0, 0, 0.14),
+    2px 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+body.duval-child-page .hero-title-main{
+  font-size: clamp(1.50rem, 2.9vw, 2.57rem);
+  font-weight: 900;
+}
+
+body.duval-child-page .hero-title-sub{
+  font-size: clamp(1.24rem, 2.42vw, 2.12rem);
+  font-weight: 900;
+}
+
 @media (max-width:860px){
   body.duval-child-page .service-split,
   body.duval-child-page .service-split-rev,
@@ -1102,6 +1123,14 @@ body.page-clay-county .service-reviews-section{ margin-top:30px; }
   body.page-clay-county .service-split-rev .card{ order:1; }
   body.duval-child-page .service-split-rev .media-box,
   body.page-clay-county .service-split-rev .media-box{ order:2; }
+
+  body.duval-child-page .hero-title-main{
+    font-size: clamp(1.30rem, 5.2vw, 2rem);
+  }
+
+  body.duval-child-page .hero-title-sub{
+    font-size: clamp(1.08rem, 4.35vw, 1.5rem);
+  }
 }
 
 @media (max-width:520px){
