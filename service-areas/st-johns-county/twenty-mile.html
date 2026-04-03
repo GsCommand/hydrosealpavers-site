@@ -101,6 +101,38 @@
       .media-h-md{ height:240px; }
     }
 
+
+    .hero .hero-title,
+    body .hero-title {
+      margin: 0 0 0.45em 0;
+      color: #0046be;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      text-shadow:
+        1px 1px 2px rgba(0, 0, 0, 0.14),
+        2px 2px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .hero-title-main {
+      font-size: clamp(1.50rem, 2.9vw, 2.57rem);
+      font-weight: 900;
+    }
+
+    .hero-title-sub {
+      font-size: clamp(1.24rem, 2.42vw, 2.12rem);
+      font-weight: 900;
+    }
+
+    @media (max-width: 768px) {
+      .hero-title-main {
+        font-size: clamp(1.30rem, 5.2vw, 2rem);
+      }
+
+      .hero-title-sub {
+        font-size: clamp(1.08rem, 4.35vw, 1.5rem);
+      }
+    }
+
     .service-cta-row{
       display:flex;
       justify-content:center;
@@ -348,7 +380,10 @@
     <section class="section" style="padding-top:26px;">
       <div class="container">
         <section class="intro-copy-section">
-        <h1 style="margin:0;">Paver Sealing in Twenty Mile, FL</h1>
+        <h1 class="hero-title">
+          <span class="hero-title-main">Paver Sealing</span>
+          <span class="hero-title-sub">in Twenty Mile, FL</span>
+        </h1>
         <p class="muted" style="margin-top:8px; max-width:860px;">Twenty Mile properties usually sit on estate-size lots with longer driveway runs, detached garages, and oversized motor courts that take far more sun and traffic than surrounding Nocatee neighborhoods. The first wear often shows up where the long driveway meets the street or along the wide approach to the garage, especially on homes with little afternoon shade.</p>
         <p class="muted" style="margin-top:10px; max-width:860px;">Unlike nearby Crosswater, Twenty Mile projects are usually about keeping large front-entry areas and backyard entertaining spaces looking consistent across the whole property. Many owners schedule service once the motor court no longer matches the patio or pool deck behind the house. Larger homes often pair this with <a href="/paver-sealing/patios-walkways">patio and walkway sealing</a>, <a href="/service-areas/st-johns-county/crosswater">Crosswater</a>, and <a href="/service-areas/st-johns-county/nocatee">Nocatee</a>.</p>
 <aside class="intro-trust-badge" aria-label="Master Tech certification badge" style="top: 32px; width: min(290px, 100%);"><img src="/assets/hero/Master Tech Logo.webp" alt="Master Tech certification logo" width="290" height="290" loading="lazy" decoding="async" style="width:290px; max-width:100%; height:auto;" /></aside>

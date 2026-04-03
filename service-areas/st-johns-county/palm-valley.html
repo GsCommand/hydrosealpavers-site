@@ -111,6 +111,38 @@
       .media-h-md{ height:240px; }
     }
 
+
+    .hero .hero-title,
+    body .hero-title {
+      margin: 0 0 0.45em 0;
+      color: #0046be;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      text-shadow:
+        1px 1px 2px rgba(0, 0, 0, 0.14),
+        2px 2px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .hero-title-main {
+      font-size: clamp(1.50rem, 2.9vw, 2.57rem);
+      font-weight: 900;
+    }
+
+    .hero-title-sub {
+      font-size: clamp(1.24rem, 2.42vw, 2.12rem);
+      font-weight: 900;
+    }
+
+    @media (max-width: 768px) {
+      .hero-title-main {
+        font-size: clamp(1.30rem, 5.2vw, 2rem);
+      }
+
+      .hero-title-sub {
+        font-size: clamp(1.08rem, 4.35vw, 1.5rem);
+      }
+    }
+
     .service-cta-row{
       display:flex;
       justify-content:center;
@@ -358,7 +390,10 @@
     <section class="section" style="padding-top:26px;">
       <div class="container">
         <section class="intro-copy-section">
-        <h1 style="margin:0;">Paver Sealing in Palm Valley, FL</h1>
+        <h1 class="hero-title">
+          <span class="hero-title-main">Paver Sealing</span>
+          <span class="hero-title-sub">in Palm Valley, FL</span>
+        </h1>
         <p class="muted" style="margin-top:8px; max-width:860px;">Palm Valley sits beside the Intracoastal marsh corridor, where salt air, high humidity, and heavy vegetation leave pavers darker than they look in nearby inland neighborhoods. Driveways near irrigation heads and patios beneath palms often develop darker patches first, especially after long stretches of summer rain.</p>
         <p class="muted" style="margin-top:10px; max-width:860px;">In Palm Valley, paver sealing usually requires more prep and cleaning before sealing ever begins. Most projects start when patio edges stay dark or when sand begins washing out near the driveway entrance. Nearby links include <a href="/service-areas/st-johns-county/ponte-vedra">Ponte Vedra</a>, <a href="/service-areas/st-johns-county/marsh-landing">Marsh Landing</a>, and <a href="/paver-sealing/driveways">driveway sealing</a>.</p>
 <aside class="intro-trust-badge" aria-label="Master Tech certification badge" style="top: 32px; width: min(290px, 100%);"><img src="/assets/hero/Master Tech Logo.webp" alt="Master Tech certification logo" width="290" height="290" loading="lazy" decoding="async" style="width:290px; max-width:100%; height:auto;" /></aside>
