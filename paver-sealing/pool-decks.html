@@ -56,6 +56,30 @@
       .hero2 p{ font-size:15px !important; }
     }
 
+    .pool-hero-heading{
+      margin:0;
+      font-size:40px;
+      line-height:1.08;
+      color:#fff;
+      text-shadow:0 12px 34px rgba(0,0,0,.45);
+    }
+
+    .pool-hero-heading .pool-hero-heading__line{
+      display:block;
+    }
+
+    .pool-hero-heading .pool-hero-heading__line--sub{
+      margin-top:6px;
+      font-size:.68em;
+      line-height:1.15;
+    }
+
+    @media (max-width: 720px){
+      .pool-hero-heading .pool-hero-heading__line--sub{
+        font-size:.72em;
+      }
+    }
+
     /* Split sections: 2 cols desktop -> 1 col mobile */
     .pool-split, .pool-split-rev{
       display:grid;
@@ -622,8 +646,9 @@
             text-align:center;
           "
         >
-          <h1 style="margin:0; font-size:40px; line-height:1.08; color:#fff; text-shadow:0 12px 34px rgba(0,0,0,.45);">
-            Pool Deck Sealing — Jacksonville &amp; St. Johns County
+          <h1 class="pool-hero-heading">
+            <span class="pool-hero-heading__line">Jacksonville &amp; St. Johns County</span>
+            <span class="pool-hero-heading__line pool-hero-heading__line--sub">Pool Deck Sealing</span>
           </h1>
 
          
