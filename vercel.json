@@ -24,6 +24,16 @@
       "permanent": true
     },
     {
+      "source": "/service-areas/duval-county",
+      "destination": "/service-areas/jacksonville",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/duval-county/:path*",
+      "destination": "/service-areas/jacksonville/:path*",
+      "permanent": true
+    },
+    {
       "source": "/:path*.html",
       "destination": "/:path*",
       "permanent": true
