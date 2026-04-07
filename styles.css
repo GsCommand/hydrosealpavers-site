@@ -1241,13 +1241,13 @@ body.duval-child-page .local-content a:not(.btn):focus-visible{
   text-decoration-thickness:2px;
 }
 
-body.duval-child-page :is(#patio-faq, [data-accordion="single"]) details.faq-item{
+body.duval-child-page :is(#local-faq, [data-accordion="single"]) details.faq-item{
   border:1px solid var(--line);
   background:#fff;
   border-radius:0;
   overflow:hidden;
 }
-body.duval-child-page :is(#patio-faq, [data-accordion="single"]) details.faq-item > summary{
+body.duval-child-page :is(#local-faq, [data-accordion="single"]) details.faq-item > summary{
   cursor:pointer;
   list-style:none;
   padding:16px;
@@ -1257,15 +1257,15 @@ body.duval-child-page :is(#patio-faq, [data-accordion="single"]) details.faq-ite
   font-weight:900;
   user-select:none;
 }
-body.duval-child-page :is(#patio-faq, [data-accordion="single"]) summary::-webkit-details-marker{ display:none; }
-body.duval-child-page :is(#patio-faq, [data-accordion="single"]) summary::after{
+body.duval-child-page :is(#local-faq, [data-accordion="single"]) summary::-webkit-details-marker{ display:none; }
+body.duval-child-page :is(#local-faq, [data-accordion="single"]) summary::after{
   content:"▾";
   font-weight:1000;
   color:var(--navy);
   transition:transform .18s ease;
 }
-body.duval-child-page :is(#patio-faq, [data-accordion="single"]) details[open] summary::after{ transform:rotate(180deg); }
-body.duval-child-page :is(#patio-faq, [data-accordion="single"]) .faq-body{
+body.duval-child-page :is(#local-faq, [data-accordion="single"]) details[open] summary::after{ transform:rotate(180deg); }
+body.duval-child-page :is(#local-faq, [data-accordion="single"]) .faq-body{
   max-height:0;
   overflow:hidden;
   opacity:0;
@@ -1278,7 +1278,7 @@ body.duval-child-page :is(#patio-faq, [data-accordion="single"]) .faq-body{
     linear-gradient(180deg, rgba(57,191,234,.10), #f8fbff 70%);
   border-top:1px solid rgba(15,110,168,.25);
 }
-body.duval-child-page :is(#patio-faq, [data-accordion="single"]) details[open] .faq-body{
+body.duval-child-page :is(#local-faq, [data-accordion="single"]) details[open] .faq-body{
   max-height:900px;
   opacity:1;
   padding:16px;
