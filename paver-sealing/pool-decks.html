@@ -626,13 +626,20 @@
   <!-- BIG HERO (FULL WIDTH) — CENTERED GLASS PANEL + CENTERED TEXT -->
   <section class="hero2" style="position:relative; padding:64px 0; overflow:hidden;">
     <!-- background image -->
-    <img
-      src="/assets/hero/hydroseal-patio-pavers.webp"
-      alt="Sealed paver pool deck"
-      loading="eager"
-      decoding="async"
-      style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;"
-    />
+    <picture style="position:absolute; inset:0; z-index:0;">
+      <source
+        srcset="/assets/hero/hydroseal-patio-pavers.webp"
+        type="image/webp"
+      />
+      <img
+        src="/assets/hero/hydroseal-patio-pavers.png"
+        alt="Sealed paver pool deck"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"
+      />
+    </picture>
 
     <!-- super-light wash (keeps image bright) -->
     <div aria-hidden="true" style="position:absolute; inset:0; z-index:1; background:rgba(0,0,0,.06);"></div>
