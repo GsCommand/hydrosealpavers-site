@@ -306,6 +306,17 @@
   </main>
 
   <div data-include="/partials/footer.html"></div>
+  <script>
+    (function () {
+      function removePressureWashingNavItem() {
+        const pressureWashingLink = document.querySelector('.header .header-nav .nav-link[href="/pressure-washing"]');
+        if (pressureWashingLink) pressureWashingLink.remove();
+      }
+
+      document.addEventListener("includes:ready", removePressureWashingNavItem, { once: true });
+      removePressureWashingNavItem();
+    })();
+  </script>
   <script src="/assets/js/include.js" defer></script>
   <script src="/assets/js/router.js" defer></script>
   <script src="/assets/js/nav.js" defer></script>
