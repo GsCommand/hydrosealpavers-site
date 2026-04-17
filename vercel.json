@@ -41,6 +41,10 @@
   ],
   "rewrites": [
     {
+      "source": "/pressure-washing",
+      "destination": "/pressure-washing/index.html"
+    },
+    {
       "source": "/sitemap",
       "destination": "/sitemap.html"
     },
