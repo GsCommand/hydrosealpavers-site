@@ -42,8 +42,6 @@
   <link rel="alternate" type="application/rss+xml" title="HydroSeal" href="https://hydrosealpavers.com/rss.xml" />
   <link rel="stylesheet" href="/styles.css?v=20260312-1" />
 
-  <!-- Jobber embedded form stylesheet -->
-  <link rel="stylesheet" href="https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css" media="screen" />
 
   <script type="application/ld+json">
   {
@@ -229,46 +227,39 @@
       line-height: 1.45;
     }
 
-    body.page-quote .jobber-embed-shell {
-      position: relative;
-      min-height: 460px;
-      border-radius: 12px;
-      overflow: hidden;
-      background: #ffffff;
-    }
-
-    body.page-quote #c639aa23-e770-4085-b066-c7bba042d9df-2246227 {
-      min-height: 420px;
-    }
-
-    body.page-quote #c639aa23-e770-4085-b066-c7bba042d9df-2246227 * {
-      box-sizing: border-box;
-    }
-
-    body.page-quote #c639aa23-e770-4085-b066-c7bba042d9df-2246227 label {
-      margin-bottom: 6px !important;
-    }
-
-    body.page-quote #c639aa23-e770-4085-b066-c7bba042d9df-2246227 input,
-    body.page-quote #c639aa23-e770-4085-b066-c7bba042d9df-2246227 select,
-    body.page-quote #c639aa23-e770-4085-b066-c7bba042d9df-2246227 textarea {
-      padding-top: 10px !important;
-      padding-bottom: 10px !important;
-    }
-
-    body.page-quote .quote-fallback {
-      margin-top: 16px;
-      padding: 15px 16px;
-      border: 1px solid #b8e4f3;
-      border-radius: 12px;
-      background: #f4fbff;
-      color: #1f3550;
+    body.page-quote .quote-direct-box {
+      border: 1px solid #d8e4f1;
+      border-radius: 14px;
+      background: #f7fbff;
+      padding: clamp(18px, 3vw, 26px);
       text-align: center;
-      font-weight: 700;
-      line-height: 1.45;
     }
 
-    body.page-quote .quote-fallback a {
+    body.page-quote .quote-direct-box h2 {
+      margin: 0 0 10px;
+      color: #102f57;
+      font-size: clamp(1.35rem, 2.6vw, 1.75rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    body.page-quote .quote-direct-box p {
+      margin: 0 auto 18px;
+      max-width: 700px;
+      color: #405873;
+      line-height: 1.5;
+      font-weight: 700;
+    }
+
+    body.page-quote .quote-small-note {
+      margin: 14px 0 0;
+      color: #4b6076;
+      font-size: 0.94rem;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+
+    body.page-quote .quote-small-note a {
       color: #007f9f;
       font-weight: 900;
       text-decoration: none;
@@ -532,29 +523,27 @@
 
         <div class="quote-layout">
           <div class="qcard">
-            <h2 class="quote-form-title" id="quote-form-title" tabindex="-1">Project Details</h2>
-            <p class="quote-form-subtitle">
-              Use the form below to request a paver sealing, cleaning, sanding, travertine sealing,
-              pool deck, driveway, or patio quote.
-            </p>
+            <div class="quote-direct-box" aria-labelledby="quote-form-title">
+              <h2 class="quote-form-title" id="quote-form-title" tabindex="-1">Request Your Paver Sealing Quote</h2>
+              <p class="quote-form-subtitle">
+                The fastest way to get pricing is to call us now or text photos of your driveway, pool deck,
+                patio, or walkway. Include your location and any rough measurements so we can quote quickly.
+              </p>
 
-            <div class="jobber-embed-shell" aria-labelledby="quote-form-title">
-              <!-- Jobber embedded work request form mounts here. Do not change this ID unless Jobber gives a new embed code. -->
-              <div id="c639aa23-e770-4085-b066-c7bba042d9df-2246227"></div>
-            </div>
+              <div class="quote-actions">
+                <a href="tel:+19045375000" class="quote-btn quote-btn-primary">
+                  Call 904-537-5000
+                </a>
 
-            <noscript>
-              <div class="quote-fallback">
-                JavaScript is required to load the embedded quote form.
-                Please call <a href="tel:+19045375000">904-537-5000</a> or email
-                <a href="mailto:info@hydrosealpavers.com">info@hydrosealpavers.com</a>.
+                <a href="sms:+19045375000" class="quote-btn quote-btn-secondary">
+                  Text Photos For Quote
+                </a>
               </div>
-            </noscript>
 
-            <div class="quote-fallback">
-              If the form does not load, call <a href="tel:+19045375000">904-537-5000</a>,
-              text photos to <a href="sms:+19045375000">904-537-5000</a>, or email
-              <a href="mailto:info@hydrosealpavers.com">info@hydrosealpavers.com</a>.
+              <p class="quote-small-note">
+                Prefer email? Send project details to
+                <a href="mailto:info@hydrosealpavers.com">info@hydrosealpavers.com</a>.
+              </p>
             </div>
           </div>
 
@@ -670,13 +659,6 @@
   <script src="/assets/js/include.js" defer></script>
   <script src="/assets/js/router.js" defer></script>
   <script src="/assets/js/nav.js" defer></script>
-
-  <!-- Jobber embedded work request form script -->
-  <script
-    src="https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js"
-    clienthub_id="c639aa23-e770-4085-b066-c7bba042d9df-2246227"
-    form_url="https://clienthub.getjobber.com/client_hubs/c639aa23-e770-4085-b066-c7bba042d9df/public/work_request/embedded_work_request_form?form_id=2246227">
-  </script>
 
   <script src="/assets/js/analytics.js" defer></script>
 </body>
