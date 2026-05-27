@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SXWZ2Z96S9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SXWZ2Z96S9');
+  gtag('config', 'AW-17972657888');
+  function trackCall() {
+    gtag('event', 'conversion', {
+      'send_to': 'AW-17972657888',
+      'event_category': 'phone_call',
+      'event_label': 'landing_page_call'
+    });
+  }
+</script>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="icon" href="/assets/favicons/favicon.ico" sizes="any" />
+<link rel="apple-touch-icon" href="/assets/favicons/apple-touch-icon.png" />
+<meta name="theme-color" content="#0F6EA8" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Paver Sealing — Nocatee & Rivertown | HydroSeal</title>
+<link rel="stylesheet" href="/styles.css?v=20260312-1" />
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+
+  .lp-sticky-call {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #0F6EA8;
+    color: #fff;
+    text-align: center;
+    padding: 10px 16px;
+    font-weight: 900;
+    font-size: 15px;
+    letter-spacing: .02em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .lp-sticky-call a {
+    color: #fff;
+    text-decoration: none;
+    background: rgba(255,255,255,.18);
+    border: 1px solid rgba(255,255,255,.32);
+    border-radius: 999px;
+    padding: 6px 18px;
+    font-weight: 900;
+    font-size: 15px;
+    white-space: nowrap;
+    transition: background .15s;
+  }
+  .lp-sticky-call a:hover { background: rgba(255,255,255,.28); }
+
+  .lp-header {
+    background: #fff;
+    border-bottom: 1px solid rgba(0,0,0,.08);
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .lp-header img { height: 48px; width: auto; }
+  .lp-header-phone {
+    font-weight: 900;
+    font-size: 18px;
+    color: #0F6EA8;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .lp-hero {
+    position: relative;
+    min-height: clamp(320px, 48vw, 560px);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+  .lp-hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .lp-hero-wash {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(11,45,74,.72) 0%, rgba(15,110,168,.45) 100%);
+  }
+  .lp-hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 40px 16px;
+  }
+  .lp-hero-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .lp-location-pill {
+    display: inline-block;
+    background: rgba(57,191,234,.22);
+    border: 1px solid rgba(57,191,234,.45);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    padding: 5px 14px;
+    margin-bottom: 14px;
+  }
+  .lp-hero h1 {
+    color: #fff;
+    font-size: clamp(26px, 4.5vw, 48px);
+    line-height: 1.08;
+    margin: 0 0 8px;
+    text-shadow: 0 12px 34px rgba(0,0,0,.45);
+  }
+  .lp-hero-sub {
+    color: rgba(255,255,255,.90);
+    font-size: clamp(15px, 2vw, 18px);
+    margin: 0 0 22px;
+    font-weight: 600;
+  }
+  .lp-cta-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  .lp-btn-call {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #39BFEA, #0F6EA8);
+    color: #fff;
+    font-weight: 900;
+    font-size: 20px;
+    padding: 16px 32px;
+    border-radius: 14px;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(15,110,168,.45);
+    width: 100%;
+    max-width: 360px;
+    transition: transform .15s, box-shadow .15s;
+  }
+  .lp-btn-call:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(15,110,168,.55); }
+  .lp-btn-quote {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.32);
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 10px 24px;
+    border-radius: 14px;
+    text-decoration: none;
+    transition: background .15s;
+  }
+  .lp-btn-quote:hover { background: rgba(255,255,255,.20); }
+
+  .lp-trust {
+    background: #fff;
+    border-bottom: 1px solid rgba(0,0,0,.08);
+    padding: 14px 16px;
+  }
+  .lp-trust-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    justify-content: center;
+    align-items: center;
+  }
+  .lp-trust-item {
+    font-size: 13px;
+    font-weight: 900;
+    color: #0B2D4A;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .lp-trust-item::before { content: "✓"; color: #0F6EA8; font-weight: 900; }
+
+  /* Pricing table */
+  .lp-section {
+    padding: 32px 16px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .lp-section-title {
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 900;
+    color: #0B2D4A;
+    margin: 0 0 6px;
+    text-align: center;
+  }
+  .lp-section-sub {
+    text-align: center;
+    color: #4B6478;
+    font-size: 14px;
+    margin: 0 0 20px;
+  }
+
+  .lp-pricing-table {
+    border: 1px solid rgba(0,0,0,.09);
+    border-radius: 18px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 4px 16px rgba(0,0,0,.06);
+  }
+  .lp-pricing-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(0,0,0,.06);
+  }
+  .lp-pricing-row:last-child { border-bottom: none; }
+  .lp-pricing-row.header {
+    background: linear-gradient(135deg, #0B2D4A, #0F6EA8);
+    color: #fff;
+    font-weight: 900;
+    font-size: 13px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: 12px 20px;
+  }
+  .lp-pricing-label { font-weight: 700; color: #0B2D4A; font-size: 15px; }
+  .lp-pricing-detail { font-size: 13px; color: #4B6478; margin-top: 2px; }
+  .lp-pricing-price {
+    font-weight: 900;
+    color: #0F6EA8;
+    font-size: 16px;
+    white-space: nowrap;
+    text-align: right;
+  }
+  .lp-pricing-row:nth-child(even) { background: #f8fafb; }
+  .lp-pricing-note {
+    background: rgba(57,191,234,.08);
+    border: 1px dashed rgba(15,110,168,.22);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-top: 16px;
+    font-size: 13px;
+    color: #374151;
+    line-height: 1.6;
+  }
+  .lp-pricing-note strong { color: #0B2D4A; }
+
+  .lp-checklist {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+  }
+  .lp-checklist li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,.08);
+    border-radius: 14px;
+    padding: 14px 16px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #0B2D4A;
+    box-shadow: 0 2px 8px rgba(0,0,0,.04);
+  }
+  .lp-checklist li .check { color: #0F6EA8; font-weight: 900; font-size: 18px; line-height: 1.2; flex-shrink: 0; }
+  .lp-checklist li .detail { font-size: 13px; color: #4B6478; font-weight: 400; margin-top: 2px; display: block; }
+
+  .lp-mid-cta {
+    background: linear-gradient(135deg, #0B2D4A, #0F6EA8);
+    color: #fff;
+    text-align: center;
+    padding: 32px 16px;
+  }
+  .lp-mid-cta h2 { color: #fff; font-size: clamp(20px, 3vw, 30px); margin: 0 0 6px; }
+  .lp-mid-cta p { color: rgba(255,255,255,.85); margin: 0 0 20px; font-size: 15px; }
+
+  .lp-reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+    margin-top: 18px;
+  }
+  .lp-review-card {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,.08);
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.05);
+  }
+  .lp-stars { color: #F59E0B; font-size: 16px; letter-spacing: 2px; margin-bottom: 8px; }
+  .lp-review-text { font-size: 14px; color: #374151; line-height: 1.6; margin: 0 0 10px; }
+  .lp-review-author { font-size: 13px; font-weight: 900; color: #0B2D4A; }
+  .lp-review-source { font-size: 12px; color: #6B7280; font-weight: 400; }
+
+  .lp-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-top: 18px;
+  }
+  .lp-step { background: #fff; border: 1px solid rgba(57,191,234,.25); border-radius: 14px; padding: 16px; text-align: center; }
+  .lp-step-num {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: linear-gradient(135deg, #39BFEA, #0F6EA8);
+    color: #fff; font-weight: 900; font-size: 16px;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 10px;
+  }
+  .lp-step h3 { font-size: 14px; font-weight: 900; color: #0B2D4A; margin: 0 0 4px; }
+  .lp-step p { font-size: 13px; color: #4B6478; margin: 0; }
+
+  .lp-badges {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding: 24px 16px;
+    background: #f8fafb;
+    border-top: 1px solid rgba(0,0,0,.06);
+  }
+  .lp-badges img { height: 60px; width: auto; object-fit: contain; }
+
+  .lp-bottom-cta { background: #0B2D4A; color: #fff; text-align: center; padding: 40px 16px; }
+  .lp-bottom-cta h2 { color: #fff; font-size: clamp(22px, 3.5vw, 34px); margin: 0 0 8px; }
+  .lp-bottom-cta p { color: rgba(255,255,255,.75); font-size: 15px; margin: 0 0 24px; }
+  .lp-phone-big {
+    display: block;
+    max-width: 420px;
+    margin: 0 auto 14px;
+    background: linear-gradient(135deg, #39BFEA, #0F6EA8);
+    color: #fff;
+    font-weight: 900;
+    font-size: clamp(22px, 4vw, 32px);
+    padding: 18px 40px;
+    border-radius: 16px;
+    text-decoration: none;
+    box-shadow: 0 10px 28px rgba(57,191,234,.35);
+    transition: transform .15s, box-shadow .15s;
+  }
+  .lp-phone-big:hover { transform: translateY(-2px); box-shadow: 0 16px 36px rgba(57,191,234,.45); }
+
+  .lp-footer { background: #0a1f30; color: rgba(255,255,255,.5); text-align: center; padding: 16px; font-size: 13px; }
+  .lp-footer a { color: rgba(255,255,255,.6); text-decoration: none; }
+
+  .mobile-callbar { display: none; }
+
+  @media (max-width: 600px) {
+    .lp-header-phone { font-size: 15px; }
+    .lp-sticky-call { font-size: 13px; padding: 8px 12px; }
+    .lp-sticky-call .label { display: none; }
+    .mobile-callbar {
+      display: flex;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(135deg, #39BFEA, #0F6EA8);
+      color: #fff;
+      font-weight: 900;
+      font-size: 17px;
+      text-align: center;
+      padding: 16px;
+      text-decoration: none;
+      z-index: 999;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 -4px 20px rgba(0,0,0,.2);
+    }
+    .lp-pricing-row { grid-template-columns: 1fr auto; gap: 8px; padding: 14px 14px; }
+  }
+
+  @media (min-width: 601px) {
+    .lp-cta-group { flex-direction: row; justify-content: center; }
+    .lp-btn-call { width: auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="lp-sticky-call">
+  <span class="label">Nocatee &amp; Rivertown's Paver Sealing Team —</span>
+  <a href="tel:+19045375000" onclick="trackCall()">📞 Call 904.537.5000</a>
+</div>
+
+<header class="lp-header">
+  <a href="/" aria-label="HydroSeal home">
+    <img src="/assets/hero/Hydrosealpaversealing.png" alt="HydroSeal" width="200" height="78" loading="eager" />
+  </a>
+  <a class="lp-header-phone" href="tel:+19045375000" onclick="trackCall()">904.537.5000</a>
+</header>
+
+<!-- HERO -->
+<section class="lp-hero">
+  <img class="lp-hero-img" src="/assets/hero/hydroseal-driveway.webp" alt="Sealed pavers in Nocatee" loading="eager" fetchpriority="high" width="1920" height="1080" />
+  <div class="lp-hero-wash" aria-hidden="true"></div>
+  <div class="lp-hero-content">
+    <div class="lp-hero-inner">
+      <div class="lp-location-pill">Nocatee · Rivertown · St. Johns County</div>
+      <h1>Professional Paver Sealing<br>from $1,000</h1>
+      <p class="lp-hero-sub">Trident Master Certified · 2-Year Warranty · Licensed &amp; Insured · No Surprise Pricing</p>
+      <div class="lp-cta-group">
+        <a class="lp-btn-call" href="tel:+19045375000" onclick="trackCall()">📞 Call 904.537.5000</a>
+        <a class="lp-btn-quote" href="/get-a-quote">Get a Free Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust strip -->
+<div class="lp-trust">
+  <div class="lp-trust-inner">
+    <div class="lp-trust-item">Licensed &amp; Insured</div>
+    <div class="lp-trust-item">Trident Master Certified</div>
+    <div class="lp-trust-item">2-Year Warranty</div>
+    <div class="lp-trust-item">Free Quotes</div>
+    <div class="lp-trust-item">HOA Approved</div>
+    <div class="lp-trust-item">No Hidden Fees</div>
+  </div>
+</div>
+
+<!-- Transparent Pricing -->
+<div style="background:#f8fafb; border-bottom:1px solid rgba(0,0,0,.06);">
+  <div class="lp-section">
+    <h2 class="lp-section-title">Transparent Pricing — No Surprises</h2>
+    <p class="lp-section-sub">We tell you exactly what affects your price before we start. No vague estimates, no upsells on the day.</p>
+
+    <div class="lp-pricing-table">
+      <div class="lp-pricing-row header">
+        <div>Surface &amp; Size</div>
+        <div style="text-align:right;">Typical Range</div>
+      </div>
+      <div class="lp-pricing-row">
+        <div>
+          <div class="lp-pricing-label">Small driveway</div>
+          <div class="lp-pricing-detail">Up to ~500 sq ft · 1-car or compact 2-car</div>
+        </div>
+        <div class="lp-pricing-price">$1,000–$1,300</div>
+      </div>
+      <div class="lp-pricing-row">
+        <div>
+          <div class="lp-pricing-label">Standard 2-car driveway</div>
+          <div class="lp-pricing-detail">~600–900 sq ft · most Nocatee &amp; Rivertown homes</div>
+        </div>
+        <div class="lp-pricing-price">$1,300–$1,800</div>
+      </div>
+      <div class="lp-pricing-row">
+        <div>
+          <div class="lp-pricing-label">Large driveway + walkway</div>
+          <div class="lp-pricing-detail">~900–1,400 sq ft · wider or extended layouts</div>
+        </div>
+        <div class="lp-pricing-price">$1,800–$2,400</div>
+      </div>
+      <div class="lp-pricing-row">
+        <div>
+          <div class="lp-pricing-label">Patio or walkway only</div>
+          <div class="lp-pricing-detail">Varies by square footage and condition</div>
+        </div>
+        <div class="lp-pricing-price">From $1,000</div>
+      </div>
+    </div>
+
+    <div class="lp-pricing-note">
+      <strong>What affects your price:</strong> square footage, joint sand condition, staining level, surface prep needed, and access. We inspect first and give you the exact number before any work begins. <strong>$1.50/sq ft starting rate</strong> — final price confirmed on-site, never after the job.
+    </div>
+
+    <div style="text-align:center; margin-top:20px;">
+      <a class="lp-btn-call" href="tel:+19045375000" onclick="trackCall()" style="display:inline-flex; width:auto; padding:14px 32px;">
+        📞 Call for a Free Quote — 904.537.5000
+      </a>
+      <div style="margin-top:10px; font-size:13px; color:#6B7280;">Mon–Fri 8–5 · Sat 9–1</div>
+    </div>
+  </div>
+</div>
+
+<!-- What's included -->
+<div style="background:#fff; border-bottom:1px solid rgba(0,0,0,.06);">
+  <div class="lp-section">
+    <h2 class="lp-section-title">What's Included in Every Job</h2>
+    <ul class="lp-checklist">
+      <li>
+        <span class="check">✓</span>
+        <div><strong>Deep clean</strong><span class="detail">Correct chemistry, controlled rinse — no surface damage</span></div>
+      </li>
+      <li>
+        <span class="check">✓</span>
+        <div><strong>Joint sand reset — Trident ASTM C144</strong><span class="detail">Stabilizes pavers, reduces washout, limits weeds and ants</span></div>
+      </li>
+      <li>
+        <span class="check">✓</span>
+        <div><strong>Moisture verification before sealing</strong><span class="detail">We don't rush — if conditions aren't right, we wait</span></div>
+      </li>
+      <li>
+        <span class="check">✓</span>
+        <div><strong>Premium Trident sealer, controlled application</strong><span class="detail">Even coats, clean edges — no puddling or blotchy spots</span></div>
+      </li>
+      <li>
+        <span class="check">✓</span>
+        <div><strong>Final walkthrough</strong><span class="detail">Cure timeline, maintenance guidance, care notes</span></div>
+      </li>
+      <li>
+        <span class="check">✓</span>
+        <div><strong>2-Year workmanship warranty</strong><span class="detail">Sealer fails due to our work — we fix it, no charge</span></div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- Mid CTA -->
+<div class="lp-mid-cta">
+  <h2>Serving Nocatee &amp; Rivertown Every Week</h2>
+  <p>Call for a straight quote — we'll tell you the price before we touch anything.</p>
+  <a class="lp-btn-call" href="tel:+19045375000" onclick="trackCall()" style="display:inline-flex; width:auto;">
+    📞 Call 904.537.5000
+  </a>
+</div>
+
+<!-- Reviews -->
+<div style="background:#f8fafb; border-bottom:1px solid rgba(0,0,0,.06);">
+  <div class="lp-section">
+    <h2 class="lp-section-title">What Customers Are Saying</h2>
+    <div class="lp-reviews-grid">
+      <div class="lp-review-card">
+        <div class="lp-stars">★★★★★</div>
+        <p class="lp-review-text">"HydroSeal did an amazing job on our pavers. They came back, the sand was replaced, and everything looks much better. They answered all our questions."</p>
+        <div class="lp-review-author">Google Review <span class="lp-review-source">· Verified</span></div>
+      </div>
+      <div class="lp-review-card">
+        <div class="lp-stars">★★★★★</div>
+        <p class="lp-review-text">"Greg knows how to take care of your pavers. If you want the job done correctly call Greg at HydroSeal."</p>
+        <div class="lp-review-author">James H. <span class="lp-review-source">· Google Review</span></div>
+      </div>
+      <div class="lp-review-card">
+        <div class="lp-stars">★★★★★</div>
+        <p class="lp-review-text">"Great job on our patio and fire pit area. There was a lot of dark buildup before — now it looks great. Very professional."</p>
+        <div class="lp-review-author">Lynn F. <span class="lp-review-source">· Google Review</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Process -->
+<div style="background:#fff; border-bottom:1px solid rgba(0,0,0,.06);">
+  <div class="lp-section">
+    <h2 class="lp-section-title">Our 6-Step Process</h2>
+    <div class="lp-steps">
+      <div class="lp-step"><div class="lp-step-num">1</div><h3>Inspect</h3><p>Surface, drainage, joints, staining</p></div>
+      <div class="lp-step"><div class="lp-step-num">2</div><h3>Clean</h3><p>Correct chemistry, controlled rinse</p></div>
+      <div class="lp-step"><div class="lp-step-num">3</div><h3>Re-Sand</h3><p>ASTM C144 Trident joint sand, compacted</p></div>
+      <div class="lp-step"><div class="lp-step-num">4</div><h3>Dry &amp; Verify</h3><p>Moisture checks + weather window</p></div>
+      <div class="lp-step"><div class="lp-step-num">5</div><h3>Seal</h3><p>Even coats, clean edges, no shortcuts</p></div>
+      <div class="lp-step"><div class="lp-step-num">6</div><h3>Walkthrough</h3><p>Cure times, care notes, warranty</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- Badges -->
+<div class="lp-badges">
+  <img src="/assets/hero/hydroseal-licensed-insured.png" alt="Licensed and Insured" loading="lazy" />
+  <img src="/assets/hero/Trident-Master-white.png" alt="Trident Master Certified" loading="lazy" />
+  <img src="/assets/hero/hydroseal-2-year-warranty.png" alt="2-Year Warranty" loading="lazy" />
+</div>
+
+<!-- Bottom CTA -->
+<div class="lp-bottom-cta">
+  <h2>No Shortcuts. No Mystery Pricing.</h2>
+  <p>Call and get a straight quote — price confirmed before we start, not after.</p>
+  <a class="lp-phone-big" href="tel:+19045375000" onclick="trackCall()">📞 904.537.5000</a>
+  <a href="/get-a-quote" style="display:block; color:rgba(255,255,255,.7); font-size:14px; text-decoration:underline; margin-top:4px;">Or submit online — we'll call you back</a>
+  <div style="margin-top:16px; color:rgba(255,255,255,.5); font-size:13px;">Mon–Fri 8am–5pm · Sat 9am–1pm · Nocatee · Rivertown · St. Johns County</div>
+</div>
+
+<footer class="lp-footer">
+  <div>© HydroSeal · <a href="/">hydrosealpavers.com</a> · <a href="tel:+19045375000">904.537.5000</a></div>
+</footer>
+
+<a class="mobile-callbar" href="tel:+19045375000" onclick="trackCall()" aria-label="Tap to call HydroSeal">
+  📞 Tap to Call — 904.537.5000
+</a>
+
+<script>(function(w, d, t, u, o) {w[u] = w[u] || [], o.ts = (new Date).getTime();var n = d.createElement(t);n.src = "https://bat.bing.net/bat.js?ti=" + o.ti + ("uetq" != u ? "&q=" + u : ""),n.async = 1, n.onload = n.onreadystatechange = function() {var s = this.readyState;s && "loaded" !== s && "complete" !== s ||(o.q = w[u], w[u] = new UET(o), w[u].push("pageLoad"),n.onload = n.onreadystatechange = null)};var i = d.getElementsByTagName(t)[0];i.parentNode.insertBefore(n, i);})(window, document, "script", "uetq", {ti: "97237409",enableAutoSpaTracking: true});</script>
+
+</body>
+</html>
