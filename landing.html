@@ -365,29 +365,35 @@
   .lp-footer { background: #0a1f30; color: rgba(255,255,255,.5); text-align: center; padding: 16px; font-size: 13px; }
   .lp-footer a { color: rgba(255,255,255,.6); text-decoration: none; }
 
-  .mobile-callbar { display: none; }
+  .mobile-contactbar { display: none; }
 
-  @media (max-width: 600px) {
+  @media (max-width: 767px) {
     .lp-header-phone { font-size: 15px; }
     .lp-sticky-call { font-size: 13px; padding: 8px 12px; }
     .lp-sticky-call .label { display: none; }
-    .mobile-callbar {
-      display: flex;
+    .mobile-contactbar {
       position: fixed;
-      bottom: 0; left: 0; right: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 9999;
+      display: flex;
+      gap: 8px;
+      padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.12);
+    }
+    .mobile-callbar-btn {
+      flex: 1;
+      text-align: center;
+      text-decoration: none;
+      font-weight: 900;
+      padding: 13px 14px;
+      border-radius: 999px;
       background: linear-gradient(135deg, #39BFEA, #0F6EA8);
       color: #fff;
-      font-weight: 900;
-      font-size: 17px;
-      text-align: center;
-      padding: 16px;
-      text-decoration: none;
-      z-index: 999;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 -4px 20px rgba(0,0,0,.2);
     }
+    body { padding-bottom: calc(86px + env(safe-area-inset-bottom)); }
     .lp-pricing-row { grid-template-columns: 1fr auto; gap: 8px; padding: 14px 14px; }
   }
 
@@ -595,9 +601,10 @@
   <div>© HydroSeal · <a href="/">hydrosealpavers.com</a> · <a href="tel:+19045375000">904.537.5000</a></div>
 </footer>
 
-<a class="mobile-callbar" href="tel:+19045375000" onclick="trackCall()" aria-label="Tap to call HydroSeal">
-  📞 Tap to Call — 904.537.5000
-</a>
+<div class="mobile-contactbar" aria-label="HydroSeal mobile contact options">
+  <a class="mobile-callbar-btn" href="tel:+19045375000" aria-label="Call HydroSeal">📞 Call</a>
+  <a class="mobile-callbar-btn" href="sms:+19045375000" aria-label="Text HydroSeal">💬 Text</a>
+</div>
 
 <script>(function(w, d, t, u, o) {w[u] = w[u] || [], o.ts = (new Date).getTime();var n = d.createElement(t);n.src = "https://bat.bing.net/bat.js?ti=" + o.ti + ("uetq" != u ? "&q=" + u : ""),n.async = 1, n.onload = n.onreadystatechange = function() {var s = this.readyState;s && "loaded" !== s && "complete" !== s ||(o.q = w[u], w[u] = new UET(o), w[u].push("pageLoad"),n.onload = n.onreadystatechange = null)};var i = d.getElementsByTagName(t)[0];i.parentNode.insertBefore(n, i);})(window, document, "script", "uetq", {ti: "97237409",enableAutoSpaTracking: true});</script>
 

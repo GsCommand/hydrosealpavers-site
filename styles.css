@@ -1910,29 +1910,38 @@ body.page-home .home-hero-overlay{
   }
 }
 
-/* ================= MOBILE CALL BAR ================= */
-.mobile-callbar{ display:none; }
-@media (max-width:900px){
-  .mobile-callbar{
+/* ================= MOBILE CONTACT BAR ================= */
+.mobile-contactbar{ display:none; }
+@media (max-width:767px){
+  .mobile-contactbar{
     position:fixed;
-    left:12px;
-    right:12px;
-    bottom:12px;
+    left:0;
+    right:0;
+    bottom:0;
     z-index:99999;
     display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:10px;
+    gap:8px;
+    padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(255,255,255,.96);
+    box-shadow: 0 -8px 24px rgba(0,0,0,.12);
+  }
+
+  .mobile-callbar-btn{
+    flex:1;
+    text-align:center;
+    text-decoration:none;
+    font-weight:900;
     background: var(--blue);
     color:#fff;
-    font-weight:900;
     border-radius:16px;
-    padding:14px 16px;
+    padding:13px 14px;
     box-shadow: 0 12px 30px rgba(17,24,39,.22);
   }
-  body{ padding-bottom:84px; }
-  html.nav-lock .mobile-callbar,
-  body.nav-lock .mobile-callbar{
+
+  body{ padding-bottom:calc(86px + env(safe-area-inset-bottom)); }
+
+  html.nav-lock .mobile-contactbar,
+  body.nav-lock .mobile-contactbar{
     opacity:0;
     pointer-events:none;
   }
