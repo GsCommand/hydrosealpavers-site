@@ -30,6 +30,9 @@
 
   /* brand accent */
   --water-blue:#39BFEA;
+  --cta-green:#2fbe63;
+  --cta-green-dark:#239a4f;
+  --cta-green-focus:rgba(47,190,99,.38);
 }
 
 *{box-sizing:border-box}
@@ -1643,6 +1646,24 @@ footer{
   flex:0 0 auto;
 }
 
+
+/* Header quote CTA only: use the bright green brand CTA treatment without affecting adjacent blue/tel buttons. */
+.header-ctas .btn.btn-primary[href="/get-a-quote"],
+.nav-mobile-ctas .btn.btn-primary[href="/get-a-quote"]{
+  background: linear-gradient(180deg, var(--cta-green) 0%, var(--cta-green-dark) 100%);
+  border-color: var(--cta-green-dark);
+  color:#fff;
+  box-shadow:
+    0 10px 24px rgba(24, 92, 49, 0.22),
+    inset 0 1px 0 rgba(255,255,255,0.18);
+}
+
+.header-ctas .btn.btn-primary[href="/get-a-quote"]:focus-visible,
+.nav-mobile-ctas .btn.btn-primary[href="/get-a-quote"]:focus-visible{
+  outline:3px solid var(--cta-green-focus);
+  outline-offset:3px;
+}
+
 /* Button triggers match links (reset button styles) */
 button.nav-link,
 .nav-link.nav-parent{
@@ -1968,6 +1989,15 @@ body.page-home .home-hero-overlay{
   .btn-primary:hover::after{
     transform: translateX(14%) rotate(8deg);
     transition: transform 420ms cubic-bezier(.2,.8,.2,1);
+  }
+
+  .header-ctas .btn.btn-primary[href="/get-a-quote"]:hover,
+  .nav-mobile-ctas .btn.btn-primary[href="/get-a-quote"]:hover{
+    background: linear-gradient(180deg, #34c96b 0%, var(--cta-green-dark) 100%);
+    border-color: var(--cta-green-dark);
+    box-shadow:
+      0 14px 30px rgba(24, 92, 49, 0.28),
+      inset 0 1px 0 rgba(255,255,255,0.16);
   }
 
   .btn.btn-ghost[href="/warranty/"]:hover{
