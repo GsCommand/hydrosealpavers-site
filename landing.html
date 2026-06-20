@@ -1,15 +1,14 @@
 <!doctype html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SXWZ2Z96S9"></script>
+<!-- dataLayer stub: queues all gtag() calls until the real script loads post-LCP -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-SXWZ2Z96S9');
-  gtag('config', 'AW-17972657888');
   function trackCall() {
+    // Ensure marketing scripts are loaded immediately on call intent
+    if (window.__hsLoadMarketing) window.__hsLoadMarketing();
     gtag('event', 'conversion', {
       'send_to': 'AW-17972657888',
       'event_category': 'phone_call',
@@ -27,7 +26,7 @@
 <meta name="description" content="Professional paver sealing by HydroSeal for Jacksonville, Ponte Vedra, Nocatee, Rivertown, and St. Johns County. Trident Master Certified, licensed and insured, with free quotes and a 2-year workmanship warranty." />
 <link rel="canonical" href="https://hydrosealpavers.com/landing" />
 <title>Paver Sealing — Nocatee & Rivertown | HydroSeal</title>
-<link rel="preload" as="image" href="/assets/hero/paver-pool-deck-640.webp" imagesrcset="/assets/hero/paver-pool-deck-640.webp 640w, /assets/hero/paver-pool-deck-1024.webp 1024w, /assets/hero/paver-pool-deck.webp 1248w" imagesizes="100vw" fetchpriority="high" />
+<link rel="preload" as="image" href="/assets/hero/paver-pool-deck-640.webp" imagesrcset="/assets/hero/paver-pool-deck-640.webp 640w, /assets/hero/paver-pool-deck-768.webp 768w, /assets/hero/paver-pool-deck-960.webp 960w, /assets/hero/paver-pool-deck.webp 1248w" imagesizes="100vw" fetchpriority="high" />
 <link rel="preload" href="/styles.css?v=20260620-landing" as="style" onload="this.onload=null;this.rel='stylesheet'" />
 <noscript><link rel="stylesheet" href="/styles.css?v=20260620-landing" /></noscript>
 
@@ -439,12 +438,13 @@
 <!-- HERO -->
 <section class="lp-hero">
   <img class="lp-hero-img"
-       src="/assets/hero/paver-pool-deck.webp"
-       srcset="/assets/hero/paver-pool-deck-640.webp 640w, /assets/hero/paver-pool-deck-1024.webp 1024w, /assets/hero/paver-pool-deck.webp 1248w"
+       src="/assets/hero/paver-pool-deck-640.webp"
+       srcset="/assets/hero/paver-pool-deck-640.webp 640w, /assets/hero/paver-pool-deck-768.webp 768w, /assets/hero/paver-pool-deck-960.webp 960w, /assets/hero/paver-pool-deck.webp 1248w"
        sizes="100vw"
        alt="Sealed paver pool deck in Nocatee"
        loading="eager"
        fetchpriority="high"
+       decoding="async"
        width="1248"
        height="1755" />
   <div class="lp-hero-wash" aria-hidden="true"></div>
@@ -635,14 +635,47 @@
 </div>
 
 <script>
-window.addEventListener("load", function(){
-  // Elfsight: delayed 1.5s after load so it never competes with hero render
-  setTimeout(function(){var s=document.createElement("script");s.src="https://elfsightcdn.com/platform.js";s.async=true;document.body.appendChild(s);},1500);
-  // Bing UET: deferred until after page load
-  setTimeout(function(){
-    (function(w,d,t,u,o){w[u]=w[u]||[];o.ts=(new Date).getTime();var n=d.createElement(t);n.src="https://bat.bing.net/bat.js?ti="+o.ti+("uetq"!=u?"&q="+u:"");n.async=1;n.onload=n.onreadystatechange=function(){var s=this.readyState;if(s&&"loaded"!==s&&"complete"!==s)return;o.q=w[u];w[u]=new UET(o);w[u].push("pageLoad");n.onload=n.onreadystatechange=null};var i=d.getElementsByTagName(t)[0];i.parentNode.insertBefore(n,i);})(window,document,"script","uetq",{ti:"97237409",enableAutoSpaTracking:true});
-  },500);
-});
+(function(){
+  var loaded = false;
+  function loadMarketing() {
+    if (loaded) return;
+    loaded = true;
+    // Google Analytics + Google Ads
+    var g = document.createElement('script');
+    g.async = true;
+    g.src = 'https://www.googletagmanager.com/gtag/js?id=G-SXWZ2Z96S9';
+    g.onload = function(){
+      gtag('js', new Date());
+      gtag('config', 'G-SXWZ2Z96S9');
+      gtag('config', 'AW-17972657888');
+    };
+    document.head.appendChild(g);
+    // Bing UET
+    setTimeout(function(){
+      (function(w,d,t,u,o){w[u]=w[u]||[];o.ts=(new Date).getTime();var n=d.createElement(t);n.src="https://bat.bing.net/bat.js?ti="+o.ti+("uetq"!=u?"&q="+u:"");n.async=1;n.onload=n.onreadystatechange=function(){var s=this.readyState;if(s&&"loaded"!==s&&"complete"!==s)return;o.q=w[u];w[u]=new UET(o);w[u].push("pageLoad");n.onload=n.onreadystatechange=null};var i=d.getElementsByTagName(t)[0];i.parentNode.insertBefore(n,i);})(window,document,"script","uetq",{ti:"97237409",enableAutoSpaTracking:true});
+    }, 200);
+    // Elfsight: extra delay so it never competes with LCP
+    setTimeout(function(){var s=document.createElement('script');s.src='https://elfsightcdn.com/platform.js';s.async=true;document.body.appendChild(s);}, 2000);
+  }
+  window.__hsLoadMarketing = loadMarketing;
+  // Trigger after hero image finishes loading — this is post-LCP
+  var hero = document.querySelector('.lp-hero-img');
+  if (hero) {
+    if (hero.complete) {
+      setTimeout(loadMarketing, 0);
+    } else {
+      hero.addEventListener('load', function(){ setTimeout(loadMarketing, 0); }, {once: true});
+      // Fallback: first user interaction
+      ['pointerdown','touchstart','scroll','keydown'].forEach(function(e){
+        window.addEventListener(e, loadMarketing, {once:true, passive:true});
+      });
+      // Hard fallback: 4s after page load
+      window.addEventListener('load', function(){ setTimeout(loadMarketing, 4000); });
+    }
+  } else {
+    window.addEventListener('load', function(){ setTimeout(loadMarketing, 1000); });
+  }
+})();
 </script>
 
 </body>
