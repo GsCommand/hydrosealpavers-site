@@ -250,17 +250,20 @@
     text-align: right;
   }
   .lp-pricing-row:nth-child(even) { background: #f8fafb; }
-  .lp-pricing-note {
-    background: rgba(57,191,234,.08);
-    border: 1px dashed rgba(15,110,168,.22);
-    border-radius: 12px;
-    padding: 14px 16px;
+  .lp-pricing-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
     margin-top: 16px;
-    font-size: 13px;
-    color: #374151;
-    line-height: 1.6;
   }
-  .lp-pricing-note strong { color: #0B2D4A; }
+  .lp-pricing-gallery img {
+    width: 100%;
+    height: clamp(130px, 24vw, 220px);
+    object-fit: cover;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0,0,0,.08);
+    display: block;
+  }
 
   .lp-checklist {
     list-style: none;
@@ -485,8 +488,11 @@
       </div>
     </div>
 
-    <div class="lp-pricing-note">
-      <strong>Pricing note:</strong> these are starting points, not final quotes. Final pricing depends on square footage, joint sand condition, staining level, surface prep needed, material type, drainage, and access. We inspect first and give you the exact number before any work begins. <strong>$1.50/sq ft starting rate</strong> applies to most full paver sealing projects; smaller patios, porches, and fire pit areas may start around $750 depending on size and condition.
+    <div class="lp-pricing-gallery" aria-label="Recent paver sealing project photos">
+      <img src="/assets/hero/paver-pool-deck.webp" alt="Sealed paver pool deck" loading="lazy" width="1248" height="1755" />
+      <img src="/assets/hero/ponte-vedra-paver-sealing.webp" alt="Ponte Vedra paver sealing project" loading="lazy" width="800" height="956" />
+      <img src="/assets/hero/ponte-vedra-travertine-sealing.jpg" alt="Ponte Vedra travertine sealing project" loading="lazy" width="950" height="1187" />
+      <img src="/assets/hero/jacksonville-paver-sealing.webp" alt="Jacksonville paver sealing project" loading="lazy" width="700" height="875" />
     </div>
 
     <div style="text-align:center; margin-top:20px;">
