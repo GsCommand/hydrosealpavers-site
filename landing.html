@@ -260,13 +260,27 @@
     gap: 10px;
     margin-top: 16px;
   }
-  .lp-pricing-gallery img {
-    width: 100%;
-    height: clamp(130px, 24vw, 220px);
-    object-fit: cover;
+  .lp-pricing-gallery__image {
+    aspect-ratio: 4 / 5;
     border-radius: 14px;
     box-shadow: 0 4px 14px rgba(0,0,0,.08);
+    overflow: hidden;
+    background: #f3f4f6;
+  }
+  .lp-pricing-gallery__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
     display: block;
+  }
+  @media (max-width: 640px) {
+    .lp-pricing-gallery {
+      grid-template-columns: 1fr;
+      max-width: 360px;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 
   .lp-checklist {
