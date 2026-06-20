@@ -298,6 +298,25 @@ h3{ color: var(--h3-blue); }
 /* Headings helpers */
 .section-title{font-size:28px;margin:0;letter-spacing:-.02em}
 .section-sub{color:var(--muted);margin:10px 0 0;max-width:820px}
+.section-kicker{
+  color:var(--teal);
+  font-size:12px;
+  font-weight:1000;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+.recent-jobs-section{
+  margin-top:24px;
+  padding-top:64px;
+  border-top:1px solid var(--line);
+}
+@media (max-width:900px){
+  .recent-jobs-section{
+    margin-top:18px;
+    padding-top:54px;
+  }
+}
 
 /* About page cleanup utilities */
 .u-mt-14{margin-top:14px}
