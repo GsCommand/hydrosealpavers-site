@@ -256,31 +256,19 @@
   .lp-pricing-row:nth-child(even) { background: #f8fafb; }
   .lp-pricing-gallery {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 10px;
-    margin-top: 16px;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    max-width: 750px;
+    margin: 16px auto 0;
   }
-  .lp-pricing-gallery__image {
-    aspect-ratio: 4 / 5;
+  .lp-pricing-gallery > img {
+    width: 100%;
+    max-width: 750px;
+    height: auto;
     border-radius: 14px;
     box-shadow: 0 4px 14px rgba(0,0,0,.08);
-    overflow: hidden;
     background: #f3f4f6;
-  }
-  .lp-pricing-gallery__image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
     display: block;
-  }
-  @media (max-width: 640px) {
-    .lp-pricing-gallery {
-      grid-template-columns: 1fr;
-      max-width: 360px;
-      margin-left: auto;
-      margin-right: auto;
-    }
   }
 
   .lp-checklist {
