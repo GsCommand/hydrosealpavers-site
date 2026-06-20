@@ -256,13 +256,27 @@
     gap: 10px;
     margin-top: 16px;
   }
-  .lp-pricing-gallery img {
-    width: 100%;
-    height: clamp(130px, 24vw, 220px);
-    object-fit: cover;
+  .lp-pricing-gallery__image {
+    aspect-ratio: 4 / 5;
     border-radius: 14px;
     box-shadow: 0 4px 14px rgba(0,0,0,.08);
+    overflow: hidden;
+    background: #f3f4f6;
+  }
+  .lp-pricing-gallery__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
     display: block;
+  }
+  @media (max-width: 640px) {
+    .lp-pricing-gallery {
+      grid-template-columns: 1fr;
+      max-width: 360px;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 
   .lp-checklist {
@@ -488,9 +502,15 @@
     </div>
 
     <div class="lp-pricing-gallery" aria-label="Recent paver sealing project photos">
-      <img src="/assets/hero/ponte-vedra-paver-sealing.webp" alt="Ponte Vedra paver sealing project" loading="lazy" width="800" height="956" />
-      <img src="/assets/hero/ponte-vedra-travertine-sealing.jpg" alt="Ponte Vedra travertine sealing project" loading="lazy" width="950" height="1187" />
-      <img src="/assets/hero/jacksonville-paver-sealing.webp" alt="Jacksonville paver sealing project" loading="lazy" width="700" height="875" />
+      <div class="lp-pricing-gallery__image">
+        <img src="/assets/hero/ponte-vedra-paver-sealing.webp" alt="Ponte Vedra paver sealing project" loading="lazy" width="800" height="956" />
+      </div>
+      <div class="lp-pricing-gallery__image">
+        <img src="/assets/hero/ponte-vedra-travertine-sealing.jpg" alt="Ponte Vedra travertine sealing project" loading="lazy" width="950" height="1187" />
+      </div>
+      <div class="lp-pricing-gallery__image">
+        <img src="/assets/hero/jacksonville-paver-sealing.webp" alt="Jacksonville paver sealing project" loading="lazy" width="700" height="875" />
+      </div>
     </div>
 
     <div style="text-align:center; margin-top:20px;">
