@@ -159,22 +159,6 @@
     transition: transform .15s, box-shadow .15s;
   }
   .lp-btn-call:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(15,110,168,.55); }
-  .lp-btn-quote {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255,255,255,.12);
-    border: 1px solid rgba(255,255,255,.32);
-    color: #fff;
-    font-weight: 700;
-    font-size: 15px;
-    padding: 10px 24px;
-    border-radius: 14px;
-    text-decoration: none;
-    transition: background .15s;
-  }
-  .lp-btn-quote:hover { background: rgba(255,255,255,.20); }
-
   .lp-trust {
     background: #fff;
     border-bottom: 1px solid rgba(0,0,0,.08);
@@ -461,10 +445,11 @@
   <div class="lp-hero-content">
     <div class="lp-hero-inner">
       <div class="lp-location-pill">Nocatee · Rivertown · Ponte Vedra Beach</div>
-      <h1>Professional Paver Sealing<br>Starting From $1.50/sq ft</h1>
+      <h1>Send Photos → Get Your Exact Price Today</h1>
+      <div class="lp-hero-sub">From $1.50/sq ft · No hidden fees · Price confirmed before we start</div>
       <div class="lp-cta-group">
+        <a class="lp-btn-call" href="sms:+19045375000" style="background:#22c55e; box-shadow:0 8px 24px rgba(34,197,94,.35);">💬 Text Photos for Fast Quote</a>
         <a class="lp-btn-call" href="tel:+19045375000" onclick="trackCall()">📞 Call 904.537.5000</a>
-        <a class="lp-btn-quote" href="/get-a-quote">Get a Free Quote</a>
       </div>
     </div>
   </div>
@@ -474,6 +459,7 @@
 <div class="lp-trust">
   <div class="lp-trust-inner">
     <div class="lp-trust-item">Licensed &amp; Insured</div>
+    <div class="lp-trust-item">Text Photos → Fast Pricing</div>
     <div class="lp-trust-item">Trident Master Certified</div>
     <div class="lp-trust-item">2-Year Warranty</div>
     <div class="lp-trust-item">HOA Approved</div>
@@ -578,7 +564,7 @@
 <!-- Mid CTA -->
 <div class="lp-mid-cta">
   <h2>Serving Nocatee &amp; St. Johns County Every Week</h2>
-  <p>Call for a straight quote — we'll tell you the price before we touch anything.</p>
+  <p>Send photos now → get your exact price today (no surprises, no sales pressure)</p>
   <a class="lp-btn-call" href="tel:+19045375000" onclick="trackCall()" style="display:inline-flex; width:auto;">
     📞 Call 904.537.5000
   </a>
@@ -635,7 +621,7 @@
   <h2>No Shortcuts. No Mystery Pricing.</h2>
   <p>Call and get a straight quote — price confirmed before we start, not after.</p>
   <a class="lp-phone-big" href="tel:+19045375000" onclick="trackCall()">📞 904.537.5000</a>
-  <a href="/get-a-quote" style="display:block; color:rgba(255,255,255,.7); font-size:14px; text-decoration:underline; margin-top:4px;">Or submit online — we'll call you back</a>
+  <a href="sms:+19045375000" style="display:block; color:rgba(255,255,255,.7); font-size:14px; text-decoration:underline; margin-top:4px;">💬 Or text photos for fastest response</a>
 </div>
 
 <footer class="lp-footer">
@@ -643,8 +629,8 @@
 </footer>
 
 <div class="mobile-contactbar" aria-label="HydroSeal mobile contact options">
+  <a class="mobile-callbar-btn" href="sms:+19045375000" style="background:#22c55e;" aria-label="Text photos to HydroSeal">💬 Text Photos</a>
   <a class="mobile-callbar-btn" href="tel:+19045375000" onclick="trackCall()" aria-label="Call HydroSeal">📞 Call</a>
-  <a class="mobile-callbar-btn" href="sms:+19045375000" aria-label="Text HydroSeal">💬 Text</a>
 </div>
 
 <script>
