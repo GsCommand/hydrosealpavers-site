@@ -287,11 +287,19 @@ h3{ color: var(--h3-blue); }
 }
 
 /* Sections / grids */
-.section{padding:44px 0}
+:root{
+  --section-space-desktop: 80px;
+  --section-space-mobile: 48px;
+  --section-space-tight-desktop: 64px;
+  --section-space-tight-mobile: 36px;
+}
+
+.section{padding:var(--section-space-desktop) 0}
 .grid{display:grid;gap:14px}
 .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
 .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media (max-width:900px){
+  .section{padding:var(--section-space-mobile) 0}
   .grid-3,.grid-2{grid-template-columns:1fr}
 }
 
@@ -307,15 +315,40 @@ h3{ color: var(--h3-blue); }
   margin-bottom:8px;
 }
 .recent-jobs-section{
-  margin-top:24px;
-  padding-top:64px;
+  margin-top:var(--section-space-tight-desktop);
+  padding-top:96px;
+  padding-bottom:88px;
   border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  background:linear-gradient(180deg, #fff 0%, #f8fbff 50%, #fff 100%);
+}
+.recent-jobs-section .section-title{ margin-bottom:22px; }
+.recent-jobs-gallery{
+  margin-top:0;
+  padding:14px;
+  border:1px solid var(--line);
+  border-radius:24px;
+  background:#fff;
+  box-shadow:0 12px 34px rgba(17,24,39,.08);
+}
+.recent-jobs-gallery > div{ min-height:280px; }
+.home-reviews-section{
+  padding-top:96px;
+}
+.pricing-faq-section{
+  padding-top:88px;
 }
 @media (max-width:900px){
   .recent-jobs-section{
-    margin-top:18px;
-    padding-top:54px;
+    margin-top:var(--section-space-tight-mobile);
+    padding-top:56px;
+    padding-bottom:56px;
   }
+  .recent-jobs-section .section-title{ margin-bottom:16px; }
+  .recent-jobs-gallery{ padding:10px; border-radius:20px; }
+  .recent-jobs-gallery > div{ min-height:240px; }
+  .home-reviews-section{ padding-top:56px; }
+  .pricing-faq-section{ padding-top:56px; }
 }
 
 /* About page cleanup utilities */
