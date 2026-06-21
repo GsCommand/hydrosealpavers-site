@@ -41,6 +41,26 @@ const imagePreloads = linkTags.filter(({ attrs }) => attrs.rel === 'preload' && 
 if (imagePreloads.length !== 1) fail(`Expected exactly one image preload, found ${imagePreloads.length}.`);
 if (imagePreloads[0]?.attrs.id !== 'preload_lcp' || imagePreloads[0]?.attrs.href !== heroSrc) fail('The only image preload must be #preload_lcp and must exactly match #hero_lcp src.');
 
+
+const cssText = (html.match(/<style>\s*([\s\S]*?)<\/style>/i)?.[1] || '').replace(/\/\*[\s\S]*?\*\//g, '');
+const declarationsFor = (selector) => {
+  const escaped = selector.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const matches = [...cssText.matchAll(new RegExp(`${escaped}\\s*\\{([^}]*)\\}`, 'g'))];
+  return matches.map(([, body]) => body).join('\n');
+};
+const hasDecl = (selector, property, value) => new RegExp(`${property}\\s*:\\s*${value}\\s*(?:;|$)`, 'i').test(declarationsFor(selector));
+
+if (!hasDecl('.lp-header', 'position', 'relative')) fail('.lp-header must be position: relative to create a locked header stacking context.');
+if (!hasDecl('.lp-header', 'z-index', '10000')) fail('.lp-header must keep z-index: 10000.');
+if (!hasDecl('.lp-header', 'background', '#fff')) fail('.lp-header must keep an opaque #fff background.');
+if (!hasDecl('.lp-hero', 'position', 'relative')) fail('.lp-hero must be position: relative.');
+if (!hasDecl('.lp-hero', 'z-index', '1')) fail('.lp-hero must keep z-index: 1 so it cannot overlap the header.');
+if (!hasDecl('.lp-hero-img', 'position', 'absolute')) fail('.lp-hero-img must be position: absolute.');
+if (!hasDecl('.lp-hero-img', 'inset', '0')) fail('.lp-hero-img must use inset: 0.');
+if (!hasDecl('.lp-hero-img', 'z-index', '0')) fail('.lp-hero-img must stay behind hero content with z-index: 0.');
+if (!hasDecl('.lp-hero-content', 'z-index', '2')) fail('.lp-hero-content must keep z-index: 2.');
+if (!hasDecl('.mobile-contactbar', 'z-index', '9000')) fail('.mobile-contactbar must use z-index: 9000 so it stays below the header layer.');
+
 if (/<picture\b/i.test(html) || /<source\b/i.test(html)) fail('No picture/source fallbacks are allowed on /landing.');
 if (/srcset\s*=/i.test(html)) fail('No srcset attributes are allowed on /landing.');
 if (/background-image\s*:/i.test(html)) fail('No background-image visuals are allowed on /landing.');
