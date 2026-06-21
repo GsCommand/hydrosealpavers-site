@@ -36,17 +36,21 @@
 <meta name="description" content="Professional paver sealing by HydroSeal for Jacksonville, Ponte Vedra, Nocatee, Rivertown, and St. Johns County. Trident Master Certified, licensed and insured, with free quotes and a 2-year workmanship warranty." />
 <link rel="canonical" href="https://hydrosealpavers.com/landing" />
 <title>Paver Sealing — Nocatee & Rivertown | HydroSeal</title>
-<link id="preload_lcp" rel="preload" as="image" href="/assets/hero/paver-pool-deck-sealing.jpeg" />
+<link id="preload_lock" rel="preload" as="image" href="/assets/hero/paver-pool-deck-sealing.jpeg" />
 <link rel="stylesheet" href="/styles.css?v=20260620-landing" />
 
 <style>
   *, *::before, *::after { box-sizing: border-box; }
 
   .lp-header {
-    position: relative;
-    z-index: 10000;
-    background: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100000;
+    background: #ffffff;
     border-bottom: 1px solid rgba(0,0,0,.08);
+    min-height: 80px;
     padding: 12px 16px;
     display: flex;
     align-items: center;
@@ -60,6 +64,12 @@
     text-decoration: none;
     line-height: 1;
   }
+  .lp-header img {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    max-height: 60px;
+  }
   .lp-header-phone {
     font-weight: 900;
     font-size: 18px;
@@ -71,6 +81,7 @@
   .lp-hero {
     position: relative;
     z-index: 1;
+    margin-top: 80px;
     min-height: clamp(320px, 48vw, 560px);
     overflow: hidden;
     display: flex;
@@ -93,7 +104,7 @@
   }
   .lp-hero-content {
     position: relative;
-    z-index: 2;
+    z-index: 10;
     width: 100%;
     padding: 40px 16px;
   }
@@ -394,7 +405,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      z-index: 9000;
+      z-index: 90000;
       display: flex;
       gap: 8px;
       padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
@@ -431,7 +442,7 @@
 <!-- HERO -->
 <section class="lp-hero" id="lcp1" aria-label="HydroSeal paver sealing quote hero">
   <img
-    id="hero_lcp"
+    id="lcp_lock"
     src="/assets/hero/paver-pool-deck-sealing.jpeg"
     class="lp-hero-img"
     fetchpriority="high"

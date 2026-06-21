@@ -16,30 +16,30 @@ const firstContentIndex = before('<!-- Transparent Pricing -->');
 
 const fail = (message) => errors.push(message);
 
-const heroImgs = imgTags.filter(({ attrs }) => attrs.id === 'hero_lcp');
-if (heroImgs.length !== 1) fail(`Expected exactly one #hero_lcp image, found ${heroImgs.length}.`);
+const heroImgs = imgTags.filter(({ attrs }) => attrs.id === 'lcp_lock');
+if (heroImgs.length !== 1) fail(`Expected exactly one #lcp_lock image, found ${heroImgs.length}.`);
 const hero = heroImgs[0]?.attrs || {};
-if (hero.src !== heroSrc) fail(`#hero_lcp src must be ${heroSrc}; found ${hero.src || '(missing)'}.`);
-if (hero.fetchpriority !== 'high') fail('#hero_lcp must be the only fetchpriority="high" image.');
-if (hero.loading !== 'eager') fail('#hero_lcp must be the only loading="eager" image.');
-if (hero.decoding !== 'async') fail('#hero_lcp must use decoding="async".');
-if (hero.width !== '1920' || hero.height !== '1080') fail('#hero_lcp must reserve 1920x1080 dimensions.');
-if ('srcset' in hero) fail('#hero_lcp must not use srcset.');
+if (hero.src !== heroSrc) fail(`#lcp_lock src must be ${heroSrc}; found ${hero.src || '(missing)'}.`);
+if (hero.fetchpriority !== 'high') fail('#lcp_lock must be the only fetchpriority="high" image.');
+if (hero.loading !== 'eager') fail('#lcp_lock must be the only loading="eager" image.');
+if (hero.decoding !== 'async') fail('#lcp_lock must use decoding="async".');
+if (hero.width !== '1920' || hero.height !== '1080') fail('#lcp_lock must reserve 1920x1080 dimensions.');
+if ('srcset' in hero) fail('#lcp_lock must not use srcset.');
 
 const highImages = imgTags.filter(({ attrs }) => attrs.fetchpriority === 'high');
 const eagerImages = imgTags.filter(({ attrs }) => attrs.loading === 'eager');
-if (highImages.length !== 1 || highImages[0]?.attrs.id !== 'hero_lcp') fail(`Only #hero_lcp may use fetchpriority="high"; found ${highImages.length}.`);
-if (eagerImages.length !== 1 || eagerImages[0]?.attrs.id !== 'hero_lcp') fail(`Only #hero_lcp may use loading="eager"; found ${eagerImages.length}.`);
+if (highImages.length !== 1 || highImages[0]?.attrs.id !== 'lcp_lock') fail(`Only #lcp_lock may use fetchpriority="high"; found ${highImages.length}.`);
+if (eagerImages.length !== 1 || eagerImages[0]?.attrs.id !== 'lcp_lock') fail(`Only #lcp_lock may use loading="eager"; found ${eagerImages.length}.`);
 
 for (const { attrs } of imgTags) {
-  if (attrs.id === 'hero_lcp') continue;
+  if (attrs.id === 'lcp_lock') continue;
   if (attrs.loading !== 'lazy') fail(`Non-hero image must use loading="lazy": ${attrs.src || '(missing src)'}.`);
   if (attrs.decoding !== 'async') fail(`Non-hero image must use decoding="async": ${attrs.src || '(missing src)'}.`);
 }
 
 const imagePreloads = linkTags.filter(({ attrs }) => attrs.rel === 'preload' && attrs.as === 'image');
 if (imagePreloads.length !== 1) fail(`Expected exactly one image preload, found ${imagePreloads.length}.`);
-if (imagePreloads[0]?.attrs.id !== 'preload_lcp' || imagePreloads[0]?.attrs.href !== heroSrc) fail('The only image preload must be #preload_lcp and must exactly match #hero_lcp src.');
+if (imagePreloads[0]?.attrs.id !== 'preload_lock' || imagePreloads[0]?.attrs.href !== heroSrc) fail('The only image preload must be #preload_lock and must exactly match #lcp_lock src.');
 
 
 const cssText = (html.match(/<style>\s*([\s\S]*?)<\/style>/i)?.[1] || '').replace(/\/\*[\s\S]*?\*\//g, '');
@@ -50,24 +50,34 @@ const declarationsFor = (selector) => {
 };
 const hasDecl = (selector, property, value) => new RegExp(`${property}\\s*:\\s*${value}\\s*(?:;|$)`, 'i').test(declarationsFor(selector));
 
-if (!hasDecl('.lp-header', 'position', 'relative')) fail('.lp-header must be position: relative to create a locked header stacking context.');
-if (!hasDecl('.lp-header', 'z-index', '10000')) fail('.lp-header must keep z-index: 10000.');
-if (!hasDecl('.lp-header', 'background', '#fff')) fail('.lp-header must keep an opaque #fff background.');
+if (!hasDecl('.lp-header', 'position', 'fixed')) fail('.lp-header must be position: fixed for the hard header visibility lock.');
+if (!hasDecl('.lp-header', 'top', '0')) fail('.lp-header must be pinned to top: 0.');
+if (!hasDecl('.lp-header', 'left', '0')) fail('.lp-header must be pinned to left: 0.');
+if (!hasDecl('.lp-header', 'right', '0')) fail('.lp-header must be pinned to right: 0.');
+if (!hasDecl('.lp-header', 'z-index', '100000')) fail('.lp-header must keep z-index: 100000.');
+if (!hasDecl('.lp-header', 'background', '#ffffff')) fail('.lp-header must keep an opaque #ffffff background.');
+if (!hasDecl('.lp-header', 'display', 'flex')) fail('.lp-header must use display: flex.');
+if (!hasDecl('.lp-header', 'align-items', 'center')) fail('.lp-header must center-align header contents.');
+if (!hasDecl('.lp-header img', 'display', 'block')) fail('.lp-header img must remain display: block.');
+if (!hasDecl('.lp-header img', 'opacity', '1')) fail('.lp-header img must remain fully opaque.');
+if (!hasDecl('.lp-header img', 'visibility', 'visible')) fail('.lp-header img must remain visible.');
+if (!hasDecl('.lp-header img', 'max-height', '60px')) fail('.lp-header img must keep max-height: 60px.');
 if (!hasDecl('.lp-hero', 'position', 'relative')) fail('.lp-hero must be position: relative.');
 if (!hasDecl('.lp-hero', 'z-index', '1')) fail('.lp-hero must keep z-index: 1 so it cannot overlap the header.');
+if (!hasDecl('.lp-hero', 'margin-top', '80px')) fail('.lp-hero must reserve fixed header space with margin-top: 80px.');
 if (!hasDecl('.lp-hero-img', 'position', 'absolute')) fail('.lp-hero-img must be position: absolute.');
 if (!hasDecl('.lp-hero-img', 'inset', '0')) fail('.lp-hero-img must use inset: 0.');
 if (!hasDecl('.lp-hero-img', 'z-index', '0')) fail('.lp-hero-img must stay behind hero content with z-index: 0.');
-if (!hasDecl('.lp-hero-content', 'z-index', '2')) fail('.lp-hero-content must keep z-index: 2.');
-if (!hasDecl('.mobile-contactbar', 'z-index', '9000')) fail('.mobile-contactbar must use z-index: 9000 so it stays below the header layer.');
+if (!hasDecl('.lp-hero-content', 'z-index', '10')) fail('.lp-hero-content must keep z-index: 10.');
+if (!hasDecl('.mobile-contactbar', 'z-index', '90000')) fail('.mobile-contactbar must use z-index: 90000 so it stays below the header layer.');
 
 if (/<picture\b/i.test(html) || /<source\b/i.test(html)) fail('No picture/source fallbacks are allowed on /landing.');
 if (/srcset\s*=/i.test(html)) fail('No srcset attributes are allowed on /landing.');
 if (/background-image\s*:/i.test(html)) fail('No background-image visuals are allowed on /landing.');
 
-const preHeroImages = imgTags.filter(({ index, attrs }) => index < heroSectionIndex || (index > heroSectionIndex && index < trustIndex && attrs.id !== 'hero_lcp'));
-if (preHeroImages.length) fail(`No image may appear before trust strip except #hero_lcp; found ${preHeroImages.map(({ attrs }) => attrs.src || attrs.id || '(unknown)').join(', ')}.`);
-const earlyNonHeroImages = imgTags.filter(({ index, attrs }) => attrs.id !== 'hero_lcp' && index < firstContentIndex);
+const preHeroImages = imgTags.filter(({ index, attrs }) => index < heroSectionIndex || (index > heroSectionIndex && index < trustIndex && attrs.id !== 'lcp_lock'));
+if (preHeroImages.length) fail(`No image may appear before trust strip except #lcp_lock; found ${preHeroImages.map(({ attrs }) => attrs.src || attrs.id || '(unknown)').join(', ')}.`);
+const earlyNonHeroImages = imgTags.filter(({ index, attrs }) => attrs.id !== 'lcp_lock' && index < firstContentIndex);
 if (earlyNonHeroImages.length) fail(`Non-hero images must appear after the first content section starts; found ${earlyNonHeroImages.map(({ attrs }) => attrs.src || '(unknown)').join(', ')}.`);
 
 if (errors.length) {
