@@ -36,25 +36,30 @@
 <meta name="description" content="Professional paver sealing by HydroSeal for Jacksonville, Ponte Vedra, Nocatee, Rivertown, and St. Johns County. Trident Master Certified, licensed and insured, with free quotes and a 2-year workmanship warranty." />
 <link rel="canonical" href="https://hydrosealpavers.com/landing" />
 <title>Paver Sealing — Nocatee & Rivertown | HydroSeal</title>
-<link id="preload_lock" rel="preload" as="image" href="/assets/hero/paver-pool-deck-sealing.jpeg" />
+<link id="preload_final_lock" rel="preload" as="image" href="/assets/hero/paver-pool-deck-sealing.jpeg">
 <link rel="stylesheet" href="/styles.css?v=20260620-landing" />
 
 <style>
   *, *::before, *::after { box-sizing: border-box; }
 
+  /* Landing stacking architecture lock: header 999999 > sticky CTA 900000 > hero content 10 > hero image 0. */
   .lp-header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 100000;
+    height: 72px;
+    z-index: 999999;
     background: #ffffff;
-    border-bottom: 1px solid rgba(0,0,0,.08);
-    min-height: 80px;
-    padding: 12px 16px;
     display: flex;
     align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    padding: 10px 16px;
     justify-content: space-between;
+    isolation: isolate;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
   }
   .lp-header-logo {
     color: #0B2D4A;
@@ -66,9 +71,11 @@
   }
   .lp-header img {
     display: block;
+    max-height: 50px;
     opacity: 1;
     visibility: visible;
-    max-height: 60px;
+    position: relative;
+    z-index: 1000000;
   }
   .lp-header-phone {
     font-weight: 900;
@@ -81,7 +88,7 @@
   .lp-hero {
     position: relative;
     z-index: 1;
-    margin-top: 80px;
+    margin-top: 72px;
     min-height: clamp(320px, 48vw, 560px);
     overflow: hidden;
     display: flex;
@@ -405,7 +412,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      z-index: 90000;
+      z-index: 900000;
       display: flex;
       gap: 8px;
       padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
@@ -435,14 +442,16 @@
 <body>
 
 <header class="lp-header">
-  <a class="lp-header-logo" href="/" aria-label="HydroSeal home">HydroSeal</a>
+  <a class="lp-header-logo" href="/" aria-label="HydroSeal home">
+    <img src="/assets/hero/Hydrosealpaversealing.png" alt="HydroSeal" loading="lazy" decoding="async" width="320" height="125" />
+  </a>
   
 </header>
 
 <!-- HERO -->
 <section class="lp-hero" id="lcp1" aria-label="HydroSeal paver sealing quote hero">
   <img
-    id="lcp_lock"
+    id="lcp_final_lock"
     src="/assets/hero/paver-pool-deck-sealing.jpeg"
     class="lp-hero-img"
     fetchpriority="high"
