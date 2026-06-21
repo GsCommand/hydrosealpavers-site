@@ -2961,3 +2961,30 @@ body.page-service-areas .service-areas-intro-ctas{
     gap: 24px;
   }
 }
+
+/* HARD LOCK LOGO PROPORTIONS */
+header img,
+.lp-logo,
+.logo,
+.brand-logo {
+  width: auto !important;
+  height: 42px !important;
+  max-height: 42px !important;
+  object-fit: contain !important;
+  flex-shrink: 0 !important;
+  display: block !important;
+}
+
+/* Prevent header flex stretching logo */
+header {
+  display: flex;
+  align-items: center;
+}
+
+header img {
+  align-self: center;
+}
+
+header > .container {
+  width: 100%;
+}
