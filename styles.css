@@ -148,8 +148,11 @@ h3{ color: var(--h3-blue); }
 .btn-primary{
   color:#fff;
   border: 1px solid rgba(255,255,255,.18);
-  background: linear-gradient(180deg, var(--cta-green) 0%, var(--cta-green-dark) 100%);
-  box-shadow: 0 10px 24px rgba(24, 92, 49, 0.22), inset 0 1px 0 rgba(255,255,255,0.18);
+  background:
+    radial-gradient(820px 220px at 18% 0%, rgba(57,191,234,.28), transparent 56%),
+    radial-gradient(820px 220px at 88% 0%, rgba(15,110,168,.20), transparent 56%),
+    linear-gradient(135deg, #39BFEA 0%, #0F6EA8 66%, #0B2D4A 120%);
+  box-shadow: 0 10px 26px rgba(17,24,39,.12);
   position:relative;
   overflow:hidden;
   isolation:isolate;
@@ -178,11 +181,40 @@ h3{ color: var(--h3-blue); }
 .btn-ghost{border:1px solid var(--line);background:#fff;color:var(--text)}
 .btn-wide{width:100%;text-align:center}
 
-/* Call buttons use blue secondary styling only. */
-.btn.btn-ghost[href^="tel:"]{
-  background: var(--blue);
-  border-color: var(--blue);
-  color:#fff;
+/* Warranty button — green by default */
+.btn.btn-ghost[href="/warranty/"]{
+  background: linear-gradient(180deg, #2fbe63 0%, #239a4f 100%);
+  border-color: rgba(20, 90, 46, 0.42);
+  color: #fff;
+  font-weight: 900;
+  box-shadow:
+    0 10px 24px rgba(24, 92, 49, 0.22),
+    inset 0 1px 0 rgba(255,255,255,0.18);
+}
+
+/* Slight lift on hover (optional, keeps it premium) */
+.btn.btn-ghost[href="/warranty/"]:hover{
+  background: linear-gradient(180deg, #34c96b 0%, #24954e 100%);
+  box-shadow:
+    0 14px 30px rgba(24, 92, 49, 0.28),
+    inset 0 1px 0 rgba(255,255,255,0.16);
+}
+
+
+/* Header Call button: override the global tel hover */
+.header-ctas .btn.btn-ghost[href^="tel:"]{
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.header-ctas .btn.btn-ghost[href^="tel:"]:hover,
+.header-ctas .btn.btn-ghost[href^="tel:"]:focus-visible{
+  background: rgba(57,191,234,.22);
+  border-color: transparent;
+  color: var(--text);
+  box-shadow: none;
+  transform: none;
 }
 
 @media (max-width: 720px){
@@ -557,6 +589,16 @@ h3{ color: var(--h3-blue); }
 /* Optional: push the paragraph down for consistent spacing */
 .grid.grid-3 > a.card.service-card > div p{
   margin-top: auto;
+}
+
+/* Bright light-blue hover for the Call button (tel:) */
+.btn.btn-ghost[href^="tel:"]{
+  border-color: rgba(255,255,255,.35);
+}
+
+/* Bright light-blue → white gradient hover for Call button */
+.btn.btn-ghost[href^="tel:"]{
+  border-color: rgba(255,255,255,.35);
 }
 
 @media (hover:hover) and (pointer:fine){
@@ -1658,8 +1700,8 @@ footer{
 
 
 /* Header quote CTA only: use the bright green brand CTA treatment without affecting adjacent blue/tel buttons. */
-.header-ctas .btn.btn-primary[href="sms:+19045375000"],
-.nav-mobile-ctas .btn.btn-primary[href="sms:+19045375000"]{
+.header-ctas .btn.btn-primary[href="/get-a-quote"],
+.nav-mobile-ctas .btn.btn-primary[href="/get-a-quote"]{
   background: linear-gradient(180deg, var(--cta-green) 0%, var(--cta-green-dark) 100%);
   border-color: var(--cta-green-dark);
   color:#fff;
@@ -1668,8 +1710,8 @@ footer{
     inset 0 1px 0 rgba(255,255,255,0.18);
 }
 
-.header-ctas .btn.btn-primary[href="sms:+19045375000"]:focus-visible,
-.nav-mobile-ctas .btn.btn-primary[href="sms:+19045375000"]:focus-visible{
+.header-ctas .btn.btn-primary[href="/get-a-quote"]:focus-visible,
+.nav-mobile-ctas .btn.btn-primary[href="/get-a-quote"]:focus-visible{
   outline:3px solid var(--cta-green-focus);
   outline-offset:3px;
 }
@@ -1962,13 +2004,12 @@ body.page-home .home-hero-overlay{
     text-align:center;
     text-decoration:none;
     font-weight:900;
+    background: var(--blue);
     color:#fff;
     border-radius:16px;
     padding:13px 14px;
     box-shadow: 0 12px 30px rgba(17,24,39,.22);
   }
-  .mobile-callbar-btn--text{ background: linear-gradient(180deg, var(--cta-green) 0%, var(--cta-green-dark) 100%); }
-  .mobile-callbar-btn--call{ background: var(--blue); }
 
   body{ padding-bottom:calc(86px + env(safe-area-inset-bottom)); }
 
@@ -1994,7 +2035,7 @@ body.page-home .home-hero-overlay{
 @media (hover:hover) and (pointer:fine){
   .btn-primary:hover{
     transform: translateY(-1px);
-    box-shadow: 0 14px 30px rgba(24, 92, 49, 0.28), inset 0 1px 0 rgba(255,255,255,0.16);
+    box-shadow: 0 14px 34px rgba(17,24,39,.14);
   }
 
   .btn-primary:hover::after{
@@ -2002,8 +2043,8 @@ body.page-home .home-hero-overlay{
     transition: transform 420ms cubic-bezier(.2,.8,.2,1);
   }
 
-  .header-ctas .btn.btn-primary[href="sms:+19045375000"]:hover,
-  .nav-mobile-ctas .btn.btn-primary[href="sms:+19045375000"]:hover{
+  .header-ctas .btn.btn-primary[href="/get-a-quote"]:hover,
+  .nav-mobile-ctas .btn.btn-primary[href="/get-a-quote"]:hover{
     background: linear-gradient(180deg, #34c96b 0%, var(--cta-green-dark) 100%);
     border-color: var(--cta-green-dark);
     box-shadow:
@@ -2343,7 +2384,7 @@ body.page-quote .hero2 .quote-grid{
   align-items:start;
 }
 
-/* Make quote box 25% wider */
+/* Make Request a Quote box 25% wider */
 body.page-quote .qcard{
   width:100%;
   max-width:900px;
@@ -2952,13 +2993,4 @@ header .brand-logo {
 
 header > .container {
   width: 100%;
-}
-
-.home-bottom-cta .card{
-  max-width:720px;
-  margin:0 auto;
-}
-.home-bottom-cta-phone{
-  color:var(--blue);
-  font-weight:900;
 }
