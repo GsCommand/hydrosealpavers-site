@@ -2962,26 +2962,32 @@ body.page-service-areas .service-areas-intro-ctas{
   }
 }
 
-/* HARD LOCK LOGO PROPORTIONS */
-header img,
-.lp-logo,
-.logo,
-.brand-logo {
-  width: auto !important;
-  height: 42px !important;
-  max-height: 42px !important;
-  object-fit: contain !important;
-  flex-shrink: 0 !important;
-  display: block !important;
+/* HARD LOCK HEADER LOGO PROPORTIONS */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-/* Prevent header flex stretching logo */
-header {
+header .logo,
+header .lp-logo,
+header .brand {
+  flex: 0 0 auto !important;
   display: flex;
   align-items: center;
 }
 
-header img {
+header img,
+header .logo img,
+.lp-logo img,
+header .brand-logo {
+  width: auto !important;
+  height: 44px !important;
+  max-height: 44px !important;
+  max-width: none !important;
+  object-fit: contain !important;
+  display: block !important;
+  flex-shrink: 0 !important;
   align-self: center;
 }
 
