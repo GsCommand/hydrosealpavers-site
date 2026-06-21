@@ -1,15 +1,24 @@
 <!doctype html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SXWZ2Z96S9"></script>
+<!-- Google tag (gtag.js) delayed to protect initial hero render -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-SXWZ2Z96S9');
-  gtag('config', 'AW-17972657888');
+  function loadGoogleTags(){
+    if (window.__hsGoogleTagsLoaded) return;
+    window.__hsGoogleTagsLoaded = true;
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-SXWZ2Z96S9';
+    document.head.appendChild(script);
+    gtag('js', new Date());
+    gtag('config', 'G-SXWZ2Z96S9');
+    gtag('config', 'AW-17972657888');
+  }
+  window.addEventListener('load', function(){ setTimeout(loadGoogleTags, 1200); });
   function trackCall() {
+    loadGoogleTags();
     gtag('event', 'conversion', {
       'send_to': 'AW-17972657888',
       'event_category': 'phone_call',
@@ -27,7 +36,7 @@
 <meta name="description" content="Professional paver sealing by HydroSeal for Jacksonville, Ponte Vedra, Nocatee, Rivertown, and St. Johns County. Trident Master Certified, licensed and insured, with free quotes and a 2-year workmanship warranty." />
 <link rel="canonical" href="https://hydrosealpavers.com/landing" />
 <title>Paver Sealing — Nocatee & Rivertown | HydroSeal</title>
-<link rel="preload" as="image" href="/assets/hero/paver-pool-deck-sealing.jpeg" imagesrcset="/assets/hero/paver-pool-deck-sealing.jpeg 1920w" imagesizes="100vw" fetchpriority="high" />
+<link rel="preload" as="image" href="/assets/hero/paver-pool-deck-sealing.jpeg" />
 <link rel="preload" href="/styles.css?v=20260620-landing" as="style" onload="this.onload=null;this.rel='stylesheet'" />
 <noscript><link rel="stylesheet" href="/styles.css?v=20260620-landing" /></noscript>
 
@@ -602,7 +611,6 @@ I highly recommend HydroSeal.</p>
 </div>
 
 <!-- Elfsight Photo Gallery | DriveWay Gallery -->
-<script src="https://elfsightcdn.com/platform.js" async></script>
 <div class="elfsight-app-bfab489f-7fca-4f05-ba5a-d92616b76b26" data-elfsight-app-lazy></div>
 
 <!-- Badges -->
@@ -629,7 +637,7 @@ I highly recommend HydroSeal.</p>
 </div>
 
 <script>
-window.addEventListener("load", function(){setTimeout(function(){var s=document.createElement("script");s.src="https://elfsightcdn.com/platform.js";s.async=true;document.body.appendChild(s);},1200);});
+window.addEventListener("load", function(){setTimeout(function(){if(document.querySelector('script[data-hs-third-party="elfsight"]')) return;var s=document.createElement("script");s.src="https://elfsightcdn.com/platform.js";s.async=true;s.setAttribute("data-hs-third-party","elfsight");document.body.appendChild(s);},1200);});
 (function(w, d, t, u, o) {w[u] = w[u] || [], o.ts = (new Date).getTime();var n = d.createElement(t);n.src = "https://bat.bing.net/bat.js?ti=" + o.ti + ("uetq" != u ? "&q=" + u : ""),n.async = 1, n.onload = n.onreadystatechange = function() {var s = this.readyState;s && "loaded" !== s && "complete" !== s ||(o.q = w[u], w[u] = new UET(o), w[u].push("pageLoad"),n.onload = n.onreadystatechange = null)};var i = d.getElementsByTagName(t)[0];i.parentNode.insertBefore(n, i);})(window, document, "script", "uetq", {ti: "97237409",enableAutoSpaTracking: true});</script>
 
 </body>
