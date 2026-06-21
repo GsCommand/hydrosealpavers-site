@@ -157,20 +157,28 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    background: linear-gradient(135deg, #39BFEA, #0F6EA8);
     color: #fff;
     font-weight: 900;
     font-size: 20px;
     padding: 16px 32px;
     border-radius: 14px;
     text-decoration: none;
-    box-shadow: 0 8px 24px rgba(15,110,168,.45);
     width: 100%;
     max-width: 360px;
     transition: transform .15s, box-shadow .15s;
   }
+  .lp-btn-primary {
+    background: #22c55e;
+    box-shadow: 0 8px 24px rgba(34,197,94,.35);
+  }
+  .lp-btn-secondary {
+    background: linear-gradient(135deg, #39BFEA, #0F6EA8);
+    box-shadow: 0 8px 24px rgba(15,110,168,.45);
+  }
   @media (hover:hover) and (pointer:fine) {
-    .lp-btn-call:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(15,110,168,.55); }
+    .lp-btn-call:hover { transform: translateY(-2px); }
+    .lp-btn-primary:hover { box-shadow: 0 14px 32px rgba(34,197,94,.45); }
+    .lp-btn-secondary:hover { box-shadow: 0 14px 32px rgba(15,110,168,.55); }
   }
   .lp-trust {
     background: #fff;
@@ -394,23 +402,6 @@
   .lp-bottom-cta { background: #0B2D4A; color: #fff; text-align: center; padding: 40px 16px; }
   .lp-bottom-cta h2 { color: #fff; font-size: clamp(22px, 3.5vw, 34px); margin: 0 0 8px; }
   .lp-bottom-cta p { color: rgba(255,255,255,.75); font-size: 15px; margin: 0 0 24px; }
-  .lp-phone-big {
-    display: block;
-    max-width: 420px;
-    margin: 0 auto 14px;
-    background: linear-gradient(135deg, #39BFEA, #0F6EA8);
-    color: #fff;
-    font-weight: 900;
-    font-size: clamp(22px, 4vw, 32px);
-    padding: 18px 40px;
-    border-radius: 16px;
-    text-decoration: none;
-    box-shadow: 0 10px 28px rgba(57,191,234,.35);
-    transition: transform .15s, box-shadow .15s;
-  }
-  @media (hover:hover) and (pointer:fine) {
-    .lp-phone-big:hover { transform: translateY(-2px); box-shadow: 0 16px 36px rgba(57,191,234,.45); }
-  }
 
   .lp-footer { background: #0a1f30; color: rgba(255,255,255,.5); text-align: center; padding: 16px; font-size: 13px; }
   .lp-footer a { color: rgba(255,255,255,.6); text-decoration: none; }
@@ -482,8 +473,8 @@
       <h1>Send Photos → Get Your Price Today</h1>
       <div class="lp-hero-sub">From $1.50/sq ft · No hidden fees · Price confirmed before we start</div>
       <div class="lp-cta-group">
-        <a class="lp-btn-call" href="sms:+19045375000" style="background:#22c55e; box-shadow:0 8px 24px rgba(34,197,94,.35);">💬 Text Photos for Fast Quote</a>
-        <a class="lp-btn-call" href="tel:+19045375000" onclick="trackCall()">📞 Call 904.537.5000</a>
+        <a class="lp-btn-call lp-btn-primary" href="sms:+19045375000">Text Photos → Get Price</a>
+        <a class="lp-btn-call lp-btn-secondary" href="tel:+19045375000" onclick="trackCall()">Call 904-537-5000</a>
       </div>
     </div>
   </div>
@@ -552,11 +543,6 @@
       </div>
     </div>
 
-    <div style="text-align:center; margin-top:20px;">
-      <a class="lp-btn-call" href="sms:+19045375000" style="display:inline-flex; width:auto; padding:14px 32px;">
-        📊 See Your Price Range
-      </a>
-    </div>
 
   </div>
 </div>
@@ -596,16 +582,6 @@
 
 <div class="elfsight-app-1ac40f22-7acd-45c3-839e-6716f56e8387" data-elfsight-app-lazy></div>
 
-<!-- Mid CTA -->
-<div class="lp-mid-cta">
-  <h2>See Your Price Range Before You Book</h2>
-  <p>Send pool deck, driveway, or patio photos and we’ll confirm the likely range before scheduling.</p>
-  <a class="lp-btn-call"
-     href="sms:+19045375000"
-     style="background:#22c55e; box-shadow:0 8px 24px rgba(34,197,94,.35);">
-    📊 See Your Price Range
-  </a>
-</div>
 
 <!-- Reviews -->
 <div style="background:#f8fafb; border-bottom:1px solid rgba(0,0,0,.06);">
@@ -647,7 +623,10 @@ I highly recommend HydroSeal.</p>
 <div class="lp-bottom-cta">
   <h2>Ready to Lock In Your Project?</h2>
   <p>Schedule your paver sealing with a confirmed price, clear scope of work, and full transparency from start to finish.</p>
-  <a class="lp-phone-big" href="tel:+19045375000" onclick="trackCall()">📅 Book Now  904.537.5000</a>
+  <div class="lp-cta-group">
+    <a class="lp-btn-call lp-btn-primary" href="sms:+19045375000">Text Photos → Get Price</a>
+    <a class="lp-btn-call lp-btn-secondary" href="tel:+19045375000" onclick="trackCall()">Call 904-537-5000</a>
+  </div>
 </div>
 
 <footer class="lp-footer">
@@ -655,8 +634,8 @@ I highly recommend HydroSeal.</p>
 </footer>
 
 <div class="mobile-contactbar" aria-label="HydroSeal mobile contact options">
-  <a class="mobile-callbar-btn" href="sms:+19045375000" style="background:#22c55e;" aria-label="Text photos to HydroSeal">💬 Text Photos</a>
-  <a class="mobile-callbar-btn" href="tel:+19045375000" onclick="trackCall()" aria-label="Call HydroSeal">📞 Call</a>
+  <a class="mobile-callbar-btn" href="sms:+19045375000" style="background:#22c55e;" aria-label="Text photos to HydroSeal">Text Photos</a>
+  <a class="mobile-callbar-btn" href="tel:+19045375000" onclick="trackCall()" aria-label="Call HydroSeal">Call</a>
 </div>
 
 <script>
