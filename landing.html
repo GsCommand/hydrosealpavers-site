@@ -16,7 +16,36 @@
     gtag('config', 'G-SXWZ2Z96S9');
     gtag('config', 'AW-17972657888');
   }
-  window.addEventListener('load', function(){ setTimeout(loadGoogleTags, 1200); });
+  function loadDeferredThirdParty(){
+    loadGoogleTags();
+    if(!document.querySelector('script[data-hs-third-party="elfsight"]')){
+      var elfsightScript=document.createElement('script');
+      elfsightScript.src='https://elfsightcdn.com/platform.js';
+      elfsightScript.async=true;
+      elfsightScript.setAttribute('data-hs-third-party','elfsight');
+      document.body.appendChild(elfsightScript);
+    }
+    if(!document.querySelector('script[data-hs-third-party="bing-uet"]')){
+      (function(w,d,t,u,o){
+        w[u]=w[u]||[]; o.ts=(new Date).getTime();
+        var n=d.createElement(t);
+        n.src='https://bat.bing.net/bat.js?ti='+o.ti+('uetq'!=u?'&q='+u:'');
+        n.async=1;
+        n.setAttribute('data-hs-third-party','bing-uet');
+        n.onload=n.onreadystatechange=function(){
+          var s=this.readyState;
+          if(!s||s==='loaded'||s==='complete'){
+            o.q=w[u]; w[u]=new UET(o); w[u].push('pageLoad'); n.onload=n.onreadystatechange=null;
+          }
+        };
+        var i=d.getElementsByTagName(t)[0]; i.parentNode.insertBefore(n,i);
+      })(window,document,'script','uetq',{ti:'97237409',enableAutoSpaTracking:true});
+    }
+  }
+  window.addEventListener('load', function(){ setTimeout(loadDeferredThirdParty, 2500); });
+  ['click','touchstart','keydown','scroll'].forEach(function(eventName){
+    window.addEventListener(eventName, loadDeferredThirdParty, { once: true, passive: true });
+  });
   var GOOGLE_ADS_CALL_CONVERSION = 'AW-17972657888/phone_call_click';
   var GOOGLE_ADS_SMS_CONVERSION = 'AW-17972657888/sms_text_photo_click';
 
@@ -48,8 +77,9 @@
 <meta name="description" content="Professional paver sealing by HydroSeal for Jacksonville, Ponte Vedra, Nocatee, Rivertown, and St. Johns County. Trident Master Certified, licensed and insured, with free quotes and a 2-year workmanship warranty." />
 <link rel="canonical" href="https://hydrosealpavers.com/landing" />
 <title>Paver Sealing — Nocatee & Ponte Vedra  | HydroSeal</title>
-<link id="preload_final_lock" rel="preload" as="image" href="/assets/hero/paver-pool-deck-sealing.jpeg">
-<link rel="stylesheet" href="/styles.css?v=20260620-landing" />
+<link id="preload_final_lock" rel="preload" as="image" href="/assets/hero/paver-pool-deck-sealing.jpeg" fetchpriority="high">
+<link rel="preload" href="/styles.css?v=20260620-landing" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/styles.css?v=20260620-landing"></noscript>
 
 <style>
   *, *::before, *::after { box-sizing: border-box; }
@@ -74,18 +104,26 @@
     visibility: visible;
   }
   .lp-header-logo {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
     color: #0B2D4A;
     font-size: 26px;
     font-weight: 900;
     letter-spacing: -.03em;
     text-decoration: none;
-    line-height: 1;
+    line-height: 0;
   }
-  .lp-header img {
+  .lp-header-logo img {
     display: block;
+    width: auto;
+    height: 50px;
     max-height: 50px;
+    max-width: 220px;
+    object-fit: contain;
     opacity: 1;
     visibility: visible;
+    flex: 0 0 auto;
     position: relative;
     z-index: 1000000;
   }
@@ -465,11 +503,12 @@
 
 <header class="lp-header">
   <a class="lp-header-logo" href="/" aria-label="HydroSeal home">
-    <img src="/assets/hero/Hydrosealpaversealing.png" alt="HydroSeal" loading="lazy" decoding="async" width="320" height="125" />
+    <img src="/assets/hero/Hydrosealpaversealing.png" alt="HydroSeal" loading="eager" decoding="async" fetchpriority="low" width="320" height="125" />
   </a>
   
 </header>
 
+<main>
 <!-- HERO -->
 <section class="lp-hero" id="lcp1" aria-label="HydroSeal paver sealing quote hero">
   <img
@@ -510,7 +549,7 @@
 <!-- Transparent Pricing -->
 <div class="lp-pricing-section" style="background:#f8fafb; border-bottom:1px solid rgba(0,0,0,.06);">
   <div class="lp-section">
-    <h3 class="lp-recent-jobs-title">HydroSeal's Recently Sealed Jobs</h3>
+    <h2 class="lp-recent-jobs-title">HydroSeal's Recently Sealed Jobs</h2>
     <div class="lp-pricing-gallery" aria-label="Recent paver sealing project photos">
       <img src="/assets/hero/ponte-vedra-paver-sealing.webp" alt="Ponte Vedra paver sealing project" loading="lazy" decoding="async" width="800" height="956" />
       <img src="/assets/hero/ponte-vedra-travertine-sealing.jpg" alt="Ponte Vedra travertine sealing project" loading="lazy" decoding="async" width="950" height="1187" />
@@ -645,6 +684,7 @@ I highly recommend HydroSeal.</p>
     <a class="lp-btn-call lp-btn-secondary" href="tel:+19045375000" onclick="trackCallClick()">Call 904-537-5000</a>
   </div>
 </div>
+</main>
 
 <footer class="lp-footer">
   <div>© HydroSeal · <a href="/">hydrosealpavers.com</a> · <a href="tel:+19045375000">904.537.5000</a></div>
@@ -704,34 +744,5 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 </script>
 
-<script>
-window.addEventListener("load", function(){
-  setTimeout(function(){
-    if(!document.querySelector('script[data-hs-third-party="elfsight"]')){
-      var s=document.createElement("script");
-      s.src="https://elfsightcdn.com/platform.js";
-      s.async=true;
-      s.setAttribute("data-hs-third-party","elfsight");
-      document.body.appendChild(s);
-    }
-    if(!document.querySelector('script[data-hs-third-party="bing-uet"]')){
-      (function(w,d,t,u,o){
-        w[u]=w[u]||[]; o.ts=(new Date).getTime();
-        var n=d.createElement(t);
-        n.src="https://bat.bing.net/bat.js?ti="+o.ti+("uetq"!=u?"&q="+u:"");
-        n.async=1;
-        n.setAttribute("data-hs-third-party","bing-uet");
-        n.onload=n.onreadystatechange=function(){
-          var s=this.readyState;
-          if(!s||s==="loaded"||s==="complete"){
-            o.q=w[u]; w[u]=new UET(o); w[u].push("pageLoad"); n.onload=n.onreadystatechange=null;
-          }
-        };
-        var i=d.getElementsByTagName(t)[0]; i.parentNode.insertBefore(n,i);
-      })(window,document,"script","uetq",{ti:"97237409",enableAutoSpaTracking:true});
-    }
-  },1200);
-});
-</script>
 </body>
 </html>
