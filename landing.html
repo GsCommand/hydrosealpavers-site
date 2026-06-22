@@ -481,9 +481,9 @@
   <div class="lp-hero-wash" aria-hidden="true"></div>
   <div class="lp-hero-content">
     <div class="lp-hero-inner">
-      <div class="lp-location-pill">Nocatee · Rivertown · Ponte Vedra Beach</div>
-      <h1>Send Photos → Get Your Price Today</h1>
-      <div class="lp-hero-sub">From $1.50/sq ft · No hidden fees · Price confirmed before we start</div>
+      <div class="lp-location-pill" id="geo-area-line">Nocatee · Rivertown · Ponte Vedra Beach</div>
+      <h1 id="geo-hero-title">Paver Sealing In Nocatee &amp; Ponte Vedra Beach</h1>
+      <div class="lp-hero-sub" id="geo-hero-sub">Text Photos Of Your Driveway, Patio, Or Pool Deck For Fast Local Pricing. From $1.50/Sq Ft.</div>
       <div class="lp-cta-group">
         <a class="lp-btn-call lp-btn-primary" href="sms:+19045375000" onclick="trackSmsClick()">Text Photos → Get Price</a>
         <a class="lp-btn-call lp-btn-secondary" href="tel:+19045375000" onclick="trackCallClick()">Call 904-537-5000</a>
@@ -517,7 +517,7 @@
       </article>
     </div>
 
-    <h2 class="lp-section-title lp-pricing-heading">Transparent Professional Pricing</h2>
+    <h2 class="lp-section-title lp-pricing-heading" id="geo-pricing-title">Nocatee &amp; Ponte Vedra Paver Sealing Pricing</h2>
     <p class="lp-section-sub">We tell you exactly what affects your price before we start. No vague estimates, no upsells on the day.</p>
 
     <div class="lp-pricing-table">
@@ -633,7 +633,7 @@ I highly recommend HydroSeal.</p>
 
 <!-- Bottom CTA -->
 <div class="lp-bottom-cta">
-  <h2>Ready to Lock In Your Project?</h2>
+  <h2 id="geo-bottom-title">Ready To Lock In Your Paver Sealing Project?</h2>
   <p>Schedule your paver sealing with a confirmed price, clear scope of work, and full transparency from start to finish.</p>
   <div class="lp-cta-group">
     <a class="lp-btn-call lp-btn-primary" href="sms:+19045375000" onclick="trackSmsClick()">Text Photos → Get Price</a>
@@ -649,6 +649,55 @@ I highly recommend HydroSeal.</p>
   <a class="mobile-callbar-btn" href="sms:+19045375000" onclick="trackSmsClick()" style="background:#22c55e;" aria-label="Text photos to HydroSeal">Text Photos</a>
   <a class="mobile-callbar-btn" href="tel:+19045375000" onclick="trackCallClick()" aria-label="Call HydroSeal">Call</a>
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  const GEO_MAP = {
+    nocatee: {
+      name: "Nocatee",
+      areaLine: "Nocatee · Rivertown · Ponte Vedra Beach",
+      heroTitle: "Paver Sealing In Nocatee",
+      heroSub: "Text Photos Of Your Driveway, Patio, Or Pool Deck For Fast Nocatee Pricing. From $1.50/Sq Ft.",
+      pricingTitle: "Nocatee Paver Sealing Pricing",
+      bottomTitle: "Ready To Lock In Your Nocatee Paver Sealing Project?"
+    },
+    "ponte-vedra": {
+      name: "Ponte Vedra Beach",
+      areaLine: "Ponte Vedra Beach · Palm Valley · Nocatee",
+      heroTitle: "Paver Sealing In Ponte Vedra Beach",
+      heroSub: "Text Photos Of Your Driveway, Patio, Or Pool Deck For Fast Ponte Vedra Pricing. From $1.50/Sq Ft.",
+      pricingTitle: "Ponte Vedra Paver Sealing Pricing",
+      bottomTitle: "Ready To Lock In Your Ponte Vedra Paver Sealing Project?"
+    },
+    default: {
+      name: "Nocatee & Ponte Vedra Beach",
+      areaLine: "Nocatee · Rivertown · Ponte Vedra Beach",
+      heroTitle: "Paver Sealing In Nocatee & Ponte Vedra Beach",
+      heroSub: "Text Photos Of Your Driveway, Patio, Or Pool Deck For Fast Local Pricing. From $1.50/Sq Ft.",
+      pricingTitle: "Nocatee & Ponte Vedra Paver Sealing Pricing",
+      bottomTitle: "Ready To Lock In Your Paver Sealing Project?"
+    }
+  };
+
+  const params = new URLSearchParams(window.location.search);
+  const geo = params.get("geo");
+  const geoCopy = GEO_MAP[geo] || GEO_MAP.default;
+  const updates = {
+    "geo-area-line": geoCopy.areaLine,
+    "geo-hero-title": geoCopy.heroTitle,
+    "geo-hero-sub": geoCopy.heroSub,
+    "geo-pricing-title": geoCopy.pricingTitle,
+    "geo-bottom-title": geoCopy.bottomTitle
+  };
+
+  Object.keys(updates).forEach(function(id){
+    const element = document.getElementById(id);
+    if(element){
+      element.textContent = updates[id];
+    }
+  });
+});
+</script>
 
 <script>
 window.addEventListener("load", function(){
