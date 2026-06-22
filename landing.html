@@ -17,12 +17,24 @@
     gtag('config', 'AW-17972657888');
   }
   window.addEventListener('load', function(){ setTimeout(loadGoogleTags, 1200); });
-  function trackCall() {
+  var GOOGLE_ADS_CALL_CONVERSION = 'AW-17972657888/phone_call_click';
+  var GOOGLE_ADS_SMS_CONVERSION = 'AW-17972657888/sms_text_photo_click';
+
+  function trackCallClick() {
     loadGoogleTags();
     gtag('event', 'conversion', {
-      'send_to': 'AW-17972657888',
+      'send_to': GOOGLE_ADS_CALL_CONVERSION,
       'event_category': 'phone_call',
       'event_label': 'landing_page_call'
+    });
+  }
+
+  function trackSmsClick() {
+    loadGoogleTags();
+    gtag('event', 'conversion', {
+      'send_to': GOOGLE_ADS_SMS_CONVERSION,
+      'event_category': 'sms_text_photo',
+      'event_label': 'landing_page_sms'
     });
   }
 </script>
@@ -473,8 +485,8 @@
       <h1>Send Photos → Get Your Price Today</h1>
       <div class="lp-hero-sub">From $1.50/sq ft · No hidden fees · Price confirmed before we start</div>
       <div class="lp-cta-group">
-        <a class="lp-btn-call lp-btn-primary" href="sms:+19045375000">Text Photos → Get Price</a>
-        <a class="lp-btn-call lp-btn-secondary" href="tel:+19045375000" onclick="trackCall()">Call 904-537-5000</a>
+        <a class="lp-btn-call lp-btn-primary" href="sms:+19045375000" onclick="trackSmsClick()">Text Photos → Get Price</a>
+        <a class="lp-btn-call lp-btn-secondary" href="tel:+19045375000" onclick="trackCallClick()">Call 904-537-5000</a>
       </div>
     </div>
   </div>
@@ -624,8 +636,8 @@ I highly recommend HydroSeal.</p>
   <h2>Ready to Lock In Your Project?</h2>
   <p>Schedule your paver sealing with a confirmed price, clear scope of work, and full transparency from start to finish.</p>
   <div class="lp-cta-group">
-    <a class="lp-btn-call lp-btn-primary" href="sms:+19045375000">Text Photos → Get Price</a>
-    <a class="lp-btn-call lp-btn-secondary" href="tel:+19045375000" onclick="trackCall()">Call 904-537-5000</a>
+    <a class="lp-btn-call lp-btn-primary" href="sms:+19045375000" onclick="trackSmsClick()">Text Photos → Get Price</a>
+    <a class="lp-btn-call lp-btn-secondary" href="tel:+19045375000" onclick="trackCallClick()">Call 904-537-5000</a>
   </div>
 </div>
 
@@ -634,8 +646,8 @@ I highly recommend HydroSeal.</p>
 </footer>
 
 <div class="mobile-contactbar" aria-label="HydroSeal mobile contact options">
-  <a class="mobile-callbar-btn" href="sms:+19045375000" style="background:#22c55e;" aria-label="Text photos to HydroSeal">Text Photos</a>
-  <a class="mobile-callbar-btn" href="tel:+19045375000" onclick="trackCall()" aria-label="Call HydroSeal">Call</a>
+  <a class="mobile-callbar-btn" href="sms:+19045375000" onclick="trackSmsClick()" style="background:#22c55e;" aria-label="Text photos to HydroSeal">Text Photos</a>
+  <a class="mobile-callbar-btn" href="tel:+19045375000" onclick="trackCallClick()" aria-label="Call HydroSeal">Call</a>
 </div>
 
 <script>
