@@ -46,8 +46,8 @@
   ['click','touchstart','keydown','scroll'].forEach(function(eventName){
     window.addEventListener(eventName, loadDeferredThirdParty, { once: true, passive: true });
   });
-  var GOOGLE_ADS_CALL_CONVERSION = 'AW-17972657888/phone_call_click';
-  var GOOGLE_ADS_SMS_CONVERSION = 'AW-17972657888/sms_text_photo_click';
+  var GOOGLE_ADS_CALL_CONVERSION = 'AW-17972657888/R8u5CP_AzYwcEOD9g_pC';
+  var GOOGLE_ADS_SMS_CONVERSION = 'AW-17972657888/R8u5CP_AzYwcEOD9g_pC';
 
   function trackCallClick() {
     loadGoogleTags();
@@ -687,7 +687,7 @@ I highly recommend HydroSeal.</p>
 </main>
 
 <footer class="lp-footer">
-  <div>© HydroSeal · <a href="/">hydrosealpavers.com</a> · <a href="tel:+19045375000">904.537.5000</a></div>
+  <div>© HydroSeal · <a href="/">hydrosealpavers.com</a> · <a href="tel:+19045375000" onclick="trackCallClick()">904.537.5000</a></div>
 </footer>
 
 <div class="mobile-contactbar" aria-label="HydroSeal mobile contact options">
