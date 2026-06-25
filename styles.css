@@ -2994,3 +2994,22 @@ header .brand-logo {
 header > .container {
   width: 100%;
 }
+
+/* Homepage hero: wide Nocatee driveway visual strip. */
+body.page-home .hero2{
+  min-height: clamp(360px, 46vw, 520px);
+  background:#6f563f;
+}
+
+body.page-home .hero2 > img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center center;
+}
+
+@media (max-width:860px){
+  body.page-home .hero2{
+    min-height: clamp(240px, 72vw, 320px);
+  }
+}
