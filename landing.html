@@ -1,10 +1,15 @@
 <!doctype html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) delayed to protect initial hero render -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+<!-- Deferred analytics + third-party loader (protects initial hero render) -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+
+  // Loads gtag.js (GA4 + Google Ads) once
   function loadGoogleTags(){
     if (window.__hsGoogleTagsLoaded) return;
     window.__hsGoogleTagsLoaded = true;
@@ -17,16 +22,21 @@
     gtag('config', 'AW-17972657888');
   }
 
-  <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TZRVQNJ3');</script>
-<!-- End Google Tag Manager -->
+  // Loads the GTM container once
+  function loadGTM(){
+    if (window.__hsGtmLoaded) return;
+    window.__hsGtmLoaded = true;
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TZRVQNJ3');
+  }
 
   function loadDeferredThirdParty(){
     loadGoogleTags();
+    loadGTM();
+
     if(!document.querySelector('script[data-hs-third-party="elfsight"]')){
       var elfsightScript=document.createElement('script');
       elfsightScript.src='https://elfsightcdn.com/platform.js';
@@ -34,6 +44,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       elfsightScript.setAttribute('data-hs-third-party','elfsight');
       document.body.appendChild(elfsightScript);
     }
+
     if(!document.querySelector('script[data-hs-third-party="bing-uet"]')){
       (function(w,d,t,u,o){
         w[u]=w[u]||[]; o.ts=(new Date).getTime();
@@ -51,14 +62,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       })(window,document,'script','uetq',{ti:'97237409',enableAutoSpaTracking:true});
     }
   }
+
   window.addEventListener('load', function(){ setTimeout(loadDeferredThirdParty, 2500); });
   ['click','touchstart','keydown','scroll'].forEach(function(eventName){
     window.addEventListener(eventName, loadDeferredThirdParty, { once: true, passive: true });
   });
-  var GOOGLE_ADS_CALL_CONVERSION = 'AW-17972657888/R8u5CP_AzYwcEOD9g_pC';
-  var GOOGLE_ADS_SMS_CONVERSION = 'AW-17972657888/R8u5CP_AzYwcEOD9g_pC';
 
-  function trackCallClick() {
+  var GOOGLE_ADS_CALL_CONVERSION = 'AW-17972657888/R8u5CP_AzYwcEOD9g_pC';
+  var GOOGLE_ADS_SMS_CONVERSION  = 'AW-17972657888/R8u5CP_AzYwcEOD9g_pC';
+
+  function trackCallClick(){
     loadGoogleTags();
     gtag('event', 'conversion', {
       'send_to': GOOGLE_ADS_CALL_CONVERSION,
@@ -67,7 +80,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     });
   }
 
-  function trackSmsClick() {
+  function trackSmsClick(){
     loadGoogleTags();
     gtag('event', 'conversion', {
       'send_to': GOOGLE_ADS_SMS_CONVERSION,
@@ -77,18 +90,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
 </script>
 
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" href="/assets/favicons/favicon.ico" sizes="any" />
 <link rel="apple-touch-icon" href="/assets/favicons/apple-touch-icon.png" />
 <meta name="theme-color" content="#0F6EA8" />
 <meta name="robots" content="index,follow,max-image-preview:large" />
 <meta name="description" content="Professional paver sealing by HydroSeal for Jacksonville, Ponte Vedra, Nocatee, Rivertown, and St. Johns County. Trident Master Certified, licensed and insured, with free quotes and a 2-year workmanship warranty." />
 <link rel="canonical" href="https://hydrosealpavers.com/landing" />
-<title>Paver Sealing — Nocatee & Ponte Vedra  | HydroSeal</title>
+<title>Paver Sealing — Nocatee & Ponte Vedra | HydroSeal</title>
+
 <link id="preload_final_lock" rel="preload" as="image" href="/assets/hero/paver-pool-deck-sealing.jpeg" fetchpriority="high">
 <link rel="preload" href="/styles.css?v=20260620-landing" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="/styles.css?v=20260620-landing"></noscript>
+</head>
 
 <style>
   *, *::before, *::after { box-sizing: border-box; }
