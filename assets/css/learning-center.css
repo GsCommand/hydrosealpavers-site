@@ -459,6 +459,56 @@ body.page-learning-center {
   }
 }
 
+/* Shared Learning Center article template. Kept at the end to retire the
+   older card-and-sidebar treatment without affecting the Learning Center hub. */
+.page-learning-center .learning-article { background: #fff; color: #24445e; }
+.page-learning-center .learning-article__column { width: min(100% - 40px, 780px); margin-inline: auto; }
+.page-learning-center .learning-article__header { padding: 42px 0 24px; background: #f7fbfe; }
+.page-learning-center .learning-article__breadcrumbs { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 28px; color: #5d7181; font-size: .9rem; line-height: 1.5; }
+.page-learning-center .learning-article__breadcrumbs a { color: #0f5d92; text-decoration: underline; text-underline-offset: 3px; }
+.page-learning-center .learning-article__category { display: block; margin-bottom: 12px; color: #0f6aa7; font-size: .79rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.page-learning-center .learning-article h1 { max-width: 20ch; margin: 0 0 16px; color: #0f2e4f; font-size: clamp(2rem, 5vw, 3.3rem); line-height: 1.12; letter-spacing: -.025em; }
+.page-learning-center .learning-article__intro { max-width: 68ch; margin: 0; color: #38566e; font-size: clamp(1.08rem, 2vw, 1.22rem); line-height: 1.7; }
+.page-learning-center .learning-article__hero { width: min(100% - 40px, 1040px); margin: 18px auto 42px; }
+.page-learning-center .learning-article__hero img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 18px; background: #eaf2f7; }
+.page-learning-center .learning-article__hero figcaption { margin-top: 8px; color: #647887; font-size: .82rem; }
+.page-learning-center .learning-article__body { padding-bottom: 36px; }
+.page-learning-center .learning-article__body > section { margin: 0 0 34px; }
+.page-learning-center .learning-article__body h2 { margin: 0 0 14px; color: #0f2e4f; font-size: clamp(1.45rem, 3vw, 2rem); line-height: 1.24; }
+.page-learning-center .learning-article__body h3 { margin: 28px 0 10px; color: #173d5d; font-size: clamp(1.14rem, 2vw, 1.35rem); line-height: 1.35; }
+.page-learning-center .learning-article__body p, .page-learning-center .learning-article__body li { color: #39566d; font-size: 1.06rem; line-height: 1.78; }
+.page-learning-center .learning-article__body p { margin: 0 0 18px; }
+.page-learning-center .learning-article__body ul, .page-learning-center .learning-article__body ol { margin: 0 0 22px; padding-left: 1.35rem; }
+.page-learning-center .learning-article__body li + li { margin-top: 8px; }
+.page-learning-center .learning-article__body a { color: #075f98; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.page-learning-center .learning-article__body .lc-takeaways-card { margin-bottom: 34px; padding: 22px 24px; border: 1px solid #cfe4f3; border-radius: 14px; background: #eff8fd; }
+.page-learning-center .learning-article__body .lc-faq-item { margin-bottom: 10px; padding: 0; border: 1px solid #d8e5ed; border-radius: 10px; box-shadow: none; }
+.page-learning-center .learning-article__body .lc-faq-item summary { padding: 15px 18px; color: #163b5b; font-weight: 700; cursor: pointer; }
+.page-learning-center .learning-article__body .lc-faq-item p { padding: 0 18px 16px; margin: 0; }
+.page-learning-center .learning-article__body .lc-table-wrap { max-width: 100%; overflow-x: auto; }
+.page-learning-center .learning-article__cta { padding: 52px 0; background: #eef7fc; }
+.page-learning-center .learning-article__cta > div > span { color: #0f6aa7; font-size: .8rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.page-learning-center .learning-article__cta h2, .page-learning-center .learning-article__related h2, .page-learning-center .learning-article__topics h2 { margin: 10px 0 10px; color: #0f2e4f; font-size: clamp(1.5rem, 3vw, 2.15rem); }
+.page-learning-center .learning-article__cta p { max-width: 62ch; margin: 0 0 22px; color: #3d5a70; line-height: 1.7; }
+.page-learning-center .learning-article__cta div div { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; }
+.page-learning-center .learning-article__call { color: #075f98; font-weight: 700; }
+.page-learning-center .learning-article__related { padding: 54px 0; }
+.page-learning-center .learning-article__related-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.page-learning-center .learning-article-card { overflow: hidden; border: 1px solid #d8e5ed; border-radius: 14px; background: #fff; }
+.page-learning-center .learning-article-card img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #eaf2f7; }
+.page-learning-center .learning-article-card div { padding: 19px; }
+.page-learning-center .learning-article-card span { color: #0f6aa7; font-size: .76rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.page-learning-center .learning-article-card h3 { margin: 8px 0; color: #0f2e4f; font-size: 1.12rem; line-height: 1.35; }
+.page-learning-center .learning-article-card p { margin: 0 0 14px; color: #526d80; font-size: .95rem; line-height: 1.58; }
+.page-learning-center .learning-article-card a { color: #075f98; font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
+.page-learning-center .learning-article__topics { padding: 34px 0 56px; border-top: 1px solid #dce7ee; background: #f9fcfe; }
+.page-learning-center .learning-article__topics h2 { font-size: 1.4rem; }
+.page-learning-center .learning-article__topics div div { display: flex; flex-wrap: wrap; gap: 10px; }
+.page-learning-center .learning-article__topics a { padding: 9px 12px; border: 1px solid #cddfea; border-radius: 999px; color: #0f5d92; font-size: .9rem; font-weight: 700; background: #fff; }
+.page-learning-center .learning-article a:focus-visible { outline: 3px solid #39bfea; outline-offset: 3px; }
+@media (hover: hover) and (pointer: fine) { .page-learning-center .learning-article-card:hover { border-color: #a8cada; box-shadow: 0 10px 24px rgba(17,46,78,.1); } }
+@media (max-width: 760px) { .page-learning-center .learning-article__column, .page-learning-center .learning-article__hero { width: min(100% - 32px, 780px); } .page-learning-center .learning-article__header { padding-top: 28px; } .page-learning-center .learning-article__breadcrumbs { margin-bottom: 20px; } .page-learning-center .learning-article__hero { margin-bottom: 30px; } .page-learning-center .learning-article__related-grid { grid-template-columns: 1fr; } .page-learning-center .learning-article__cta { padding: 38px 0; } }
+
 @media (prefers-reduced-motion: reduce) {
   .page-learning-center .lc-card,
   .page-learning-center .lc-quick-links a,
