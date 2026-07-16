@@ -2962,35 +2962,26 @@ body.page-service-areas .service-areas-intro-ctas{
   }
 }
 
-/* HARD LOCK HEADER LOGO PROPORTIONS */
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+/* Keep the shared header logo at its intended size; do not constrain all header images. */
+.header .brand-logo {
+  width: 250px;
+  max-width: 250px;
+  height: auto;
 }
 
-header .logo,
-header .lp-logo,
-header .brand {
-  flex: 0 0 auto !important;
-  display: flex;
-  align-items: center;
+/* Suppress click-only browser outlines without removing keyboard focus feedback. */
+.header :is(a, button):focus {
+  outline: none;
 }
 
-header img,
-header .logo img,
-.lp-logo img,
-header .brand-logo {
-  width: auto !important;
-  height: 44px !important;
-  max-height: 44px !important;
-  max-width: none !important;
-  object-fit: contain !important;
-  display: block !important;
-  flex-shrink: 0 !important;
-  align-self: center;
+.header :is(a, button):focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
 }
 
-header > .container {
-  width: 100%;
+@media (max-width:520px){
+  .header .brand-logo{
+    width:210px;
+    max-width:210px;
+  }
 }

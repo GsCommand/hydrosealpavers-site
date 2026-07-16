@@ -197,6 +197,7 @@
 
   // Run now (in case header is already in DOM)
   initAllNav();
+  document.addEventListener("includes:ready", initAllNav);
 
   window.addEventListener("resize", moveTrustbarForMobile);
 
