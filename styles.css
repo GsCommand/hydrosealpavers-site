@@ -2962,7 +2962,7 @@ body.page-service-areas .service-areas-intro-ctas{
   }
 }
 
-/* HARD LOCK HEADER LOGO PROPORTIONS */
+/* Sitewide header logo sizing: keep the mark prominent without changing its ratio. */
 header {
   display: flex;
   align-items: center;
@@ -2982,13 +2982,27 @@ header .logo img,
 .lp-logo img,
 header .brand-logo {
   width: auto !important;
-  height: 44px !important;
-  max-height: 44px !important;
+  height: 64px !important;
+  max-height: 64px !important;
   max-width: none !important;
   object-fit: contain !important;
   display: block !important;
   flex-shrink: 0 !important;
   align-self: center;
+}
+
+@media (max-width: 980px) {
+  header .brand-logo {
+    height: 52px !important;
+    max-height: 52px !important;
+  }
+}
+
+@media (max-width: 520px) {
+  header .brand-logo {
+    height: 48px !important;
+    max-height: 48px !important;
+  }
 }
 
 header > .container {
