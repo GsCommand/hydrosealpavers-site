@@ -12,6 +12,7 @@ import html
 import json
 import re
 from dataclasses import dataclass
+from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path("learning-center")
@@ -83,6 +84,81 @@ def remove_section_class(body: str, class_name: str) -> str:
         body = body[:block[1]] + body[block[2]:]
     return body
 
+class ArticleBodyNormalizer(HTMLParser):
+    """Keep article copy while removing legacy layout-only wrappers."""
+    UNWRAP_CLASSES = {
+        "container", "lc-detail-section", "lc-detail-stack", "lc-prose-layout", "lc-prose",
+        "lc-section-heading", "lc-section-heading--left", "section-heading", "lc-faq-list",
+    }
+    SECTION_CLASSES = {"lc-prose-section", "lc-article-section", "lc-faq-item", "lc-takeaways-card", "lc-process-box"}
+    KEEP_CLASSES = {"lc-table-wrap", "table-wrap", "lc-compare-table", "lc-list-check"}
+    VOID_TAGS = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"}
+
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=False)
+        self.output: list[str] = []
+        self.stack: list[tuple[str, str | None]] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        classes = set(dict(attrs).get("class", "").split())
+        if tag == "aside":
+            tag = "section"
+            classes = set()
+        if classes & self.UNWRAP_CLASSES:
+            self.stack.append((tag, None))
+            return
+        output_tag = "section" if classes & self.SECTION_CLASSES else tag
+        kept_attrs = [(key, value) for key, value in attrs if key != "class" or value in self.KEEP_CLASSES]
+        self.output.append("<" + output_tag + "".join(
+            f' {key}' if value is None else f' {key}="{html.escape(value, quote=True)}"'
+            for key, value in kept_attrs
+        ) + ">")
+        if tag not in self.VOID_TAGS:
+            self.stack.append((tag, output_tag))
+
+    def handle_startendtag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        self.handle_starttag(tag, attrs)
+        if tag not in self.VOID_TAGS:
+            self.handle_endtag(tag)
+
+    def handle_endtag(self, tag: str) -> None:
+        if not self.stack:
+            return
+        _, output_tag = self.stack.pop()
+        if output_tag:
+            self.output.append(f"</{output_tag}>")
+
+    def handle_data(self, data: str) -> None:
+        self.output.append(data)
+
+    def handle_entityref(self, name: str) -> None:
+        self.output.append(f"&{name};")
+
+    def handle_charref(self, name: str) -> None:
+        self.output.append(f"&#{name};")
+
+    def handle_comment(self, data: str) -> None:
+        self.output.append(f"<!--{data}-->")
+
+def normalize_article_body(body: str) -> str:
+    """Convert old card-and-sidebar article markup into a single prose flow."""
+    body = remove_section_class(body, "lc-detail-hero")
+    # Related-reading blocks from old templates duplicate the shared related-guides section.
+    while True:
+        related_section = None
+        for match in re.finditer(r'<section\b[^>]*\blc-detail-section\b[^>]*>', body, re.I):
+            block = tag_block(body, "section", match.start())
+            if block and "lc-related-grid" in block[0]:
+                related_section = block
+                break
+        if not related_section:
+            break
+        body = body[:related_section[1]] + body[related_section[2]:]
+    parser = ArticleBodyNormalizer()
+    parser.feed(body)
+    parser.close()
+    return "".join(parser.output).strip()
+
 def read_guide(path: Path) -> Guide:
     source = path.read_text(encoding="utf-8")
     category = path.parts[1]
@@ -103,6 +179,7 @@ def read_guide(path: Path) -> Guide:
     body = remove_section_class(body, "learning-article__topics")
     body = re.sub(r'<h1\b[^>]*>.*?</h1>', '', body, flags=re.I | re.S)
     body = re.sub(r'placeholder', 'general', body, flags=re.I)
+    body = normalize_article_body(body)
     header = source[source.lower().find("<body"): source.lower().find("<main")]
     header = re.sub(r'<nav class="breadcrumb"[^>]*>.*?</nav>', '', header, flags=re.I | re.S)
     footer_match = tag_block(source, "footer")
