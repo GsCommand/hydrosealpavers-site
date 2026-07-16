@@ -3,44 +3,6 @@
     return (el && el.textContent ? el.textContent : '').trim();
   }
 
-  function estimateReadTime(contentEl) {
-    var words = text(contentEl).split(/\s+/).filter(Boolean).length;
-    return Math.max(3, Math.round(words / 220));
-  }
-
-  function detectLocation(titleText, bodyText) {
-    var combined = (titleText + ' ' + bodyText).toLowerCase();
-    if (combined.includes('nocatee')) return 'Nocatee, FL';
-    if (combined.includes('ponte vedra')) return 'Ponte Vedra, FL';
-    if (combined.includes('jacksonville')) return 'Jacksonville, FL';
-    return 'Florida';
-  }
-
-  function buildMetaRow(readTime, locationTag) {
-    var meta = document.createElement('div');
-    meta.className = 'lc-article-meta';
-    meta.innerHTML =
-      '<span>Updated March 2026</span>' +
-      '<span>' + readTime + ' min read</span>' +
-      '<span>' + locationTag + '</span>';
-    return meta;
-  }
-
-  function ensureFeaturedImage(hero, content) {
-    if (!hero || !content || document.querySelector('.lc-featured-media')) return;
-    var styleValue = hero.getAttribute('style') || '';
-    var urlMatch = styleValue.match(/--lc-hero-image:\s*url\(['\"]?([^'\")]+)['\"]?\)/i);
-    if (!urlMatch || !urlMatch[1]) return;
-
-    var figure = document.createElement('figure');
-    figure.className = 'lc-featured-media';
-    figure.innerHTML =
-      '<img src="' + urlMatch[1] + '" alt="Featured image for this learning center article" loading="eager" decoding="async">' +
-      '<figcaption>Jacksonville Guide</figcaption>';
-
-    hero.insertAdjacentElement('afterend', figure);
-  }
-
   function styleTakeaways(article) {
     if (!article) return;
     var sections = article.querySelectorAll('.lc-article-section');
@@ -103,47 +65,12 @@
     faqSection.dataset.enhanced = 'true';
   }
 
-  function enhanceSidebar() {
-    var sidebar = document.querySelector('.lc-article-sidebar');
-    if (!sidebar) return;
-    if (!sidebar.querySelector('.lc-side-card--numbers')) {
-      var numbers = document.createElement('div');
-      numbers.className = 'lc-side-card lc-side-card--numbers';
-      numbers.innerHTML = '<h2>Key Numbers</h2><ul><li><strong>Starting Price:</strong> Most jobs start around $900</li><li><strong>Typical Driveway:</strong> $900–$1,800</li><li><strong>Reseal Cycle:</strong> 2–3 years</li></ul>';
-      sidebar.appendChild(numbers);
-    }
-    if (!sidebar.querySelector('.lc-side-card--trust')) {
-      var trust = document.createElement('div');
-      trust.className = 'lc-side-card lc-side-card--trust';
-      trust.innerHTML = '<h2>Why Homeowners Choose HydroSeal</h2><ul><li>Master Certified Trident company</li><li>Jacksonville-based crews</li><li>Serving Duval, St. Johns, and Clay</li></ul>';
-      sidebar.appendChild(trust);
-    }
-  }
-
   document.addEventListener('DOMContentLoaded', function () {
     if (!document.body.classList.contains('lc-article-page')) return;
 
-    var hero = document.querySelector('.lc-hero--article .lc-hero-shell');
-    var subhead = hero && hero.querySelector('.lc-subhead');
-    var article = document.querySelector('.lc-article-content');
-    if (hero && subhead && !hero.querySelector('.lc-article-meta')) {
-      var readTime = estimateReadTime(article);
-      var locationTag = detectLocation(text(document.querySelector('h1')), text(article));
-      subhead.insertAdjacentElement('afterend', buildMetaRow(readTime, locationTag));
-    }
-
-    ensureFeaturedImage(document.querySelector('.lc-hero--article'), document.querySelector('.lc-article-body'));
+    var article = document.querySelector('.learning-article__body');
     styleTakeaways(article);
     styleReusableBlocks(article);
     enhanceFaq(article);
-    enhanceSidebar();
-
-    var cta = document.querySelector('.lc-soft-cta--inline .lc-soft-cta-shell');
-    if (cta && !cta.querySelector('.lc-cta-trust')) {
-      var trustList = document.createElement('ul');
-      trustList.className = 'lc-cta-trust';
-      trustList.innerHTML = '<li>Master Certified Trident Company</li><li>Serving Jacksonville, Nocatee, and Ponte Vedra</li><li>Most jobs start around $900</li>';
-      cta.appendChild(trustList);
-    }
   });
 })();
