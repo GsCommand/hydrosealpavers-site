@@ -49,10 +49,6 @@
       "destination": "/sitemap.html"
     },
     {
-      "source": "/rss.xml",
-      "destination": "/rss.xml"
-    },
-    {
       "source": "/:path*",
       "destination": "/:path*.html"
     }
