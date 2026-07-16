@@ -1399,3 +1399,23 @@ body.page-learning-center-detail {
     gap: 10px;
   }
 }
+
+/* Shared article reading flow: article sections stay in one uninterrupted
+   editorial column. CTA and related-guide components intentionally remain
+   visually distinct outside this body. */
+.page-learning-center .learning-article__body {
+  padding-bottom: 44px;
+}
+
+.page-learning-center .learning-article__body > section {
+  margin: 0 0 38px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.page-learning-center .learning-article__body > section:last-child {
+  margin-bottom: 0;
+}
