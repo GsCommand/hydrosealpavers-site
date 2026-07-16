@@ -160,13 +160,9 @@
 
     #county-links-clay .clay-tier-grid{
       display:grid;
-      grid-template-columns:repeat(4,minmax(0,1fr));
+      grid-template-columns:1fr;
       gap:14px;
       margin-top:16px;
-    }
-
-    #county-links-clay .clay-tier-grid + h3{
-      margin-top:24px;
     }
 
     #county-links-clay .service-card{
@@ -258,50 +254,6 @@
       transition: transform .2s ease;
     }
 
-    #county-links-clay .clay-tier-grid.clay-tier-grid-secondary .service-card{
-      min-height: 90px;
-      padding: 8px 10px;
-      background:
-        linear-gradient(135deg,
-          rgba(255,255,255,0.82) 0%,
-          rgba(255,244,231,0.88) 45%,
-          rgba(255,237,213,0.90) 100%);
-      border-color: rgba(251,146,60,0.19);
-      box-shadow: 0 8px 20px rgba(20, 35, 60, 0.06);
-    }
-
-    #county-links-clay .clay-tier-grid.clay-tier-grid-secondary .service-card::before{
-      opacity: .66;
-      filter: blur(7px);
-    }
-
-    #county-links-clay .clay-tier-grid.clay-tier-grid-secondary .service-card h3{
-      font-size: 1.1rem;
-      margin-bottom: 4px;
-    }
-
-    #county-links-clay .clay-tier-grid.clay-tier-grid-secondary .service-card p{
-      font-size: 13px;
-      margin-bottom: 7px;
-    }
-
-    @media (hover:hover) and (pointer:fine){
-      #county-links-clay .clay-tier-grid.clay-tier-grid-secondary .service-card:hover,
-      #county-links-clay .clay-tier-grid.clay-tier-grid-secondary .service-card:focus-visible{
-        transform: translateY(-1px);
-        background:
-          linear-gradient(135deg,
-            rgba(255,255,255,0.86) 0%,
-            rgba(255,244,231,0.92) 42%,
-            rgba(255,237,213,0.94) 100%);
-        border-color: rgba(251,146,60,0.24);
-        box-shadow:
-          0 12px 24px rgba(124,45,18,0.1),
-          0 0 0 1px rgba(251,146,60,0.14),
-          0 0 18px rgba(251,146,60,0.1);
-      }
-    }
-
     @media (hover:hover) and (pointer:fine){
       #county-links-clay .service-card:hover,
       #county-links-clay .service-card:focus-visible{
@@ -337,15 +289,21 @@
 
     @media (max-width: 900px){ .hazard-split{ grid-template-columns: 1fr; } .hazard-hero{ min-height: 260px; } .hazard-hero img{ min-height:260px; } }
 
-    @media (max-width: 980px){
+    @media (min-width: 641px){
       #county-links-clay .clay-tier-grid{
         grid-template-columns:repeat(2,minmax(0,1fr));
       }
     }
 
-    @media (max-width: 640px){
+    @media (min-width: 900px){
       #county-links-clay .clay-tier-grid{
-        grid-template-columns:1fr;
+        grid-template-columns:repeat(3,minmax(0,1fr));
+      }
+    }
+
+    @media (min-width: 1200px){
+      #county-links-clay .clay-tier-grid{
+        grid-template-columns:repeat(5,minmax(0,1fr));
       }
     }
   </style>
@@ -575,17 +533,12 @@
           <p>Larger properties with strong UV exposure and weather-driven surface wear.</p>
           <strong>View neighborhood page <span class="arrow" aria-hidden="true">→</span></strong>
         </a>
-      </div>
-
-      <h3 class="section-title" style="font-size:clamp(1.4rem,2.2vw,1.8rem);">More Clay Communities</h3>
-      <div class="clay-tier-grid clay-tier-grid-secondary">
 
         <a class="card service-card" href="/service-areas/clay-county/green-cove-springs">
           <h3>Green Cove Springs</h3>
           <p>River-influenced conditions where moisture management drives maintenance timing.</p>
           <strong>View neighborhood page <span class="arrow" aria-hidden="true">→</span></strong>
         </a>
-
       </div>
     </div>
   </section>
