@@ -1,0 +1,40 @@
+name: Rebuild Learning Center
+
+on:
+  push:
+    branches:
+      - learning-center-20-article-rebuild
+    paths:
+      - tools/build-learning-center-articles.py
+      - learning-center/**
+      - .github/workflows/rebuild-learning-center.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: learning-center-20-article-rebuild
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Consolidate and rebuild
+        run: python tools/build-learning-center-articles.py
+      - name: Verify text-only output
+        run: |
+          test "$(find learning-center -mindepth 3 -name index.html | wc -l)" -eq 20
+          ! grep -RIlE '<(img|picture|figure|source)\b|og:image|twitter:image' learning-center --include='*.html'
+          ! grep -RIl 'This guide outlines the practical checks and next steps homeowners can use when evaluating this paver concern.' learning-center --include='*.html'
+      - name: Commit generated rebuild
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add learning-center vercel.json
+          git diff --cached --quiet || git commit -m "Consolidate Learning Center to 20 text-only articles"
+          git push
