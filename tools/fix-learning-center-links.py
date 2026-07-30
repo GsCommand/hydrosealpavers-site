@@ -30,7 +30,6 @@ for path in Path('.').rglob('*.html'):
     original = text
     for old, new in MAPPING.items():
         text = text.replace(old, new)
-    # Replace retired category landing links with the final directory.
     for category in ('cleaning','local','maintenance','problems','sealing','search','surfaces','travertine','video-tutorials','warranty'):
         text = text.replace(f'/learning-center/{category}"', '/learning-center"')
         text = text.replace(f'/learning-center/{category}/"', '/learning-center"')
