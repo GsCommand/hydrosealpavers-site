@@ -207,6 +207,15 @@ body.page-learning-center.blog-story-prototype {
   background: #edf3f7;
 }
 
+body.page-learning-center.blog-story-prototype > header:first-of-type {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: block;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(28, 58, 80, .12);
+}
+
 .page-learning-center.blog-story-prototype main {
   background: transparent;
   padding: 26px 0 0;
