@@ -1,14 +1,6 @@
 name: Rebuild Learning Center
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - tools/build-learning-center-articles.py
-      - learning-center/**
-      - assets/css/learning-center.css
-      - .github/workflows/rebuild-learning-center.yml
   workflow_dispatch:
 
 permissions:
@@ -16,7 +8,6 @@ permissions:
 
 jobs:
   rebuild:
-    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -34,10 +25,3 @@ jobs:
           ! grep -RIl 'This guide outlines the practical checks and next steps homeowners can use when evaluating this paver concern.' learning-center --include='*.html'
           test ! -d learning-center/search
           test ! -d learning-center/video-tutorials
-      - name: Commit generated rebuild
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add learning-center
-          git diff --cached --quiet || git commit -m "Delete retired Learning Center pages and rebuild 20 articles"
-          git push
