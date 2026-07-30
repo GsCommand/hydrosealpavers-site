@@ -219,6 +219,7 @@ body.page-learning-center.blog-story-prototype > header:first-of-type {
 .page-learning-center.blog-story-prototype main {
   background: transparent;
   padding: 26px 0 0;
+  margin: 0;
 }
 
 .page-learning-center.blog-story-prototype .blog-post {
@@ -338,6 +339,25 @@ body.page-learning-center.blog-story-prototype > header:first-of-type {
 .page-learning-center.blog-story-prototype .blog-post__cta h2 {
   font-size: 1.25rem;
   font-weight: 800;
+}
+
+/* Remove all spacing between the article CTA and the global footer. */
+body.page-learning-center.blog-story-prototype > footer,
+body.page-learning-center.blog-story-prototype > footer.is-loaded,
+body.page-learning-center.blog-story-prototype > footer .footer,
+body.page-learning-center.blog-story-prototype > footer .site-footer {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+body.page-learning-center.blog-story-prototype > footer {
+  display: block;
+  padding: 0 !important;
+  background: #0d3553;
+}
+
+body.page-learning-center.blog-story-prototype > footer > *:first-child {
+  margin-top: 0 !important;
 }
 
 @media (max-width: 640px) {
