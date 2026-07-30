@@ -1,0 +1,29 @@
+name: Fix Learning Center Links
+on:
+  push:
+    branches: [main]
+    paths:
+      - tools/fix-learning-center-links.py
+      - .github/workflows/fix-learning-center-links.yml
+permissions:
+  contents: write
+jobs:
+  fix-links:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python tools/fix-learning-center-links.py
+      - name: Verify retired Learning Center links are gone
+        run: |
+          ! grep -RIlE 'href="/learning-center/(search|local|video-tutorials|warranty)(/|\")' . --include='*.html'
+      - name: Commit link repairs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add '*.html' '**/*.html'
+          git diff --cached --quiet || git commit -m "Repair site-wide Learning Center links"
+          git push
