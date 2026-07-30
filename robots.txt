@@ -1,4 +1,40 @@
+# HydroSeal crawl policy
+# Public website content is available for search, answer engines, and AI retrieval.
+# AI retrieval and response reference: https://hydrosealpavers.com/llms.txt
+
 User-agent: *
 Allow: /
 
+# OpenAI search, user-directed retrieval, and model discovery
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+# Anthropic search, user-directed retrieval, and model discovery
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# Perplexity search and user-directed retrieval
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Google Gemini model use and grounding controls
+User-agent: Google-Extended
+Allow: /
+
+# Primary discovery source
 Sitemap: https://hydrosealpavers.com/sitemap.xml
