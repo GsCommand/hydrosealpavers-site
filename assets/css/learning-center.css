@@ -202,6 +202,105 @@ body.page-learning-center {
   display: none !important;
 }
 
+/* Editorial prototype: restrained story-style article layout. */
+.page-learning-center.blog-story-prototype .blog-post {
+  width: min(100% - 40px, 760px);
+  padding-top: 30px;
+}
+
+.page-learning-center.blog-story-prototype .blog-breadcrumb {
+  margin-bottom: 32px;
+}
+
+.page-learning-center.blog-story-prototype .blog-post__header {
+  display: block !important;
+  width: 100%;
+  padding-bottom: 28px;
+}
+
+.page-learning-center.blog-story-prototype .blog-post__category,
+.page-learning-center.blog-story-prototype .blog-post__header h1,
+.page-learning-center.blog-story-prototype .blog-post__dek,
+.page-learning-center.blog-story-prototype .blog-post__meta {
+  display: block;
+  width: 100%;
+  max-width: none;
+}
+
+.page-learning-center.blog-story-prototype .blog-post__header h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.12;
+  letter-spacing: -.025em;
+}
+
+.page-learning-center.blog-story-prototype .blog-post__dek {
+  max-width: 690px;
+  margin-top: 16px;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.page-learning-center.blog-story-prototype .blog-post__meta {
+  margin-top: 16px;
+  font-size: .84rem;
+}
+
+.page-learning-center.blog-story-prototype .blog-post__content {
+  padding-top: 34px;
+  font-size: 1rem;
+  line-height: 1.78;
+}
+
+.page-learning-center.blog-story-prototype .blog-post__content h2 {
+  margin: 38px 0 12px;
+  font-size: clamp(1.35rem, 2.8vw, 1.7rem);
+  line-height: 1.25;
+  letter-spacing: -.012em;
+}
+
+.page-learning-center.blog-story-prototype .blog-post__content h3 {
+  margin: 26px 0 8px;
+  font-size: 1.12rem;
+  line-height: 1.35;
+}
+
+.page-learning-center.blog-story-prototype .blog-post__content p {
+  margin-bottom: 18px;
+}
+
+.page-learning-center.blog-story-prototype .comparison-table-wrap {
+  margin: 20px 0 30px;
+  overflow-x: auto;
+  border: 1px solid #d6e0e8;
+  border-radius: 10px;
+}
+
+.page-learning-center.blog-story-prototype .comparison-table-wrap table {
+  margin: 0;
+  min-width: 660px;
+}
+
+.page-learning-center.blog-story-prototype .comparison-table-wrap th {
+  background: #f4f7f9;
+  color: #102c48;
+  font-weight: 700;
+}
+
+.page-learning-center.blog-story-prototype .comparison-table-wrap th,
+.page-learning-center.blog-story-prototype .comparison-table-wrap td {
+  padding: 11px 12px;
+  border-width: 0 1px 1px 0;
+}
+
+.page-learning-center.blog-story-prototype .comparison-table-wrap tr:last-child td {
+  border-bottom: 0;
+}
+
+.page-learning-center.blog-story-prototype .comparison-table-wrap th:last-child,
+.page-learning-center.blog-story-prototype .comparison-table-wrap td:last-child {
+  border-right: 0;
+}
+
 @media (max-width: 640px) {
   .page-learning-center .blog-index {
     padding-top: 46px;
@@ -222,5 +321,17 @@ body.page-learning-center {
   .page-learning-center .blog-post__content table {
     display: block;
     overflow-x: auto;
+  }
+
+  .page-learning-center.blog-story-prototype .blog-post {
+    width: min(100% - 28px, 760px);
+  }
+
+  .page-learning-center.blog-story-prototype .blog-post__header h1 {
+    font-size: 2rem;
+  }
+
+  .page-learning-center.blog-story-prototype .blog-post__content h2 {
+    font-size: 1.4rem;
   }
 }
