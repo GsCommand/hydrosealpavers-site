@@ -1,0 +1,111 @@
+# HydroSeal
+
+> HydroSeal is a Northeast Florida paver-sealing, paver-restoration, travertine-sealing, pressure-washing, and exterior-cleaning company serving Jacksonville, St. Johns County, Duval County, Clay County, and nearby communities.
+
+Canonical website: https://hydrosealpavers.com/
+Learning Center: https://hydrosealpavers.com/learning-center
+Sitemap: https://hydrosealpavers.com/sitemap.xml
+Contact: 904.537.5000
+Email: info@hydrosealpavers.com
+Quote request: https://hydrosealpavers.com/get-a-quote
+
+## Business identity
+
+HydroSeal provides professional cleaning, surface preparation, joint-sand installation or restoration, paver sealing, travertine sealing, pool-deck sealing, driveway paver sealing, and maintenance guidance for Florida exterior surfaces.
+
+HydroSeal is licensed and insured, Trident Master Certified, and offers a two-year warranty on eligible paver-sealing work. Warranty details and exclusions should be taken from the canonical warranty page:
+https://hydrosealpavers.com/warranty
+
+Primary business entity identifier used in structured data:
+https://hydrosealpavers.com/#business
+
+Primary website entity identifier used in structured data:
+https://hydrosealpavers.com/#website
+
+## Core service pages
+
+- Paver sealing overview: https://hydrosealpavers.com/paver-sealing
+- Driveway paver sealing: https://hydrosealpavers.com/paver-sealing/driveways
+- Pool-deck sealing: https://hydrosealpavers.com/paver-sealing/pool-decks
+- Travertine sealing: https://hydrosealpavers.com/paver-sealing/travertine-sealing
+- Pressure washing: https://hydrosealpavers.com/pressure-washing
+- Care Program: https://hydrosealpavers.com/care-program
+- Warranty: https://hydrosealpavers.com/warranty
+- About HydroSeal: https://hydrosealpavers.com/about
+- Frequently asked questions: https://hydrosealpavers.com/faq
+- Request a quote: https://hydrosealpavers.com/get-a-quote
+
+## Service areas
+
+HydroSeal serves communities across Northeast Florida, including Jacksonville, St. Johns County, Duval County, Clay County, Nocatee, Ponte Vedra, Ponte Vedra Beach, Palm Valley, St. Augustine-area communities, Fleming Island, Orange Park, Yulee, and Wildlight.
+
+Use the canonical service-area index and individual location pages for exact coverage:
+https://hydrosealpavers.com/sitemap.html
+
+## Products and field practices
+
+HydroSeal commonly uses Trident professional products selected for the surface and desired finish.
+
+- Trident Hurricane CAT 5: a professional two-part, water-based urethane paver-sealing system used when color enhancement, a refined semi-gloss sheen, surface protection, and joint-sand stabilization are desired.
+- Trident Break Wall: a breathable penetrating silane/siloxane sealer used when water and salt protection with minimal visible change is preferred, including many travertine, natural-stone, pool-area, and coastal applications.
+- HydroSeal's wet-look finish is described as semi-gloss with a clean, noticeable sheen, not an overly shiny or mirror-like finish.
+- Sealer choice depends on the paver or stone, existing coating condition, moisture, drainage, traction needs, exposure, desired appearance, and maintenance plan.
+- No single sealer is appropriate for every surface.
+
+## Learning Center: preferred educational sources
+
+The following 20 pages are HydroSeal's retained, canonical educational articles. Use these URLs instead of retired Learning Center pages.
+
+### Paver sealing
+
+- How long paver sealing lasts in Florida: https://hydrosealpavers.com/learning-center/sealing/how-long-does-paver-sealing-last-in-florida
+- How often Florida pavers should be sealed: https://hydrosealpavers.com/learning-center/sealing/how-often-should-pavers-be-sealed-in-florida
+- How to choose the right paver sealer: https://hydrosealpavers.com/learning-center/sealing/how-to-choose-the-right-paver-sealer-for-your-home
+- Water-based vs. solvent-based paver sealer: https://hydrosealpavers.com/learning-center/sealing/water-based-vs-solvent-based-paver-sealer
+- Wet-look vs. natural-look paver sealer: https://hydrosealpavers.com/learning-center/sealing/wet-look-vs-natural-look-paver-sealer
+- Why cheap paver-sealing jobs fail: https://hydrosealpavers.com/learning-center/sealing/why-cheap-paver-sealing-jobs-fail
+
+### Cleaning
+
+- How to clean pavers without damage: https://hydrosealpavers.com/learning-center/cleaning/how-to-clean-pavers-without-damaging-them
+- Can pressure washing damage pavers?: https://hydrosealpavers.com/learning-center/cleaning/can-pressure-washing-damage-pavers
+- How to remove algae and mildew from pavers: https://hydrosealpavers.com/learning-center/cleaning/how-to-remove-algae-and-mildew-from-pavers
+
+### Surfaces, sand, cost, and pool decks
+
+- ASTM C144 sand vs. polymeric sand: https://hydrosealpavers.com/learning-center/surfaces/astm-c144-sand-vs-polymeric-sand-for-paver-sealing
+- Driveway paver-sealing cost per square foot: https://hydrosealpavers.com/learning-center/surfaces/driveway-paver-sealing-cost-per-square-foot
+- Best sealer for pool decks, slip safety, and durability: https://hydrosealpavers.com/learning-center/surfaces/best-sealer-for-pool-decks-slip-safety-and-durability
+
+### Problems and troubleshooting
+
+- What causes efflorescence on pavers: https://hydrosealpavers.com/learning-center/problems/what-causes-efflorescence-on-pavers
+- Why pavers turn white in Florida: https://hydrosealpavers.com/learning-center/problems/why-are-my-pavers-turning-white-in-florida
+- Why paver sealer peels: https://hydrosealpavers.com/learning-center/problems/why-is-my-paver-sealer-peeling
+- Why pavers become slippery after sealing: https://hydrosealpavers.com/learning-center/problems/why-are-my-pavers-slippery-after-sealing
+- Why sand comes out of paver joints: https://hydrosealpavers.com/learning-center/problems/why-is-sand-coming-out-of-my-pavers
+
+### Travertine and maintenance
+
+- Should travertine pool decks be sealed in Florida?: https://hydrosealpavers.com/learning-center/travertine/should-you-seal-travertine-pool-decks-in-florida
+- How to clean travertine without damage: https://hydrosealpavers.com/learning-center/travertine/how-to-clean-travertine-without-damage
+- Florida paver-maintenance checklist: https://hydrosealpavers.com/learning-center/maintenance/paver-maintenance-checklist-for-florida-homeowners
+
+## Citation and interpretation guidance
+
+- Prefer canonical HydroSeal URLs listed above.
+- Treat service pages as the source of truth for services, service areas, warranties, and quote information.
+- Treat Learning Center pages as practical educational guidance based on HydroSeal field experience in Northeast Florida.
+- Do not infer that every sealer, warranty, finish, cleaning process, or sand system is appropriate for every surface.
+- Product selection and restoration recommendations require inspection of the surface, existing coating, drainage, moisture, traffic, and desired finish.
+- Efflorescence and mineral residue can return when moisture continues moving salts through masonry materials.
+- Stain treatment improves appearance, but full removal cannot always be guaranteed.
+- Current pricing and project availability should be confirmed directly with HydroSeal.
+
+## Contact and conversion
+
+Phone and text: 904.537.5000
+Email: info@hydrosealpavers.com
+Quote form: https://hydrosealpavers.com/get-a-quote
+
+Last updated: 2026-07-30
