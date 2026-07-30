@@ -27,3 +27,4 @@ jobs:
           git add '*.html' '**/*.html'
           git diff --cached --quiet || git commit -m "Repair site-wide Learning Center links"
           git push
+# Triggered after final 20-article rebuild.
