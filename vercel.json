@@ -33,6 +33,222 @@
       "destination": "/service-areas/jacksonville/:path*",
       "permanent": true
     },
+
+    {
+      "source": "/learning-center/sealing/best-time-of-year-to-seal-pavers-in-florida",
+      "destination": "/learning-center/sealing/how-long-does-paver-sealing-last-in-florida",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/local/best-time-of-year-to-seal-pavers-in-florida",
+      "destination": "/learning-center/sealing/how-long-does-paver-sealing-last-in-florida",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/sealing/diy-vs-professional-paver-sealing",
+      "destination": "/learning-center/sealing/why-cheap-paver-sealing-jobs-fail",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/sealing/how-jacksonville-heat-rain-and-humidity-affect-paver-sealing",
+      "destination": "/learning-center/sealing/how-long-does-paver-sealing-last-in-florida",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/local/how-jacksonville-heat-affects-paver-sealing",
+      "destination": "/learning-center/sealing/how-long-does-paver-sealing-last-in-florida",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/sealing/signs-your-pavers-need-to-be-resealed",
+      "destination": "/learning-center/sealing/how-often-should-pavers-be-sealed-in-florida",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/sealing/why-pressure-washing-alone-is-not-enough",
+      "destination": "/learning-center/cleaning/how-to-clean-pavers-without-damaging-them",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/cleaning/can-you-seal-pavers-without-replacing-the-sand",
+      "destination": "/learning-center/surfaces/astm-c144-sand-vs-polymeric-sand-for-paver-sealing",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/cleaning/how-often-should-you-clean-pavers-in-florida",
+      "destination": "/learning-center/maintenance/paver-maintenance-checklist-for-florida-homeowners",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/cleaning/should-you-use-bleach-on-pavers-before-sealing",
+      "destination": "/learning-center/cleaning/how-to-clean-pavers-without-damaging-them",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/surfaces/what-is-the-best-paver-sealer-for-jacksonville",
+      "destination": "/learning-center/sealing/how-to-choose-the-right-paver-sealer-for-your-home",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/surfaces/what-is-the-best-paver-sealer-for-pool-decks",
+      "destination": "/learning-center/surfaces/best-sealer-for-pool-decks-slip-safety-and-durability",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/surfaces/what-is-the-best-sand-for-paver-joints-in-florida",
+      "destination": "/learning-center/surfaces/astm-c144-sand-vs-polymeric-sand-for-paver-sealing",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/surfaces/driveway-vs-patio-sealing-differences",
+      "destination": "/learning-center/sealing/how-to-choose-the-right-paver-sealer-for-your-home",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/surfaces/how-traffic-affects-paver-sealer-longevity",
+      "destination": "/learning-center/sealing/how-long-does-paver-sealing-last-in-florida",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/problems/how-to-fix-stained-or-discolored-pavers",
+      "destination": "/learning-center/cleaning/how-to-clean-pavers-without-damaging-them",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/problems/why-do-pavers-fail-faster-near-the-beach",
+      "destination": "/learning-center/sealing/how-long-does-paver-sealing-last-in-florida",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/local/why-pavers-fail-faster-near-the-beach",
+      "destination": "/learning-center/sealing/how-long-does-paver-sealing-last-in-florida",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/problems/why-do-weeds-keep-growing-between-my-pavers",
+      "destination": "/learning-center/problems/why-is-sand-coming-out-of-my-pavers",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/problems/why-is-my-paver-sealer-peeling-or-turning-white",
+      "destination": "/learning-center/problems/why-is-my-paver-sealer-peeling",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/problems/why-pavers-fade-over-time",
+      "destination": "/learning-center/sealing/how-long-does-paver-sealing-last-in-florida",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/travertine/common-travertine-problems-and-how-to-prevent-them",
+      "destination": "/learning-center/travertine/should-you-seal-travertine-pool-decks-in-florida",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/travertine/is-travertine-slippery-when-wet",
+      "destination": "/learning-center/travertine/should-you-seal-travertine-pool-decks-in-florida",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/travertine/what-is-the-best-sealer-for-travertine",
+      "destination": "/learning-center/travertine/should-you-seal-travertine-pool-decks-in-florida",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/maintenance/do-you-need-to-re-sand-pavers-every-year",
+      "destination": "/learning-center/problems/why-is-sand-coming-out-of-my-pavers",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/maintenance/how-to-maintain-pavers-after-sealing",
+      "destination": "/learning-center/maintenance/paver-maintenance-checklist-for-florida-homeowners",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/maintenance/seasonal-paver-care-tips-for-florida",
+      "destination": "/learning-center/maintenance/paver-maintenance-checklist-for-florida-homeowners",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/warranty/questions-to-ask-before-hiring-a-paver-sealer",
+      "destination": "/faq",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/warranty/what-does-trident-master-certified-mean",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/warranty/what-makes-hydroseal-different-from-other-paver-sealing-companies",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/warranty/what-to-look-for-in-a-paver-sealing-company",
+      "destination": "/faq",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/warranty/why-hydroseal-uses-trident-products-only",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/warranty/why-we-use-trident-products-only",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/video-tutorials",
+      "destination": "/learning-center",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/search/:path*",
+      "destination": "/learning-center",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/sealing",
+      "destination": "/learning-center",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/cleaning",
+      "destination": "/learning-center",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/surfaces",
+      "destination": "/learning-center",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/problems",
+      "destination": "/learning-center",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/travertine",
+      "destination": "/learning-center",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/maintenance",
+      "destination": "/learning-center",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/local/:path*",
+      "destination": "/learning-center",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/warranty/:path*",
+      "destination": "/learning-center",
+      "permanent": true
+    },
     {
       "source": "/:path*.html",
       "destination": "/:path*",
