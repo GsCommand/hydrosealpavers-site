@@ -202,7 +202,6 @@ body.page-learning-center {
   display: none !important;
 }
 
-/* Editorial prototype: restrained story-style article layout. */
 body.page-learning-center.blog-story-prototype {
   background: #edf3f7;
 }
@@ -341,7 +340,6 @@ body.page-learning-center.blog-story-prototype > header:first-of-type {
   font-weight: 800;
 }
 
-/* Remove all spacing between the article CTA and the global footer. */
 body.page-learning-center.blog-story-prototype > footer,
 body.page-learning-center.blog-story-prototype > footer.is-loaded,
 body.page-learning-center.blog-story-prototype > footer .footer,
@@ -406,5 +404,116 @@ body.page-learning-center.blog-story-prototype > footer > *:first-child {
     margin-bottom: -82px;
     padding-left: 18px;
     padding-right: 18px;
+  }
+}
+
+/* Learning Center directory hero alignment */
+.page-learning-center .lc-directory__hero {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr) !important;
+  grid-template-areas:
+    "eyebrow summary"
+    "title summary"
+    "intro summary" !important;
+  align-items: center !important;
+  column-gap: 44px !important;
+  row-gap: 8px !important;
+  max-width: none !important;
+  margin: 0 0 42px !important;
+  text-align: left !important;
+}
+
+.page-learning-center .lc-directory__eyebrow {
+  grid-area: eyebrow !important;
+  margin: 0 0 2px !important;
+}
+
+.page-learning-center .lc-directory__hero h1 {
+  grid-area: title !important;
+  margin: 0 !important;
+  max-width: 760px !important;
+  font-size: clamp(3rem, 5vw, 4.65rem) !important;
+  line-height: .98 !important;
+  letter-spacing: -.045em !important;
+  white-space: nowrap !important;
+}
+
+.page-learning-center .lc-directory__intro {
+  grid-area: intro !important;
+  max-width: 690px !important;
+  margin: 10px 0 0 !important;
+  font-size: 1.02rem !important;
+  line-height: 1.65 !important;
+}
+
+.page-learning-center .lc-summary {
+  grid-area: summary !important;
+  grid-template-columns: 1fr !important;
+  width: 100% !important;
+  max-width: 310px !important;
+  margin: 0 0 0 auto !important;
+}
+
+.page-learning-center .lc-summary div {
+  display: grid !important;
+  grid-template-columns: auto 1fr !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 14px 16px !important;
+}
+
+.page-learning-center .lc-summary strong {
+  min-width: 58px !important;
+  font-size: 1.12rem !important;
+}
+
+.page-learning-center .lc-summary span {
+  font-size: .84rem !important;
+}
+
+@media (max-width: 900px) {
+  .page-learning-center .lc-directory__hero {
+    grid-template-columns: 1fr !important;
+    grid-template-areas:
+      "eyebrow"
+      "title"
+      "intro"
+      "summary" !important;
+    row-gap: 10px !important;
+    text-align: center !important;
+  }
+
+  .page-learning-center .lc-directory__hero h1 {
+    white-space: normal !important;
+    margin-inline: auto !important;
+  }
+
+  .page-learning-center .lc-directory__intro {
+    margin: 8px auto 0 !important;
+  }
+
+  .page-learning-center .lc-summary {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    max-width: 760px !important;
+    margin: 20px auto 0 !important;
+  }
+
+  .page-learning-center .lc-summary div {
+    display: block !important;
+    padding: 14px 10px !important;
+  }
+
+  .page-learning-center .lc-summary strong {
+    min-width: 0 !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .page-learning-center .lc-directory__hero h1 {
+    font-size: clamp(2.45rem, 13vw, 3.35rem) !important;
+  }
+
+  .page-learning-center .lc-summary {
+    grid-template-columns: 1fr !important;
   }
 }
