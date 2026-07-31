@@ -517,3 +517,27 @@ body.page-learning-center.blog-story-prototype > footer > *:first-child {
     grid-template-columns: 1fr !important;
   }
 }
+
+/* Center only the Learning Center desktop navigation. */
+@media (min-width: 901px) {
+  body.page-learning-center > header .header-row {
+    display: flex;
+    align-items: center;
+  }
+
+  body.page-learning-center > header .brand,
+  body.page-learning-center > header .header-ctas {
+    flex: 0 0 auto;
+  }
+
+  body.page-learning-center > header .nav-shell {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  body.page-learning-center > header .header-nav,
+  body.page-learning-center > header .nav-menu {
+    width: 100%;
+    justify-content: center;
+  }
+}
