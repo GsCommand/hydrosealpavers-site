@@ -2,18 +2,23 @@
   <style>
     @media (min-width: 901px) {
       .header .header-row {
-        display: grid;
-        grid-template-columns: minmax(190px, 1fr) auto minmax(310px, 1fr);
+        position: relative;
+        display: flex;
         align-items: center;
-        column-gap: 28px;
+        justify-content: space-between;
       }
 
       .header .brand {
-        justify-self: start;
+        flex: 0 0 auto;
       }
 
       .header .nav-shell {
-        justify-self: center;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: max-content;
+        max-width: calc(100% - 520px);
       }
 
       .header .header-nav,
@@ -22,7 +27,30 @@
       }
 
       .header .header-ctas {
-        justify-self: end;
+        flex: 0 0 auto;
+        margin-left: auto;
+      }
+    }
+
+    @media (min-width: 901px) and (max-width: 1120px) {
+      .header .nav-shell {
+        position: static;
+        transform: none;
+        width: auto;
+        max-width: none;
+        margin: 0 auto;
+      }
+
+      .header .header-row {
+        gap: 18px;
+      }
+
+      .header .nav-menu {
+        gap: 12px;
+      }
+
+      .header .nav-link {
+        font-size: .86rem;
       }
     }
   </style>
