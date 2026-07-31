@@ -1,4 +1,32 @@
 <header class="header">
+  <style>
+    @media (min-width: 901px) {
+      .header .header-row {
+        display: grid;
+        grid-template-columns: minmax(190px, 1fr) auto minmax(310px, 1fr);
+        align-items: center;
+        column-gap: 28px;
+      }
+
+      .header .brand {
+        justify-self: start;
+      }
+
+      .header .nav-shell {
+        justify-self: center;
+      }
+
+      .header .header-nav,
+      .header .nav-menu {
+        justify-content: center;
+      }
+
+      .header .header-ctas {
+        justify-self: end;
+      }
+    }
+  </style>
+
   <div class="container header-row">
 
     <a class="brand" href="/" aria-label="HydroSeal home">
