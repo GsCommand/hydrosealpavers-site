@@ -2,9 +2,39 @@
   function initHome() {
     if (!document.body.classList.contains("page-home")) return;
 
+    addPriorityLearningLinks();
     initMarquee();
     initProcessAccordion();
     initFaqAccordion();
+  }
+
+  function addPriorityLearningLinks() {
+    const headings = Array.from(document.querySelectorAll(".related-links-column h3"));
+    const learningHeading = headings.find(h => h.textContent.trim() === "Learning Center");
+    if (!learningHeading) return;
+
+    const list = learningHeading.parentElement && learningHeading.parentElement.querySelector("ul");
+    if (!list || list.dataset.priorityLinksAdded === "true") return;
+    list.dataset.priorityLinksAdded = "true";
+
+    const guides = [
+      ["/learning-center/local/best-time-of-year-to-seal-pavers-in-florida", "How Long Pavers Must Dry Before Sealing"],
+      ["/learning-center/problems/why-are-my-pavers-turning-white-in-florida", "Why Paver Sealer Turns White"],
+      ["/learning-center/sealing/water-based-vs-solvent-based-paver-sealer", "Water-Based vs. Solvent-Based Paver Sealer"],
+      ["/learning-center/sealing/how-to-choose-the-right-paver-sealer-for-your-home", "Best Paver Sealer for Florida Weather"],
+      ["/learning-center/sealing/how-long-does-paver-sealing-last-in-florida", "How Often Florida Pavers Need Resealing"]
+    ];
+
+    const existing = new Set(Array.from(list.querySelectorAll("a")).map(a => a.getAttribute("href")));
+    guides.reverse().forEach(([href, label]) => {
+      if (existing.has(href)) return;
+      const item = document.createElement("li");
+      const link = document.createElement("a");
+      link.href = href;
+      link.textContent = label;
+      item.appendChild(link);
+      list.prepend(item);
+    });
   }
 
   function initMarquee() {
@@ -20,7 +50,7 @@
       return;
     }
 
-    const SPEED = 26; // px/sec
+    const SPEED = 26;
     let running = true;
     let x = 0;
     let loopWidth = 0;
@@ -73,7 +103,6 @@
     }
 
     function tick(now) {
-      // stop cleanly if PJAX navigated away
       if (!document.body.contains(track)) return;
 
       const dt = (now - last) / 1000;
