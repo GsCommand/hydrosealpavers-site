@@ -33,7 +33,6 @@
       "destination": "/service-areas/jacksonville/:path*",
       "permanent": true
     },
-
     {
       "source": "/learning-center/sealing/best-time-of-year-to-seal-pavers-in-florida",
       "destination": "/learning-center/sealing/how-long-does-paver-sealing-last-in-florida",
@@ -92,11 +91,6 @@
     {
       "source": "/learning-center/surfaces/what-is-the-best-paver-sealer-for-pool-decks",
       "destination": "/learning-center/surfaces/best-sealer-for-pool-decks-slip-safety-and-durability",
-      "permanent": true
-    },
-    {
-      "source": "/learning-center/surfaces/what-is-the-best-sand-for-paver-joints-in-florida",
-      "destination": "/learning-center/surfaces/astm-c144-sand-vs-polymeric-sand-for-paver-sealing",
       "permanent": true
     },
     {
@@ -202,6 +196,16 @@
     {
       "source": "/learning-center/video-tutorials",
       "destination": "/learning-center",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/surfaces/astm-c144-sand-vs-polymeric-sand-for-paver-sealing",
+      "destination": "/learning-center/surfaces/what-is-the-best-sand-for-paver-joints-in-florida",
+      "permanent": true
+    },
+    {
+      "source": "/learning-center/search/best-sand-for-pavers-in-jacksonville",
+      "destination": "/learning-center/surfaces/what-is-the-best-sand-for-paver-joints-in-florida",
       "permanent": true
     },
     {

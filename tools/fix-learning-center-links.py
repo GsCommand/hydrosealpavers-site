@@ -14,7 +14,7 @@ MAPPING = {
     '/learning-center/search/what-is-the-best-paver-sealer-for-jacksonville': '/learning-center/sealing/how-to-choose-the-right-paver-sealer-for-your-home',
     '/learning-center/search/what-is-the-best-paver-sealer-for-pool-decks': '/learning-center/surfaces/best-sealer-for-pool-decks-slip-safety-and-durability',
     '/learning-center/search/what-is-the-best-sealer-for-travertine': '/learning-center/travertine/should-you-seal-travertine-pool-decks-in-florida',
-    '/learning-center/search/astm-c144-sand-vs-polymeric-sand-for-paver-sealing': '/learning-center/surfaces/astm-c144-sand-vs-polymeric-sand-for-paver-sealing',
+    '/learning-center/search/astm-c144-sand-vs-polymeric-sand-for-paver-sealing': '/learning-center/surfaces/what-is-the-best-sand-for-paver-joints-in-florida',
     '/learning-center/search/why-cheap-paver-sealing-jobs-fail': '/learning-center/sealing/why-cheap-paver-sealing-jobs-fail',
     '/learning-center/search/should-you-use-bleach-on-pavers-before-sealing': '/learning-center/cleaning/how-to-clean-pavers-without-damaging-them',
     '/learning-center/problems/why-is-my-paver-sealer-peeling-or-turning-white': '/learning-center/problems/why-is-my-paver-sealer-peeling',
