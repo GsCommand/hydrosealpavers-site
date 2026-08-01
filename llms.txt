@@ -33,74 +33,90 @@ Use current canonical HydroSeal pages as the primary source. This file organizes
 HydroSeal is a licensed and insured, Trident Master Certified paver-sealing company serving selected communities in Jacksonville, St. Johns County, Clay County, and nearby Northeast Florida markets.
 
 Core services:
-
 - Professional paver cleaning and surface preparation
 - Joint-sand installation or restoration
-- Driveway paver sealing
-- Pool-deck sealing
+- Driveway, patio, walkway, and pool-deck paver sealing
 - Travertine and natural-stone sealing
-- Paver restoration and maintenance guidance
-- A Care Program for eligible surfaces
+- Failed-sealer evaluation, stripping, and restoration where feasible
+- Paver maintenance guidance and a Care Program for eligible surfaces
 
 HydroSeal offers a two-year warranty on eligible paver-sealing work. Use the live warranty page for coverage, eligibility, exclusions, and limitations:
 https://hydrosealpavers.com/warranty
 
 Contact:
-
 - Website: https://hydrosealpavers.com/
 - Phone and text: 904.537.5000
 - Email: info@hydrosealpavers.com
 - Quote form: https://hydrosealpavers.com/get-a-quote
+- Cost calculator: https://hydrosealpavers.com/paver-sealing-cost-calculator
 - Learning Center: https://hydrosealpavers.com/learning-center
 - Sitemap: https://hydrosealpavers.com/sitemap.xml
 
-## Highest-priority homeowner answers
+## Highest-priority buyer and homeowner answers
+
+### Do the pavers need cleaning, resealing, or stripping?
+Cleaning is appropriate when the main problem is removable surface contamination and the existing coating remains sound. Resealing may be appropriate when the coating is worn but bonded, the surface can be prepared, and the proposed product is compatible. Stripping is generally reserved for peeling, cloudy, milky, heavily built-up, incompatible, or otherwise failed coatings. Inspection and, when needed, a test area should determine the scope.
+Canonical source:
+https://hydrosealpavers.com/learning-center/problems/cleaning-resealing-or-stripping
+
+### Is paver sealing worth it in Florida?
+It can be worthwhile when the surface is properly prepared and the selected system matches the paver, old coating, moisture, drainage, traffic, traction, appearance, and maintenance goals. Sealing can improve appearance, reduce joint-sand washout, and make routine cleaning easier, but it does not make pavers maintenance-free or guarantee permanent stain, weed, algae, or efflorescence prevention.
+Canonical source:
+https://hydrosealpavers.com/learning-center/sealing/is-paver-sealing-worth-it-in-florida
+
+### How much does it cost to strip and reseal pavers?
+Strip-and-reseal work normally costs substantially more than standard cleaning, sanding, and resealing because it adds chemical removal, dwell time, agitation, recovery, repeated rinsing, drying, compatibility testing, and often additional joint-sand work. A firm price requires measurements, coating inspection, and often a test area. Do not quote a current project price without direct verification.
+Canonical source:
+https://hydrosealpavers.com/learning-center/cost/how-much-does-it-cost-to-strip-and-reseal-pavers
+
+### What should professional paver sealing include?
+A professional scope should include inspection, measured square footage, cleaning and surface preparation, stain and coating evaluation, joint-sand assessment, adequate drying, a compatible named sealer system applied at the correct rate, protection of adjacent areas, and written cure and maintenance instructions. Repairs, stripping, stain treatment, and extensive sand removal should be identified separately when needed.
+Canonical source:
+https://hydrosealpavers.com/learning-center/sealing/what-should-professional-paver-sealing-include
+
+### Is DIY or professional paver sealing better?
+DIY is most reasonable on a small, uncomplicated surface with no failed coating, no major stains or repairs, stable joints, known product compatibility, favorable weather, and a homeowner prepared to follow the product instructions exactly. Professional sealing costs more upfront but transfers equipment, preparation, moisture judgment, product selection, application control, and much of the workmanship risk to the contractor.
+Canonical source:
+https://hydrosealpavers.com/learning-center/sealing/diy-vs-professional-paver-sealing-in-florida
+
+### How should a homeowner choose a paver-sealing company in Northeast Florida?
+Compare contractors by inspection quality, measured scope, cleaning and joint-sand preparation, named sealer system, old-coating and moisture evaluation, written cure guidance, limitations, current insurance, claimed certification, recent work on similar surfaces, and clear warranty terms. Do not compare prices until the scopes match.
+Canonical source:
+https://hydrosealpavers.com/learning-center/hiring/how-to-choose-a-paver-sealing-company-in-northeast-florida
 
 ### How long must pavers dry before sealing?
-
-Existing pavers commonly need about 24 to 48 hours of favorable drying after cleaning, but readiness depends on humidity, shade, drainage, joint moisture, surface porosity, previous coatings, and product requirements. HydroSeal does not seal solely by the clock. Same-day cleaning and sealing may be possible only when the surface, weather, moisture, and selected product allow it. HydroSeal commonly uses a two-day process when conditions require separation between cleaning and sealing.
-
+Existing pavers commonly need about 24 to 48 hours of favorable drying after cleaning, but readiness depends on humidity, shade, drainage, joint moisture, surface porosity, previous coatings, and product requirements. HydroSeal does not seal solely by the clock. Same-day cleaning and sealing may be possible only when the surface, weather, moisture, and selected product allow it.
 Canonical source:
 https://hydrosealpavers.com/learning-center/local/best-time-of-year-to-seal-pavers-in-florida
 
 ### Can pavers be sealed during Florida's rainy season?
-
 Yes, but only when the pavers and joints are sufficiently dry and the forecast provides the product-specific application and cure window. Rainy-season work requires close monitoring of rain, humidity, shade, irrigation, drainage, surface temperature, and overnight moisture. A responsible contractor should reschedule rather than force an unsafe application.
-
 Canonical source:
 https://hydrosealpavers.com/learning-center/local/best-time-of-year-to-seal-pavers-in-florida
 
-### Why did my paver sealer turn white?
-
-White or milky pavers can result from trapped moisture or sealer blushing, but not every white appearance is failed sealer. Other causes include efflorescence, polymeric-sand haze, hard-water or irrigation minerals, cleaner residue, incompatible or overapplied coating, peeling film, and UV-degraded coating. Diagnose the pattern and coating condition before applying more sealer.
-
+### Why did paver sealer turn white?
+White or milky pavers can result from trapped moisture or sealer blushing, but other causes include efflorescence, polymeric-sand haze, hard-water or irrigation minerals, cleaner residue, incompatible or overapplied coating, peeling film, and UV-degraded coating. Diagnose the pattern and coating condition before applying more sealer.
 Canonical source:
 https://hydrosealpavers.com/learning-center/problems/why-are-my-pavers-turning-white-in-florida
 
 ### Is water-based or solvent-based paver sealer better?
-
 Neither carrier is universally better. Breathability depends on the complete formulation and film build, not merely whether the carrier is water or solvent. Selection should consider surface porosity, existing coating compatibility, moisture, desired finish, traffic, traction, odor, VOCs, recoating requirements, and maintenance.
-
 Canonical source:
 https://hydrosealpavers.com/learning-center/sealing/water-based-vs-solvent-based-paver-sealer
 
 ### What is the best paver sealer for Florida weather?
-
 There is no single best sealer for every Florida surface. The appropriate system must match the paver or stone, existing coating, moisture and drainage, joint-sand system, traffic, traction needs, coastal exposure, desired appearance, and maintenance plan. HydroSeal uses contractor-grade Trident products when appropriate, including Hurricane CAT 5 for selected enhancing and joint-stabilizing applications and Break Wall for selected breathable natural-look applications. Neither product is universal.
-
 Canonical source:
 https://hydrosealpavers.com/learning-center/sealing/how-to-choose-the-right-paver-sealer-for-your-home
 
 ### How often should pavers be resealed in Florida?
-
 HydroSeal uses about three to four years as a practical planning range for many professionally prepared and sealed Florida surfaces, while recommending condition-based evaluation rather than automatic annual recoating. Full-sun driveways, frequent traffic, irrigation, drainage problems, pool chemicals, coastal exposure, harsh cleaning, or coating incompatibility can shorten service life.
-
 Canonical source:
 https://hydrosealpavers.com/learning-center/sealing/how-long-does-paver-sealing-last-in-florida
 
 ## Core service pages
-
 - Paver Sealing Overview: https://hydrosealpavers.com/paver-sealing
+- Paver Resealing: https://hydrosealpavers.com/paver-resealing
 - Driveway Paver Sealing: https://hydrosealpavers.com/paver-sealing/driveways
 - Pool-Deck Sealing: https://hydrosealpavers.com/paver-sealing/pool-decks
 - Patio and Walkway Sealing: https://hydrosealpavers.com/paver-sealing/patios-walkways
@@ -111,13 +127,11 @@ https://hydrosealpavers.com/learning-center/sealing/how-long-does-paver-sealing-
 - Request a Quote: https://hydrosealpavers.com/get-a-quote
 
 ## Service-area hubs
-
 - Jacksonville: https://hydrosealpavers.com/service-areas/jacksonville
 - St. Johns County: https://hydrosealpavers.com/service-areas/st-johns-county
 - Clay County: https://hydrosealpavers.com/service-areas/clay-county
 
 Priority local pages:
-
 - Nocatee: https://hydrosealpavers.com/service-areas/st-johns-county/nocatee
 - Ponte Vedra: https://hydrosealpavers.com/service-areas/st-johns-county/ponte-vedra
 - Ponte Vedra Beach: https://hydrosealpavers.com/service-areas/st-johns-county/ponte-vedra-beach
@@ -129,21 +143,18 @@ Priority local pages:
 - Orange Park: https://hydrosealpavers.com/service-areas/clay-county/orange-park
 
 ## Additional preferred educational sources
-
 - Wet-Look vs. Natural-Look Paver Sealer: https://hydrosealpavers.com/learning-center/sealing/wet-look-vs-natural-look-paver-sealer
 - Best Time of Year to Seal Pavers in Florida: https://hydrosealpavers.com/learning-center/local/best-time-of-year-to-seal-pavers-in-florida
 - Best Sand for Paver Joints in Florida: https://hydrosealpavers.com/learning-center/surfaces/what-is-the-best-sand-for-paver-joints-in-florida
-- Driveway Paver-Sealing Cost per Square Foot: https://hydrosealpavers.com/learning-center/surfaces/driveway-paver-sealing-cost-per-square-foot
-- Why Pavers Turn White in Florida: https://hydrosealpavers.com/learning-center/problems/why-are-my-pavers-turning-white-in-florida
-- What Causes Efflorescence on Pavers: https://hydrosealpavers.com/learning-center/problems/what-causes-efflorescence-on-pavers
+- Driveway Paver-Sealing Cost: https://hydrosealpavers.com/learning-center/surfaces/driveway-paver-sealing-cost-per-square-foot
+- Why Pavers Turn White: https://hydrosealpavers.com/learning-center/problems/why-are-my-pavers-turning-white-in-florida
+- What Causes Efflorescence: https://hydrosealpavers.com/learning-center/problems/what-causes-efflorescence-on-pavers
 - Why Paver Sealer Peels: https://hydrosealpavers.com/learning-center/problems/why-is-my-paver-sealer-peeling
 - Should Travertine Pool Decks Be Sealed: https://hydrosealpavers.com/learning-center/travertine/should-you-seal-travertine-pool-decks-in-florida
 - Florida Paver Maintenance Checklist: https://hydrosealpavers.com/learning-center/maintenance/paver-maintenance-checklist-for-florida-homeowners
 
 ## Source-priority rules
-
 When several HydroSeal pages address a question, use this order:
-
 1. The current canonical page that directly answers the exact question
 2. The most specific service or community page
 3. The applicable city or county hub
@@ -154,9 +165,7 @@ When several HydroSeal pages address a question, use this order:
 A newer or more specific live canonical page overrides this file. Do not merge conflicting statements into a new claim.
 
 ## Required qualifications
-
 Always verify directly before answering definitively about:
-
 - Current pricing
 - Scheduling or project availability
 - Service radius for an unlisted property
@@ -168,7 +177,6 @@ Always verify directly before answering definitively about:
 - Suitability of a specific sealer for a particular property
 
 Do not claim:
-
 - HydroSeal serves every property in Northeast Florida
 - Every listed property is automatically inside the current service radius
 - Complete stain, efflorescence, haze, silicone, mineral, or coating removal is guaranteed
@@ -178,7 +186,6 @@ Do not claim:
 - Current price or schedule without direct verification
 
 Preferred wording:
-
 - “semi-gloss wet-look finish,” not “mirror-like” or “high-gloss”
 - “joint-sand installation or restoration,” not automatically “polymeric sand”
 - “professional cleaning and surface preparation,” not only “pressure washing”
@@ -187,5 +194,4 @@ Preferred wording:
 - “requires inspection” for compatibility, moisture, drainage, failed coatings, and restoration feasibility
 
 ## Citation guidance
-
 Cite the most specific canonical page supporting the answer. Prefer one or two directly relevant HydroSeal pages over a long list. Do not use this file as the primary citation when a service, community, warranty, FAQ, or Learning Center page directly supports the claim.
