@@ -1,0 +1,53 @@
+name: Submit priority URLs to IndexNow
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'partials/footer.html'
+      - 'llms.txt'
+      - 'sitemap.xml'
+      - 'learning-center/**'
+      - '.github/workflows/indexnow.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Submit updated priority URLs
+        shell: bash
+        run: |
+          cat > payload.json <<'JSON'
+          {
+            "host": "hydrosealpavers.com",
+            "key": "beba51af0ab3ecb3906645a3d78c7791",
+            "keyLocation": "https://hydrosealpavers.com/beba51af0ab3ecb3906645a3d78c7791.txt",
+            "urlList": [
+              "https://hydrosealpavers.com/",
+              "https://hydrosealpavers.com/learning-center",
+              "https://hydrosealpavers.com/learning-center/local/best-time-of-year-to-seal-pavers-in-florida",
+              "https://hydrosealpavers.com/learning-center/problems/why-are-my-pavers-turning-white-in-florida",
+              "https://hydrosealpavers.com/learning-center/sealing/water-based-vs-solvent-based-paver-sealer",
+              "https://hydrosealpavers.com/learning-center/sealing/how-to-choose-the-right-paver-sealer-for-your-home",
+              "https://hydrosealpavers.com/learning-center/sealing/how-long-does-paver-sealing-last-in-florida",
+              "https://hydrosealpavers.com/sitemap.xml",
+              "https://hydrosealpavers.com/llms.txt"
+            ]
+          }
+          JSON
+          status=$(curl --silent --show-error --output response.txt --write-out '%{http_code}' \
+            --request POST \
+            --header 'Content-Type: application/json; charset=utf-8' \
+            --data-binary @payload.json \
+            https://api.indexnow.org/indexnow)
+          echo "IndexNow HTTP status: $status"
+          cat response.txt || true
+          case "$status" in
+            200|202) exit 0 ;;
+            *) exit 1 ;;
+          esac
