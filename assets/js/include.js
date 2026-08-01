@@ -6,6 +6,21 @@
   if (window.__hs_includes_ran) return;
   window.__hs_includes_ran = true;
 
+  // Prevent the browser's temporary mouse-focus outline from flashing in the
+  // upper-left corner while navigating between Learning Center pages. Keyboard
+  // focus remains unchanged for accessibility.
+  if (document.body.classList.contains("page-learning-center")) {
+    document.addEventListener(
+      "pointerup",
+      (event) => {
+        if (event.pointerType && event.pointerType !== "mouse" && event.pointerType !== "pen") return;
+        const link = event.target.closest("a[href]");
+        if (link && document.body.contains(link)) link.blur();
+      },
+      true
+    );
+  }
+
   document.body.classList.add("includes-loading");
 
   try {
