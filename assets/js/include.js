@@ -72,6 +72,12 @@
       placeholder.classList.add("is-loaded");
     });
 
+    // Learning Center pages use the shared footer without the brand/description
+    // block so Contact remains aligned with the other footer columns.
+    if (document.body.classList.contains("page-learning-center")) {
+      document.querySelectorAll("footer .footer-brand").forEach((brand) => brand.remove());
+    }
+
     await new Promise((r) => setTimeout(r, 0));
 
     // 2) Back-compat: run ONLY scripts explicitly marked
