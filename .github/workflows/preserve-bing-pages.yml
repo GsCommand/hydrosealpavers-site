@@ -1,0 +1,24 @@
+name: Preserve Bing-cited pages
+on:
+  push:
+    paths:
+      - tools/preserve-bing-pages.py
+      - .github/workflows/preserve-bing-pages.yml
+permissions:
+  contents: write
+jobs:
+  preserve:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python tools/preserve-bing-pages.py
+      - name: Commit generated changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add vercel.json sitemap.xml learning-center/index.html llms.txt
+          git diff --cached --quiet || git commit -m "Preserve all Bing-cited pages above threshold"
+          git push
