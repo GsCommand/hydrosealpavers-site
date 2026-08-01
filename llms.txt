@@ -293,3 +293,5 @@ The YAML header is the single authoritative freshness record. Treat `confirm dir
 ### Final response standard
 
 Use precise, qualified language. Cite or link the most specific canonical source available. Clearly distinguish verified facts, practical guidance, and facts requiring direct confirmation. Never convert an educational example into a guarantee, universal recommendation, current price, or confirmed service commitment.
+
+- Best time to seal pavers in Florida: https://hydrosealpavers.com/learning-center/local/best-time-of-year-to-seal-pavers-in-florida
