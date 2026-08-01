@@ -43,7 +43,6 @@
       if (e.key === "Escape") setOpen(false);
     });
 
-    // Close menu when clicking any normal link
     nav.addEventListener("click", (e) => {
       const a = e.target.closest("a");
       if (a) setOpen(false);
@@ -138,9 +137,7 @@
       });
 
       document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-          resetDropdownState();
-        }
+        if (e.key === "Escape") resetDropdownState();
       });
 
       window.addEventListener("resize", () => {
@@ -154,8 +151,60 @@
     }
   }
 
+  function normalizedPath() {
+    return (window.location.pathname || "/")
+      .replace(/\/index\.html$/, "")
+      .replace(/\.html$/, "")
+      .replace(/\/$/, "") || "/";
+  }
+
+  function isMainPage() {
+    return [
+      "/",
+      "/paver-sealing",
+      "/paver-resealing",
+      "/paver-sealing/driveways",
+      "/paver-sealing/pool-decks",
+      "/paver-sealing/patios-walkways",
+      "/paver-sealing/travertine-sealing",
+      "/paver-sealing/sand-options"
+    ].includes(normalizedPath());
+  }
+
+  function addLinkOnce(container, href, label) {
+    if (!container || container.querySelector('a[href="' + href + '"]')) return;
+    const link = document.createElement("a");
+    link.href = href;
+    link.textContent = label;
+    container.appendChild(link);
+  }
+
+  function addMainFooterLinks() {
+    if (!isMainPage()) return;
+
+    document.querySelectorAll("footer .footer-title").forEach((title) => {
+      if (title.textContent.trim().toLowerCase() !== "services") return;
+      const links = title.parentElement && title.parentElement.querySelector(".footer-links");
+      if (!links) return;
+      addLinkOnce(links, "/paver-resealing", "Paver Resealing");
+      addLinkOnce(links, "/paver-sealing-cost-calculator", "Paver Sealing Cost Calculator");
+    });
+  }
+
+  function addHomepageCalculatorNavLink() {
+    if (normalizedPath() !== "/") return;
+
+    document.querySelectorAll(".nav-group").forEach((group) => {
+      const parent = group.querySelector(".nav-parent");
+      const dropdown = group.querySelector(".dropdown");
+      if (!parent || !dropdown) return;
+      if (parent.textContent.trim().toLowerCase() !== "paver sealing") return;
+      addLinkOnce(dropdown, "/paver-sealing-cost-calculator", "Cost Calculator");
+    });
+  }
+
   function isTrustbarExcludedPath() {
-    const path = (window.location.pathname || "").replace(/\.html$/, "").replace(/\/$/, "");
+    const path = normalizedPath();
     return path === "/warranty" || path === "/care-program";
   }
 
@@ -184,23 +233,29 @@
       return;
     }
 
-    if (state.parent) {
-      state.parent.insertBefore(trustbar, state.nextSibling || null);
-    }
+    if (state.parent) state.parent.insertBefore(trustbar, state.nextSibling || null);
   }
 
   function initAllNav() {
+    addHomepageCalculatorNavLink();
+    addMainFooterLinks();
     initHeaderHamburger();
     initNavDropdowns();
     moveTrustbarForMobile();
   }
 
-  // Run now (in case header is already in DOM)
   initAllNav();
-
+  document.addEventListener("includes:ready", initAllNav);
+  document.addEventListener("DOMContentLoaded", initAllNav, { once: true });
   window.addEventListener("resize", moveTrustbarForMobile);
 
+  const observer = new MutationObserver(() => {
+    addHomepageCalculatorNavLink();
+    addMainFooterLinks();
+    initHeaderHamburger();
+    initNavDropdowns();
+  });
+  observer.observe(document.documentElement, { childList: true, subtree: true });
 
-  // Optional debugging hook
   window.initAllNav = initAllNav;
 })();
