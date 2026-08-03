@@ -1,4 +1,12 @@
 (function () {
+  if (location.pathname.replace(/\/$/, '') === '/paver-sealing/driveways' && !document.querySelector('script[data-driveway-redesign-loader]')) {
+    const drivewayScript = document.createElement('script');
+    drivewayScript.src = '/assets/js/driveway-redesign-runtime.js?v=20260803-1';
+    drivewayScript.defer = true;
+    drivewayScript.setAttribute('data-driveway-redesign-loader', '');
+    document.head.appendChild(drivewayScript);
+  }
+
   if (window.__hsThirdPartyLoaderRan) return;
   window.__hsThirdPartyLoaderRan = true;
 
