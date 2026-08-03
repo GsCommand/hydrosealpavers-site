@@ -25,8 +25,22 @@
         .driveway-homepage-footer nav{display:flex;gap:20px;align-items:center;flex-wrap:wrap;}\
         .driveway-homepage-footer a{color:#c3d2d9;text-decoration:none;font-weight:700;}\
         .driveway-homepage-footer a:hover{color:#fff;}\
-        @media(max-width:980px){.driveway-results__grid{grid-template-columns:1fr!important}.driveway-results__card--portrait{min-height:420px!important;}}\
-        @media(max-width:650px){.driveway-homepage-footer{padding-bottom:85px!important}.driveway-homepage-footer .shell{width:calc(100% - 24px);flex-direction:column;align-items:flex-start;gap:18px}.driveway-homepage-footer nav{gap:14px 18px;}}';
+        .driveway-customer-proof{margin:64px auto 22px;max-width:1180px;padding:0 20px;}\
+        .driveway-customer-proof__kicker{display:block;color:#0f6ea8;font-size:12px;font-weight:950;letter-spacing:1.8px;text-transform:uppercase;margin-bottom:9px;}\
+        .driveway-customer-proof h2{margin:0;color:#082f4f;font-size:clamp(34px,4vw,54px);line-height:1;text-transform:uppercase;}\
+        .driveway-static-reviews{max-width:1180px;margin:28px auto 70px;padding:0 20px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;}\
+        .driveway-static-review{margin:0;padding:28px;border:1px solid #dce5ea;border-radius:27px;background:#fff;box-shadow:0 14px 34px rgba(11,45,74,.08);}\
+        .driveway-static-review .stars{color:#ffb000;font-size:22px;letter-spacing:2px;margin-bottom:14px;}\
+        .driveway-static-review p{margin:0;color:#263849;font-size:16px;line-height:1.65;}\
+        .driveway-static-review cite{display:block;margin-top:18px;color:#607080;font-style:normal;font-weight:800;}\
+        .driveway-link-hub{max-width:1180px;margin:64px auto;padding:42px;border-radius:30px;background:#eef3f5;}\
+        .driveway-link-hub__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px;}\
+        .driveway-link-hub h3{margin:0 0 17px;color:#082f4f;font-size:24px;line-height:1.08;}\
+        .driveway-link-hub__links{display:grid;gap:10px;}\
+        .driveway-link-hub a{color:#0f6ea8;text-decoration:none;font-weight:800;line-height:1.35;}\
+        .driveway-link-hub a:hover{text-decoration:underline;}\
+        @media(max-width:980px){.driveway-results__grid{grid-template-columns:1fr!important}.driveway-results__card--portrait{min-height:420px!important}.driveway-static-reviews,.driveway-link-hub__grid{grid-template-columns:1fr!important;}}\
+        @media(max-width:650px){.driveway-homepage-footer{padding-bottom:85px!important}.driveway-homepage-footer .shell{width:calc(100% - 24px);flex-direction:column;align-items:flex-start;gap:18px}.driveway-homepage-footer nav{gap:14px 18px}.driveway-customer-proof{margin-top:48px;padding:0 12px}.driveway-static-reviews{padding:0 12px;margin-bottom:52px}.driveway-link-hub{margin:48px 12px;padding:28px 22px;}}';
       document.head.appendChild(style);
     }
   }
@@ -152,6 +166,75 @@
     if(sand) gallery.insertAdjacentElement('afterend',sand);
   }
 
+  function enhanceReviews(){
+    if(document.querySelector('.driveway-customer-proof')) return;
+    var reviewSection=document.querySelector('.driveway-reviews-section');
+    var widget=reviewSection ? reviewSection.querySelector('[class*="elfsight-app-"]') : null;
+    if(!reviewSection){
+      widget=Array.prototype.find.call(document.querySelectorAll('[class*="elfsight-app-"]'),function(el){
+        return !el.classList.contains('elfsight-app-bfab489f-7fca-4f05-ba5a-d92616b76b26');
+      });
+      reviewSection=widget ? widget.closest('section') : null;
+    }
+    if(!reviewSection) return;
+
+    var proof=document.createElement('div');
+    proof.className='driveway-customer-proof';
+    proof.innerHTML='<span class="driveway-customer-proof__kicker">CUSTOMER PROOF</span><h2>Trusted by Northeast Florida homeowners.</h2>';
+    reviewSection.parentNode.insertBefore(proof,reviewSection);
+
+    var reviews=document.createElement('div');
+    reviews.className='driveway-static-reviews';
+    reviews.innerHTML='\
+      <blockquote class="driveway-static-review"><div class="stars">★★★★★</div><p>“HydroSeal made our paver driveway look brand new. The color came back to life, the joints were properly sanded, and the finish was smooth and professional.”</p><cite>Scott M. · Google</cite></blockquote>\
+      <blockquote class="driveway-static-review"><div class="stars">★★★★★</div><p>“Outstanding results on our driveway, porch, and flower-bed pavers. Greg was professional, communicated clearly, and provided excellent customer service.”</p><cite>Jane J. · Google</cite></blockquote>\
+      <blockquote class="driveway-static-review"><div class="stars">★★★★★</div><p>“They took their time, paid attention to every detail, and were thorough from start to finish. Our pavers look brand new and exceeded expectations.”</p><cite>Sophia K. · Google</cite></blockquote>';
+    reviewSection.insertAdjacentElement('afterend',reviews);
+  }
+
+  function replaceLinkSection(){
+    if(document.querySelector('.driveway-link-hub')) return;
+    var old=document.querySelector('.related-links-section');
+    var hub=document.createElement('section');
+    hub.className='driveway-link-hub';
+    hub.innerHTML='\
+      <div class="driveway-link-hub__grid">\
+        <div><h3>Nearby Areas We Serve</h3><div class="driveway-link-hub__links">\
+          <a href="/service-areas/st-johns-county/nocatee">Nocatee Paver Sealing</a>\
+          <a href="/service-areas/st-johns-county/ponte-vedra">Ponte Vedra Paver Sealing</a>\
+          <a href="/service-areas/jacksonville/southside">Southside Jacksonville Paver Sealing</a>\
+          <a href="/service-areas/clay-county/fleming-island">Fleming Island Paver Sealing</a>\
+          <a href="/service-areas/jacksonville/jacksonville-beach">Jacksonville Beach Paver Sealing</a>\
+          <a href="/service-areas/st-johns-county">St. Johns County Paver Sealing</a>\
+          <a href="/service-areas/clay-county">Clay County Paver Sealing</a>\
+        </div></div>\
+        <div><h3>Popular Services</h3><div class="driveway-link-hub__links">\
+          <a href="/paver-sealing/pool-decks">Pool Deck Sealing</a>\
+          <a href="/paver-sealing/travertine-sealing">Travertine Sealing</a>\
+          <a href="/paver-sealing/patios-walkways">Patio &amp; Walkway Sealing</a>\
+          <a href="/paver-sealing/sand-options">Sand Options</a>\
+          <a href="/care-program">Care Program</a>\
+          <a href="/paver-sealing/driveways">Driveway Paver Sealing</a>\
+          <a href="/paver-resealing">Paver Resealing</a>\
+        </div></div>\
+        <div><h3>Driveway Learning Center</h3><div class="driveway-link-hub__links">\
+          <a href="/learning-center/sealing/driveway-paver-sealing-cost-per-square-foot">Driveway Paver Sealing Cost Per Square Foot</a>\
+          <a href="/learning-center/maintenance/how-traffic-affects-paver-sealer-longevity">How Traffic Affects Driveway Sealer Longevity</a>\
+          <a href="/learning-center/sealing/how-long-pavers-must-dry-before-sealing">How Long Driveway Pavers Must Dry Before Sealing</a>\
+          <a href="/learning-center/problems/cleaning-resealing-or-stripping">Does Your Driveway Need Cleaning, Resealing, or Stripping?</a>\
+          <a href="/learning-center/cost/how-much-does-it-cost-to-strip-and-reseal-pavers">Cost to Strip and Reseal Driveway Pavers</a>\
+          <a href="/learning-center/sealing/what-should-professional-paver-sealing-include">What Professional Driveway Sealing Should Include</a>\
+          <a href="/learning-center/sealing/diy-vs-professional-paver-sealing-in-florida">DIY vs. Professional Driveway Sealing in Florida</a>\
+        </div></div>\
+      </div>';
+    if(old) old.replaceWith(hub);
+    else {
+      var faq=document.querySelector('#driveway-faq');
+      if(faq) faq.parentNode.insertBefore(hub,faq);
+      else document.querySelector('main#page').appendChild(hub);
+    }
+  }
+
   function replaceFooterWithHomepageFooter(){
     var oldFooter=document.querySelector('footer.site-footer, footer.footer');
     if(!oldFooter || oldFooter.classList.contains('driveway-homepage-footer')) return;
@@ -181,6 +264,8 @@
     removeOldIntroCopy();
     updateWhatDrivewaySealingDoes();
     moveRecentJobsAndSandOptions();
+    enhanceReviews();
+    replaceLinkSection();
     replaceFooterWithHomepageFooter();
   }
 
