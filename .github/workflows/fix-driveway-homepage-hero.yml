@@ -1,52 +1,52 @@
-name: Fix driveway homepage-style hero
+name: Fix driveway homepage redesign
+
 on:
+  workflow_dispatch:
   push:
     paths:
       - '.github/workflows/fix-driveway-homepage-hero.yml'
+
 permissions:
   contents: write
+
 jobs:
-  update:
+  apply:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Apply exact homepage-style driveway hero
+
+      - name: Apply driveway redesign
         shell: python
         run: |
           from pathlib import Path
+          import re
 
           path = Path('paver-sealing/driveways.html')
           html = path.read_text(encoding='utf-8')
 
-          main_marker = '<main id="page" data-page>'
-          hero_marker = '<!-- HERO -->'
-          content_marker = '<!-- PAGE CONTENT -->'
-          trust_marker = '<!-- TRUST BAR (global) -->'
+          css_link = '<link rel="stylesheet" href="/assets/css/driveway-redesign.css?v=20260803" />'
+          if css_link not in html:
+              html = html.replace('</head>', css_link + '\n</head>', 1)
 
-          main_i = html.index(main_marker)
-          hero_i = html.index(hero_marker, main_i)
-          content_i = html.index(content_marker, hero_i)
+          # Remove the old trust strip, reminder include, and breadcrumb above the hero.
+          html = re.sub(
+              r'\s*<!-- TRUST BAR \(global\) -->.*?<main id="page" data-page>\s*',
+              '\n<main id="page" data-page>\n',
+              html,
+              count=1,
+              flags=re.S,
+          )
 
-          # Move trust bar, reminder include, and breadcrumb below the hero.
-          trust_i = html.rfind(trust_marker, 0, main_i)
-          prehero = html[trust_i:main_i] if trust_i != -1 else ''
-          if trust_i != -1:
-              html = html[:trust_i] + html[main_i:]
-
-          # Recalculate after removal.
-          main_i = html.index(main_marker)
-          hero_i = html.index(hero_marker, main_i)
-          content_i = html.index(content_marker, hero_i)
-
-          hero = '''<!-- DRIVEWAY HERO -->
+          hero = '''
+<!-- DRIVEWAY HOME-STYLE HERO -->
 <section class="driveway-home-hero">
-  <img class="driveway-home-hero__bg" src="/assets/hero/hydroseal-driveway.webp" width="1920" height="1080" alt="Driveway Paver Sealing Jacksonville and St. Johns County" loading="eager" decoding="async" fetchpriority="high" />
-  <div class="driveway-home-hero__layout hs-modern-shell">
+  <img class="driveway-home-hero__bg" src="/assets/hero/hydroseal-driveway.webp" width="1920" height="1080" alt="Professionally restored and sealed paver driveway in Jacksonville" loading="eager" decoding="async" fetchpriority="high" />
+  <div class="driveway-home-hero__grid hs-modern-shell">
     <div class="driveway-home-hero__glass">
       <span class="driveway-home-hero__eyebrow">DRIVEWAY PAVER SEALING IN NORTHEAST FLORIDA</span>
       <h1>Driveway Paver Sealing Jacksonville &amp; St. Johns County</h1>
-      <h2>Cleaned. Resanded. Sealed. Built for Florida.</h2>
-      <p>Professional driveway paver restoration with deep cleaning, ASTM C144 joint sand, breathable sealer, and careful preparation across Jacksonville, St. Johns County, and Clay County.</p>
+      <h2>Cleaned. Resanded. Sealed. Built for Florida Driveways.</h2>
+      <p>Professional driveway paver sealing with deep cleaning, ASTM C144 joint sand, breathable sealer, and careful preparation across Jacksonville, St. Johns County, and Clay County.</p>
       <div class="driveway-home-hero__actions">
         <a class="driveway-home-hero__primary" href="/get-a-quote">Request a Quote</a>
         <a class="driveway-home-hero__secondary" href="/paver-sealing-cost-calculator">Try Instant Pricing</a>
@@ -54,8 +54,8 @@ jobs:
     </div>
     <div class="driveway-home-hero__proof">
       <article class="driveway-home-review">
-        <div class="driveway-home-google">Google</div>
-        <div class="driveway-home-stars">★★★★★</div>
+        <div class="driveway-home-review__google">Google</div>
+        <div class="driveway-home-review__stars" aria-label="Five stars">★★★★★</div>
         <h3>5-STAR RATED DRIVEWAY RESTORATION.</h3>
         <p>Homeowners choose HydroSeal when faded, dirty driveway pavers need more than a quick pressure wash.</p>
         <a href="https://share.google/4ddHhmrSn3woAYR6h" target="_blank" rel="noopener noreferrer">Read customer reviews →</a>
@@ -64,79 +64,57 @@ jobs:
     </div>
   </div>
 </section>
-<section class="driveway-home-features hs-modern-shell" aria-label="Driveway sealing standards">
+<section class="driveway-home-features hs-modern-shell" aria-label="Driveway sealing service standards">
   <article><h3>DEEP CLEANING</h3><p>Surface preparation before sealing.</p></article>
   <article><h3>JOINT SAND</h3><p>ASTM C144 kiln-dried sand.</p></article>
-  <article><h3>BREATHABLE SEALER</h3><p>Two controlled coats for Florida.</p></article>
+  <article><h3>BREATHABLE SEALER</h3><p>Two controlled coats for Florida conditions.</p></article>
   <article><h3>2-YEAR WARRANTY</h3><p>Covered workmanship and adhesion.</p></article>
 </section>
+<nav class="driveway-home-breadcrumb" aria-label="Breadcrumb">
+  <div class="hs-modern-shell"><a href="/">Home</a><span>›</span><a href="/paver-sealing">Paver Sealing</a><span>›</span><span aria-current="page">Driveways</span></div>
+</nav>
 '''
 
-          html = html[:hero_i] + hero + '\n' + prehero + '\n  ' + html[content_i:]
+          old_hero = re.compile(
+              r'\s*<!-- HERO -->\s*<section class="hero2".*?</section>\s*',
+              re.S,
+          )
+          html, count = old_hero.subn('\n' + hero + '\n', html, count=1)
+          if count != 1 and 'class="driveway-home-hero"' not in html:
+              raise SystemExit(f'Old hero not found; replaced {count}')
 
-          css = '''
-<style id="driveway-homepage-hero-css">
-.driveway-home-hero{position:relative;min-height:720px;overflow:hidden;background:#0b2d4a;color:#fff;padding:132px 0 88px;font-family:Arial,Helvetica,sans-serif}
-.driveway-home-hero__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.driveway-home-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,24,37,.12),rgba(4,24,37,.01) 60%,rgba(4,24,37,.08));pointer-events:none}
-.driveway-home-hero__layout{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.28fr) minmax(270px,.62fr);gap:22px;align-items:center}
-.driveway-home-hero__glass{padding:34px 36px;border:1px solid rgba(255,255,255,.30);border-radius:30px;background:rgba(5,32,51,.23);box-shadow:0 24px 70px rgba(0,0,0,.18);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
-.driveway-home-hero__eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(255,255,255,.24);border-radius:999px;background:rgba(255,255,255,.08);font-weight:900;font-size:11px;letter-spacing:1.45px}
-.driveway-home-hero__eyebrow:before{content:"";width:7px;height:7px;border-radius:50%;background:#39bfea;box-shadow:0 0 18px #39bfea}
-.driveway-home-hero h1{max-width:760px;margin:24px 0 10px;color:#fff;font-size:clamp(42px,5vw,68px);line-height:.96;letter-spacing:-2.6px;text-transform:uppercase;text-shadow:0 14px 36px rgba(0,0,0,.28)}
-.driveway-home-hero h2{margin:0;color:#9be6fa;font-size:clamp(17px,1.9vw,23px);line-height:1.2;text-transform:uppercase}
-.driveway-home-hero__glass p{max-width:720px;margin:18px 0 0;color:rgba(255,255,255,.94);font-size:16px;line-height:1.62}
-.driveway-home-hero__actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
-.driveway-home-hero__primary,.driveway-home-hero__secondary{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 22px;border-radius:999px;text-decoration:none;text-transform:uppercase;font-size:13px;font-weight:950;letter-spacing:.8px}
-.driveway-home-hero__primary{background:#39bfea;color:#fff;box-shadow:0 12px 30px rgba(57,191,234,.34)}
-.driveway-home-hero__secondary{background:#fff;color:#0b2d4a}
-.driveway-home-hero__proof{display:flex;flex-direction:column;gap:12px}
-.driveway-home-review{padding:27px;border-radius:24px;background:rgba(255,255,255,.95);color:#0b1220;box-shadow:0 22px 60px rgba(0,0,0,.18)}
-.driveway-home-google{display:inline-flex;padding:6px 10px;border:1px solid #e5e7eb;border-radius:999px;background:#fff;color:#44505e;font-size:12px;font-weight:800}
-.driveway-home-stars{margin-top:10px;color:#f8b400;letter-spacing:2px}
-.driveway-home-review h3{margin:15px 0 10px;color:#071329;font-size:25px;line-height:.95;letter-spacing:-.8px}
-.driveway-home-review p{margin:0;color:#44505e;font-size:14px;line-height:1.5}
-.driveway-home-review a{display:inline-block;margin-top:18px;color:#071329;text-decoration:none;text-transform:uppercase;font-size:11px;font-weight:900;letter-spacing:1px}
-.driveway-home-certified{display:flex;align-items:center;justify-content:center;min-height:48px;padding:0 18px;border-radius:999px;background:#0f6ea8;color:#fff;font-size:13px;font-weight:950;box-shadow:0 14px 34px rgba(15,110,168,.28)}
-.driveway-home-features{position:relative;z-index:5;display:grid;grid-template-columns:repeat(4,1fr);margin-top:-34px;background:#fff;border:10px solid #fff;border-radius:22px;box-shadow:0 18px 48px rgba(11,45,74,.14);overflow:hidden}
-.driveway-home-features article{padding:18px 20px;border-right:1px solid #dce5ea}
-.driveway-home-features article:last-child{border-right:0}
-.driveway-home-features h3{margin:0;color:#082f4f;font-size:16px;line-height:1}
-.driveway-home-features p{margin:6px 0 0;color:#647383;font-size:12px;line-height:1.35}
-.driveway-results-pair{display:grid;grid-template-columns:1.06fr .94fr;gap:18px;margin:28px 0}
-.driveway-results-pair figure{margin:0;padding:12px;background:#fff;border:1px solid rgba(15,23,42,.08);border-radius:22px;box-shadow:0 12px 34px rgba(11,45,74,.08)}
-.driveway-results-pair img{display:block;width:100%;height:100%;max-height:620px;object-fit:cover;border-radius:14px}
-.driveway-results-pair figcaption{padding:12px 4px 2px;color:#0b2d4a;font-weight:900}
-@media(max-width:980px){.driveway-home-hero{min-height:auto;padding:100px 0 72px}.driveway-home-hero__layout{grid-template-columns:1fr}.driveway-home-hero__proof{display:grid;grid-template-columns:1fr 1fr}.driveway-home-certified{border-radius:24px}.driveway-home-features{grid-template-columns:repeat(2,1fr);margin-top:-24px}.driveway-results-pair{grid-template-columns:1fr}}
-@media(max-width:620px){.driveway-home-hero{padding:90px 0 58px}.driveway-home-hero__glass{padding:24px 20px;border-radius:22px}.driveway-home-hero h1{font-size:40px;letter-spacing:-1.7px}.driveway-home-hero__actions{display:grid}.driveway-home-hero__primary,.driveway-home-hero__secondary{width:100%}.driveway-home-hero__proof{grid-template-columns:1fr}.driveway-home-features{grid-template-columns:1fr;margin-top:-16px;border-width:7px}.driveway-home-features article{border-right:0;border-bottom:1px solid #dce5ea}.driveway-home-features article:last-child{border-bottom:0}}
-</style>
-'''
-          if 'id="driveway-homepage-hero-css"' not in html:
-              html = html.replace('</head>', css + '\n</head>', 1)
-
-          # Add the two approved before-and-after images after the intro card.
-          if 'class="driveway-results-pair"' not in html:
-              anchor = '<!-- PHOTO + TEXT (BLOCK 1) -->'
-              gallery = '''
-<section class="driveway-results-pair" aria-label="Driveway paver sealing before and after results">
-  <figure>
-    <img src="/assets/hero/driveway-before-after-hydroseal.webp" alt="Before and after driveway paver sealing by HydroSeal" loading="lazy" decoding="async" width="1448" height="1086" />
-    <figcaption>Driveway restoration: cleaning, joint sand, and sealing</figcaption>
-  </figure>
-  <figure>
-    <img src="/assets/hero/ponte-vedra-driveway-before-after.webp" alt="Before and after paver driveway sealing in Ponte Vedra" loading="lazy" decoding="async" width="800" height="956" />
-    <figcaption>Ponte Vedra driveway paver sealing result</figcaption>
-  </figure>
+          results = '''
+<section class="driveway-results">
+  <div class="driveway-results__head">
+    <span>REAL HYDROSEAL DRIVEWAY RESULTS</span>
+    <h2>From faded and weathered to clean, protected, and finished.</h2>
+    <p>These Northeast Florida driveway projects show the difference proper cleaning, fresh joint sand, and a controlled sealing system can make.</p>
+  </div>
+  <div class="driveway-results__grid">
+    <figure class="driveway-results__card driveway-results__card--wide">
+      <img src="/assets/hero/driveway-before-after-hydroseal.webp" alt="Before and after driveway paver sealing by HydroSeal" loading="lazy" decoding="async" width="1448" height="1086" />
+      <figcaption><strong>Driveway Color Restoration</strong><span>Deep cleaning, joint restoration, and sealing brought the original paver color back.</span></figcaption>
+    </figure>
+    <figure class="driveway-results__card driveway-results__card--portrait">
+      <img src="/assets/hero/ponte-vedra-driveway-before-after.webp" alt="Before and after Ponte Vedra driveway paver sealing" loading="lazy" decoding="async" width="800" height="956" />
+      <figcaption><strong>Ponte Vedra Driveway Sealing</strong><span>A cleaner, more uniform finish designed for Florida sun, rain, and vehicle traffic.</span></figcaption>
+    </figure>
+  </div>
 </section>
 '''
-              html = html.replace(anchor, gallery + '\n' + anchor, 1)
+
+          if 'class="driveway-results"' not in html:
+              anchor = '<!-- PHOTO + TEXT (BLOCK 1) -->'
+              if anchor not in html:
+                  raise SystemExit('Results insertion anchor not found')
+              html = html.replace(anchor, results + '\n' + anchor, 1)
 
           path.write_text(html, encoding='utf-8')
-          Path('.github/workflows/fix-driveway-homepage-hero.yml').unlink()
-      - name: Commit corrected driveway design
+
+      - name: Commit redesigned driveway page
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add paver-sealing/driveways.html .github/workflows/fix-driveway-homepage-hero.yml
-          git commit -m "Match driveway hero to homepage layout" || exit 0
+          git add paver-sealing/driveways.html
+          git commit -m "Apply driveway page redesign" || exit 0
           git push
