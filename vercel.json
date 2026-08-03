@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/paver-sealing/driveways/",
+      "destination": "/paver-sealing/driveways",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
         {
