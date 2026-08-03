@@ -111,6 +111,120 @@
 
     .driveway-reviews-section{ margin-top:clamp(24px,4vw,40px); }
 
+    .driveway-process{
+      margin-top:22px;
+      display:grid;
+      grid-template-columns:minmax(0,1.06fr) minmax(340px,.94fr);
+      gap:20px;
+      align-items:stretch;
+    }
+
+    .driveway-process__content{
+      padding:clamp(26px,3vw,38px);
+      border:1px solid var(--line);
+      border-radius:26px;
+      background:#fff;
+      box-shadow:0 18px 42px rgba(11,45,74,.09);
+    }
+
+    .driveway-process__eyebrow{
+      display:block;
+      margin-bottom:10px;
+      color:#0f6ea8;
+      font-size:11px;
+      line-height:1;
+      font-weight:900;
+      letter-spacing:2px;
+      text-transform:uppercase;
+    }
+
+    .driveway-process__content h2{
+      margin:0 0 12px;
+      color:#0b2d4a;
+      font-family:"Arial Black",Arial,sans-serif;
+      font-size:clamp(29px,3vw,40px);
+      line-height:1.06;
+      letter-spacing:-1px;
+    }
+
+    .driveway-process__intro{
+      margin:0;
+      max-width:690px;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.65;
+    }
+
+    .driveway-process__steps{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px 18px;
+      margin:24px 0 0;
+      padding:0;
+      list-style:none;
+      counter-reset:driveway-step;
+    }
+
+    .driveway-process__steps li{
+      counter-increment:driveway-step;
+      display:grid;
+      grid-template-columns:34px minmax(0,1fr);
+      gap:10px;
+      align-items:start;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.45;
+    }
+
+    .driveway-process__steps li::before{
+      content:counter(driveway-step);
+      display:grid;
+      place-items:center;
+      width:34px;
+      height:34px;
+      border-radius:50%;
+      background:#0b2d4a;
+      color:#fff;
+      font-size:13px;
+      font-weight:900;
+      box-shadow:0 7px 16px rgba(11,45,74,.18);
+    }
+
+    .driveway-process__steps strong{
+      display:block;
+      margin-bottom:2px;
+      color:#0b2d4a;
+      font-size:14px;
+    }
+
+    .driveway-process__media{
+      min-height:430px;
+      overflow:hidden;
+      border-radius:26px;
+      background:#e8eef1;
+      box-shadow:0 18px 42px rgba(11,45,74,.14);
+    }
+
+    .driveway-process__media img{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:cover;
+    }
+
+    @media (max-width:860px){
+      .driveway-process{ grid-template-columns:1fr; }
+      .driveway-process__media{ min-height:0; aspect-ratio:4 / 3; }
+    }
+
+    @media (max-width:520px){
+      .driveway-process{ gap:14px; }
+      .driveway-process__content{ padding:23px 19px; border-radius:20px; }
+      .driveway-process__content h2{ font-size:28px; }
+      .driveway-process__steps{ grid-template-columns:1fr; margin-top:20px; }
+      .driveway-process__media{ border-radius:20px; }
+    }
+
     .sand-bar-section{
       padding: 18px 0 10px;
     }
@@ -838,36 +952,34 @@
         </div>
       </section>
 
- <!-- PHOTO + TEXT (BLOCK 2) — REVERSED -->
-      <section style="margin-top:18px;">
-        <div class="driveway-split-rev">
-          <div class="card">
-            <h2 style="margin:0 0 6px;">Our Professional 6 Step Process</h2>
-            <p style="margin:0; color:var(--muted);">
-              Understanding the process is what delivers consistent results. Proper prep, joint work, moisture control, and a controlled application
-              prevent blotchy finishes and premature failure.
-            </p>
+      <!-- PROFESSIONAL PROCESS -->
+      <section class="driveway-process" aria-labelledby="driveway-process-title">
+        <div class="driveway-process__content">
+          <span class="driveway-process__eyebrow">Built for consistent results</span>
+          <h2 id="driveway-process-title">Our Professional 6-Step Process</h2>
+          <p class="driveway-process__intro">
+            Proper preparation, joint work, moisture control, and a controlled application help prevent blotchy finishes and premature failure.
+          </p>
 
-            <ol style="margin:14px 0 0; padding-left:18px; color:var(--muted);">
-              <li><strong>Inspection:</strong> surface, drainage, problem areas</li>
-              <li><strong>Clean:</strong> correct chemistry + controlled rinse</li>
-              <li><strong>Re-sand:</strong> reset and compact joints (polymeric only when appropriate)</li>
-              <li><strong>Dry &amp; verify:</strong> moisture checks + weather window control</li>
-              <li><strong>Seal:</strong> even coats, controlled application, clean edges</li>
-              <li><strong>Final walkthrough:</strong> cure times, care notes, and maintenance guidance</li>
-            </ol>
-          </div>
+          <ol class="driveway-process__steps">
+            <li><span><strong>Inspection</strong>Surface, drainage, and problem areas</span></li>
+            <li><span><strong>Clean</strong>Correct chemistry and controlled rinsing</span></li>
+            <li><span><strong>Re-sand</strong>Reset and compact joints for stability</span></li>
+            <li><span><strong>Dry &amp; verify</strong>Moisture checks and weather-window control</span></li>
+            <li><span><strong>Seal</strong>Even coats, controlled application, and clean edges</span></li>
+            <li><span><strong>Final walkthrough</strong>Cure times, care notes, and maintenance guidance</span></li>
+          </ol>
+        </div>
 
-          <div class="media-box media-h-md">
-            <img
-              src="/assets/hero/paver-driveway-st-johns.jpg"
-              alt="Paver driveway in St. Johns after cleaning and sealing"
-              loading="lazy"
-              decoding="async"
-              width="1200"
-              height="675"
-            />
-          </div>
+        <div class="driveway-process__media">
+          <img
+            src="/assets/images/driveway-before-after.webp"
+            alt="Before and after professional driveway paver cleaning and sealing by HydroSeal"
+            loading="lazy"
+            decoding="async"
+            width="960"
+            height="720"
+          />
         </div>
       </section>
 
