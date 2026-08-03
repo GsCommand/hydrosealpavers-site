@@ -87,13 +87,23 @@
   <div class="driveway-results__head">\
     <span>REAL HYDROSEAL DRIVEWAY RESULTS</span>\
     <h2>From faded and weathered to clean, protected, and finished.</h2>\
-    <p>These Northeast Florida driveway projects show the difference proper cleaning, fresh joint sand, and a controlled sealing system can make.</p>\
+    <p>These Northeast Florida driveway projects show how proper cleaning, fresh joint sand, moisture-aware preparation, and a controlled sealing system work together to restore color and create a more durable, uniform finish. Driveways face constant UV exposure, heavy rain, and daily vehicle traffic, so long-term performance depends on disciplined preparation before sealer is applied. HydroSeal uses this prep-first restoration process on high-use residential driveways throughout Southside Jacksonville, Nocatee, Fleming Island, and surrounding Northeast Florida communities.</p>\
   </div>\
   <figure class="driveway-results__card driveway-results__card--portrait">\
     <img src="/assets/hero/ponte-vedra-driveway-before-after.webp" alt="Before and after Ponte Vedra driveway paver sealing" loading="lazy" decoding="async">\
   </figure>\
 </div>';
     section.insertAdjacentElement('afterend',results);
+  }
+
+  function removeOldIntroCopy(){
+    var paragraph=Array.prototype.find.call(document.querySelectorAll('main#page p'),function(p){
+      return p.textContent.trim().indexOf('Driveways take more abuse than any other surface on your property')===0;
+    });
+    if(!paragraph) return;
+    var wrapper=paragraph.parentElement;
+    if(wrapper && wrapper.children.length===1) wrapper.remove();
+    else paragraph.remove();
   }
 
   function updateWhatDrivewaySealingDoes(){
@@ -122,6 +132,7 @@
     addStyles();
     buildHero();
     addResults();
+    removeOldIntroCopy();
     updateWhatDrivewaySealingDoes();
   }
 
