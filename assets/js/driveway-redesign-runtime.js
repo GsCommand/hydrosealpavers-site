@@ -7,7 +7,7 @@
     if(!document.querySelector('link[data-driveway-redesign]')){
       var link=document.createElement('link');
       link.rel='stylesheet';
-      link.href='/assets/css/driveway-redesign.css?v=20260803-1';
+      link.href='/assets/css/driveway-redesign.css?v=20260803-2';
       link.setAttribute('data-driveway-redesign','');
       document.head.appendChild(link);
     }
@@ -90,7 +90,35 @@
     section.insertAdjacentElement('afterend',results);
   }
 
-  function run(){addStyles();buildHero();addResults();}
+  function updateWhatDrivewaySealingDoes(){
+    var heading=Array.prototype.find.call(document.querySelectorAll('h2'),function(h){
+      return h.textContent.trim()==='What Driveway Sealing Does';
+    });
+    if(!heading) return;
+
+    var split=heading.closest('.driveway-split');
+    if(!split) return;
+
+    var card=heading.closest('.card');
+    var media=split.querySelector('.media-box');
+    var image=media ? media.querySelector('img') : null;
+    if(!card || !media || !image) return;
+
+    split.insertBefore(card,media);
+    image.src='/assets/hero/driveway-before-after-hydroseal.webp';
+    image.alt='Driveway color restoration before and after by HydroSeal';
+    image.width=1448;
+    image.height=1086;
+    card.style.textAlign='left';
+  }
+
+  function run(){
+    addStyles();
+    buildHero();
+    addResults();
+    updateWhatDrivewaySealingDoes();
+  }
+
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',run,{once:true});
   else run();
 })();
