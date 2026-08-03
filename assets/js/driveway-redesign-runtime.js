@@ -20,7 +20,13 @@
         .driveway-results__card--portrait{width:100%!important;min-height:520px!important;}\
         .driveway-results__card--portrait img{width:100%!important;height:100%!important;object-fit:cover!important;}\
         .driveway-recent-jobs{margin:28px 0!important;}\
-        @media(max-width:980px){.driveway-results__grid{grid-template-columns:1fr!important}.driveway-results__card--portrait{min-height:420px!important;}}';
+        .driveway-homepage-footer{background:#071d2e!important;color:#c3d2d9!important;padding:28px 0!important;margin-top:48px!important;}\
+        .driveway-homepage-footer .shell{width:min(1180px,calc(100% - 40px));margin:auto;display:flex;justify-content:space-between;align-items:center;gap:24px;}\
+        .driveway-homepage-footer nav{display:flex;gap:20px;align-items:center;flex-wrap:wrap;}\
+        .driveway-homepage-footer a{color:#c3d2d9;text-decoration:none;font-weight:700;}\
+        .driveway-homepage-footer a:hover{color:#fff;}\
+        @media(max-width:980px){.driveway-results__grid{grid-template-columns:1fr!important}.driveway-results__card--portrait{min-height:420px!important;}}\
+        @media(max-width:650px){.driveway-homepage-footer{padding-bottom:85px!important}.driveway-homepage-footer .shell{width:calc(100% - 24px);flex-direction:column;align-items:flex-start;gap:18px}.driveway-homepage-footer nav{gap:14px 18px;}}';
       document.head.appendChild(style);
     }
   }
@@ -134,18 +140,37 @@
     card.style.textAlign='left';
   }
 
-  function moveRecentJobsAndSand(){
+  function moveRecentJobsAndSandOptions(){
     var gallery=document.querySelector('.elfsight-app-bfab489f-7fca-4f05-ba5a-d92616b76b26');
+    var sand=document.querySelector('.sand-bar-section');
     var processHeading=findHeading('Our Professional 6 Step Process');
-    var sandSection=document.querySelector('.sand-bar-section');
     if(!gallery || !processHeading) return;
     var processSection=processHeading.closest('section');
     if(!processSection) return;
     gallery.classList.add('driveway-recent-jobs');
     processSection.parentNode.insertBefore(gallery,processSection);
-    if(sandSection){
-      gallery.insertAdjacentElement('afterend',sandSection);
-    }
+    if(sand) gallery.insertAdjacentElement('afterend',sand);
+  }
+
+  function replaceFooterWithHomepageFooter(){
+    var oldFooter=document.querySelector('footer.site-footer, footer.footer');
+    if(!oldFooter || oldFooter.classList.contains('driveway-homepage-footer')) return;
+    var footer=document.createElement('footer');
+    footer.className='footer driveway-homepage-footer';
+    footer.innerHTML='\
+      <div class="shell">\
+        <div>© <span class="driveway-footer-year"></span> HydroSeal. All rights reserved.</div>\
+        <nav aria-label="Footer navigation">\
+          <a href="/about">About</a>\
+          <a href="/faq">FAQ</a>\
+          <a href="/warranty">Warranty</a>\
+          <a href="/care-program">Care Program</a>\
+          <a href="/sitemap">Sitemap</a>\
+        </nav>\
+      </div>';
+    oldFooter.replaceWith(footer);
+    var year=footer.querySelector('.driveway-footer-year');
+    if(year) year.textContent=String(new Date().getFullYear());
   }
 
   function run(){
@@ -155,7 +180,8 @@
     removeDrivewayIntroCard();
     removeOldIntroCopy();
     updateWhatDrivewaySealingDoes();
-    moveRecentJobsAndSand();
+    moveRecentJobsAndSandOptions();
+    replaceFooterWithHomepageFooter();
   }
 
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',run,{once:true});
