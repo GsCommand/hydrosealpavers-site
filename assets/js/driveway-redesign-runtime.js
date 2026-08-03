@@ -19,6 +19,7 @@
         .driveway-results__grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;align-items:stretch!important;}\
         .driveway-results__card--portrait{width:100%!important;min-height:520px!important;}\
         .driveway-results__card--portrait img{width:100%!important;height:100%!important;object-fit:cover!important;}\
+        .driveway-recent-jobs{margin:28px 0!important;}\
         @media(max-width:980px){.driveway-results__grid{grid-template-columns:1fr!important}.driveway-results__card--portrait{min-height:420px!important;}}';
       document.head.appendChild(style);
     }
@@ -73,9 +74,15 @@
     });
   }
 
+  function findHeading(text){
+    return Array.prototype.find.call(document.querySelectorAll('h2'),function(h){
+      return h.textContent.trim()===text;
+    });
+  }
+
   function addResults(){
     if(document.querySelector('.driveway-results')) return;
-    var heading=Array.prototype.find.call(document.querySelectorAll('h2'),function(h){return h.textContent.trim()==='Driveway Sealing in Jacksonville, FL';});
+    var heading=findHeading('Driveway Sealing in Jacksonville, FL');
     if(!heading) return;
     var section=heading.closest('section');
     if(!section) return;
@@ -96,6 +103,13 @@
     section.insertAdjacentElement('afterend',results);
   }
 
+  function removeDrivewayIntroCard(){
+    var heading=findHeading('Driveway Sealing in Jacksonville, FL');
+    if(!heading) return;
+    var section=heading.closest('section');
+    if(section) section.remove();
+  }
+
   function removeOldIntroCopy(){
     var paragraph=Array.prototype.find.call(document.querySelectorAll('main#page p'),function(p){
       return p.textContent.trim().indexOf('Driveways take more abuse than any other surface on your property')===0;
@@ -107,19 +121,14 @@
   }
 
   function updateWhatDrivewaySealingDoes(){
-    var heading=Array.prototype.find.call(document.querySelectorAll('h2'),function(h){
-      return h.textContent.trim()==='What Driveway Sealing Does';
-    });
+    var heading=findHeading('What Driveway Sealing Does');
     if(!heading) return;
-
     var split=heading.closest('.driveway-split');
     if(!split) return;
-
     var card=heading.closest('.card');
     var media=split.querySelector('.media-box');
     var image=media ? media.querySelector('img') : null;
     if(!card || !media || !image) return;
-
     split.insertBefore(card,media);
     image.src='/assets/hero/driveway-before-after-hydroseal.webp';
     image.alt='Driveway color restoration before and after by HydroSeal';
@@ -128,12 +137,24 @@
     card.style.textAlign='left';
   }
 
+  function moveRecentJobsGallery(){
+    var gallery=document.querySelector('.elfsight-app-bfab489f-7fca-4f05-ba5a-d92616b76b26');
+    var processHeading=findHeading('Our Professional 6 Step Process');
+    if(!gallery || !processHeading) return;
+    var processSection=processHeading.closest('section');
+    if(!processSection) return;
+    gallery.classList.add('driveway-recent-jobs');
+    processSection.parentNode.insertBefore(gallery,processSection);
+  }
+
   function run(){
     addStyles();
     buildHero();
     addResults();
+    removeDrivewayIntroCard();
     removeOldIntroCopy();
     updateWhatDrivewaySealingDoes();
+    moveRecentJobsGallery();
   }
 
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',run,{once:true});
