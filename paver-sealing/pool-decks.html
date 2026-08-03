@@ -142,22 +142,78 @@
       }
     }
 
-    /* Local fix: keep the split section above reviews balanced on desktop */
-    .pre-reviews-split .pool-split-rev{ align-items:stretch; }
-    .pre-reviews-split .card,
-    .pre-reviews-split .media-box{ height:100%; }
-    .pre-reviews-split .media-h-md{
-      height:100%;
-      min-height:360px;
+    /* Pool-deck condition feature: mirrors the driveway page's elevated card system. */
+    .pool-condition-feature{
+      display:grid;
+      grid-template-columns:minmax(0,.94fr) minmax(340px,1.06fr);
+      gap:20px;
+      align-items:stretch;
+      margin:22px 0 34px;
     }
-    .pre-reviews-split{ margin-bottom:34px; }
+    .pool-condition-feature__content{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      padding:clamp(26px,3vw,38px);
+      border:1px solid var(--line);
+      border-radius:26px;
+      background:#fff;
+      box-shadow:0 18px 42px rgba(11,45,74,.09);
+    }
+    .pool-condition-feature__eyebrow{
+      display:block;
+      margin-bottom:10px;
+      color:#0f6ea8;
+      font-size:11px;
+      line-height:1;
+      font-weight:900;
+      letter-spacing:2px;
+      text-transform:uppercase;
+    }
+    .pool-condition-feature__content h2{
+      margin:0 0 12px;
+      color:#0b2d4a;
+      font-family:"Arial Black",Arial,sans-serif;
+      font-size:clamp(29px,3vw,40px);
+      line-height:1.06;
+      letter-spacing:-1px;
+    }
+    .pool-condition-feature__content p,
+    .pool-condition-feature__content div{
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.65;
+    }
+    .pool-condition-feature__content ul{
+      margin:10px 0 0;
+      padding-left:20px;
+    }
+    .pool-condition-feature__content li{ margin-bottom:5px; }
+    .pool-condition-feature__media{
+      min-height:430px;
+      overflow:hidden;
+      border-radius:26px;
+      background:#e8eef1;
+      box-shadow:0 18px 42px rgba(11,45,74,.14);
+    }
+    .pool-condition-feature__media img{
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+    }
 
     @media (max-width: 860px){
-      .pre-reviews-split .media-h-md{
-        height:260px;
-        min-height:0;
-      }
-      .pre-reviews-split{ margin-bottom:22px; }
+      .pool-condition-feature{ grid-template-columns:1fr; margin-bottom:22px; }
+      .pool-condition-feature__media{ min-height:0; aspect-ratio:1 / 1; order:-1; }
+    }
+
+    @media (max-width: 520px){
+      .pool-condition-feature{ gap:14px; }
+      .pool-condition-feature__content{ padding:23px 19px; border-radius:20px; }
+      .pool-condition-feature__content h2{ font-size:28px; }
+      .pool-condition-feature__media{ border-radius:20px; }
     }
 
     .pool-decks-dual-slider{
@@ -744,19 +800,18 @@
       </section>
 
       <!-- PHOTO + TEXT (BLOCK 2) — REVERSED -->
-      <section class="pre-reviews-split" style="margin-top:18px;">
-        <div class="grid grid-2 pool-split-rev">
-          <!-- TEXT -->
-          <div class="card">
-            <h2 style="margin:0 0 6px;">Efflorescence &amp; White Haze</h2>
-            <p style="margin:0; color:var(--muted);">
+      <section class="pool-condition-feature" aria-labelledby="pool-condition-title">
+          <div class="pool-condition-feature__content">
+            <span class="pool-condition-feature__eyebrow">Moisture-related paver conditions</span>
+            <h2 id="pool-condition-title">Efflorescence &amp; White Haze</h2>
+            <p style="margin:0;">
               Efflorescence is the white, chalky haze you’ll sometimes see on pavers—especially newer installs or areas with frequent moisture.
               It’s caused by salts migrating to the surface as water moves through the paver and evaporates.
             </p>
 
             <div style="margin-top:12px;">
               <div style="font-weight:900;">How we handle it</div>
-              <ul style="margin:10px 0 0; padding-left:18px; color:var(--muted);">
+              <ul>
                 <li>Identify severity (light haze vs. heavy blooming)</li>
                 <li>Use the correct chemistry and dwell time (not “blast it off”)</li>
                 <li>Rinse thoroughly and allow proper dry-down</li>
@@ -764,7 +819,7 @@
               </ul>
             </div>
 
-            <div style="margin-top:12px; color:var(--muted);">
+            <div style="margin-top:12px;">
               <strong>Important:</strong> heavy efflorescence may require an extra treatment step.
               We’ll call it out in the quote so there are no surprises. For homeowners comparing conditions by area, our
               <a href="/service-areas/st-johns-county">St. Johns County service area</a> and
@@ -772,16 +827,16 @@
             </div>
           </div>
 
-          <!-- PHOTO -->
-          <div class="media-box media-h-md">
+          <div class="pool-condition-feature__media">
             <img
-              src="/assets/hero/hydroseal-travertine-pool-deck-square.webp"
-              alt="Pool deck pavers detail"
+              src="/assets/images/pool-deck-pavers-restored.webp"
+              alt="Clean restored pool deck pavers surrounding a screened swimming pool"
               loading="lazy"
               decoding="async"
+              width="720"
+              height="720"
             />
           </div>
-        </div>
       </section>
 
 
