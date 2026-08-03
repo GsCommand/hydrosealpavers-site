@@ -246,6 +246,10 @@
   ],
   "rewrites": [
     {
+      "source": "/paver-sealing/driveways",
+      "destination": "/paver-sealing/driveways.html"
+    },
+    {
       "source": "/pressure-washing",
       "destination": "/pressure-washing/index.html"
     },
@@ -259,6 +263,15 @@
     }
   ],
   "headers": [
+    {
+      "source": "/paver-sealing/driveways",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
     {
       "source": "/assets/(.*)",
       "headers": [
