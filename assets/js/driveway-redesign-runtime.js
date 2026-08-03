@@ -61,16 +61,13 @@
   <article><h3>JOINT SAND</h3><p>ASTM C144 kiln-dried sand.</p></article>\
   <article><h3>BREATHABLE SEALER</h3><p>Two controlled coats for Florida conditions.</p></article>\
   <article><h3>2-YEAR WARRANTY</h3><p>Covered workmanship and adhesion.</p></article>\
-</section>\
-<nav class="driveway-home-breadcrumb" aria-label="Breadcrumb">\
-  <div class="hs-modern-shell"><a href="/">Home</a><span>›</span><a href="/paver-sealing">Paver Sealing</a><span>›</span><span aria-current="page">Driveways</span></div>\
-</nav>';
+</section>';
 
     var nodes=Array.prototype.slice.call(hero.childNodes);
     oldHero.replaceWith.apply(oldHero,nodes);
 
-    ['.trustbar','.breadcrumb','[data-include="/partials/reminder-badges.html"]'].forEach(function(selector){
-      document.querySelectorAll('body > '+selector+', body > main + '+selector).forEach(function(el){el.remove();});
+    ['.trustbar','.breadcrumb','.driveway-home-breadcrumb','[data-include="/partials/reminder-badges.html"]'].forEach(function(selector){
+      document.querySelectorAll(selector).forEach(function(el){el.remove();});
     });
   }
 
@@ -129,7 +126,7 @@
     var media=split.querySelector('.media-box');
     var image=media ? media.querySelector('img') : null;
     if(!card || !media || !image) return;
-    split.insertBefore(card,media);
+    split.insertBefore(media,card);
     image.src='/assets/hero/driveway-before-after-hydroseal.webp';
     image.alt='Driveway color restoration before and after by HydroSeal';
     image.width=1448;
@@ -137,14 +134,18 @@
     card.style.textAlign='left';
   }
 
-  function moveRecentJobsGallery(){
+  function moveRecentJobsAndSand(){
     var gallery=document.querySelector('.elfsight-app-bfab489f-7fca-4f05-ba5a-d92616b76b26');
     var processHeading=findHeading('Our Professional 6 Step Process');
+    var sandSection=document.querySelector('.sand-bar-section');
     if(!gallery || !processHeading) return;
     var processSection=processHeading.closest('section');
     if(!processSection) return;
     gallery.classList.add('driveway-recent-jobs');
     processSection.parentNode.insertBefore(gallery,processSection);
+    if(sandSection){
+      gallery.insertAdjacentElement('afterend',sandSection);
+    }
   }
 
   function run(){
@@ -154,7 +155,7 @@
     removeDrivewayIntroCard();
     removeOldIntroCopy();
     updateWhatDrivewaySealingDoes();
-    moveRecentJobsGallery();
+    moveRecentJobsAndSand();
   }
 
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',run,{once:true});
