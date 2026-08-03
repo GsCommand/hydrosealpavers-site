@@ -299,5 +299,6 @@
         }
       ]
     }
-  ]
+  ],
+  "trailingSlash": false
 }
