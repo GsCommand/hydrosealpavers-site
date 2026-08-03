@@ -7,9 +7,20 @@
     if(!document.querySelector('link[data-driveway-redesign]')){
       var link=document.createElement('link');
       link.rel='stylesheet';
-      link.href='/assets/css/driveway-redesign.css?v=20260803-3';
+      link.href='/assets/css/driveway-redesign.css?v=20260803-2';
       link.setAttribute('data-driveway-redesign','');
       document.head.appendChild(link);
+    }
+
+    if(!document.getElementById('driveway-results-adjustments')){
+      var style=document.createElement('style');
+      style.id='driveway-results-adjustments';
+      style.textContent='\
+        .driveway-results__grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;align-items:stretch!important;}\
+        .driveway-results__card--portrait{width:100%!important;min-height:520px!important;}\
+        .driveway-results__card--portrait img{width:100%!important;height:100%!important;object-fit:cover!important;}\
+        @media(max-width:980px){.driveway-results__grid{grid-template-columns:1fr!important}.driveway-results__card--portrait{min-height:420px!important;}}';
+      document.head.appendChild(style);
     }
   }
 
@@ -70,17 +81,16 @@
     if(!section) return;
 
     var results=document.createElement('section');
-    results.className='driveway-results driveway-results--single';
+    results.className='driveway-results';
     results.innerHTML='\
-<div class="driveway-results__grid driveway-results__grid--single">\
-  <div class="driveway-results__head driveway-results__head--side">\
+<div class="driveway-results__grid">\
+  <div class="driveway-results__head">\
     <span>REAL HYDROSEAL DRIVEWAY RESULTS</span>\
     <h2>From faded and weathered to clean, protected, and finished.</h2>\
     <p>These Northeast Florida driveway projects show the difference proper cleaning, fresh joint sand, and a controlled sealing system can make.</p>\
   </div>\
   <figure class="driveway-results__card driveway-results__card--portrait">\
     <img src="/assets/hero/ponte-vedra-driveway-before-after.webp" alt="Before and after Ponte Vedra driveway paver sealing" loading="lazy" decoding="async">\
-    <figcaption><strong>Ponte Vedra Driveway Sealing</strong><span>A cleaner, more uniform finish designed for Florida sun, rain, and vehicle traffic.</span></figcaption>\
   </figure>\
 </div>';
     section.insertAdjacentElement('afterend',results);
