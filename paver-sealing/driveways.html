@@ -71,6 +71,37 @@
       .pool-hero-heading .pool-hero-heading__line--sub{
         font-size:.72em;
       }
+
+      .driveway-hero-panel{
+        background:transparent !important;
+        border:0 !important;
+        border-radius:0 !important;
+        box-shadow:none !important;
+        backdrop-filter:none !important;
+        -webkit-backdrop-filter:none !important;
+      }
+
+      .mobile-contactbar{
+        display:grid !important;
+        grid-template-columns:1fr 1fr !important;
+        gap:0 !important;
+        padding:0 0 env(safe-area-inset-bottom) !important;
+        background:#0b2d4a !important;
+        border-top:1px solid rgba(255,255,255,.15) !important;
+        box-shadow:none !important;
+      }
+
+      .mobile-contactbar .mobile-callbar-btn{
+        border:0 !important;
+        border-radius:0 !important;
+        background:transparent !important;
+        box-shadow:none !important;
+        padding:16px !important;
+      }
+
+      .mobile-contactbar .mobile-callbar-btn + .mobile-callbar-btn{
+        border-left:1px solid rgba(255,255,255,.15) !important;
+      }
     }
 
     .driveway-split,
@@ -574,19 +605,7 @@
       }
     }
 
-  
-    /* Shared service-standard strip copied from the Pool Deck page. */
-    .driveway-service-features{position:relative;z-index:4;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;width:min(1180px,calc(100% - 40px));margin:-23px auto 0;padding:17px;border-radius:30px;background:#f0f5f7}
-    .driveway-service-features article{height:100%;padding:20px;border:1px solid #dce5ea;border-radius:20px;background:#fff;transition:background .2s ease,border-color .2s ease,transform .2s ease,box-shadow .2s ease}
-    .driveway-service-features>article:hover,.driveway-service-features>a:hover article,.driveway-service-features>a:focus-visible article{background:rgba(57,191,234,.20);border-color:rgba(57,191,234,.65);transform:translateY(-2px);box-shadow:0 12px 28px rgba(15,110,168,.13)}
-    .driveway-service-features h3{margin:0 0 5px;color:#0b2d4a;font-family:"Arial Black",Arial,sans-serif;font-size:21px;line-height:1.08;letter-spacing:-.7px}
-    .driveway-service-features p{margin:0;color:#536475;font-size:13px;line-height:1.45}
-    .driveway-service-features a{display:block;height:100%;border-radius:20px;outline:none;text-decoration:none}
-    .driveway-service-features a:focus-visible{box-shadow:0 0 0 3px rgba(57,191,234,.38)}
-    @media(max-width:650px){
-      .driveway-service-features{grid-template-columns:1fr;width:100%;margin-top:0;border-radius:0}
-    }
-</style>
+  </style>
 
   <!-- LocalBusiness entity (site-wide) -->
   <script type="application/ld+json">
@@ -775,7 +794,7 @@
   .hs-modern-group.hs-open>.hs-modern-mega{display:grid;position:static;transform:none;width:100%;min-width:0;box-shadow:none;border:1px solid #dce5ea;grid-template-columns:1fr}
 }
 </style>  
-<link href="/site-footer.css?v=20260803-2" rel="stylesheet"/></head>
+<link href="/site-footer.css?v=20260804-2" rel="stylesheet"/></head>
 
 <body class="shared-footer-page">
 
@@ -865,7 +884,7 @@
 
     <div class="container" style="position:relative; z-index:2;">
       <div style="display:flex; justify-content:center;">
-        <div style="
+        <div class="driveway-hero-panel" style="
           display:inline-block;
           max-width:770px;
           width:100%;
@@ -890,13 +909,6 @@
         </div>
       </div>
     </div>
-  </section>
-
-  <section class="driveway-service-features" aria-label="HydroSeal driveway service standards">
-    <article><h3>DEEP CLEANING</h3><p>Surface preparation before sealing.</p></article>
-    <a href="/paver-sealing/sand-options" aria-label="Learn about HydroSeal joint sand options"><article><h3>JOINT SAND</h3><p>ASTM C144 kiln-dried sand.</p></article></a>
-    <article><h3>BREATHABLE SEALER</h3><p>Two coats for Florida conditions.</p></article>
-    <a href="/warranty" aria-label="View the HydroSeal 2-year warranty"><article><h3>2-YEAR WARRANTY</h3><p>Covered workmanship &amp; adhesion.</p></article></a>
   </section>
 
   <!-- PAGE CONTENT -->
