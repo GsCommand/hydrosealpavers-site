@@ -89,6 +89,15 @@
   .menu.open .paver-sealing-menu{grid-template-columns:1fr}
 }
 
+/* Mobile hero: keep the photograph and page H1 only. */
+@media (max-width:650px){
+  .hero .glass > :not(h1),
+  .hero .proof-stack{display:none!important}
+  .hero .hero-grid{display:block;padding-top:120px;padding-bottom:56px}
+  .hero .glass{padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+  .hero h1.seo-h1{display:block;max-width:100%;margin:0;padding:0;border:0;border-radius:0;color:#fff;font:42px/.98 Impact,'Arial Black',sans-serif;letter-spacing:.2px;text-align:center;text-shadow:0 3px 18px rgba(0,0,0,.75)}
+}
+
 .service-areas-menu{
   display:grid!important;
   grid-template-columns:repeat(3,minmax(170px,1fr))!important;
