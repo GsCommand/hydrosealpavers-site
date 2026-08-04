@@ -633,84 +633,23 @@
   </style>
 
   <link rel="stylesheet" href="/styles.css?v=20260312-1" />
+  <link rel="stylesheet" href="/assets/css/modern-header.css?v=20260804-1" />
 <script>(function(w, d, t, u, o) {w[u] = w[u] || [], o.ts = (new Date).getTime();var n = d.createElement(t);n.src = "https://bat.bing.net/bat.js?ti=" + o.ti + ("uetq" != u ? "&q=" + u : ""),n.async = 1, n.onload = n.onreadystatechange = function() {var s = this.readyState;s && "loaded" !== s && "complete" !== s ||(o.q = w[u], w[u] = new UET(o), w[u].push("pageLoad"),n.onload = n.onreadystatechange = null)};var i = d.getElementsByTagName(t)[0];i.parentNode.insertBefore(n, i);})(window, document, "script", "uetq", {ti: "97237409",enableAutoSpaTracking: true});</script>
 </head>
 <body>
 
-  <header class="header">
-    <div class="container header-row">
-
-      <a class="brand" href="/" aria-label="HydroSeal home">
-        <img
-          src="/assets/hero/Hydrosealpaversealing.png"
-          alt="HydroSeal"
-          class="brand-logo"
-          loading="eager"
-          width="320"
-          height="125"
-        />
-      </a>
-
-      <div class="nav-shell">
-
-        <button
-          class="nav-toggle"
-          type="button"
-          aria-controls="navMenu"
-          aria-expanded="false"
-          aria-label="Open menu"
-        >
-          <span class="nav-toggle-bars" aria-hidden="true"></span>
-        </button>
-
-        <nav class="nav header-nav" aria-label="Primary">
-          <!-- PUT THE ID BACK HERE -->
-          <div class="nav-menu" id="navMenu">
-
-            <div class="nav-group">
-              <button class="nav-link nav-parent" type="button" aria-expanded="false">
-                Paver Sealing
-              </button>
-              <div class="dropdown" role="menu" aria-label="Paver Sealing">
-                <a role="menuitem" href="/paver-sealing/driveways">Driveways</a>
-                <a role="menuitem" href="/paver-sealing/pool-decks">Pool Decks</a>
-                <a role="menuitem" href="/paver-sealing/travertine-sealing">Travertine Sealing</a>
-              </div>
-            </div>
-
-            
-
-            <div class="nav-group">
-              <button class="nav-link nav-parent" type="button" aria-expanded="false">
-                Service Areas
-              </button>
-              <div class="dropdown" role="menu" aria-label="Service Areas">
-                <a role="menuitem" href="/service-areas/jacksonville">Jacksonville</a>
-                <a role="menuitem" href="/service-areas/st-johns-county">St. Johns County</a>
-                <a role="menuitem" href="/service-areas/clay-county">Clay County</a>
-              </div>
-            </div>
-
-            <a class="nav-link" href="/care-program">Care Program</a>
-            <a class="nav-link" href="/warranty">Warranty</a>
-
-            <div class="nav-mobile-ctas" role="presentation">
-              <a class="btn btn-ghost" href="tel:+19045375000">Call 904.537.5000</a>
-              <a class="btn btn-primary" href="/get-a-quote">Request a Quote</a>
-            </div>
-
-          </div>
-        </nav>
-
-        <button class="nav-overlay" type="button" hidden aria-label="Close menu"></button>
+  <header class="hs-modern-header">
+    <nav class="hs-modern-nav hs-modern-shell" aria-label="Primary navigation">
+      <a class="hs-modern-logo" href="/" aria-label="HydroSeal home"><img alt="HydroSeal" src="/assets/hero/Hydrosealpaversealing.png" width="600" height="234" /></a>
+      <button aria-expanded="false" aria-label="Open menu" class="hs-modern-toggle" type="button">☰</button>
+      <div class="hs-modern-menu">
+        <div class="hs-modern-group"><button aria-expanded="false" class="hs-modern-parent" type="button">Paver Sealing</button><div class="hs-modern-mega"><div class="hs-modern-column"><a href="/paver-sealing/driveways">Driveway Paver Sealing<small>Clean, resand, and protect</small></a><a href="/paver-sealing/pool-decks">Pool Deck Sealing<small>Moisture-aware preparation</small></a><a href="/paver-sealing/travertine-sealing">Travertine Sealing<small>Natural-stone specific care</small></a><a href="/care-program">Paver Resealing<small>Restore weathered protection</small></a></div><div class="hs-modern-column"><a href="/paver-sealing-cost-calculator">Instant Pricing Calculator<small>Estimate standard sealing cost</small></a><a href="/paver-resealing">Strip and Reseal<small>Correct failed or cloudy coatings</small></a><a href="/paver-sealing/sand-options">Joint Sand Options<small>ASTM C144 colors and selection</small></a></div></div></div>
+        <div class="hs-modern-group"><button aria-expanded="false" class="hs-modern-parent" type="button">Service Areas</button><div class="hs-modern-mega hs-modern-areas-menu"><a href="/service-areas/jacksonville">Jacksonville</a><a href="/service-areas/st-johns-county">St. Johns County</a><a href="/service-areas/clay-county">Clay County</a></div></div>
+        <div class="hs-modern-group"><button aria-expanded="false" class="hs-modern-parent" type="button">About</button><div class="hs-modern-mega hs-modern-about-menu"><a href="/about">About HydroSeal</a><a href="/learning-center/">Learning Center</a><a href="/care-program/">Care Program</a><a href="/warranty/">Warranty</a></div></div>
+        <a class="hs-modern-link" href="/faq">FAQ</a>
       </div>
-
-      <div class="header-ctas">
-        <a class="btn btn-ghost" href="tel:+19045375000">Call 904.537.5000</a>
-        <a class="btn btn-primary" href="/get-a-quote">Request a Quote</a>
-      </div>
-
-    </div>
+      <a class="hs-modern-call" href="tel:+19045375000">Call 904.537.5000</a><a class="hs-modern-quote" href="/get-a-quote">Get a Quote</a>
+    </nav>
   </header>
   <!-- TRUST BAR (global) -->
   <div class="trustbar trust-strip" role="note" aria-label="Trust signals">
@@ -1492,5 +1431,6 @@
   <script src="/assets/js/router.js" defer></script>
   <script src="/assets/js/nav.js" defer></script>
   <script src="/assets/js/analytics.js" defer></script>
+  <script src="/assets/js/modern-header.js?v=20260804-1" defer></script>
 </body>
 </html>
