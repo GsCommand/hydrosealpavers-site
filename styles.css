@@ -3060,4 +3060,12 @@ header > .container {
     text-align: center;
     text-shadow: 0 2px 12px rgba(0, 0, 0, .45);
   }
+
+  .mobile-hero-label__location {
+    display: block;
+    margin-top: 6px;
+    font-size: .58em;
+    line-height: 1.2;
+    letter-spacing: 0;
+  }
 }
