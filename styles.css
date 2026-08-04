@@ -3009,42 +3009,18 @@ header > .container {
   width: 100%;
 }
 
-/* Mobile image heroes: show only the page H1 over the photograph. */
+/* Mobile image heroes: show the photograph without overlay text. */
 @media (max-width: 650px) {
-  .hero2 .hero-panel > :not(h1),
-  .driveway-hero-panel > :not(h1),
-  .pool-service-hero__glass > :not(h1),
-  .trav-service-hero__glass > :not(h1),
-  .pool-service-proof,
-  .trav-service-proof {
+  .driveway-hero-panel,
+  .pool-service-hero__grid,
+  .trav-service-hero__grid,
+  .reseal-hero__inner {
     display: none !important;
   }
 
-  .hero2 .hero-panel,
-  .driveway-hero-panel,
-  .pool-service-hero__glass,
-  .trav-service-hero__glass {
-    padding: 0 !important;
-    border: 0 !important;
-    border-radius: 0 !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    -webkit-backdrop-filter: none !important;
-    backdrop-filter: none !important;
-  }
-
-  .hero2 h1,
-  .pool-service-hero h1,
-  .trav-service-hero h1 {
-    margin: 0 !important;
-    text-align: center;
-    text-shadow: 0 3px 18px rgba(0, 0, 0, .75) !important;
-  }
-
-  .pool-service-hero__grid,
-  .trav-service-hero__grid {
-    display: block !important;
-    padding-top: 120px !important;
-    padding-bottom: 56px !important;
+  .pool-service-hero,
+  .trav-service-hero {
+    height: 520px;
+    min-height: 520px !important;
   }
 }
