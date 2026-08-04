@@ -3009,7 +3009,11 @@ header > .container {
   width: 100%;
 }
 
-/* Mobile image heroes: show the photograph without overlay text. */
+/* Mobile image heroes: show one centered service label over the photograph. */
+.mobile-hero-label {
+  display: none;
+}
+
 @media (max-width: 650px) {
   .driveway-hero-panel,
   .pool-service-hero__grid,
@@ -3022,5 +3026,38 @@ header > .container {
   .trav-service-hero {
     height: 520px;
     min-height: 520px !important;
+  }
+
+  .hero2,
+  .pool-service-hero,
+  .trav-service-hero,
+  .reseal-hero,
+  .care-hero__media {
+    position: relative;
+  }
+
+  .mobile-hero-label {
+    position: absolute;
+    z-index: 4;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: max-content;
+    max-width: calc(100% - 40px);
+    padding: 14px 20px;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(255, 255, 255, .32);
+    border-radius: 16px;
+    background: rgba(8, 35, 55, .30);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, .20);
+    color: #fff;
+    font-size: clamp(1.35rem, 6vw, 1.8rem);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -.02em;
+    text-align: center;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, .45);
   }
 }
