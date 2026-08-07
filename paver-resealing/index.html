@@ -29,14 +29,17 @@
   <meta name="twitter:image" content="https://hydrosealpavers.com/assets/hero/paver-sealing-jacksonville-driveway.webp" />
   <link rel="preload" as="image" href="/assets/hero/paver-sealing-jacksonville-driveway.webp" />
   <link rel="stylesheet" href="/styles.css?v=20260804-mobile-service-labels" />
+  <link rel="stylesheet" href="/assets/css/modern-header.css?v=20260807-3" />
   <style>
+    html,body{margin:0;padding:0}
+    body.page-paver-resealing>.hs-modern-header{position:absolute;top:16px;left:0;right:0;z-index:1000;padding:0;font-family:Arial,Helvetica,sans-serif}
     .pool-service-hero{position:relative;min-height:825px;overflow:hidden;background:#0b2d4a;color:#fff}
     .pool-service-hero__image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;max-width:none}
     .pool-service-hero__grid{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.55fr) minmax(260px,.75fr);gap:38px;align-items:center;width:min(1180px,calc(100% - 40px));margin:auto;padding-top:180px;padding-bottom:72px}
     .pool-service-hero__glass{padding:42px;border:1px solid rgba(255,255,255,.10);border-radius:42px;background:rgba(5,32,51,.13);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
     .pool-service-hero__eyebrow{display:inline-flex;align-items:center;margin:0;padding:10px 14px;border:1px solid rgba(255,255,255,.22);border-radius:30px;font-size:12px;line-height:1.2;font-weight:900;letter-spacing:2.4px;text-transform:uppercase}
     .pool-service-hero__eyebrow::before{content:"";width:8px;height:8px;margin-right:9px;border-radius:50%;background:#39bfea;box-shadow:0 0 12px #39bfea}
-    .pool-service-hero h1{max-width:720px;margin:22px 0 15px;color:#fff;font-family:"Arial Black",Arial,sans-serif;font-size:clamp(48px,5vw,67px);line-height:.96;letter-spacing:-1.5px;text-transform:uppercase;text-shadow:none}
+    .pool-service-hero h1{max-width:720px;margin:22px 0 15px;color:#fff;font-family:"Arial Black",Arial,sans-serif;font-size:clamp(48px,5vw,67px);line-height:.96;letter-spacing:-1.5px;text-transform:uppercase}
     .pool-service-hero__subhead{margin:0;color:#aee9fb;font-family:Arial,Helvetica,sans-serif;font-size:21px;line-height:1.2;font-weight:900;text-transform:uppercase}
     .pool-service-hero__copy{margin:16px 0 0;color:#e7f1f5;font-size:17px;line-height:1.55}
     .pool-service-hero__actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
@@ -46,19 +49,16 @@
     .pool-service-proof{display:flex;min-width:0;flex-direction:column;gap:15px;margin-top:24px}
     .pool-service-proof__card{padding:28px;border-radius:30px;background:rgba(255,255,255,.96);color:#0b1220}
     .pool-service-proof__google{display:inline-flex;align-items:center;gap:7px;padding:5px 10px;border:1px solid rgba(15,23,42,.12);border-radius:999px;background:#fff;box-shadow:0 8px 18px rgba(0,0,0,.06);font-size:11px;font-weight:800;color:#5f6368}
-    .pool-service-proof__google svg{display:block;width:14px;height:14px}
     .pool-service-proof__stars{margin-top:8px;color:#ffb000;font-size:24px;letter-spacing:2px}
     .pool-service-proof__card h3{margin:14px 0;font-family:"Arial Black",Arial,sans-serif;font-size:29px;line-height:1.02;letter-spacing:-.7px}
     .pool-service-proof__card p{margin:0 0 16px;color:#536475;font-size:15px;line-height:1.5;font-weight:700}
     .pool-service-proof__card a{font-size:12px;font-weight:900;letter-spacing:1.4px;text-transform:uppercase}
-    .pool-service-proof__cert{padding:20px 22px;border-radius:24px;background:rgba(15,110,168,.94);color:#fff;text-align:center;font-size:15px;line-height:1;font-weight:900;letter-spacing:-.3px}
+    .pool-service-proof__cert{padding:20px 22px;border-radius:24px;background:rgba(15,110,168,.94);color:#fff;text-align:center;font-size:15px;line-height:1;font-weight:900}
     .pool-service-features{position:relative;z-index:4;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;width:min(1180px,calc(100% - 40px));margin:-23px auto 0;padding:17px;border-radius:30px;background:#f0f5f7}
-    .pool-service-features article{height:100%;padding:20px;border:1px solid #dce5ea;border-radius:20px;background:#fff;transition:background .2s ease,border-color .2s ease,transform .2s ease,box-shadow .2s ease}
-    .pool-service-features>article:hover,.pool-service-features>a:hover article,.pool-service-features>a:focus-visible article{background:rgba(57,191,234,.20);border-color:rgba(57,191,234,.65);transform:translateY(-2px);box-shadow:0 12px 28px rgba(15,110,168,.13)}
+    .pool-service-features article{height:100%;padding:20px;border:1px solid #dce5ea;border-radius:20px;background:#fff}
     .pool-service-features h3{margin:0 0 5px;color:#0b2d4a;font-family:"Arial Black",Arial,sans-serif;font-size:21px;line-height:1.08;letter-spacing:-.7px}
     .pool-service-features p{margin:0;color:#536475;font-size:13px;line-height:1.45}
     .pool-service-features a{display:block;height:100%;border-radius:20px;outline:none;text-decoration:none}
-    .pool-service-features a:focus-visible{box-shadow:0 0 0 3px rgba(57,191,234,.38)}
     .reseal-section{padding:clamp(56px,8vw,92px) 0}
     .reseal-section.alt{background:#f3f7fa}
     .reseal-wrap{width:min(1120px,calc(100% - 32px));margin:auto}
@@ -74,31 +74,28 @@
     .reseal-faq details{border-bottom:1px solid #d9e3ea;padding:4px 0}
     .reseal-faq summary{cursor:pointer;font-weight:800;padding:17px 0;color:#163a59}
     .reseal-faq p{margin:0 0 18px}
-    @media(max-width:980px){.pool-service-hero__grid{grid-template-columns:1fr;padding-top:145px}.pool-service-hero{min-height:auto}.pool-service-proof{display:grid;grid-template-columns:1fr 1fr}}
+    @media(max-width:980px){body.page-paver-resealing>.hs-modern-header{top:10px}.pool-service-hero__grid{grid-template-columns:1fr;padding-top:145px}.pool-service-hero{min-height:auto}.pool-service-proof{display:grid;grid-template-columns:1fr 1fr}}
     @media(max-width:900px){.reseal-grid,.reseal-steps{grid-template-columns:1fr 1fr}.reseal-split{grid-template-columns:1fr}}
     @media(max-width:650px){.pool-service-hero__grid{width:calc(100% - 24px);padding-top:110px;padding-bottom:48px}.pool-service-hero__glass{padding:26px 10px;border:0;border-radius:0;background:transparent;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}.pool-service-hero h1,.pool-service-hero__subhead,.pool-service-hero__copy{text-shadow:0 2px 12px rgba(0,0,0,.78)}.pool-service-hero h1{font-size:42px}.pool-service-hero__subhead{font-size:18px}.pool-service-hero__copy{font-size:16px}.pool-service-proof,.pool-service-features{grid-template-columns:1fr}.pool-service-features{width:100%;margin-top:0;border-radius:0}}
     @media(max-width:600px){.reseal-grid,.reseal-steps{grid-template-columns:1fr}}
   </style>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@graph":[
-      {"@type":"WebPage","@id":"https://hydrosealpavers.com/paver-resealing#webpage","url":"https://hydrosealpavers.com/paver-resealing","name":"Paver Resealing Jacksonville & Nocatee FL | HydroSeal","isPartOf":{"@id":"https://hydrosealpavers.com/#website"},"about":{"@id":"https://hydrosealpavers.com/paver-resealing#service"},"breadcrumb":{"@id":"https://hydrosealpavers.com/paver-resealing#breadcrumb"}},
-      {"@type":"Service","@id":"https://hydrosealpavers.com/paver-resealing#service","name":"Paver Resealing","serviceType":"Cleaning, joint-sand restoration, coating evaluation and paver resealing","url":"https://hydrosealpavers.com/paver-resealing","provider":{"@id":"https://hydrosealpavers.com/#business"},"areaServed":[{"@type":"City","name":"Jacksonville"},{"@type":"Place","name":"Nocatee"},{"@type":"Place","name":"Ponte Vedra"},{"@type":"AdministrativeArea","name":"St. Johns County"},{"@type":"AdministrativeArea","name":"Duval County"},{"@type":"AdministrativeArea","name":"Clay County"}]},
-      {"@type":"BreadcrumbList","@id":"https://hydrosealpavers.com/paver-resealing#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://hydrosealpavers.com/"},{"@type":"ListItem","position":2,"name":"Paver Resealing","item":"https://hydrosealpavers.com/paver-resealing"}]},
-      {"@type":"FAQPage","mainEntity":[
-        {"@type":"Question","name":"How do I know when my pavers need resealing?","acceptedAnswer":{"@type":"Answer","text":"Common signs include faded color, uneven sheen, joint-sand loss, increased staining, dry-looking pavers and an older coating that no longer performs evenly. Peeling, whitening or soft film may indicate failure that requires more than a maintenance recoat."}},
-        {"@type":"Question","name":"Can you reseal over old paver sealer?","acceptedAnswer":{"@type":"Answer","text":"Sometimes, but only after the existing coating is identified, cleaned, tested and confirmed compatible. Unstable, whitening, peeling or incompatible sealer may need partial or full removal before resealing."}},
-        {"@type":"Question","name":"How often should pavers be resealed in Florida?","acceptedAnswer":{"@type":"Answer","text":"HydroSeal uses about three to four years as a practical planning range for many professionally prepared and sealed Florida surfaces, but the actual timing should be based on condition, traffic, sunlight, irrigation, drainage and coating performance."}},
-        {"@type":"Question","name":"How much does paver resealing cost?","acceptedAnswer":{"@type":"Answer","text":"Pricing depends on square footage, material, existing coating, stripping needs, joint-sand condition, repairs, staining and access. HydroSeal's calculator provides a preliminary estimate, with final pricing confirmed after review or inspection."}},
-        {"@type":"Question","name":"Do you provide paver resealing in Nocatee?","acceptedAnswer":{"@type":"Answer","text":"Yes. HydroSeal provides paver resealing for selected properties in Nocatee, Jacksonville, Ponte Vedra and nearby Northeast Florida communities. Current availability should be confirmed directly."}}
-      ]}
-    ]
-  }
-  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://hydrosealpavers.com/paver-resealing#webpage","url":"https://hydrosealpavers.com/paver-resealing","name":"Paver Resealing Jacksonville & Nocatee FL | HydroSeal","isPartOf":{"@id":"https://hydrosealpavers.com/#website"},"about":{"@id":"https://hydrosealpavers.com/paver-resealing#service"}},{"@type":"Service","@id":"https://hydrosealpavers.com/paver-resealing#service","name":"Paver Resealing","serviceType":"Cleaning, joint-sand restoration, coating evaluation and paver resealing","url":"https://hydrosealpavers.com/paver-resealing","provider":{"@id":"https://hydrosealpavers.com/#business"},"areaServed":[{"@type":"City","name":"Jacksonville"},{"@type":"Place","name":"Nocatee"},{"@type":"Place","name":"Ponte Vedra"},{"@type":"AdministrativeArea","name":"St. Johns County"}]}]}</script>
 </head>
 <body class="page-paver-resealing">
-  <header data-include="/partials/header.html"></header>
+  <header class="hs-modern-header">
+    <nav class="hs-modern-nav hs-modern-shell" aria-label="Primary navigation">
+      <a class="hs-modern-logo" href="/" aria-label="HydroSeal home"><img alt="HydroSeal" src="/assets/hero/Hydrosealpaversealing.png" width="600" height="234"></a>
+      <button aria-expanded="false" aria-label="Open menu" class="hs-modern-toggle" type="button">☰</button>
+      <div class="hs-modern-menu">
+        <div class="hs-modern-group"><button aria-expanded="false" class="hs-modern-parent" type="button">Paver Sealing</button><div class="hs-modern-mega"><div class="hs-modern-column"><a href="/paver-sealing/driveways">Driveway Paver Sealing<small>Clean, resand, and protect</small></a><a href="/paver-sealing/pool-decks">Pool Deck Sealing<small>Moisture-aware preparation</small></a><a href="/paver-sealing/travertine-sealing">Travertine Sealing<small>Natural-stone specific care</small></a><a href="/paver-resealing/">Paver Resealing<small>Restore weathered protection</small></a></div><div class="hs-modern-column"><a href="/paver-sealing-cost-calculator">Instant Pricing Calculator<small>Estimate standard sealing cost</small></a><a href="/paver-sealing/sand-options">Joint Sand Options<small>ASTM C144 colors and selection</small></a></div></div></div>
+        <div class="hs-modern-group"><button aria-expanded="false" class="hs-modern-parent" type="button">Service Areas</button><div class="hs-modern-mega hs-modern-areas-menu"><a href="/service-areas/jacksonville">Jacksonville</a><a href="/service-areas/st-johns-county">St. Johns County</a><a href="/service-areas/clay-county">Clay County</a></div></div>
+        <div class="hs-modern-group"><button aria-expanded="false" class="hs-modern-parent" type="button">About</button><div class="hs-modern-mega hs-modern-about-menu"><a href="/about">About HydroSeal</a><a href="/learning-center/">Learning Center</a><a href="/care-program/">Care Program</a><a href="/warranty/">Warranty</a></div></div>
+        <a class="hs-modern-link" href="/faq">FAQ</a>
+      </div>
+      <a class="hs-modern-call" href="tel:+19045375000">Call 904.537.5000</a>
+      <a class="hs-modern-quote" href="/get-a-quote">Get a Quote</a>
+    </nav>
+  </header>
   <main>
     <section class="pool-service-hero">
       <img class="pool-service-hero__image" src="/assets/hero/paver-sealing-jacksonville-driveway.webp" alt="Resealed paver driveway in Jacksonville, Florida" loading="eager" decoding="async" fetchpriority="high" />
@@ -109,116 +106,30 @@
           <h1>Paver Resealing<br />Jacksonville &amp; St. Johns County</h1>
           <div class="pool-service-hero__subhead">Cleaned. Resanded. Evaluated. Resealed for Florida.</div>
           <p class="pool-service-hero__copy">Professional resealing for previously sealed driveways, pool decks, patios and walkways with coating evaluation, deep cleaning, joint-sand restoration and a compatible sealing system.</p>
-          <div class="pool-service-hero__actions">
-            <a class="btn btn-primary" href="/get-a-quote">Request a Quote</a>
-            <a class="btn btn-ghost" href="/paver-sealing-cost-calculator">Try Instant Pricing</a>
-          </div>
+          <div class="pool-service-hero__actions"><a class="btn btn-primary" href="/get-a-quote">Request a Quote</a><a class="btn btn-ghost" href="/paver-sealing-cost-calculator">Try Instant Pricing</a></div>
         </div>
-        <div class="pool-service-proof">
-          <article class="pool-service-proof__card">
-            <div class="pool-service-proof__google"><svg aria-hidden="true" focusable="false" viewBox="0 0 256 262"><path d="M255.68 133.5c0-10.79-.97-18.68-3.06-26.89H130.55v47.73h71.62c-1.44 11.86-9.17 29.71-26.34 41.7l-.24 1.6 38.31 29.68 2.65.26c24.31-22.42 38.13-55.43 38.13-94.08" fill="#4285F4"></path><path d="M130.55 261c34.98 0 64.32-11.54 85.76-31.38l-40.72-31.54c-10.9 7.62-25.52 12.97-45.04 12.97-34.25 0-63.32-22.42-73.67-53.41l-1.51.13-39.84 30.83-.52 1.45C36.36 232.1 79.97 261 130.55 261" fill="#34A853"></path><path d="M56.88 157.64c-2.69-7.89-4.24-16.34-4.24-25.14s1.55-17.25 4.1-25.14l-.07-1.69L16.34 74.34l-1.32.63C6 92.98.84 112.76.84 132.5s5.16 39.52 14.18 57.53z" fill="#FBBC05"></path><path d="M130.55 53.95c24.62 0 41.25 10.68 50.69 19.61l37-36.1C194.73 15.61 165.53 1 130.55 1 79.97 1 36.36 29.9 15.02 74.97l41.65 32.33c10.49-30.98 39.56-53.35 73.88-53.35" fill="#EB4335"></path></svg><span>Google</span></div>
-            <div class="pool-service-proof__stars">★★★★★</div>
-            <h3>5-STAR RATED PAVER RESTORATION.</h3>
-            <p>Homeowners choose HydroSeal when faded, worn or previously sealed pavers need more than another quick coat.</p>
-            <a href="https://share.google/4ddHhmrSn3woAYR6h" rel="noopener noreferrer" target="_blank">Read customer reviews →</a>
-          </article>
-          <div class="pool-service-proof__cert">TRIDENT MASTER CERTIFIED</div>
-        </div>
+        <div class="pool-service-proof"><article class="pool-service-proof__card"><div class="pool-service-proof__google">Google</div><div class="pool-service-proof__stars">★★★★★</div><h3>5-STAR RATED PAVER RESTORATION.</h3><p>Homeowners choose HydroSeal when faded, worn or previously sealed pavers need more than another quick coat.</p><a href="https://share.google/4ddHhmrSn3woAYR6h" rel="noopener noreferrer" target="_blank">Read customer reviews →</a></article><div class="pool-service-proof__cert">TRIDENT MASTER CERTIFIED</div></div>
       </div>
     </section>
-    <section class="pool-service-features" aria-label="HydroSeal paver resealing service standards">
-      <article><h3>COATING EVALUATION</h3><p>Existing sealer checked before recoating.</p></article>
-      <article><h3>DEEP CLEANING</h3><p>Professional preparation before resealing.</p></article>
-      <a href="/paver-sealing/sand-options" aria-label="Learn about HydroSeal joint sand options"><article><h3>JOINT SAND</h3><p>ASTM C144 kiln-dried sand where needed.</p></article></a>
-      <a href="/warranty" aria-label="View the HydroSeal 2-year warranty"><article><h3>2-YEAR WARRANTY</h3><p>Covered workmanship &amp; adhesion.</p></article></a>
-    </section>
+    <section class="pool-service-features" aria-label="HydroSeal paver resealing service standards"><article><h3>COATING EVALUATION</h3><p>Existing sealer checked before recoating.</p></article><article><h3>DEEP CLEANING</h3><p>Surface preparation before resealing.</p></article><a href="/paver-sealing/sand-options"><article><h3>JOINT SAND</h3><p>Joint-sand restoration where needed.</p></article></a><a href="/warranty"><article><h3>2-YEAR WARRANTY</h3><p>Covered workmanship &amp; adhesion.</p></article></a></section>
 
-    <section class="reseal-section">
-      <div class="reseal-wrap">
-        <div class="reseal-intro">
-          <p class="eyebrow">Paver sealing vs. paver resealing</p>
-          <h2>Resealing starts with the old coating</h2>
-          <p><strong>Paver resealing is not simply applying another coat.</strong> A previously sealed surface must be evaluated for compatibility, trapped moisture, whitening, peeling, heavy buildup, uneven wear and joint-sand loss before a new system is applied. A sound maintenance coating may be cleaned and resealed, while a failed or incompatible coating may require testing, correction or stripping.</p>
-        </div>
-        <div class="reseal-grid">
-          <article class="reseal-card"><h3>Faded or dry-looking pavers</h3><p>Color loss and uneven sheen can indicate normal wear, especially on full-sun driveways and high-traffic areas.</p></article>
-          <article class="reseal-card"><h3>White, cloudy or peeling sealer</h3><p>Whitening may come from trapped moisture, coating failure, efflorescence, mineral residue or haze. Diagnosis comes before resealing.</p></article>
-          <article class="reseal-card"><h3>Joint-sand loss</h3><p>Open or shallow joints may need cleaning and ASTM C144 kiln-dried joint-sand restoration before the surface is resealed.</p></article>
-        </div>
-      </div>
-    </section>
+    <section class="reseal-section"><div class="reseal-wrap"><div class="reseal-intro"><p class="eyebrow">Paver sealing vs. paver resealing</p><h2>Resealing starts with the old coating</h2><p><strong>Paver resealing is not simply applying another coat.</strong> A previously sealed surface must be evaluated for compatibility, trapped moisture, whitening, peeling, heavy buildup, uneven wear and joint-sand loss before a new system is applied. A sound maintenance coating may be cleaned and resealed, while a failed or incompatible coating may require testing, correction or stripping.</p></div><div class="reseal-grid"><article class="reseal-card"><h3>Faded or dry-looking pavers</h3><p>Color loss and uneven sheen can indicate normal wear, especially on full-sun driveways and high-traffic areas.</p></article><article class="reseal-card"><h3>White, cloudy or peeling sealer</h3><p>Whitening may come from trapped moisture, coating failure, efflorescence, mineral residue or haze. Diagnosis comes before resealing.</p></article><article class="reseal-card"><h3>Joint-sand loss</h3><p>Open or shallow joints may need cleaning and ASTM C144 kiln-dried joint-sand restoration before the surface is resealed.</p></article></div></div></section>
 
-    <section class="reseal-section alt">
-      <div class="reseal-wrap">
-        <p class="eyebrow">Our resealing process</p>
-        <h2>Five steps before the new coating goes down</h2>
-        <ol class="reseal-steps">
-          <li><strong>Inspect</strong><br />Identify the surface, old coating, moisture concerns, stains, repairs and drainage.</li>
-          <li><strong>Test</strong><br />Check coating stability and determine whether cleaning, correction or stripping is required.</li>
-          <li><strong>Clean</strong><br />Remove organic buildup, dirt and loose material using surface-appropriate preparation.</li>
-          <li><strong>Restore joints</strong><br />Refresh joint sand where needed and complete agreed paver repairs or releveling.</li>
-          <li><strong>Reseal</strong><br />Apply a compatible contractor-grade system under suitable weather and moisture conditions.</li>
-        </ol>
-      </div>
-    </section>
+    <section class="reseal-section alt"><div class="reseal-wrap"><p class="eyebrow">Our resealing process</p><h2>Five steps before the new coating goes down</h2><ol class="reseal-steps"><li><strong>Inspect</strong><br />Identify the surface, old coating, moisture concerns, stains, repairs and drainage.</li><li><strong>Test</strong><br />Check coating stability and determine whether cleaning, correction or stripping is required.</li><li><strong>Clean</strong><br />Remove organic buildup, dirt and loose material using surface-appropriate preparation.</li><li><strong>Restore joints</strong><br />Refresh joint sand where needed and complete agreed paver repairs or releveling.</li><li><strong>Reseal</strong><br />Apply a compatible contractor-grade system under suitable weather and moisture conditions.</li></ol></div></section>
 
-    <section class="reseal-section">
-      <div class="reseal-wrap reseal-split">
-        <div>
-          <p class="eyebrow">Paver resealing in Nocatee</p>
-          <h2>Nocatee surfaces face heavy sun, rain and irrigation</h2>
-          <p>Nocatee driveways, pool decks and patios can experience reclaimed-irrigation staining, intense UV exposure, summer storms, high humidity, joint-sand loss and repeated wet-dry cycles. Those conditions can fade a coating or expose weaknesses in an older application.</p>
-          <p>HydroSeal evaluates the existing sealer before recommending a maintenance recoat. We do not automatically seal over whitening, peeling, trapped moisture or an unknown coating.</p>
-          <p><a href="/service-areas/st-johns-county/nocatee">View HydroSeal's Nocatee service page</a>.</p>
-        </div>
-        <div class="reseal-callout">
-          <h3>When stripping may be required</h3>
-          <p>Full or partial removal may be needed when an old coating is peeling, soft, heavily built up, incompatible, moisture-damaged or too unstable to support another layer. Stripping feasibility and final scope require inspection and testing.</p>
-          <p><a href="/learning-center/problems/why-are-my-pavers-turning-white-in-florida">Learn why paver sealer turns white</a> or <a href="/learning-center/problems/why-is-my-paver-sealer-peeling">see why sealer peels</a>.</p>
-        </div>
-      </div>
-    </section>
+    <section class="reseal-section"><div class="reseal-wrap reseal-split"><div><p class="eyebrow">Paver resealing in Nocatee</p><h2>Nocatee surfaces face heavy sun, rain and irrigation</h2><p>Nocatee driveways, pool decks and patios can experience reclaimed-irrigation staining, intense UV exposure, summer storms, high humidity, joint-sand loss and repeated wet-dry cycles. Those conditions can fade a coating or expose weaknesses in an older application.</p><p>HydroSeal evaluates the existing sealer before recommending a maintenance recoat. We do not automatically seal over whitening, peeling, trapped moisture or an unknown coating.</p><p><a href="/service-areas/st-johns-county/nocatee">View HydroSeal's Nocatee service page</a>.</p></div><div class="reseal-callout"><h3>When stripping may be required</h3><p>Full or partial removal may be needed when an old coating is peeling, soft, heavily built up, incompatible, moisture-damaged or too unstable to support another layer. Stripping feasibility and final scope require inspection and testing.</p><p><a href="/learning-center/problems/why-are-my-pavers-turning-white-in-florida">Learn why paver sealer turns white</a> or <a href="/learning-center/problems/why-is-my-paver-sealer-peeling">see why sealer peels</a>.</p></div></div></section>
 
-    <section class="reseal-section alt">
-      <div class="reseal-wrap reseal-split">
-        <div>
-          <p class="eyebrow">Resealing timing</p>
-          <h2>Do not wait for complete coating failure</h2>
-          <p>HydroSeal uses about <strong>three to four years</strong> as a practical planning range for many professionally prepared and sealed Florida surfaces. Full-sun driveways, frequent traffic, irrigation, pool chemicals, drainage issues, coastal exposure and harsh cleaning can shorten service life.</p>
-          <p>Annual inspection can be useful, but annual recoating is not automatically recommended. Recoating too frequently can create unnecessary film buildup or bury an unstable layer.</p>
-          <p><a href="/learning-center/sealing/how-long-does-paver-sealing-last-in-florida">Read the Florida resealing-frequency guide</a>.</p>
-        </div>
-        <div>
-          <p class="eyebrow">Surfaces we reseal</p>
-          <h2>Driveways, pool decks, patios and walkways</h2>
-          <p>Each surface needs a different evaluation. Vehicle traffic affects driveways, while moisture, pool chemicals and traction matter more around pools. Travertine and natural stone require especially careful product selection.</p>
-          <p>Review our <a href="/paver-sealing/driveways">driveway sealing</a>, <a href="/paver-sealing/pool-decks">pool deck sealing</a>, <a href="/paver-sealing/patios-walkways">patio and walkway sealing</a>, and <a href="/paver-sealing/travertine-sealing">travertine sealing</a> services.</p>
-        </div>
-      </div>
-    </section>
+    <section class="reseal-section alt"><div class="reseal-wrap reseal-split"><div><p class="eyebrow">Resealing timing</p><h2>Do not wait for complete coating failure</h2><p>HydroSeal uses about <strong>three to four years</strong> as a practical planning range for many professionally prepared and sealed Florida surfaces. Full-sun driveways, frequent traffic, irrigation, pool chemicals, drainage issues, coastal exposure and harsh cleaning can shorten service life.</p><p>Annual inspection can be useful, but annual recoating is not automatically recommended. Recoating too frequently can create unnecessary film buildup or bury an unstable layer.</p><p><a href="/learning-center/sealing/how-long-does-paver-sealing-last-in-florida">Read the Florida resealing-frequency guide</a>.</p></div><div><p class="eyebrow">Surfaces we reseal</p><h2>Driveways, pool decks, patios and walkways</h2><p>Each surface needs a different evaluation. Vehicle traffic affects driveways, while moisture, pool chemicals and traction matter more around pools. Travertine and natural stone require especially careful product selection.</p><p>Review our <a href="/paver-sealing/driveways">driveway sealing</a>, <a href="/paver-sealing/pool-decks">pool deck sealing</a>, <a href="/paver-sealing/patios-walkways">patio and walkway sealing</a>, and <a href="/paver-sealing/travertine-sealing">travertine sealing</a> services.</p></div></div></section>
 
-    <section class="reseal-section">
-      <div class="reseal-wrap reseal-faq">
-        <p class="eyebrow">Paver resealing FAQs</p>
-        <h2>Common questions before resealing</h2>
-        <details><summary>How do I know when my pavers need resealing?</summary><p>Look for faded color, reduced water resistance, uneven sheen, joint-sand loss, increased staining or a dry, worn appearance. White, peeling or soft areas may signal failure rather than normal wear.</p></details>
-        <details><summary>Can you reseal over old paver sealer?</summary><p>Sometimes. The old coating must be clean, stable and compatible. Unknown, whitening, peeling or heavily built-up coatings may require testing or removal first.</p></details>
-        <details><summary>How much does paver resealing cost?</summary><p>Cost depends on square footage, surface type, coating condition, stripping, joint sand, repairs, stains and access. Use the <a href="/paver-sealing-cost-calculator">paver sealing cost calculator</a> for a preliminary range.</p></details>
-        <details><summary>Can failed sealer always be removed?</summary><p>Not always completely or in one treatment. Results depend on sealer chemistry, number of layers, paver porosity, moisture and surface condition. Feasibility requires inspection.</p></details>
-        <details><summary>Do you provide paver resealing in Nocatee?</summary><p>Yes, for selected properties in Nocatee, Jacksonville, Ponte Vedra and surrounding Northeast Florida communities. Contact HydroSeal to confirm current service availability.</p></details>
-      </div>
-    </section>
+    <section class="reseal-section"><div class="reseal-wrap reseal-faq"><p class="eyebrow">Paver resealing FAQs</p><h2>Common questions before resealing</h2><details><summary>How do I know when my pavers need resealing?</summary><p>Look for faded color, reduced water resistance, uneven sheen, joint-sand loss, increased staining or a dry, worn appearance. White, peeling or soft areas may signal failure rather than normal wear.</p></details><details><summary>Can you reseal over old paver sealer?</summary><p>Sometimes. The old coating must be clean, stable and compatible. Unknown, whitening, peeling or heavily built-up coatings may require testing or removal first.</p></details><details><summary>How much does paver resealing cost?</summary><p>Cost depends on square footage, surface type, coating condition, stripping, joint sand, repairs, stains and access. Use the <a href="/paver-sealing-cost-calculator">paver sealing cost calculator</a> for a preliminary range.</p></details><details><summary>Can failed sealer always be removed?</summary><p>Not always completely or in one treatment. Results depend on sealer chemistry, number of layers, paver porosity, moisture and surface condition. Feasibility requires inspection.</p></details><details><summary>Do you provide paver resealing in Nocatee?</summary><p>Yes, for selected properties in Nocatee, Jacksonville, Ponte Vedra and surrounding Northeast Florida communities. Contact HydroSeal to confirm current service availability.</p></details></div></section>
 
-    <section class="cta-band">
-      <div class="container cta-band__inner">
-        <div><h2>Ready to evaluate your existing sealer?</h2><p>Send photos of the full surface, close-up coating condition, white or peeling areas, joint sand and any stains.</p></div>
-        <div class="cta-band__actions"><a class="btn btn-primary" href="/get-a-quote">Request a Quote</a><a class="btn btn-ghost" href="sms:+19045375000">Text 904.537.5000</a></div>
-      </div>
-    </section>
+    <section class="cta-band"><div class="container cta-band__inner"><div><h2>Ready to evaluate your existing sealer?</h2><p>Send photos of the full surface, close-up coating condition, white or peeling areas, joint sand and any stains.</p></div><div class="cta-band__actions"><a class="btn btn-primary" href="/get-a-quote">Request a Quote</a><a class="btn btn-ghost" href="sms:+19045375000">Text 904.537.5000</a></div></div></section>
   </main>
   <footer data-include="/partials/footer.html"></footer>
   <script src="/assets/js/include.js" defer></script>
   <script src="/assets/js/nav.js" defer></script>
-  <script>(function(w,d,t,u,o){w[u]=w[u]||[],o.ts=(new Date).getTime();var n=d.createElement(t);n.src='https://bat.bing.net/bat.js?ti='+o.ti,n.async=1;var i=d.getElementsByTagName(t)[0];i.parentNode.insertBefore(n,i)})(window,document,'script','uetq',{ti:'97237409'});</script>
+  <script>
+    (function(){var toggle=document.querySelector('.hs-modern-toggle'),menu=document.querySelector('.hs-modern-menu'),groups=document.querySelectorAll('.hs-modern-group');if(!toggle||!menu)return;toggle.addEventListener('click',function(){var open=menu.classList.toggle('hs-open');toggle.setAttribute('aria-expanded',String(open));});groups.forEach(function(group){var button=group.querySelector('.hs-modern-parent');if(!button)return;button.addEventListener('click',function(e){if(window.innerWidth>980)return;e.preventDefault();var willOpen=!group.classList.contains('hs-open');groups.forEach(function(other){other.classList.remove('hs-open')});group.classList.toggle('hs-open',willOpen);button.setAttribute('aria-expanded',String(willOpen));});});})();
+  </script>
 </body>
 </html>
