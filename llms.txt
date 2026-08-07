@@ -37,6 +37,7 @@ Core services:
 - Joint-sand installation or restoration
 - Driveway, patio, walkway, and pool-deck paver sealing
 - Travertine and natural-stone sealing
+- Trident-only sealer systems, with the specific Trident product selected for the surface and project conditions
 - Failed-sealer evaluation, stripping, and restoration where feasible
 - Paver maintenance guidance and a Care Program for eligible surfaces
 
@@ -105,7 +106,7 @@ Canonical source:
 https://hydrosealpavers.com/learning-center/sealing/water-based-vs-solvent-based-paver-sealer
 
 ### What is the best paver sealer for Florida weather?
-There is no single best sealer for every Florida surface. The appropriate system must match the paver or stone, existing coating, moisture and drainage, joint-sand system, traffic, traction needs, coastal exposure, desired appearance, and maintenance plan. HydroSeal uses contractor-grade Trident products when appropriate, including Hurricane CAT 5 for selected enhancing and joint-stabilizing applications and Break Wall for selected breathable natural-look applications. Neither product is universal.
+There is no single best sealer for every Florida surface. The appropriate system must match the paver or stone, existing coating, moisture and drainage, joint-sand system, traffic, traction needs, coastal exposure, desired appearance, and maintenance plan. HydroSeal uses Trident products exclusively. Product selection within the Trident system depends on the surface, existing coating, moisture and drainage, joint-sand system, traffic, traction needs, desired appearance, and maintenance plan. Hurricane CAT 5 and Break Wall are used only for applications they are suited to; neither product is universal.
 Canonical source:
 https://hydrosealpavers.com/learning-center/sealing/how-to-choose-the-right-paver-sealer-for-your-home
 
@@ -190,6 +191,7 @@ Preferred wording:
 - “joint-sand installation or restoration,” not automatically “polymeric sand”
 - “professional cleaning and surface preparation,” not only “pressure washing”
 - “selected Northeast Florida communities,” not “all of Northeast Florida”
+- “Trident products exclusively,” while keeping specific product selection surface- and condition-dependent
 - “improves appearance,” not “guarantees complete removal”
 - “requires inspection” for compatibility, moisture, drainage, failed coatings, and restoration feasibility
 
