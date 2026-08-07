@@ -64,6 +64,9 @@
     .beaches-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:24px}
     .beaches-list article{padding:22px;border:1px solid rgba(15,23,42,.09);border-radius:18px;background:#fff}
     .beaches-list h3{margin:0 0 7px;color:#0b2d4a}
+    .beaches-callout-stack{display:flex;flex-direction:column;gap:18px}
+    .beaches-callout-image{overflow:hidden;border-radius:22px;background:#fff;box-shadow:0 14px 34px rgba(11,45,74,.10)}
+    .beaches-callout-image img{display:block;width:100%;height:auto;object-fit:cover}
     .beaches-callout{padding:28px;border-radius:22px;background:#0b2d4a;color:#fff}
     .beaches-callout h2,.beaches-callout h3{color:#fff;margin-top:0}
     .beaches-callout a{color:#aee9fb}
@@ -190,12 +193,17 @@
             <article><h3>Pool environments</h3><p>Pool decks add frequent water exposure, chemicals, barefoot traffic and traction considerations.</p></article>
           </div>
         </div>
-        <aside class="beaches-callout">
-          <h2>Cleaning, sanding and sealing are separate decisions</h2>
-          <p>A beach-area paver project may need simple cleaning, joint-sand restoration and sealing. Another surface may have failed coating, white haze, drainage issues or repairs that need to be addressed first.</p>
-          <p>HydroSeal does not automatically coat over an unknown or unstable surface.</p>
-          <p><a href="/paver-resealing">Learn about paver resealing</a> or <a href="/paver-sealing/sand-options">review joint-sand options</a>.</p>
-        </aside>
+        <div class="beaches-callout-stack">
+          <div class="beaches-callout-image">
+            <img src="/assets/hero/jax-beach-sealing.webp" alt="Pool deck pavers serving Jacksonville Beaches homes" loading="lazy" decoding="async" />
+          </div>
+          <aside class="beaches-callout">
+            <h2>Cleaning, sanding and sealing are separate decisions</h2>
+            <p>A beach-area paver project may need simple cleaning, joint-sand restoration and sealing. Another surface may have failed coating, white haze, drainage issues or repairs that need to be addressed first.</p>
+            <p>HydroSeal does not automatically coat over an unknown or unstable surface.</p>
+            <p><a href="/paver-resealing">Learn about paver resealing</a> or <a href="/paver-sealing/sand-options">review joint-sand options</a>.</p>
+          </aside>
+        </div>
       </div>
     </section>
 
