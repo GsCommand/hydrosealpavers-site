@@ -1,0 +1,118 @@
+name: Normalize HydroSeal business facts
+
+on:
+  push:
+    paths:
+      - '.github/workflows/normalize-hydroseal-facts.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  normalize:
+    if: contains(github.event.head_commit.message, 'Normalize HydroSeal business facts')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Normalize longevity and Trident wording
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          ROOT = Path('.')
+          ALLOWED = {'.html', '.txt', '.md', '.xml', '.json'}
+          canonical_longevity = 'About 3–4 years is a common planning range, but exposure and condition determine when resealing is actually needed.'
+
+          changed = []
+
+          # Direct fact normalization. Do not touch the separate 2-year workmanship/adhesion warranty.
+          literal_replacements = {
+              '2 to 3 years': '3–4 years',
+              '2–3 years': '3–4 years',
+              '2-3 years': '3–4 years',
+              '2 to 3 year': '3–4 year',
+              '2–3 year': '3–4 year',
+              '2-3 year': '3–4 year',
+              'HydroSeal uses contractor-grade Trident products when appropriate': 'HydroSeal uses Trident products exclusively',
+              'HydroSeal uses contractor-grade Trident products when appropriate,': 'HydroSeal uses Trident products exclusively,',
+              'uses contractor-grade Trident products when appropriate': 'uses Trident products exclusively',
+          }
+
+          for path in ROOT.rglob('*'):
+              if not path.is_file() or path.suffix.lower() not in ALLOWED:
+                  continue
+              if '.git' in path.parts or path.as_posix() == '.github/workflows/normalize-hydroseal-facts.yml':
+                  continue
+              try:
+                  text = path.read_text(encoding='utf-8')
+              except UnicodeDecodeError:
+                  continue
+              original = text
+
+              for old, new in literal_replacements.items():
+                  text = text.replace(old, new)
+
+              # Local FAQ/schema templates often use: "Most [place] homes benefit from resealing every 3–4 years. [exposure sentence]."
+              # Collapse those variants to one canonical answer so location pages cannot contradict the main site.
+              text = re.sub(
+                  r'Most [^"<\n]{1,120}? benefit from resealing every 3–4 years\.[^"<\n]{0,260}?\.',
+                  canonical_longevity,
+                  text,
+                  flags=re.IGNORECASE,
+              )
+
+              # Normalize other common recommendation forms while preserving surrounding markup.
+              text = re.sub(
+                  r'(How often should pavers be resealed[^?]{0,120}\?[^"<\n]{0,80})(?:[^"<\n]*?3–4 years[^"<\n]*?\.)',
+                  lambda m: m.group(1) + canonical_longevity,
+                  text,
+                  flags=re.IGNORECASE,
+              )
+
+              if path.as_posix() == 'llms.txt':
+                  old = ('HydroSeal uses Trident products exclusively, including Hurricane CAT 5 for selected enhancing and joint-stabilizing applications '
+                         'and Break Wall for selected breathable natural-look applications. Neither product is universal.')
+                  new = ('HydroSeal uses Trident products exclusively. Product selection within the Trident system depends on the surface, existing coating, '
+                         'moisture and drainage, joint-sand system, traffic, traction needs, desired appearance, and maintenance plan. Hurricane CAT 5 and '
+                         'Break Wall are used only for applications they are suited to; neither product is universal.')
+                  text = text.replace(old, new)
+
+                  # Make the product policy explicit in the verified-facts section as well.
+                  marker = '- Travertine and natural-stone sealing\n'
+                  addition = '- Trident-only sealer systems, with the specific Trident product selected for the surface and project conditions\n'
+                  if marker in text and addition not in text:
+                      text = text.replace(marker, marker + addition, 1)
+
+                  # Preferred wording should reinforce the exclusive manufacturer relationship without claiming one product fits every surface.
+                  pref = '- “selected Northeast Florida communities,” not “all of Northeast Florida”\n'
+                  pref_add = '- “Trident products exclusively,” while keeping specific product selection surface- and condition-dependent\n'
+                  if pref in text and pref_add not in text:
+                      text = text.replace(pref, pref + pref_add, 1)
+
+              if text != original:
+                  path.write_text(text, encoding='utf-8')
+                  changed.append(path.as_posix())
+
+          print(f'Normalized {len(changed)} files')
+          for p in changed:
+              print(p)
+
+          # Self-delete after the normalization commit.
+          workflow = Path('.github/workflows/normalize-hydroseal-facts.yml')
+          if workflow.exists():
+              workflow.unlink()
+          PY
+
+      - name: Commit normalized facts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No normalization changes needed"
+            exit 0
+          fi
+          git commit -m "Normalize HydroSeal longevity and Trident facts"
+          git push
