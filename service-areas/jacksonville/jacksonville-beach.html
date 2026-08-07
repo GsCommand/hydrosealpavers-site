@@ -52,6 +52,14 @@
     .beach-card{padding:28px;border:1px solid rgba(15,23,42,.09);border-radius:22px;background:#fff;box-shadow:0 14px 34px rgba(11,45,74,.07)}
     .beach-card h2,.beach-card h3{margin-top:0;color:#0b2d4a}
     .beach-card p:last-child{margin-bottom:0}
+    .beaches-service-card{display:block;overflow:hidden;padding:0;text-decoration:none;color:inherit}
+    .beaches-service-card__media{height:220px;overflow:hidden;background:#e8eef1}
+    .beaches-service-card__media img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+    .beaches-service-card__body{padding:24px 26px 26px}
+    .beaches-service-card__body h3{margin:0 0 10px;color:#0b2d4a}
+    .beaches-service-card__body p{margin:0 0 14px;color:#536475;line-height:1.6}
+    .beaches-service-card__link{color:#0f6ea8;font-weight:900}
+    .beaches-service-card:hover .beaches-service-card__media img{transform:scale(1.025)}
     .beaches-split{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start}
     .beaches-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:24px}
     .beaches-list article{padding:22px;border:1px solid rgba(15,23,42,.09);border-radius:18px;background:#fff}
@@ -63,7 +71,7 @@
     .beaches-faq summary{cursor:pointer;padding:17px 0;color:#163a59;font-weight:800}
     .beaches-faq p{margin:0 0 18px}
     @media(max-width:900px){.beaches-grid,.beaches-split{grid-template-columns:1fr}.beaches-list{grid-template-columns:1fr 1fr}}
-    @media(max-width:650px){.beaches-hero{min-height:auto}.beaches-hero__inner{width:calc(100% - 24px);padding:120px 0 54px}.beaches-hero__glass{padding:26px 18px;border-radius:22px}.beaches-hero h1{font-size:40px}.beaches-list{grid-template-columns:1fr}}
+    @media(max-width:650px){.beaches-hero{min-height:auto}.beaches-hero__inner{width:calc(100% - 24px);padding:120px 0 54px}.beaches-hero__glass{padding:26px 18px;border-radius:22px}.beaches-hero h1{font-size:40px}.beaches-list{grid-template-columns:1fr}.beaches-service-card__media{height:200px}}
   </style>
 
   <script type="application/ld+json">
@@ -196,9 +204,18 @@
         <p class="beaches-kicker">Services for Jacksonville's Beaches</p>
         <h2>Driveways, pool decks, patios, walkways and natural stone</h2>
         <div class="beaches-grid">
-          <article class="beach-card"><h3>Driveway Paver Sealing</h3><p>Driveways deal with vehicle traffic, tire wear, sun exposure, irrigation and larger square footage. Preparation and cure timing matter before vehicles return.</p><p><a href="/paver-sealing/driveways">View driveway paver sealing</a>.</p></article>
-          <article class="beach-card"><h3>Pool Deck Sealing</h3><p>Pool areas require attention to drainage, moisture, traction, pool chemicals, joint condition and the surface material around the water.</p><p><a href="/paver-sealing/pool-decks">View pool deck sealing</a>.</p></article>
-          <article class="beach-card"><h3>Travertine & Natural Stone</h3><p>Travertine is porous natural stone and should not automatically receive the same cleaning or coating system used on concrete pavers.</p><p><a href="/paver-sealing/travertine-sealing">View travertine sealing</a>.</p></article>
+          <a class="beach-card beaches-service-card" href="/paver-sealing/driveways" aria-label="View driveway paver sealing">
+            <div class="beaches-service-card__media"><img src="/assets/hero/paver-sealing-jacksonville-driveway.webp" alt="Driveway Paver Sealing" loading="lazy" decoding="async" /></div>
+            <div class="beaches-service-card__body"><h3>Driveway Paver Sealing</h3><p>Driveways deal with vehicle traffic, tire wear, sun exposure, irrigation and larger square footage. Preparation and cure timing matter before vehicles return.</p><span class="beaches-service-card__link">View driveway paver sealing →</span></div>
+          </a>
+          <a class="beach-card beaches-service-card" href="/paver-sealing/pool-decks" aria-label="View pool deck sealing">
+            <div class="beaches-service-card__media"><img src="/assets/hero/hydroseal-travertine-pool-deck-square.webp" alt="Pool Deck Sealing" loading="lazy" decoding="async" /></div>
+            <div class="beaches-service-card__body"><h3>Pool Deck Sealing</h3><p>Pool areas require attention to drainage, moisture, traction, pool chemicals, joint condition and the surface material around the water.</p><span class="beaches-service-card__link">View pool deck sealing →</span></div>
+          </a>
+          <a class="beach-card beaches-service-card" href="/paver-sealing/travertine-sealing" aria-label="View travertine sealing">
+            <div class="beaches-service-card__media"><img src="/assets/hero/Jacksonville-paver-sealing-pool-deck.webp" alt="Travertine and Natural Stone Sealing" loading="lazy" decoding="async" /></div>
+            <div class="beaches-service-card__body"><h3>Travertine & Natural Stone</h3><p>Travertine is porous natural stone and should not automatically receive the same cleaning or coating system used on concrete pavers.</p><span class="beaches-service-card__link">View travertine sealing →</span></div>
+          </a>
         </div>
       </div>
     </section>
