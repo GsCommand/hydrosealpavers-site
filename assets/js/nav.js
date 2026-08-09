@@ -268,7 +268,7 @@
       style.textContent = `
         .reseal-feature-section{padding:86px 0}
         .reseal-feature-section--soft{background:#f4f7f9}
-        .reseal-feature-shell{width:min(1180px,calc(100% - 40px));margin:auto}
+        .reseal-feature-shell{width:min(1120px,calc(100% - 32px));margin:auto}
         .reseal-feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
         .reseal-feature-card{padding:32px;border:1px solid #dce5ea;border-radius:26px;background:#fff;box-shadow:0 16px 38px rgba(11,45,74,.07)}
         .reseal-feature-kicker{display:block;margin-bottom:10px;color:#0f6ea8;font-size:12px;font-weight:900;letter-spacing:1.8px;text-transform:uppercase}
