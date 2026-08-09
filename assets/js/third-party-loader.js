@@ -1,30 +1,18 @@
 (function () {
-  if (location.pathname.replace(/\/$/, '') === '/paver-sealing/driveways') {
-    const root = document.documentElement;
-    let cssReady = false;
-    let jsReady = false;
+  const path = location.pathname.replace(/\/$/, '');
 
-    root.style.visibility = 'hidden';
+  if (path === '/paver-sealing/pool-decks') {
+    const gallery = document.querySelector('.elfsight-app-aac62a49-a425-47be-9c8a-13971e000940');
+    const sandSection = document.querySelector('.sand-bar-section');
+    const heroCopy = document.querySelector('.pool-service-hero__copy');
 
-    const reveal = () => {
-      if (cssReady && jsReady) requestAnimationFrame(() => { root.style.visibility = ''; });
-    };
+    if (gallery && sandSection && sandSection.parentNode) {
+      sandSection.parentNode.insertBefore(gallery, sandSection);
+    }
 
-    const css = document.createElement('link');
-    css.rel = 'stylesheet';
-    css.href = '/assets/css/driveway-redesign.css?v=20260803-2';
-    css.dataset.drivewayRedesign = '';
-    css.onload = () => { cssReady = true; reveal(); };
-    css.onerror = () => { cssReady = true; reveal(); };
-    document.head.appendChild(css);
-
-    const js = document.createElement('script');
-    js.src = '/assets/js/driveway-redesign-runtime.js?v=20260803-1';
-    js.onload = () => { jsReady = true; reveal(); };
-    js.onerror = () => { jsReady = true; reveal(); };
-    document.head.appendChild(js);
-
-    setTimeout(() => { root.style.visibility = ''; }, 3000);
+    if (heroCopy && heroCopy.textContent.includes('Professional pool deck sealing with deep cleaning')) {
+      heroCopy.remove();
+    }
   }
 
   if (window.__hsThirdPartyLoaderRan) return;
