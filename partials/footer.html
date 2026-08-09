@@ -83,9 +83,19 @@
       if (targets.has(h2.textContent.trim())) h2.remove();
     });
   };
-  removeHeadlines();
-  document.addEventListener('DOMContentLoaded', removeHeadlines, {once:true});
-  setTimeout(removeHeadlines, 100);
+  var removeHeroDescription = function(){
+    var target = 'Professional resealing for previously sealed driveways, pool decks, patios and walkways with coating evaluation, deep cleaning, joint-sand restoration and a compatible sealing system.';
+    document.querySelectorAll('p,div,span').forEach(function(el){
+      if (el.children.length === 0 && el.textContent.trim() === target) el.remove();
+    });
+  };
+  var cleanup = function(){
+    removeHeadlines();
+    removeHeroDescription();
+  };
+  cleanup();
+  document.addEventListener('DOMContentLoaded', cleanup, {once:true});
+  setTimeout(cleanup, 100);
 })();
 </script>
 <footer class="site-footer"><div class="container site-footer__inner"><div class="footer-grid">
