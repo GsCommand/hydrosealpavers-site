@@ -1,0 +1,42 @@
+name: Fix reseal section width
+
+on:
+  push:
+    paths:
+      - '.github/reseal-width-trigger'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Align resealing split sections to page width
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('assets/js/nav.js')
+          s = p.read_text()
+          old = '.reseal-feature-shell{width:min(1180px,calc(100% - 40px));margin:auto}'
+          new = '.reseal-feature-shell{width:min(1120px,calc(100% - 32px));margin:auto}'
+          if old not in s:
+              raise SystemExit('Expected reseal feature shell rule not found')
+          s = s.replace(old, new, 1)
+          p.write_text(s)
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/js/nav.js
+          git commit -m "Align resealing split sections with page width"
+          git push
+      - name: Cleanup temporary files
+        run: |
+          git pull --rebase
+          rm -f .github/workflows/fix-reseal-section-width.yml .github/reseal-width-trigger
+          git add -A
+          git commit -m "Remove temporary resealing width workflow"
+          git push
