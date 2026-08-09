@@ -277,10 +277,12 @@
         .reseal-feature-card p{margin:0 0 15px}
         .reseal-feature-card ul{margin:18px 0 0;padding-left:20px}
         .reseal-feature-card a{color:#0f6ea8;font-weight:800;text-decoration:none}
-        .reseal-feature-media{min-height:430px;overflow:hidden;border-radius:26px;background:#e8eef1;box-shadow:0 18px 42px rgba(11,45,74,.12)}
-        .reseal-feature-media img{display:block;width:100%;height:100%;object-fit:cover}
-        @media(max-width:980px){.reseal-feature-grid{grid-template-columns:1fr}.reseal-feature-media{min-height:360px}}
-        @media(max-width:650px){.reseal-feature-shell{width:calc(100% - 24px)}.reseal-feature-section{padding:64px 0}.reseal-feature-card{padding:24px 20px}.reseal-feature-media{min-height:280px}}
+        .reseal-feature-media{min-height:0;aspect-ratio:4/3;overflow:hidden;border-radius:26px;background:#e8eef1;box-shadow:0 18px 42px rgba(11,45,74,.12);display:flex;align-items:center;justify-content:center}
+        .reseal-feature-media img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+        .reseal-feature-media--contain{background:#f5f7f9;padding:10px}
+        .reseal-feature-media--contain img{object-fit:contain!important;width:100%;height:100%}
+        @media(max-width:980px){.reseal-feature-grid{grid-template-columns:1fr}.reseal-feature-media{aspect-ratio:4/3}}
+        @media(max-width:650px){.reseal-feature-shell{width:calc(100% - 24px)}.reseal-feature-section{padding:64px 0}.reseal-feature-card{padding:24px 20px}.reseal-feature-media{aspect-ratio:4/3}.reseal-feature-media--contain{padding:6px}}
       `;
       document.head.appendChild(style);
     }
@@ -302,7 +304,7 @@
                 <li>Identify coating failure before it gets buried under another layer</li>
               </ul>
             </article>
-            <div class="reseal-feature-media"><img src="/assets/hero/driveway-before-after-hydroseal.webp" alt="Before and after paver resealing and color restoration by HydroSeal" loading="lazy" decoding="async"></div>
+            <div class="reseal-feature-media reseal-feature-media--contain"><img src="/assets/hero/driveway-before-after-hydroseal.webp" alt="Before and after paver resealing and color restoration by HydroSeal" loading="lazy" decoding="async"></div>
           </div>
         </div>
       </section>
@@ -334,7 +336,7 @@
               <p>In Jacksonville, Nocatee, Ponte Vedra, and surrounding Northeast Florida communities, intense UV, summer rain, irrigation, humidity, and repeated wet-dry cycles make timely maintenance especially important. Resealing before complete coating failure can often avoid a more involved restoration later.</p>
               <p><a href="/service-areas/st-johns-county/nocatee">View paver resealing service in Nocatee</a> or <a href="/get-a-quote">request a project quote</a>.</p>
             </article>
-            <div class="reseal-feature-media"><img src="/assets/images/driveway-before-after.webp" alt="Professional paver cleaning joint restoration and resealing result" loading="lazy" decoding="async"></div>
+            <div class="reseal-feature-media reseal-feature-media--contain"><img src="/assets/images/driveway-before-after.webp" alt="Professional paver cleaning joint restoration and resealing result" loading="lazy" decoding="async"></div>
           </div>
         </div>
       </section>
