@@ -30,12 +30,31 @@
     .cost-page{width:min(1040px,calc(100% - 36px));margin:0 auto;padding:48px 0 72px}
     .cost-breadcrumb{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin:0 0 22px;color:#718291;font-size:.82rem}
     .cost-breadcrumb a{color:#0f6ea8;font-weight:800;text-decoration:none}
-    .cost-hero{max-width:880px;margin:0 0 38px;text-align:left}
-    .cost-hero__eyebrow{margin:0 0 8px;color:#0f6ea8;font-size:.78rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
-    .cost-hero h1{max-width:820px;margin:0 0 16px;color:#0b2d4a;font-size:clamp(2.55rem,6vw,4.6rem);line-height:.98;letter-spacing:-.035em}
-    .cost-hero__intro{max-width:790px;margin:0;color:#5f6f80;font-size:1.08rem;line-height:1.7}
-    .cost-meta{margin:15px 0 0;color:#718291;font-size:.9rem;line-height:1.6}
-    .cost-review{max-width:790px;margin:8px 0 0;color:#53687a;font-size:.9rem;line-height:1.6}
+
+    /* Force the article header to remain a normal vertical stack. */
+    .page-learning-center .cost-hero,
+    .page-learning-center.page-strip-reseal-cost .cost-hero{
+      display:block!important;
+      grid-template-columns:none!important;
+      grid-template-areas:none!important;
+      width:100%!important;
+      max-width:880px!important;
+      margin:0 0 38px!important;
+      text-align:left!important;
+    }
+    .page-learning-center .cost-hero>*{
+      display:block!important;
+      width:100%!important;
+      max-width:none;
+      grid-area:auto!important;
+      position:static!important;
+      float:none!important;
+    }
+    .cost-hero__eyebrow{margin:0 0 8px!important;color:#0f6ea8;font-size:.78rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+    .cost-hero h1{max-width:820px!important;margin:0 0 16px!important;color:#0b2d4a;font-size:clamp(2.55rem,6vw,4.6rem)!important;line-height:.98!important;letter-spacing:-.035em!important;white-space:normal!important}
+    .cost-hero__intro{max-width:790px!important;margin:0!important;color:#5f6f80;font-size:1.08rem;line-height:1.7}
+    .cost-meta{max-width:790px!important;margin:15px 0 0!important;color:#718291;font-size:.9rem;line-height:1.6}
+    .cost-review{max-width:790px!important;margin:8px 0 0!important;color:#53687a;font-size:.9rem;line-height:1.6}
 
     .cost-card{margin-top:30px;padding:clamp(24px,5vw,52px);border:1px solid #dce3e9;border-radius:24px;background:#fff}
     .cost-card h2{margin:38px 0 12px;color:#0f3155;font-size:clamp(1.65rem,3vw,2.35rem);line-height:1.15}
@@ -46,12 +65,10 @@
     .cost-card ul{padding-left:22px}
 
     .cost-answer{margin:0 0 30px;padding:20px 22px;border-left:4px solid #0f6ea8;border-radius:0 14px 14px 0;background:#f5f8fa;color:#425667;line-height:1.7}
-
     .cost-related{margin-top:38px;padding:26px;border-radius:20px;background:#f3f7f9}
     .cost-related h2{margin:0 0 14px;font-size:1.5rem}
     .cost-related ul{margin:0;padding-left:20px}
     .cost-related li{margin:8px 0}
-
     .cost-cta{margin-top:30px;padding:30px;border-radius:22px;background:#0b2d4a;text-align:center;color:#fff}
     .cost-cta h2{margin:0 0 8px;color:#fff}
     .cost-cta p{margin:0;color:#dceef6}
@@ -65,7 +82,7 @@
     @media(max-width:650px){
       .cost-page{width:calc(100% - 24px);padding-top:36px}
       .cost-card{padding:24px 19px;border-radius:20px}
-      .cost-hero h1{font-size:clamp(2.4rem,12vw,4rem)}
+      .cost-hero h1{font-size:clamp(2.4rem,12vw,4rem)!important}
     }
   </style>
 
@@ -73,93 +90,30 @@
   {
     "@context":"https://schema.org",
     "@graph":[
-      {
-        "@type":"WebPage",
-        "@id":"https://hydrosealpavers.com/paver-cleaning#webpage",
-        "url":"https://hydrosealpavers.com/paver-cleaning",
-        "name":"Paver Cleaning in Jacksonville, FL",
-        "dateModified":"2026-08-09",
-        "mainEntity":{"@id":"https://hydrosealpavers.com/paver-cleaning#service"}
-      },
-      {
-        "@type":"Service",
-        "@id":"https://hydrosealpavers.com/paver-cleaning#service",
-        "name":"Paver Cleaning Jacksonville",
-        "serviceType":["Paver Cleaning","Paver Pressure Washing","Paver Cleaning and Sealing"],
-        "provider":{"@id":"https://hydrosealpavers.com/#business"},
-        "areaServed":"Jacksonville, FL",
-        "url":"https://hydrosealpavers.com/paver-cleaning"
-      },
-      {
-        "@type":"BreadcrumbList",
-        "itemListElement":[
-          {"@type":"ListItem","position":1,"name":"Home","item":"https://hydrosealpavers.com/"},
-          {"@type":"ListItem","position":2,"name":"Learning Center","item":"https://hydrosealpavers.com/learning-center"},
-          {"@type":"ListItem","position":3,"name":"Paver Cleaning Jacksonville","item":"https://hydrosealpavers.com/paver-cleaning"}
-        ]
-      }
+      {"@type":"WebPage","@id":"https://hydrosealpavers.com/paver-cleaning#webpage","url":"https://hydrosealpavers.com/paver-cleaning","name":"Paver Cleaning in Jacksonville, FL","dateModified":"2026-08-09","mainEntity":{"@id":"https://hydrosealpavers.com/paver-cleaning#service"}},
+      {"@type":"Service","@id":"https://hydrosealpavers.com/paver-cleaning#service","name":"Paver Cleaning Jacksonville","serviceType":["Paver Cleaning","Paver Pressure Washing","Paver Cleaning and Sealing"],"provider":{"@id":"https://hydrosealpavers.com/#business"},"areaServed":"Jacksonville, FL","url":"https://hydrosealpavers.com/paver-cleaning"},
+      {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://hydrosealpavers.com/"},{"@type":"ListItem","position":2,"name":"Learning Center","item":"https://hydrosealpavers.com/learning-center"},{"@type":"ListItem","position":3,"name":"Paver Cleaning Jacksonville","item":"https://hydrosealpavers.com/paver-cleaning"}]}
     ]
   }
   </script>
 </head>
-<body class="page-learning-center page-paver-cleaning">
+<body class="page-learning-center page-strip-reseal-cost">
   <header class="hs-modern-header local-header">
     <nav class="hs-modern-nav hs-modern-shell" aria-label="Primary navigation">
-      <a class="hs-modern-logo" href="/" aria-label="HydroSeal home">
-        <img alt="HydroSeal" src="/assets/hero/Hydrosealpaversealing.png" width="600" height="234">
-      </a>
+      <a class="hs-modern-logo" href="/" aria-label="HydroSeal home"><img alt="HydroSeal" src="/assets/hero/Hydrosealpaversealing.png" width="600" height="234"></a>
       <button aria-expanded="false" aria-label="Open menu" class="hs-modern-toggle" type="button">☰</button>
-
       <div class="hs-modern-menu">
-        <div class="hs-modern-group">
-          <button aria-expanded="false" class="hs-modern-parent" type="button">Paver Sealing</button>
-          <div class="hs-modern-mega">
-            <div class="hs-modern-column">
-              <a href="/paver-sealing/driveways">Driveway Paver Sealing<small>Clean, resand, and protect</small></a>
-              <a href="/paver-sealing/pool-decks">Pool Deck Sealing<small>Moisture-aware preparation</small></a>
-              <a href="/paver-sealing/travertine-sealing">Travertine Sealing<small>Natural-stone specific care</small></a>
-              <a href="/paver-resealing/">Paver Resealing<small>Restore weathered protection</small></a>
-            </div>
-            <div class="hs-modern-column">
-              <a href="/paver-sealing-cost-calculator">Instant Pricing Calculator<small>Estimate standard sealing cost</small></a>
-              <a href="/paver-sealing/sand-options">Joint Sand Options<small>ASTM C144 colors and selection</small></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="hs-modern-group">
-          <button aria-expanded="false" class="hs-modern-parent" type="button">Service Areas</button>
-          <div class="hs-modern-mega hs-modern-areas-menu">
-            <a href="/service-areas/jacksonville">Jacksonville</a>
-            <a href="/service-areas/st-johns-county">St. Johns County</a>
-            <a href="/service-areas/clay-county">Clay County</a>
-          </div>
-        </div>
-
-        <div class="hs-modern-group">
-          <button aria-expanded="false" class="hs-modern-parent" type="button">About</button>
-          <div class="hs-modern-mega hs-modern-about-menu">
-            <a href="/about">About HydroSeal</a>
-            <a href="/learning-center/">Learning Center</a>
-            <a href="/care-program/">Care Program</a>
-            <a href="/warranty/">Warranty</a>
-          </div>
-        </div>
-
+        <div class="hs-modern-group"><button aria-expanded="false" class="hs-modern-parent" type="button">Paver Sealing</button><div class="hs-modern-mega"><div class="hs-modern-column"><a href="/paver-sealing/driveways">Driveway Paver Sealing<small>Clean, resand, and protect</small></a><a href="/paver-sealing/pool-decks">Pool Deck Sealing<small>Moisture-aware preparation</small></a><a href="/paver-sealing/travertine-sealing">Travertine Sealing<small>Natural-stone specific care</small></a><a href="/paver-resealing/">Paver Resealing<small>Restore weathered protection</small></a></div><div class="hs-modern-column"><a href="/paver-sealing-cost-calculator">Instant Pricing Calculator<small>Estimate standard sealing cost</small></a><a href="/paver-sealing/sand-options">Joint Sand Options<small>ASTM C144 colors and selection</small></a></div></div></div>
+        <div class="hs-modern-group"><button aria-expanded="false" class="hs-modern-parent" type="button">Service Areas</button><div class="hs-modern-mega hs-modern-areas-menu"><a href="/service-areas/jacksonville">Jacksonville</a><a href="/service-areas/st-johns-county">St. Johns County</a><a href="/service-areas/clay-county">Clay County</a></div></div>
+        <div class="hs-modern-group"><button aria-expanded="false" class="hs-modern-parent" type="button">About</button><div class="hs-modern-mega hs-modern-about-menu"><a href="/about">About HydroSeal</a><a href="/learning-center/">Learning Center</a><a href="/care-program/">Care Program</a><a href="/warranty/">Warranty</a></div></div>
         <a class="hs-modern-link" href="/faq">FAQ</a>
       </div>
-
-      <div class="hs-modern-actions">
-        <a class="hs-modern-call" href="tel:+19045375000">Call 904.537.5000</a>
-        <a class="hs-modern-quote" href="/get-a-quote">Get a Quote</a>
-      </div>
+      <div class="hs-modern-actions"><a class="hs-modern-call" href="tel:+19045375000">Call 904.537.5000</a><a class="hs-modern-quote" href="/get-a-quote">Get a Quote</a></div>
     </nav>
   </header>
 
   <main id="page" data-page class="cost-page">
-    <nav class="cost-breadcrumb" aria-label="Breadcrumb">
-      <a href="/">Home</a><span>›</span><a href="/learning-center">Learning Center</a><span>›</span><span aria-current="page">Paver Cleaning Jacksonville</span>
-    </nav>
+    <nav class="cost-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><a href="/learning-center">Learning Center</a><span>›</span><span aria-current="page">Paver Cleaning Jacksonville</span></nav>
 
     <header class="cost-hero">
       <p class="cost-hero__eyebrow">Paver Cleaning</p>
@@ -171,59 +125,21 @@
 
     <article class="cost-card">
       <p class="cost-answer"><strong>Quick answer:</strong> Professional paver cleaning is more than pressure washing. The correct process depends on the paver material, stain type, existing sealer, joint condition, nearby surfaces, and whether the pavers will be resealed afterward.</p>
-
       <h2>Professional paver cleaning is more than pressure washing</h2>
       <p>Jacksonville pavers collect algae, mildew, dirt, irrigation residue, leaf tannins, tire marks, and other contaminants. The correct cleaning process depends on the paver material, stain type, existing sealer, joint condition, and whether the surface will be resealed afterward. HydroSeal approaches cleaning as surface preparation, not simply as a high-pressure rinse.</p>
-
       <h2>What HydroSeal cleans</h2>
-      <ul>
-        <li>Driveway pavers</li>
-        <li>Pool-deck pavers and screened-enclosure surfaces</li>
-        <li>Patio and walkway pavers</li>
-        <li>Concrete and brick pavers</li>
-        <li>Previously sealed pavers that need maintenance or preparation</li>
-        <li>Travertine and natural stone when a stone-appropriate process is selected</li>
-      </ul>
-
+      <ul><li>Driveway pavers</li><li>Pool-deck pavers and screened-enclosure surfaces</li><li>Patio and walkway pavers</li><li>Concrete and brick pavers</li><li>Previously sealed pavers that need maintenance or preparation</li><li>Travertine and natural stone when a stone-appropriate process is selected</li></ul>
       <h2>How a paver-cleaning project should be evaluated</h2>
-      <h3>Identify the surface</h3>
-      <p>Concrete pavers, clay brick, travertine, and natural stone do not respond identically to pressure or chemistry.</p>
+      <h3>Identify the surface</h3><p>Concrete pavers, clay brick, travertine, and natural stone do not respond identically to pressure or chemistry.</p>
+      <h3>Identify the contamination</h3><p>Organic growth, oil, rust, irrigation staining, efflorescence, and failed sealer are different problems. A cleaner that works on algae does not automatically solve mineral deposits or coating failure.</p>
+      <h3>Inspect the joints</h3><p>If joint sand is already low, loose, or washing out, aggressive cleaning can make the problem worse. The restoration scope should account for resanding rather than treating the joints as unrelated to cleaning.</p>
+      <h3>Inspect existing sealer</h3><p>Peeling, whitening, heavy film build, or incompatible coatings may require restoration beyond ordinary cleaning.</p>
+      <h2>Paver cleaning before sealing</h2><p>Sealer should not trap dirt, active organic growth, or cleaner residue beneath the coating. For a sealing project, cleaning must be followed by thorough rinsing, adequate drying, and a check of joint condition, coating compatibility, and weather.</p>
+      <h2>Can pressure washing damage pavers?</h2><p>Yes. Excessive pressure, an overly tight spray pattern, or poor technique can remove joint sand, etch softer surfaces, expose aggregate, or damage existing coatings. Professional cleaning is about using enough force and chemistry to clean effectively without treating maximum pressure as the goal.</p>
+      <h2>Paver cleaning and sealing</h2><p>Many homeowners searching for paver cleaning actually need a larger restoration sequence: inspect, clean, treat applicable stains, restore joint sand, allow the surface to dry, then apply a compatible sealer. HydroSeal separates those steps so the homeowner understands what is included and which conditions require additional work.</p>
 
-      <h3>Identify the contamination</h3>
-      <p>Organic growth, oil, rust, irrigation staining, efflorescence, and failed sealer are different problems. A cleaner that works on algae does not automatically solve mineral deposits or coating failure.</p>
-
-      <h3>Inspect the joints</h3>
-      <p>If joint sand is already low, loose, or washing out, aggressive cleaning can make the problem worse. The restoration scope should account for resanding rather than treating the joints as unrelated to cleaning.</p>
-
-      <h3>Inspect existing sealer</h3>
-      <p>Peeling, whitening, heavy film build, or incompatible coatings may require restoration beyond ordinary cleaning.</p>
-
-      <h2>Paver cleaning before sealing</h2>
-      <p>Sealer should not trap dirt, active organic growth, or cleaner residue beneath the coating. For a sealing project, cleaning must be followed by thorough rinsing, adequate drying, and a check of joint condition, coating compatibility, and weather.</p>
-
-      <h2>Can pressure washing damage pavers?</h2>
-      <p>Yes. Excessive pressure, an overly tight spray pattern, or poor technique can remove joint sand, etch softer surfaces, expose aggregate, or damage existing coatings. Professional cleaning is about using enough force and chemistry to clean effectively without treating maximum pressure as the goal.</p>
-
-      <h2>Paver cleaning and sealing</h2>
-      <p>Many homeowners searching for paver cleaning actually need a larger restoration sequence: inspect, clean, treat applicable stains, restore joint sand, allow the surface to dry, then apply a compatible sealer. HydroSeal separates those steps so the homeowner understands what is included and which conditions require additional work.</p>
-
-      <section class="cost-related">
-        <h2>Related guides</h2>
-        <ul>
-          <li><a href="/learning-center/cleaning/">Paver Cleaning Guides</a></li>
-          <li><a href="/learning-center/cleaning/how-to-clean-pavers-without-damaging-them">How to Clean Pavers Without Damage</a></li>
-          <li><a href="/learning-center/cleaning/can-pressure-washing-damage-pavers">Can Pressure Washing Damage Pavers?</a></li>
-          <li><a href="/paver-sealing/sand-options">Paver Joint Sand &amp; Resanding</a></li>
-          <li><a href="/paver-resealing/">Paver Resealing</a></li>
-          <li><a href="/paver-sealing/driveways">Driveway Paver Sealing</a></li>
-        </ul>
-      </section>
-
-      <section class="cost-cta">
-        <h2>Need your pavers cleaned and restored?</h2>
-        <p>Send photos and project details for an initial review.</p>
-        <a href="/get-a-quote">Request a Quote</a>
-      </section>
+      <section class="cost-related"><h2>Related guides</h2><ul><li><a href="/learning-center/cleaning/">Paver Cleaning Guides</a></li><li><a href="/learning-center/cleaning/how-to-clean-pavers-without-damaging-them">How to Clean Pavers Without Damage</a></li><li><a href="/learning-center/cleaning/can-pressure-washing-damage-pavers">Can Pressure Washing Damage Pavers?</a></li><li><a href="/paver-sealing/sand-options">Paver Joint Sand &amp; Resanding</a></li><li><a href="/paver-resealing/">Paver Resealing</a></li><li><a href="/paver-sealing/driveways">Driveway Paver Sealing</a></li></ul></section>
+      <section class="cost-cta"><h2>Need your pavers cleaned and restored?</h2><p>Send photos and project details for an initial review.</p><a href="/get-a-quote">Request a Quote</a></section>
     </article>
   </main>
 
@@ -231,40 +147,10 @@
   <script src="/assets/js/include.js" defer></script>
   <script>
   (function(){
-    var header=document.querySelector('.local-header');
-    if(!header)return;
-    var toggle=header.querySelector('.hs-modern-toggle');
-    var menu=header.querySelector('.hs-modern-menu');
-    var groups=header.querySelectorAll('.hs-modern-group');
-    if(toggle&&menu){
-      toggle.addEventListener('click',function(){
-        var open=menu.classList.toggle('hs-open');
-        toggle.setAttribute('aria-expanded',String(open));
-        if(!open){
-          groups.forEach(function(group){
-            group.classList.remove('hs-open');
-            var button=group.querySelector('.hs-modern-parent');
-            if(button)button.setAttribute('aria-expanded','false');
-          });
-        }
-      });
-    }
-    groups.forEach(function(group){
-      var button=group.querySelector('.hs-modern-parent');
-      if(!button)return;
-      button.addEventListener('click',function(event){
-        if(window.innerWidth>980)return;
-        event.preventDefault();
-        var willOpen=!group.classList.contains('hs-open');
-        groups.forEach(function(other){
-          other.classList.remove('hs-open');
-          var otherButton=other.querySelector('.hs-modern-parent');
-          if(otherButton)otherButton.setAttribute('aria-expanded','false');
-        });
-        group.classList.toggle('hs-open',willOpen);
-        button.setAttribute('aria-expanded',String(willOpen));
-      });
-    });
+    var header=document.querySelector('.local-header');if(!header)return;
+    var toggle=header.querySelector('.hs-modern-toggle');var menu=header.querySelector('.hs-modern-menu');var groups=header.querySelectorAll('.hs-modern-group');
+    if(toggle&&menu){toggle.addEventListener('click',function(){var open=menu.classList.toggle('hs-open');toggle.setAttribute('aria-expanded',String(open));if(!open){groups.forEach(function(group){group.classList.remove('hs-open');var button=group.querySelector('.hs-modern-parent');if(button)button.setAttribute('aria-expanded','false')})}})}
+    groups.forEach(function(group){var button=group.querySelector('.hs-modern-parent');if(!button)return;button.addEventListener('click',function(event){if(window.innerWidth>980)return;event.preventDefault();var willOpen=!group.classList.contains('hs-open');groups.forEach(function(other){other.classList.remove('hs-open');var otherButton=other.querySelector('.hs-modern-parent');if(otherButton)otherButton.setAttribute('aria-expanded','false')});group.classList.toggle('hs-open',willOpen);button.setAttribute('aria-expanded',String(willOpen))})})
   }());
   </script>
 </body>
