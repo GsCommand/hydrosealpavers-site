@@ -23,12 +23,6 @@
     margin-bottom: 7px !important;
     font-size: 11px !important;
   }
-  body.page-paver-resealing .reseal-feature-card h2 {
-    margin-bottom: 10px !important;
-    font-size: clamp(25px, 2.6vw, 34px) !important;
-    line-height: 1.08 !important;
-    letter-spacing: -.6px !important;
-  }
   body.page-paver-resealing .reseal-feature-card p,
   body.page-paver-resealing .reseal-feature-card li {
     font-size: 14.5px !important;
@@ -71,14 +65,29 @@
     body.page-paver-resealing .reseal-feature-card {
       padding: 18px !important;
     }
-    body.page-paver-resealing .reseal-feature-card h2 {
-      font-size: 25px !important;
-    }
     body.page-paver-resealing .reseal-feature-media {
       height: 273px !important;
     }
   }
 </style>
+<script>
+(function(){
+  if (!document.body || !document.body.classList.contains('page-paver-resealing')) return;
+  var removeHeadlines = function(){
+    var targets = new Set([
+      'Previously sealed pavers need the surface restored before a fresh coat goes down.',
+      'Resealing is driven by surface condition—not only by the age of the sealer.',
+      'Driveways, pool decks, patios, walkways, and previously sealed outdoor surfaces.'
+    ]);
+    document.querySelectorAll('.reseal-feature-card h2').forEach(function(h2){
+      if (targets.has(h2.textContent.trim())) h2.remove();
+    });
+  };
+  removeHeadlines();
+  document.addEventListener('DOMContentLoaded', removeHeadlines, {once:true});
+  setTimeout(removeHeadlines, 100);
+})();
+</script>
 <footer class="site-footer"><div class="container site-footer__inner"><div class="footer-grid">
 <div class="footer-brand"><div class="footer-brand__row"><img src="/assets/hero/Hydrosealpaversealing.png" alt="HydroSeal" loading="lazy" class="footer-logo" width="2884" height="1127" /></div><p class="footer-copy">Premium paver sealing and protection for driveways, pool decks, and travertine across St. Johns, Duval, and Clay County. Clean prep. Even finish. Results you can see.</p></div>
 <div><div class="footer-title">Services</div><div class="footer-links"><a href="/paver-sealing/driveways">Driveway Paver Sealing</a><a href="/paver-resealing">Paver Resealing</a><a href="/paver-sealing/pool-decks">Pool Deck Sealing</a><a href="/paver-sealing/travertine-sealing">Travertine Sealing</a><a href="/paver-sealing-cost-calculator">Paver Sealing Cost Calculator</a></div></div>
