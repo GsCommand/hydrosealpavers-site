@@ -1,10 +1,65 @@
 (function () {
   if (location.pathname.replace(/\/$/, '') === '/paver-sealing/driveways' && !document.querySelector('script[data-driveway-redesign-loader]')) {
-    const drivewayScript = document.createElement('script');
+    /*
+     * The driveway page still ships legacy HTML that is upgraded by
+     * driveway-redesign-runtime.js. Previously the runtime and its CSS were
+     * requested only after this deferred loader ran, which allowed the old
+     * layout to paint before the redesign replaced it.
+     *
+     * Start the final CSS and runtime together and keep the document hidden
+     * only during that short handoff. Reveal after BOTH assets are ready so
+     * visitors never see the legacy layout or an unstyled redesign.
+     */
+    var root = document.documentElement;
+    var cssReady = false;
+    var runtimeReady = false;
+    var revealed = false;
+
+    root.style.visibility = 'hidden';
+
+    function revealDriveway() {
+      if (revealed || !cssReady || !runtimeReady) return;
+      revealed = true;
+      requestAnimationFrame(function () {
+        root.style.visibility = '';
+      });
+    }
+
+    function failOpen() {
+      if (revealed) return;
+      revealed = true;
+      root.style.visibility = '';
+    }
+
+    var drivewayCss = document.querySelector('link[data-driveway-redesign]');
+    if (!drivewayCss) {
+      drivewayCss = document.createElement('link');
+      drivewayCss.rel = 'stylesheet';
+      drivewayCss.href = '/assets/css/driveway-redesign.css?v=20260803-2';
+      drivewayCss.setAttribute('data-driveway-redesign', '');
+      drivewayCss.onload = function () {
+        cssReady = true;
+        revealDriveway();
+      };
+      drivewayCss.onerror = failOpen;
+      document.head.appendChild(drivewayCss);
+    } else {
+      cssReady = true;
+    }
+
+    var drivewayScript = document.createElement('script');
     drivewayScript.src = '/assets/js/driveway-redesign-runtime.js?v=20260803-1';
-    drivewayScript.defer = true;
+    drivewayScript.async = false;
     drivewayScript.setAttribute('data-driveway-redesign-loader', '');
+    drivewayScript.onload = function () {
+      runtimeReady = true;
+      revealDriveway();
+    };
+    drivewayScript.onerror = failOpen;
     document.head.appendChild(drivewayScript);
+
+    /* Never leave the page hidden if a browser/network edge case occurs. */
+    window.setTimeout(failOpen, 3500);
   }
 
   if (window.__hsThirdPartyLoaderRan) return;
