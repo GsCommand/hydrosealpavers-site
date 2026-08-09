@@ -12,3 +12,9 @@ document.addEventListener('DOMContentLoaded',()=>{
     });
   });
 });
+
+document.addEventListener('DOMContentLoaded',()=>{
+  document.querySelectorAll('.hero .glass > p').forEach(p=>{
+    if(p.textContent.trim()==='Professional paver sealing, driveway restoration, pool deck sealing, and travertine care across Nocatee, Ponte Vedra, Jacksonville, and St. Johns County.') p.remove();
+  });
+});
