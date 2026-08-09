@@ -3,6 +3,12 @@
   if (window.__hs_nav_inited) return;
   window.__hs_nav_inited = true;
 
+  function removeStripResealNavLink() {
+    document.querySelectorAll('header a[href="/paver-resealing"], nav a[href="/paver-resealing"]').forEach((link) => {
+      if (link.textContent.trim().toLowerCase().startsWith("strip and reseal")) link.remove();
+    });
+  }
+
   function resetDropdownState() {
     const groups = Array.from(document.querySelectorAll(".nav-group"));
     groups.forEach((group) => {
@@ -237,6 +243,7 @@
   }
 
   function initAllNav() {
+    removeStripResealNavLink();
     addHomepageCalculatorNavLink();
     addMainFooterLinks();
     initHeaderHamburger();
@@ -250,6 +257,7 @@
   window.addEventListener("resize", moveTrustbarForMobile);
 
   const observer = new MutationObserver(() => {
+    removeStripResealNavLink();
     addHomepageCalculatorNavLink();
     addMainFooterLinks();
     initHeaderHamburger();
