@@ -89,9 +89,18 @@
       if (el.children.length === 0 && el.textContent.trim() === target) el.remove();
     });
   };
+  var removeRecentSealingHeadings = function(){
+    document.querySelectorAll('.dw-section').forEach(function(section){
+      var kicker = section.querySelector('.dw-kicker');
+      var h2 = section.querySelector('h2');
+      if (kicker && kicker.textContent.trim() === 'Recent Sealing Jobs') kicker.remove();
+      if (h2 && h2.textContent.trim() === 'Recent HydroSeal sealing projects.') h2.remove();
+    });
+  };
   var cleanup = function(){
     removeHeadlines();
     removeHeroDescription();
+    removeRecentSealingHeadings();
   };
   cleanup();
   document.addEventListener('DOMContentLoaded', cleanup, {once:true});
