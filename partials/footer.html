@@ -97,10 +97,18 @@
       if (h2 && h2.textContent.trim() === 'Recent HydroSeal sealing projects.') h2.remove();
     });
   };
+  var setResealingHeroImage = function(){
+    var heroImage = document.querySelector('.pool-service-hero__image');
+    if (heroImage && heroImage.getAttribute('src') !== '/assets/hero/Paver-Resealing.jpeg') {
+      heroImage.setAttribute('src', '/assets/hero/Paver-Resealing.jpeg');
+      heroImage.setAttribute('alt', 'Paver resealing project by HydroSeal');
+    }
+  };
   var cleanup = function(){
     removeHeadlines();
     removeHeroDescription();
     removeRecentSealingHeadings();
+    setResealingHeroImage();
   };
   cleanup();
   document.addEventListener('DOMContentLoaded', cleanup, {once:true});
