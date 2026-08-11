@@ -2,6 +2,13 @@
   if (window.__hsAnalyticsInit) return;
   window.__hsAnalyticsInit = true;
 
+  function normalizedPath() {
+    return (window.location.pathname || "")
+      .replace(/\/index\.html$/, "")
+      .replace(/\.html$/, "")
+      .replace(/\/$/, "");
+  }
+
   function removeStripResealNavLink() {
     document.querySelectorAll('header a[href="/paver-resealing"], nav a[href="/paver-resealing"]').forEach((link) => {
       if (link.textContent.trim().toLowerCase().startsWith("strip and reseal")) link.remove();
@@ -9,11 +16,7 @@
   }
 
   function removePatioHeroDescription() {
-    const path = (window.location.pathname || "")
-      .replace(/\/index\.html$/, "")
-      .replace(/\.html$/, "")
-      .replace(/\/$/, "");
-    if (path !== "/paver-sealing/patios-walkways") return;
+    if (normalizedPath() !== "/paver-sealing/patios-walkways") return;
 
     const target = "Professional paver sealing for patios, walkways, entries, and outdoor living spaces across Jacksonville and St. Johns County.";
     document.querySelectorAll(".patio-service-hero__copy, p").forEach((el) => {
@@ -22,11 +25,7 @@
   }
 
   function injectPatioRecentProjects() {
-    const path = (window.location.pathname || "")
-      .replace(/\/index\.html$/, "")
-      .replace(/\.html$/, "")
-      .replace(/\/$/, "");
-    if (path !== "/paver-sealing/patios-walkways") return;
+    if (normalizedPath() !== "/paver-sealing/patios-walkways") return;
     if (document.querySelector(".patio-recent-projects")) return;
 
     const processSection = document.querySelector("#patio-process");
@@ -47,19 +46,82 @@
     processSection.parentNode.insertBefore(section, processSection);
   }
 
+  function fixStripCostArticleHeader() {
+    if (normalizedPath() !== "/learning-center/cost/how-much-does-it-cost-to-strip-and-reseal-pavers") return;
+    if (document.getElementById("strip-cost-header-fix")) return;
+
+    const style = document.createElement("style");
+    style.id = "strip-cost-header-fix";
+    style.textContent = `
+      body.page-strip-reseal-cost .cost-hero{
+        display:block!important;
+        width:100%!important;
+        max-width:900px!important;
+        margin:0 auto 38px!important;
+        text-align:center!important;
+        grid-template-columns:none!important;
+        grid-template-areas:none!important;
+      }
+      body.page-strip-reseal-cost .cost-hero__eyebrow,
+      body.page-strip-reseal-cost .cost-hero h1,
+      body.page-strip-reseal-cost .cost-hero__intro,
+      body.page-strip-reseal-cost .cost-meta{
+        display:block!important;
+        width:100%!important;
+        float:none!important;
+        position:static!important;
+      }
+      body.page-strip-reseal-cost .cost-hero__eyebrow{
+        max-width:none!important;
+        margin:0 0 10px!important;
+        text-align:center!important;
+      }
+      body.page-strip-reseal-cost .cost-hero h1{
+        max-width:900px!important;
+        margin:0 auto 18px!important;
+        font-size:clamp(2.7rem,5.4vw,4.8rem)!important;
+        line-height:1.02!important;
+        letter-spacing:-.04em!important;
+        text-align:center!important;
+      }
+      body.page-strip-reseal-cost .cost-hero__intro{
+        max-width:760px!important;
+        margin:0 auto!important;
+        font-size:1.08rem!important;
+        line-height:1.7!important;
+        text-align:center!important;
+      }
+      body.page-strip-reseal-cost .cost-meta{
+        max-width:none!important;
+        margin:16px auto 0!important;
+        text-align:center!important;
+      }
+      @media(max-width:650px){
+        body.page-strip-reseal-cost .cost-hero h1{
+          font-size:clamp(2.35rem,11vw,3.5rem)!important;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
   removeStripResealNavLink();
   removePatioHeroDescription();
   injectPatioRecentProjects();
+  fixStripCostArticleHeader();
+
   document.addEventListener("DOMContentLoaded", function () {
     removeStripResealNavLink();
     removePatioHeroDescription();
     injectPatioRecentProjects();
+    fixStripCostArticleHeader();
   }, { once: true });
 
   const navObserver = new MutationObserver(function () {
     removeStripResealNavLink();
     removePatioHeroDescription();
     injectPatioRecentProjects();
+    fixStripCostArticleHeader();
   });
   navObserver.observe(document.documentElement, { childList: true, subtree: true });
 
