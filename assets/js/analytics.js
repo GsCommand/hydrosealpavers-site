@@ -8,6 +8,19 @@
     });
   }
 
+  function removePatioHeroDescription() {
+    const path = (window.location.pathname || "")
+      .replace(/\/index\.html$/, "")
+      .replace(/\.html$/, "")
+      .replace(/\/$/, "");
+    if (path !== "/paver-sealing/patios-walkways") return;
+
+    const target = "Professional paver sealing for patios, walkways, entries, and outdoor living spaces across Jacksonville and St. Johns County.";
+    document.querySelectorAll(".patio-service-hero__copy, p").forEach((el) => {
+      if (el.textContent.trim() === target) el.remove();
+    });
+  }
+
   function injectPatioRecentProjects() {
     const path = (window.location.pathname || "")
       .replace(/\/index\.html$/, "")
@@ -35,14 +48,17 @@
   }
 
   removeStripResealNavLink();
+  removePatioHeroDescription();
   injectPatioRecentProjects();
   document.addEventListener("DOMContentLoaded", function () {
     removeStripResealNavLink();
+    removePatioHeroDescription();
     injectPatioRecentProjects();
   }, { once: true });
 
   const navObserver = new MutationObserver(function () {
     removeStripResealNavLink();
+    removePatioHeroDescription();
     injectPatioRecentProjects();
   });
   navObserver.observe(document.documentElement, { childList: true, subtree: true });
