@@ -8,10 +8,43 @@
     });
   }
 
-  removeStripResealNavLink();
-  document.addEventListener("DOMContentLoaded", removeStripResealNavLink, { once: true });
+  function injectPatioRecentProjects() {
+    const path = (window.location.pathname || "")
+      .replace(/\/index\.html$/, "")
+      .replace(/\.html$/, "")
+      .replace(/\/$/, "");
+    if (path !== "/paver-sealing/patios-walkways") return;
+    if (document.querySelector(".patio-recent-projects")) return;
 
-  const navObserver = new MutationObserver(removeStripResealNavLink);
+    const processSection = document.querySelector("#patio-process");
+    if (!processSection || !processSection.parentNode) return;
+
+    if (!document.querySelector('script[src="https://elfsightcdn.com/platform.js"]')) {
+      const platform = document.createElement("script");
+      platform.src = "https://elfsightcdn.com/platform.js";
+      platform.async = true;
+      document.head.appendChild(platform);
+    }
+
+    const section = document.createElement("section");
+    section.className = "section patio-recent-projects";
+    section.style.paddingTop = "34px";
+    section.style.paddingBottom = "34px";
+    section.innerHTML = '<div class="container"><div class="elfsight-app-bfab489f-7fca-4f05-ba5a-d92616b76b26" data-elfsight-app-lazy></div></div>';
+    processSection.parentNode.insertBefore(section, processSection);
+  }
+
+  removeStripResealNavLink();
+  injectPatioRecentProjects();
+  document.addEventListener("DOMContentLoaded", function () {
+    removeStripResealNavLink();
+    injectPatioRecentProjects();
+  }, { once: true });
+
+  const navObserver = new MutationObserver(function () {
+    removeStripResealNavLink();
+    injectPatioRecentProjects();
+  });
   navObserver.observe(document.documentElement, { childList: true, subtree: true });
 
   function track(eventName, payload) {
