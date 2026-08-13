@@ -1,0 +1,46 @@
+name: Fix Ahrefs broken links
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-ahrefs-broken-links.yml'
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fix five broken internal links
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          # sitemap.html: remove stale 404 links
+          p = Path('sitemap.html')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace('          <li><a href="/gallery">Gallery</a></li>\n', '')
+          s = s.replace('          <li><a href="/pressure-washing">Pressure Washing</a></li>\n', '')
+          s = s.replace('            <a class="nav-link" href="/pressure-washing">Pressure Washing</a>\n', '')
+          p.write_text(s, encoding='utf-8')
+
+          # cleaning/resealing/stripping article
+          p = Path('learning-center/problems/cleaning-resealing-or-stripping/index.html')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace('/learning-center/surfaces/how-much-does-it-cost-to-strip-and-reseal-pavers', '/learning-center/cost/how-much-does-it-cost-to-strip-and-reseal-pavers')
+          s = s.replace('href="/contact"', 'href="/get-a-quote"')
+          p.write_text(s, encoding='utf-8')
+
+          # is paver sealing worth it article
+          p = Path('learning-center/sealing/is-paver-sealing-worth-it-in-florida/index.html')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace('href="/contact"', 'href="/get-a-quote"')
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit fixes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sitemap.html learning-center/problems/cleaning-resealing-or-stripping/index.html learning-center/sealing/is-paver-sealing-worth-it-in-florida/index.html
+          git commit -m "Fix Ahrefs broken page links" || exit 0
+          git push
