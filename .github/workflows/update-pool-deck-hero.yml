@@ -1,0 +1,33 @@
+name: Update pool deck hero
+on:
+  push:
+    paths:
+      - '.github/workflows/update-pool-deck-hero.yml'
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Replace pool deck hero image
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('paver-sealing/pool-decks.html')
+          s = p.read_text(encoding='utf-8')
+          old = '/assets/hero/Jacksonville-paver-sealing-pool-deck.webp'
+          new = '/assets/hero/screen-pool-deck-sealing.jpeg'
+          if old not in s:
+              raise SystemExit('current hero image reference not found')
+          s = s.replace(old, new, 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add paver-sealing/pool-decks.html
+          git commit -m "Replace pool deck hero image" || exit 0
+          git push
