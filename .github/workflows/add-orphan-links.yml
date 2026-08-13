@@ -1,0 +1,35 @@
+name: Add orphan links
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/add-orphan-links-trigger'
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add seven internal links to Learning Center
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('learning-center/index.html')
+          s = p.read_text(encoding='utf-8')
+          if 'orphan-link-fix-2026' not in s:
+              block = '''<section class="lc-footer-cta orphan-link-fix-2026"><h2>More paver guides</h2><p><a href="/paver-repair">Paver Repair &amp; Leveling Jacksonville</a> · <a href="/paver-efflorescence-removal">Paver Efflorescence Removal</a> · <a href="/learning-center/sealing/when-to-seal-new-pavers">When to Seal New Pavers</a> · <a href="/learning-center/travertine/does-travertine-need-to-be-sealed">Does Travertine Need to Be Sealed?</a> · <a href="/learning-center/problems/why-did-my-paver-sealer-turn-cloudy">Why Paver Sealer Turns Cloudy</a> · <a href="/learning-center/sealing/rain-after-paver-sealing">Rain After Paver Sealing</a> · <a href="/learning-center/maintenance/how-long-before-driving-on-sealed-pavers">How Long Before Driving on Sealed Pavers?</a></p></section>'''
+              marker = '</section></main>'
+              if marker not in s:
+                  raise SystemExit('marker not found')
+              s = s.replace(marker, block + marker, 1)
+              p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add learning-center/index.html
+          git commit -m "Add internal links to seven orphan pages" || exit 0
+          git push
