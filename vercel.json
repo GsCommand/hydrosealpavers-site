@@ -209,27 +209,7 @@
       "permanent": true
     },
     {
-      "source": "/learning-center/sealing",
-      "destination": "/learning-center",
-      "permanent": true
-    },
-    {
-      "source": "/learning-center/cleaning",
-      "destination": "/learning-center",
-      "permanent": true
-    },
-    {
       "source": "/learning-center/surfaces",
-      "destination": "/learning-center",
-      "permanent": true
-    },
-    {
-      "source": "/learning-center/problems",
-      "destination": "/learning-center",
-      "permanent": true
-    },
-    {
-      "source": "/learning-center/travertine",
       "destination": "/learning-center",
       "permanent": true
     },
