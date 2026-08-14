@@ -9,6 +9,24 @@
       .replace(/\/$/, "");
   }
 
+  function ensureSharedElfsightLoader() {
+    const widget = document.querySelector('[class*="elfsight-app-"]');
+    if (!widget) return;
+
+    // Older static pages embedded the Elfsight platform tag next to each widget.
+    // Remove every legacy copy and hand control to the one shared deferred loader.
+    document.querySelectorAll('script[src="https://elfsightcdn.com/platform.js"]').forEach((script) => script.remove());
+
+    if (window.ELFSIGHT || window.__hsThirdPartyLoaderRan) return;
+    if (document.querySelector('script[src="/assets/js/third-party-loader.js"]')) return;
+
+    const loader = document.createElement("script");
+    loader.src = "/assets/js/third-party-loader.js";
+    loader.defer = true;
+    loader.dataset.hsLoader = "elfsight";
+    document.head.appendChild(loader);
+  }
+
   function removeStripResealNavLink() {
     document.querySelectorAll('header a[href="/paver-resealing"], nav a[href="/paver-resealing"]').forEach((link) => {
       if (link.textContent.trim().toLowerCase().startsWith("strip and reseal")) link.remove();
@@ -38,6 +56,7 @@
     section.innerHTML = '<div class="container"><div class="elfsight-app-bfab489f-7fca-4f05-ba5a-d92616b76b26" data-elfsight-app-lazy></div></div>';
     processSection.parentNode.insertBefore(section, processSection);
 
+    ensureSharedElfsightLoader();
     if (typeof window.__hsArmElfsight === "function") {
       window.__hsArmElfsight();
     }
@@ -102,12 +121,14 @@
     document.head.appendChild(style);
   }
 
+  ensureSharedElfsightLoader();
   removeStripResealNavLink();
   removePatioHeroDescription();
   injectPatioRecentProjects();
   fixStripCostArticleHeader();
 
   document.addEventListener("DOMContentLoaded", function () {
+    ensureSharedElfsightLoader();
     removeStripResealNavLink();
     removePatioHeroDescription();
     injectPatioRecentProjects();
@@ -115,6 +136,7 @@
   }, { once: true });
 
   const navObserver = new MutationObserver(function () {
+    ensureSharedElfsightLoader();
     removeStripResealNavLink();
     removePatioHeroDescription();
     injectPatioRecentProjects();
