@@ -180,18 +180,13 @@
     if (document.querySelector('.patio-recent-projects')) return;
     var process = document.getElementById('patio-process');
     if (!process || !process.parentNode) return;
-    if (!document.querySelector('script[src="https://elfsightcdn.com/platform.js"]')) {
-      var platform = document.createElement('script');
-      platform.src = 'https://elfsightcdn.com/platform.js';
-      platform.async = true;
-      document.head.appendChild(platform);
-    }
     var section = document.createElement('section');
     section.className = 'section patio-recent-projects';
     section.style.paddingTop = '24px';
     section.style.paddingBottom = '24px';
     section.innerHTML = '<div class="container"><div class="elfsight-app-bfab489f-7fca-4f05-ba5a-d92616b76b26" data-elfsight-app-lazy></div></div>';
     process.parentNode.insertBefore(section, process);
+    if (typeof window.__hsArmElfsight === 'function') window.__hsArmElfsight();
   }
   injectPatioRecentProjects();
   document.addEventListener('DOMContentLoaded', injectPatioRecentProjects, {once:true});
@@ -207,5 +202,5 @@
 <div><div class="footer-title">Contact</div><div class="footer-meta"><div><strong>Phone:</strong> <a href="tel:+19045375000" class="footer-phone">904.537.5000</a></div><div class="footer-hours"><strong>Hours:</strong><span>Mon–Fri 8–5</span><span>Sat 9–1</span></div><div><strong>Email:</strong> <a href="mailto:info@hydrosealpavers.com">info@hydrosealpavers.com</a></div></div></div>
 </div><div class="footer-bottom"><div>© <span id="y"></span> HydroSeal. All rights reserved.</div><a href="/sitemap" class="footer-sitemap-link">Sitemap</a></div></div></footer><div class="mobile-contactbar" aria-label="HydroSeal mobile contact options"><a class="mobile-callbar-btn" href="tel:+19045375000" aria-label="Call HydroSeal">📞 Call</a><a class="mobile-callbar-btn" href="sms:+19045375000" aria-label="Text HydroSeal">💬 Text</a></div>
 <!-- Elfsight AI Chatbot | HydroSeal AI Chatbot -->
-<script src="https://elfsightcdn.com/platform.js" async></script>
 <div class="elfsight-app-8d93a5a4-3fe5-4e4e-a7d5-1856bb997b36" data-elfsight-app-lazy></div>
+<script defer src="/assets/js/third-party-loader.js"></script>
