@@ -1,0 +1,82 @@
+name: One-time HydroSeal mobile Lighthouse audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/one-time-lighthouse-audit.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Try Google PageSpeed Insights mobile audit
+        id: psi
+        shell: bash
+        run: |
+          set +e
+          PSI_URL='https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=https%3A%2F%2Fhydrosealpavers.com%2F&strategy=mobile&category=performance'
+          code=$(curl -L -sS --retry 2 --max-time 240 -w '%{http_code}' -o psi.json "$PSI_URL")
+          echo "HTTP $code"
+          if [ "$code" = "200" ] && jq -e '.lighthouseResult.categories.performance.score' psi.json >/dev/null 2>&1; then
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+            jq -r '
+              .lighthouseResult as $l |
+              "SOURCE=PageSpeed Insights",
+              "FETCH_TIME=" + ($l.fetchTime // "unknown"),
+              "LIGHTHOUSE_VERSION=" + ($l.lighthouseVersion // "unknown"),
+              "PERFORMANCE_SCORE=" + (((($l.categories.performance.score // 0) * 100) | round) | tostring),
+              "FCP=" + ($l.audits["first-contentful-paint"].displayValue // "n/a"),
+              "LCP=" + ($l.audits["largest-contentful-paint"].displayValue // "n/a"),
+              "TBT=" + ($l.audits["total-blocking-time"].displayValue // "n/a"),
+              "CLS=" + ($l.audits["cumulative-layout-shift"].displayValue // "n/a"),
+              "SPEED_INDEX=" + ($l.audits["speed-index"].displayValue // "n/a"),
+              "TTI=" + ($l.audits["interactive"].displayValue // "n/a")
+            ' psi.json
+            echo 'ELFSIGHT_NETWORK_REQUESTS:'
+            jq -r '[.lighthouseResult.audits["network-requests"].details.items[]? | select((.url // "") | test("elfsight"; "i"))] as $x | "count=" + ($x|length|tostring) + " transfer_bytes=" + (($x|map(.transferSize // 0)|add // 0)|tostring), ($x[]?.url)' psi.json
+          else
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+            echo "PageSpeed API unavailable; falling back to local Lighthouse."
+            head -c 1000 psi.json 2>/dev/null || true
+          fi
+
+      - name: Run local Lighthouse fallback
+        if: steps.psi.outputs.ok != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          google-chrome --version || chromium --version || true
+          npx --yes lighthouse@12.8.2 https://hydrosealpavers.com/ \
+            --only-categories=performance \
+            --form-factor=mobile \
+            --screenEmulation.mobile=true \
+            --throttling-method=simulate \
+            --chrome-flags='--headless --no-sandbox --disable-dev-shm-usage' \
+            --output=json \
+            --output-path=lighthouse.json \
+            --quiet
+          node <<'NODE'
+          const fs = require('fs');
+          const l = JSON.parse(fs.readFileSync('lighthouse.json','utf8'));
+          const a = l.audits;
+          const score = Math.round((l.categories.performance.score || 0) * 100);
+          console.log('SOURCE=Local Lighthouse');
+          console.log('FETCH_TIME=' + (l.fetchTime || 'unknown'));
+          console.log('LIGHTHOUSE_VERSION=' + (l.lighthouseVersion || 'unknown'));
+          console.log('PERFORMANCE_SCORE=' + score);
+          for (const [label,key] of [
+            ['FCP','first-contentful-paint'],['LCP','largest-contentful-paint'],['TBT','total-blocking-time'],
+            ['CLS','cumulative-layout-shift'],['SPEED_INDEX','speed-index'],['TTI','interactive']
+          ]) console.log(label + '=' + (a[key]?.displayValue || 'n/a'));
+          const reqs = (a['network-requests']?.details?.items || []).filter(x => /elfsight/i.test(x.url || ''));
+          console.log('ELFSIGHT_REQUEST_COUNT=' + reqs.length);
+          console.log('ELFSIGHT_TRANSFER_BYTES=' + reqs.reduce((s,x)=>s+(x.transferSize||0),0));
+          reqs.forEach(x => console.log('ELFSIGHT_URL=' + x.url));
+          const third = a['third-party-summary']?.details?.items || [];
+          console.log('THIRD_PARTY_SUMMARY:');
+          third.slice(0,20).forEach(x => console.log(JSON.stringify(x)));
+          NODE
