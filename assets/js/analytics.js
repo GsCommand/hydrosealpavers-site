@@ -31,19 +31,16 @@
     const processSection = document.querySelector("#patio-process");
     if (!processSection || !processSection.parentNode) return;
 
-    if (!document.querySelector('script[src="https://elfsightcdn.com/platform.js"]')) {
-      const platform = document.createElement("script");
-      platform.src = "https://elfsightcdn.com/platform.js";
-      platform.async = true;
-      document.head.appendChild(platform);
-    }
-
     const section = document.createElement("section");
     section.className = "section patio-recent-projects";
     section.style.paddingTop = "34px";
     section.style.paddingBottom = "34px";
     section.innerHTML = '<div class="container"><div class="elfsight-app-bfab489f-7fca-4f05-ba5a-d92616b76b26" data-elfsight-app-lazy></div></div>';
     processSection.parentNode.insertBefore(section, processSection);
+
+    if (typeof window.__hsArmElfsight === "function") {
+      window.__hsArmElfsight();
+    }
   }
 
   function fixStripCostArticleHeader() {
