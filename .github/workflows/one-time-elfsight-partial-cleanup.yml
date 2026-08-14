@@ -17,7 +17,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Remove Elfsight from shared partials and verify standalone pages
+      - name: Remove duplicate Elfsight chatbot and loader from shared partials
         shell: bash
         run: |
           set -euo pipefail
@@ -26,6 +26,7 @@ jobs:
           import re
 
           widget_re = re.compile(r'\s*<!--\s*Elfsight[^>]*?-->\s*<div\b[^>]*class=["\'][^"\']*elfsight-app-[^"\']*["\'][^>]*>\s*</div>\s*', re.I | re.S)
+          chatbot_re = re.compile(r'<div\b[^>]*class=["\'][^"\']*elfsight-app-8d93a5a4-3fe5-4e4e-a7d5-1856bb997b36[^"\']*["\'][^>]*>\s*</div>', re.I | re.S)
           loader_re = re.compile(r'\s*<script\b(?=[^>]*\bsrc\s*=\s*["\']/assets/js/third-party-loader\.js(?:\?[^"\']*)?["\'])[^>]*>\s*</script>\s*', re.I)
           legacy_re = re.compile(r'<script\b(?=[^>]*\bsrc\s*=\s*["\']https://(?:elfsightcdn\.com/platform\.js|static\.elfsight\.com/platform/platform\.js)["\'])[^>]*>\s*</script>', re.I)
 
@@ -52,10 +53,12 @@ jobs:
 
           for path in sorted(Path('partials').glob('*.html')):
               text = path.read_text(encoding='utf-8')
-              if 'elfsight-app-' in text:
-                  violations.append(f'{path}: Elfsight widget remains in shared partial')
+              if chatbot_re.search(text):
+                  violations.append(f'{path}: duplicate chatbot DOM remains in shared partial')
               if loader_re.search(text):
                   violations.append(f'{path}: Elfsight loader remains in shared partial')
+              if legacy_re.search(text):
+                  violations.append(f'{path}: legacy external Elfsight script remains in shared partial')
 
           print(f'Standalone HTML pages verified: {len(standalone)}')
           print(f'Partials cleaned: {len(changed)}')
