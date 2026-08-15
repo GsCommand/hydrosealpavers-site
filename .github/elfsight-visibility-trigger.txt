@@ -1,1 +1,0 @@
-Trigger scoped Learning Center Elfsight visibility fix.
