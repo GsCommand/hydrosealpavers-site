@@ -103,8 +103,19 @@
     });
   }
 
+  function spaceRebuiltTemplateCtas() {
+    const rebuiltPages = new Set([
+      '/learning-center/hiring/how-to-choose-a-paver-sealing-company-in-northeast-florida',
+      '/learning-center/problems/cleaning-resealing-or-stripping'
+    ]);
+    if (!rebuiltPages.has(path)) return;
+    const cta = document.querySelector('.cost-cta');
+    if (cta) cta.style.marginBottom = '32px';
+  }
+
   fixJointSandColorCards();
   styleLearningCenterCtas();
+  spaceRebuiltTemplateCtas();
 
   if (path === '/learning-center/surfaces/what-is-the-best-sand-for-paver-joints-in-florida') {
     const cta = document.querySelector('.blog-post__cta');
