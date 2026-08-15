@@ -168,6 +168,51 @@
     }
   }
 
+  function featureTopLearningCenterGuides() {
+    if (path !== '/learning-center') return;
+    if (document.querySelector('.hs-lc-popular-guides')) return;
+
+    const featured = document.querySelector('.lc-featured');
+    if (!featured || !featured.parentNode) return;
+
+    if (!document.getElementById('hs-lc-popular-guides-style')) {
+      const style = document.createElement('style');
+      style.id = 'hs-lc-popular-guides-style';
+      style.textContent = `
+        .hs-lc-popular-guides{margin:0 0 26px}
+        .hs-lc-popular-guides__heading{margin:0 0 14px;color:#0b2d4a;font-size:clamp(1.55rem,3vw,2rem);text-align:center}
+        .hs-lc-popular-guides__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+        .hs-lc-popular-guides__card{display:block;padding:22px;border:1px solid #dce3e9;border-radius:19px;background:#fff;color:inherit;text-decoration:none;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+        .hs-lc-popular-guides__card:hover,.hs-lc-popular-guides__card:focus-visible{transform:translateY(-2px);box-shadow:0 12px 28px rgba(11,45,74,.1);border-color:rgba(15,110,168,.35)}
+        .hs-lc-popular-guides__kicker{display:block;margin-bottom:8px;color:#0f6ea8;font-size:.74rem;font-weight:850;letter-spacing:.09em;text-transform:uppercase}
+        .hs-lc-popular-guides__card h2{margin:0 0 9px;color:#0f3155;font-size:1.22rem;line-height:1.25}
+        .hs-lc-popular-guides__card p{margin:0;color:#5f6f80;line-height:1.6}
+        @media(max-width:700px){.hs-lc-popular-guides__grid{grid-template-columns:1fr}}
+      `;
+      document.head.appendChild(style);
+    }
+
+    const section = document.createElement('section');
+    section.className = 'hs-lc-popular-guides';
+    section.setAttribute('aria-labelledby', 'hs-lc-popular-guides-title');
+    section.innerHTML = `
+      <h2 class="hs-lc-popular-guides__heading" id="hs-lc-popular-guides-title">Popular Guides</h2>
+      <div class="hs-lc-popular-guides__grid">
+        <a class="hs-lc-popular-guides__card" href="/learning-center/surfaces/what-is-the-best-sand-for-paver-joints-in-florida">
+          <span class="hs-lc-popular-guides__kicker">Joint Sand</span>
+          <h2>What Is the Best Sand for Paver Joints in Florida?</h2>
+          <p>Compare joint-sand options, performance, installation considerations, and what matters most for Florida paver systems.</p>
+        </a>
+        <a class="hs-lc-popular-guides__card" href="/learning-center/problems/why-is-sand-coming-out-of-my-pavers">
+          <span class="hs-lc-popular-guides__kicker">Paver Problems</span>
+          <h2>Why Is Sand Coming Out of My Pavers?</h2>
+          <p>Understand washout, joint depth, drainage, cleaning pressure, and why sand can disappear from paver joints.</p>
+        </a>
+      </div>`;
+
+    featured.parentNode.insertBefore(section, featured);
+  }
+
   function spaceRebuiltTemplateCtas() {
     const rebuiltPages = new Set([
       '/learning-center/hiring/how-to-choose-a-paver-sealing-company-in-northeast-florida',
@@ -181,6 +226,7 @@
   fixJointSandColorCards();
   styleLearningCenterCtas();
   styleHiringTemplateCtas();
+  featureTopLearningCenterGuides();
   spaceRebuiltTemplateCtas();
 
   if (path === '/learning-center/surfaces/what-is-the-best-sand-for-paver-joints-in-florida') {
