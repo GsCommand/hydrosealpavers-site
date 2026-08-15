@@ -99,7 +99,27 @@
     });
   }
 
+  function addTravertineCleaningImage() {
+    const currentPath = location.pathname.replace(/\/$/, "");
+    if (currentPath !== "/learning-center/travertine/how-to-clean-travertine-without-damage") return;
+    if (document.querySelector(".hs-travertine-cleaning-photo")) return;
+
+    const sections = Array.from(document.querySelectorAll(".blog-post__content > section"));
+    const processSection = sections.find((section) => {
+      const h2 = section.querySelector(":scope > h2");
+      return h2 && h2.textContent.trim().toLowerCase() === "7-step travertine cleaning process";
+    });
+    if (!processSection || !processSection.parentNode) return;
+
+    const figure = document.createElement("figure");
+    figure.className = "hs-travertine-cleaning-photo";
+    figure.style.margin = "28px 0 30px";
+    figure.innerHTML = '<img src="/assets/hero/hydroseal-tavertine.webp" alt="HydroSeal travertine cleaning and restoration project in Northeast Florida" loading="lazy" style="display:block;width:100%;height:auto;border-radius:18px;">';
+    processSection.parentNode.insertBefore(figure, processSection);
+  }
+
   applyLearningCenterFaqAccordions();
+  addTravertineCleaningImage();
 
   document.body.classList.add("includes-loading");
 
