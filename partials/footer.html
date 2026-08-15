@@ -193,63 +193,6 @@
   setTimeout(injectPatioRecentProjects, 100);
 })();
 </script>
-<script>
-(function(){
-  if (!document.body || !document.body.classList.contains('page-learning-center')) return;
-
-  var path = (window.location.pathname || '')
-    .replace(/\/index\.html$/, '')
-    .replace(/\.html$/, '')
-    .replace(/\/$/, '');
-
-  var projectPages = new Set([
-    '/learning-center/cost/how-much-does-it-cost-to-strip-and-reseal-pavers',
-    '/learning-center/problems/cleaning-resealing-or-stripping',
-    '/learning-center/hiring/how-to-choose-a-paver-sealing-company-in-northeast-florida',
-    '/learning-center/sealing/what-should-professional-paver-sealing-include',
-    '/learning-center/surfaces/driveway-paver-sealing-cost-per-square-foot',
-    '/learning-center/problems/why-is-my-paver-sealer-peeling',
-    '/learning-center/problems/why-are-my-pavers-turning-white-in-florida',
-    '/learning-center/surfaces/what-is-the-best-sand-for-paver-joints-in-florida'
-  ]);
-
-  if (!projectPages.has(path)) return;
-
-  function injectLearningCenterRecentProjects(){
-    if (document.querySelector('.lc-recent-sealing-projects')) return;
-
-    var cta = document.querySelector('.cost-cta, .blog-post__cta');
-    if (!cta || !cta.parentNode) return;
-
-    var section = document.createElement('section');
-    section.className = 'lc-recent-sealing-projects';
-    section.setAttribute('aria-labelledby', 'lc-recent-sealing-projects-title');
-    section.innerHTML = '<h2 id="lc-recent-sealing-projects-title">Recent Sealing Projects</h2><div class="elfsight-app-bfab489f-7fca-4f05-ba5a-d92616b76b26" data-elfsight-app-lazy></div>';
-
-    section.style.margin = '42px 0 30px';
-    section.style.padding = '0';
-    section.style.width = '100%';
-
-    var heading = section.querySelector('h2');
-    if (heading) {
-      heading.style.margin = '0 0 22px';
-      heading.style.textAlign = 'center';
-      heading.style.color = '#0b2d4a';
-      heading.style.fontSize = 'clamp(1.7rem,3vw,2.25rem)';
-      heading.style.lineHeight = '1.15';
-    }
-
-    cta.parentNode.insertBefore(section, cta);
-
-    if (typeof window.__hsArmElfsight === 'function') window.__hsArmElfsight();
-  }
-
-  injectLearningCenterRecentProjects();
-  document.addEventListener('DOMContentLoaded', injectLearningCenterRecentProjects, {once:true});
-  document.addEventListener('includes:ready', injectLearningCenterRecentProjects, {once:true});
-  setTimeout(injectLearningCenterRecentProjects, 100);
-})();
-</script>
 <footer class="site-footer"><div class="container site-footer__inner"><div class="footer-grid">
 <div class="footer-brand"><div class="footer-brand__row"><img src="/assets/hero/Hydrosealpaversealing.png" alt="HydroSeal" loading="lazy" class="footer-logo" width="2884" height="1127" /></div><p class="footer-copy">Premium paver sealing and protection for driveways, pool decks, and travertine across St. Johns, Duval, and Clay County. Clean prep. Even finish. Results you can see.</p></div>
 <div><div class="footer-title">Services</div><div class="footer-links"><a href="/paver-sealing/driveways">Driveway Paver Sealing</a><a href="/paver-resealing">Paver Resealing</a><a href="/paver-sealing/pool-decks">Pool Deck Sealing</a><a href="/paver-sealing/travertine-sealing">Travertine Sealing</a><a href="/paver-sealing-cost-calculator">Paver Sealing Cost Calculator</a></div></div>
