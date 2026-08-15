@@ -44,3 +44,4 @@ jobs:
           git add assets/js/third-party-loader.js
           git commit -m "Style next ten Learning Center CTAs" || exit 0
           git push
+# retrigger
