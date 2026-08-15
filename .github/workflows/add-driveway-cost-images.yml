@@ -33,3 +33,4 @@ jobs:
           git add learning-center/surfaces/driveway-paver-sealing-cost-per-square-foot/index.html
           git diff --cached --quiet || git commit -m "Add driveway before-and-after images to cost guide"
           git push
+# trigger
