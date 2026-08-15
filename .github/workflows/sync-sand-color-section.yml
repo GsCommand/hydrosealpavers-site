@@ -48,3 +48,4 @@ jobs:
           git add learning-center/surfaces/what-is-the-best-sand-for-paver-joints-in-florida/index.html
           git commit -m "Use exact Sand Options images and markup" || exit 0
           git push
+# retrigger
