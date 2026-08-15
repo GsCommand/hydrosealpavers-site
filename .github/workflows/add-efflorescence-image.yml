@@ -27,3 +27,4 @@ jobs:
           git add learning-center/problems/what-causes-efflorescence-on-pavers/index.html
           git diff --cached --quiet || git commit -m "Add efflorescence photo to learning center article"
           git push
+# trigger
