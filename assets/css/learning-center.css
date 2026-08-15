@@ -541,3 +541,8 @@ body.page-learning-center.blog-story-prototype > footer > *:first-child {
     justify-content: center;
   }
 }
+/* Center Learning Center CTA action pills */
+.page-learning-center .blog-post__cta .hs-cta-actions{
+  justify-content:center!important;
+  text-align:center!important;
+}
