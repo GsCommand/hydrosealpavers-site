@@ -79,8 +79,34 @@
     });
   }
 
+  function styleFirstFiveLearningCenterCtas() {
+    const firstFive = new Set([
+      '/learning-center/cost/pool-deck-paver-sealing-cost',
+      '/learning-center/problems/why-pavers-fade-over-time',
+      '/learning-center/problems/why-is-my-paver-sealer-peeling',
+      '/learning-center/cleaning/can-pressure-washing-damage-pavers',
+      '/learning-center/problems/what-causes-efflorescence-on-pavers'
+    ]);
+    if (!firstFive.has(path)) return;
+
+    const cta = document.querySelector('.blog-post__cta');
+    if (!cta) return;
+
+    const heading = cta.querySelector('h2');
+    const copy = cta.querySelector('p:not(:last-child)');
+    const actionRow = cta.querySelector('p:last-child');
+
+    if (heading) {
+      heading.style.textAlign = 'center';
+      heading.style.textTransform = 'capitalize';
+    }
+    if (copy) copy.style.textAlign = 'center';
+    if (actionRow) actionRow.style.justifyContent = 'center';
+  }
+
   fixJointSandColorCards();
   styleLearningCenterCtas();
+  styleFirstFiveLearningCenterCtas();
 
   if (path === '/learning-center/surfaces/what-is-the-best-sand-for-paver-joints-in-florida') {
     const cta = document.querySelector('.blog-post__cta');
@@ -133,9 +159,6 @@
     if (!hasWidget()) return;
     if (requested || window.ELFSIGHT) return;
 
-    // Never add a second platform copy when an older page still contains
-    // a legacy Elfsight script tag. The page will be migrated separately,
-    // but this guard prevents double-loading in the meantime.
     if (document.querySelector(PLATFORM_SELECTOR)) {
       requested = true;
       return;
