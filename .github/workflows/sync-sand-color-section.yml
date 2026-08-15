@@ -1,0 +1,50 @@
+name: Sync sand color section
+on:
+  push:
+    paths:
+      - '.github/workflows/sync-sand-color-section.yml'
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Replace with exact Sand Options markup and images
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          p = Path('learning-center/surfaces/what-is-the-best-sand-for-paver-joints-in-florida/index.html')
+          s = p.read_text(encoding='utf-8')
+
+          start = '<section class="sand-color-options"'
+          end = '<section><h2>Seven factors that matter more than the product name</h2>'
+          if start not in s or end not in s:
+              raise SystemExit('sand color section or target heading not found')
+
+          replacement = '''<section class="sand-color-options" aria-labelledby="sand-color-options-title"><style>.sand-color-options{margin:30px 0;padding:clamp(24px,4vw,38px);border:1px solid #dce3e9;border-radius:22px;background:#fff}.sand-color-options h2{margin:0 0 14px;color:#0b2d4a}.sand-color-options>p{color:#536475;line-height:1.72}.sand-grid{margin-top:16px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.sand-swatch{border:1px solid rgba(0,0,0,.09);border-radius:16px;padding:10px 10px 14px;background:#fff;display:flex;flex-direction:column;align-items:flex-start;gap:8px;text-align:left;box-shadow:0 8px 22px rgba(11,45,74,.08)}.sand-swatch-image{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:12px;border:1px solid rgba(0,0,0,.12);display:block}.sand-swatch .label{font-weight:900;font-size:18px;color:#0b2d4a}.sand-swatch .best-for{margin:0;font-size:13px;line-height:1.45;color:#536475}@media(max-width:980px){.sand-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:640px){.sand-grid{grid-template-columns:minmax(0,1fr)}}</style>
+<h2 id="sand-color-options-title">Paver Sand Color Options</h2>
+<p>Sand color changes the appearance of every joint line. A close match can create a softer, blended finish while a contrasting sand makes the paver pattern and borders more pronounced. HydroSeal offers multiple joint-sand colors so the finished surface can complement the paver tone, home exterior and desired level of contrast.</p>
+<p>Color should be selected after considering the pavers when they are clean and the way the sealer may change their finished appearance. If you are unsure, send a clear photo of the surface and we can recommend a starting point.</p>
+<div class="sand-grid">
+<div class="sand-swatch"><img class="sand-swatch-image" src="/assets/hero/joint-sand-pearl.webp" alt="Pearl paver joint sand color sample" loading="lazy" width="800" height="800"/><div class="label">Pearl</div><p class="best-for">A light, clean option for pale pavers and light natural-stone palettes where low contrast is preferred.</p></div>
+<div class="sand-swatch"><img class="sand-swatch-image" src="/assets/hero/joint-sand-tan.jpeg" alt="Tan paver joint sand color sample" loading="lazy" width="800" height="800"/><div class="label">Tan</div><p class="best-for">A warm traditional tone that pairs naturally with beige, cream, red-brown and earth-tone pavers.</p></div>
+<div class="sand-swatch"><img class="sand-swatch-image" src="/assets/hero/joint-sand-fieldstone.jpeg" alt="Fieldstone paver joint sand color sample" loading="lazy" width="800" height="800"/><div class="label">Fieldstone</div><p class="best-for">A versatile neutral for mixed-color pavers where subtle variation helps the joints blend into the field.</p></div>
+<div class="sand-swatch"><img class="sand-swatch-image" src="/assets/hero/joint-sand-gray.jpeg" alt="Gray paver joint sand color sample" loading="lazy" width="800" height="800"/><div class="label">Gray</div><p class="best-for">A balanced cooler tone for gray pavers, modern homes and surfaces where a neutral joint line is preferred.</p></div>
+<div class="sand-swatch"><img class="sand-swatch-image" src="/assets/hero/joint-sand-platinum.jpeg" alt="Platinum paver joint sand color sample" loading="lazy" width="800" height="800"/><div class="label">Platinum</div><p class="best-for">A brighter cool-neutral option for silver, coastal and contemporary paver color palettes.</p></div>
+<div class="sand-swatch"><img class="sand-swatch-image" src="/assets/hero/joint-sand-black.jpeg" alt="Black paver joint sand color sample" loading="lazy" width="800" height="800"/><div class="label">Black</div><p class="best-for">A high-contrast choice that emphasizes paver patterns and borders, especially against lighter surfaces.</p></div>
+</div></section>\n'''
+
+          s = re.sub(r'<section class="sand-color-options".*?</section>\n(?=<section><h2>Seven factors that matter more than the product name</h2>)', replacement, s, count=1, flags=re.S)
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add learning-center/surfaces/what-is-the-best-sand-for-paver-joints-in-florida/index.html
+          git commit -m "Use exact Sand Options images and markup" || exit 0
+          git push
