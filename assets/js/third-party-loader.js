@@ -103,6 +103,71 @@
     });
   }
 
+  function styleHiringTemplateCtas() {
+    const templatePages = new Map([
+      ['/learning-center/sealing/is-paver-sealing-worth-it-in-florida', 'Need an Honest Paver Assessment?'],
+      ['/learning-center/sealing/what-should-professional-paver-sealing-include', 'Compare a Clear Project Scope'],
+      ['/learning-center/local/best-time-of-year-to-seal-pavers-in-florida', 'Need a Safe Sealing Window?']
+    ]);
+    if (!templatePages.has(path)) return;
+
+    const cta = document.querySelector('.blog-post__cta');
+    if (!cta) return;
+    cta.classList.add('hs-hiring-template-cta');
+
+    const heading = cta.querySelector('h2');
+    if (heading) heading.textContent = templatePages.get(path);
+
+    if (!document.getElementById('hs-hiring-template-cta-style')) {
+      const style = document.createElement('style');
+      style.id = 'hs-hiring-template-cta-style';
+      style.textContent = `
+        body.page-learning-center.blog-story-prototype .blog-post__cta.hs-hiring-template-cta{
+          box-sizing:border-box!important;
+          width:100%!important;
+          max-width:none!important;
+          margin:30px 0 32px!important;
+          padding:30px!important;
+          border:0!important;
+          border-radius:22px!important;
+          background:#0b2d4a!important;
+          text-align:center!important;
+          color:#fff!important;
+        }
+        body.page-learning-center.blog-story-prototype .blog-post__cta.hs-hiring-template-cta h2{
+          margin:0 0 8px!important;
+          color:#fff!important;
+          text-align:center!important;
+          text-transform:none!important;
+        }
+        body.page-learning-center.blog-story-prototype .blog-post__cta.hs-hiring-template-cta>p{
+          margin:0!important;
+          color:#dceef6!important;
+          text-align:center!important;
+        }
+        body.page-learning-center.blog-story-prototype .blog-post__cta.hs-hiring-template-cta .hs-cta-actions{
+          margin-top:15px!important;
+        }
+        body.page-learning-center.blog-story-prototype .blog-post__cta.hs-hiring-template-cta .hs-cta-call{
+          background:#fff!important;
+          color:#0b2d4a!important;
+          border:1px solid #fff!important;
+          box-shadow:none!important;
+        }
+        body.page-learning-center.blog-story-prototype .blog-post__cta.hs-hiring-template-cta .hs-cta-quote{
+          background:#39bfea!important;
+          color:#fff!important;
+          border:1px solid #39bfea!important;
+          box-shadow:none!important;
+        }
+        @media(max-width:520px){
+          body.page-learning-center.blog-story-prototype .blog-post__cta.hs-hiring-template-cta{padding:26px 18px!important}
+        }
+      `;
+      document.head.appendChild(style);
+    }
+  }
+
   function spaceRebuiltTemplateCtas() {
     const rebuiltPages = new Set([
       '/learning-center/hiring/how-to-choose-a-paver-sealing-company-in-northeast-florida',
@@ -115,6 +180,7 @@
 
   fixJointSandColorCards();
   styleLearningCenterCtas();
+  styleHiringTemplateCtas();
   spaceRebuiltTemplateCtas();
 
   if (path === '/learning-center/surfaces/what-is-the-best-sand-for-paver-joints-in-florida') {
