@@ -1,0 +1,31 @@
+name: Center joint sand CTA buttons
+on:
+  push:
+    paths:
+      - '.github/workflows/center-joint-sand-cta-buttons.yml'
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Center CTA button row
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('assets/css/learning-center.css')
+          s = p.read_text(encoding='utf-8')
+          rule = '''\n/* Center actual CTA button row */\n.page-learning-center .blog-post__cta p:last-child{\n  display:flex!important;\n  justify-content:center!important;\n  align-items:center!important;\n  flex-wrap:wrap!important;\n  gap:12px!important;\n  text-align:center!important;\n  font-size:0!important;\n}\n.page-learning-center .blog-post__cta p:last-child a{\n  font-size:14px!important;\n}\n'''
+          if '/* Center actual CTA button row */' not in s:
+              s += rule
+              p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/css/learning-center.css
+          git commit -m "Center Learning Center CTA button row" || exit 0
+          git push
