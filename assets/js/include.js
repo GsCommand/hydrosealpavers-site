@@ -118,8 +118,27 @@
     processSection.parentNode.insertBefore(figure, processSection);
   }
 
+  function restoreLearningCenterElfsightGallery() {
+    if (!document.body.classList.contains("page-learning-center")) return;
+    if (!document.querySelector(".elfsight-app-bfab489f-7fca-4f05-ba5a-d92616b76b26")) return;
+    if (document.getElementById("hs-lc-elfsight-gallery-style")) return;
+
+    const style = document.createElement("style");
+    style.id = "hs-lc-elfsight-gallery-style";
+    style.textContent = `
+      .page-learning-center .blog-post .elfsight-app-bfab489f-7fca-4f05-ba5a-d92616b76b26{display:block!important;min-height:260px!important;margin:28px 0 34px!important}
+      .page-learning-center .blog-post .elfsight-app-bfab489f-7fca-4f05-ba5a-d92616b76b26 img,
+      .page-learning-center .blog-post .elfsight-app-bfab489f-7fca-4f05-ba5a-d92616b76b26 figure,
+      .page-learning-center .blog-post .elfsight-app-bfab489f-7fca-4f05-ba5a-d92616b76b26 picture,
+      .page-learning-center .blog-post .elfsight-app-bfab489f-7fca-4f05-ba5a-d92616b76b26 svg{display:block!important;visibility:visible!important;opacity:1!important}
+      .page-learning-center .blog-post .elfsight-app-bfab489f-7fca-4f05-ba5a-d92616b76b26 iframe{display:block!important;width:100%!important;min-height:260px!important}
+    `;
+    document.head.appendChild(style);
+  }
+
   applyLearningCenterFaqAccordions();
   addTravertineCleaningImage();
+  restoreLearningCenterElfsightGallery();
 
   document.body.classList.add("includes-loading");
 
