@@ -96,3 +96,4 @@ body.page-learning-center.blog-story-prototype .blog-post__cta .hs-cta-quote{
             learning-center/problems/cleaning-resealing-or-stripping/index.html
           git commit -m "Match article CTAs to strip-reseal template" || exit 0
           git push
+# retrigger
