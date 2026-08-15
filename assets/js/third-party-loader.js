@@ -51,7 +51,9 @@
       const style = document.createElement('style');
       style.id = 'hs-learning-center-cta-pills';
       style.textContent = `
-        .page-learning-center .blog-post__cta p:last-child{display:flex!important;flex-wrap:wrap!important;gap:12px!important;align-items:center!important;margin-top:18px!important;font-size:0!important}
+        .page-learning-center .blog-post__cta h2{text-align:center!important;text-transform:capitalize!important}
+        .page-learning-center .blog-post__cta p:not(:last-child){text-align:center!important}
+        .page-learning-center .blog-post__cta p:last-child{display:flex!important;flex-wrap:wrap!important;gap:12px!important;align-items:center!important;justify-content:center!important;margin-top:18px!important;font-size:0!important;text-align:center!important}
         .page-learning-center .blog-post__cta p:last-child a{display:inline-flex!important;align-items:center!important;justify-content:center!important;min-height:48px!important;padding:13px 20px!important;border-radius:999px!important;text-decoration:none!important;font-size:14px!important;font-weight:900!important;line-height:1!important;letter-spacing:.01em!important;transition:transform .18s ease,box-shadow .18s ease!important}
         .page-learning-center .blog-post__cta p:last-child a:first-of-type{background:#0b2d4a!important;color:#fff!important;border:1px solid #0b2d4a!important;box-shadow:0 8px 20px rgba(11,45,74,.16)!important}
         .page-learning-center .blog-post__cta p:last-child a:last-of-type{background:#39bfea!important;color:#fff!important;border:1px solid #39bfea!important;box-shadow:0 8px 20px rgba(57,191,234,.24)!important}
@@ -62,7 +64,14 @@
     }
 
     ctas.forEach((cta) => {
+      const heading = cta.querySelector('h2');
+      const copy = cta.querySelector('p:not(:last-child)');
       const actionRow = cta.querySelector('p:last-child');
+
+      if (heading) heading.style.textAlign = 'center';
+      if (copy) copy.style.textAlign = 'center';
+      if (actionRow) actionRow.style.justifyContent = 'center';
+
       if (!actionRow) return;
       const links = actionRow.querySelectorAll('a');
       if (!links.length) return;
@@ -79,44 +88,8 @@
     });
   }
 
-  function styleSelectedLearningCenterCtas() {
-    const selectedPages = new Set([
-      '/learning-center/cost/pool-deck-paver-sealing-cost',
-      '/learning-center/problems/why-pavers-fade-over-time',
-      '/learning-center/problems/why-is-my-paver-sealer-peeling',
-      '/learning-center/cleaning/can-pressure-washing-damage-pavers',
-      '/learning-center/problems/what-causes-efflorescence-on-pavers',
-      '/learning-center/problems/why-is-sand-coming-out-of-my-pavers',
-      '/learning-center/sealing/wet-look-vs-natural-look-paver-sealer',
-      '/learning-center/problems/why-are-my-pavers-slippery-after-sealing',
-      '/learning-center/local/best-time-of-year-to-seal-pavers-in-florida',
-      '/learning-center/cleaning/how-to-clean-pavers-without-damaging-them',
-      '/learning-center/problems/why-are-my-pavers-turning-white-in-florida',
-      '/learning-center/cleaning/how-to-remove-algae-and-mildew-from-pavers',
-      '/learning-center/surfaces/driveway-paver-sealing-cost-per-square-foot',
-      '/learning-center/sealing/how-to-choose-the-right-paver-sealer-for-your-home',
-      '/learning-center/surfaces/astm-c144-sand-vs-polymeric-sand-for-paver-sealing'
-    ]);
-    if (!selectedPages.has(path)) return;
-
-    const cta = document.querySelector('.blog-post__cta');
-    if (!cta) return;
-
-    const heading = cta.querySelector('h2');
-    const copy = cta.querySelector('p:not(:last-child)');
-    const actionRow = cta.querySelector('p:last-child');
-
-    if (heading) {
-      heading.style.textAlign = 'center';
-      heading.style.textTransform = 'capitalize';
-    }
-    if (copy) copy.style.textAlign = 'center';
-    if (actionRow) actionRow.style.justifyContent = 'center';
-  }
-
   fixJointSandColorCards();
   styleLearningCenterCtas();
-  styleSelectedLearningCenterCtas();
 
   if (path === '/learning-center/surfaces/what-is-the-best-sand-for-paver-joints-in-florida') {
     const cta = document.querySelector('.blog-post__cta');
