@@ -52,39 +52,54 @@
       style.id = 'hs-learning-center-cta-pills';
       style.textContent = `
         .page-learning-center .blog-post__cta h2{text-align:center!important;text-transform:capitalize!important}
-        .page-learning-center .blog-post__cta p:not(:last-child){text-align:center!important}
-        .page-learning-center .blog-post__cta p:last-child{display:flex!important;flex-wrap:wrap!important;gap:12px!important;align-items:center!important;justify-content:center!important;margin-top:18px!important;font-size:0!important;text-align:center!important}
-        .page-learning-center .blog-post__cta p:last-child a{display:inline-flex!important;align-items:center!important;justify-content:center!important;min-height:48px!important;padding:13px 20px!important;border-radius:999px!important;text-decoration:none!important;font-size:14px!important;font-weight:900!important;line-height:1!important;letter-spacing:.01em!important;transition:transform .18s ease,box-shadow .18s ease!important}
-        .page-learning-center .blog-post__cta p:last-child a:first-of-type{background:#0b2d4a!important;color:#fff!important;border:1px solid #0b2d4a!important;box-shadow:0 8px 20px rgba(11,45,74,.16)!important}
-        .page-learning-center .blog-post__cta p:last-child a:last-of-type{background:#39bfea!important;color:#fff!important;border:1px solid #39bfea!important;box-shadow:0 8px 20px rgba(57,191,234,.24)!important}
-        .page-learning-center .blog-post__cta p:last-child a:hover,.page-learning-center .blog-post__cta p:last-child a:focus-visible{transform:translateY(-1px)!important}
-        @media(max-width:520px){.page-learning-center .blog-post__cta p:last-child a{width:100%!important}}
+        .page-learning-center .blog-post__cta>p{text-align:center!important}
+        .page-learning-center .blog-post__cta .hs-cta-actions{display:flex!important;flex-wrap:wrap!important;gap:12px!important;align-items:center!important;justify-content:center!important;margin-top:18px!important;text-align:center!important}
+        .page-learning-center .blog-post__cta .hs-cta-actions a{display:inline-flex!important;align-items:center!important;justify-content:center!important;min-height:48px!important;padding:13px 20px!important;border-radius:999px!important;text-decoration:none!important;font-size:14px!important;font-weight:900!important;line-height:1!important;letter-spacing:.01em!important;transition:transform .18s ease,box-shadow .18s ease!important}
+        .page-learning-center .blog-post__cta .hs-cta-call{background:#0b2d4a!important;color:#fff!important;border:1px solid #0b2d4a!important;box-shadow:0 8px 20px rgba(11,45,74,.16)!important}
+        .page-learning-center .blog-post__cta .hs-cta-quote{background:#39bfea!important;color:#fff!important;border:1px solid #39bfea!important;box-shadow:0 8px 20px rgba(57,191,234,.24)!important}
+        .page-learning-center .blog-post__cta .hs-cta-actions a:hover,.page-learning-center .blog-post__cta .hs-cta-actions a:focus-visible{transform:translateY(-1px)!important}
+        @media(max-width:520px){.page-learning-center .blog-post__cta .hs-cta-actions a{width:100%!important}}
       `;
       document.head.appendChild(style);
     }
 
     ctas.forEach((cta) => {
       const heading = cta.querySelector('h2');
-      const copy = cta.querySelector('p:not(:last-child)');
-      const actionRow = cta.querySelector('p:last-child');
-
       if (heading) heading.style.textAlign = 'center';
-      if (copy) copy.style.textAlign = 'center';
-      if (actionRow) actionRow.style.justifyContent = 'center';
+      cta.querySelectorAll(':scope > p').forEach((p) => { p.style.textAlign = 'center'; });
 
-      if (!actionRow) return;
-      const links = actionRow.querySelectorAll('a');
-      if (!links.length) return;
+      if (cta.querySelector('.hs-cta-actions')) return;
 
-      const first = links[0];
-      if (first.getAttribute('href') === 'sms:+19045375000' || first.textContent.trim().toLowerCase().startsWith('text 904.537.5000')) {
-        first.href = 'tel:+19045375000';
-        first.textContent = 'Call 904.537.5000';
-      }
+      const actionLinks = Array.from(cta.querySelectorAll('a')).filter((link) => {
+        const href = (link.getAttribute('href') || '').toLowerCase();
+        const text = link.textContent.trim().toLowerCase();
+        return href.startsWith('tel:') || href.startsWith('sms:') || href === '/get-a-quote' || href.endsWith('/get-a-quote') || text === 'request a quote' || text.startsWith('text 904.537.5000') || text.startsWith('call 904.537.5000');
+      });
 
-      if (links[1] && links[1].textContent.trim().toLowerCase() === 'request a quote') {
-        links[1].textContent = 'Request a Quote';
-      }
+      actionLinks.forEach((link) => {
+        const parent = link.parentElement;
+        link.remove();
+        if (parent && parent.tagName === 'P') {
+          const leftover = parent.textContent.replace(/[·•|]/g, '').trim();
+          if (!leftover && !parent.querySelector('a')) parent.remove();
+        }
+      });
+
+      const row = document.createElement('div');
+      row.className = 'hs-cta-actions';
+
+      const call = document.createElement('a');
+      call.className = 'hs-cta-call';
+      call.href = 'tel:+19045375000';
+      call.textContent = 'Call 904.537.5000';
+
+      const quote = document.createElement('a');
+      quote.className = 'hs-cta-quote';
+      quote.href = '/get-a-quote';
+      quote.textContent = 'Request a Quote';
+
+      row.append(call, quote);
+      cta.appendChild(row);
     });
   }
 
@@ -95,12 +110,7 @@
     const cta = document.querySelector('.blog-post__cta');
     if (cta) {
       const heading = cta.querySelector('h2');
-      const copy = cta.querySelector('p:not(:last-child)');
-      if (heading) {
-        heading.textContent = 'Need Joint-Sand Restoration?';
-        heading.style.textAlign = 'center';
-      }
-      if (copy) copy.style.textAlign = 'center';
+      if (heading) heading.textContent = 'Need Joint-Sand Restoration?';
     }
   }
 
