@@ -1,0 +1,34 @@
+name: Add sand loss recent sealing gallery
+on: [push]
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Insert recent sealing jobs gallery
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('learning-center/problems/why-is-sand-coming-out-of-my-pavers/index.html')
+          s = p.read_text(encoding='utf-8')
+          markers = [
+              '<section><h2>What not to do</h2>',
+              '<h2>What not to do</h2>'
+          ]
+          marker = next((m for m in markers if m in s), None)
+          if marker is None:
+              raise SystemExit('Target heading not found')
+          block = '<!-- Elfsight Photo Gallery | Recent Sealing Jobs -->\n<script src="https://static.elfsight.com/platform/platform.js" async></script>\n<div class="elfsight-app-bfab489f-7fca-4f05-ba5a-d92616b76b26" data-elfsight-app-lazy></div>\n'
+          if '<!-- Elfsight Photo Gallery | Recent Sealing Jobs -->' not in s:
+              s = s.replace(marker, block + marker, 1)
+              p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit change
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add learning-center/problems/why-is-sand-coming-out-of-my-pavers/index.html
+          git diff --cached --quiet || git commit -m "Add recent sealing jobs gallery to sand loss guide"
+          git push
