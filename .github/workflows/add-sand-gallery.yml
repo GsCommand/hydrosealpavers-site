@@ -28,3 +28,4 @@ jobs:
           git add learning-center/surfaces/what-is-the-best-sand-for-paver-joints-in-florida/index.html
           git diff --cached --quiet || git commit -m "Add Elfsight gallery to sand guide"
           git push
+# trigger
