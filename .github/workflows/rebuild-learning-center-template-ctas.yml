@@ -1,0 +1,98 @@
+name: Rebuild Learning Center template CTAs
+on:
+  push:
+    paths:
+      - '.github/workflows/rebuild-learning-center-template-ctas.yml'
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply strip-reseal CTA template
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          css_path = Path('assets/css/learning-center.css')
+          css = css_path.read_text(encoding='utf-8')
+          marker = '/* Strip-reseal CTA card template for Learning Center articles */'
+          block = r'''
+
+/* Strip-reseal CTA card template for Learning Center articles */
+body.page-learning-center.blog-story-prototype .blog-post__cta{
+  box-sizing:border-box!important;
+  width:100%!important;
+  max-width:none!important;
+  margin:30px 0 0!important;
+  padding:30px!important;
+  border:0!important;
+  border-radius:22px!important;
+  background:#0b2d4a!important;
+  text-align:center!important;
+  color:#fff!important;
+}
+body.page-learning-center.blog-story-prototype .blog-post__cta h2{
+  margin:0 0 8px!important;
+  color:#fff!important;
+  text-align:center!important;
+  text-transform:none!important;
+}
+body.page-learning-center.blog-story-prototype .blog-post__cta>p{
+  margin:0!important;
+  color:#dceef6!important;
+  text-align:center!important;
+}
+body.page-learning-center.blog-story-prototype .blog-post__cta .hs-cta-actions{
+  display:flex!important;
+  justify-content:center!important;
+  align-items:center!important;
+  flex-wrap:wrap!important;
+  gap:12px!important;
+  margin-top:15px!important;
+}
+body.page-learning-center.blog-story-prototype .blog-post__cta .hs-cta-call{
+  background:#fff!important;
+  color:#0b2d4a!important;
+  border:1px solid #fff!important;
+  box-shadow:none!important;
+}
+body.page-learning-center.blog-story-prototype .blog-post__cta .hs-cta-quote{
+  background:#39bfea!important;
+  color:#fff!important;
+  border:1px solid #39bfea!important;
+  box-shadow:none!important;
+}
+@media(max-width:520px){
+  body.page-learning-center.blog-story-prototype .blog-post__cta{padding:26px 18px!important}
+}
+'''
+          if marker not in css:
+              css += block
+              css_path.write_text(css, encoding='utf-8')
+
+          replacements = {
+            Path('learning-center/hiring/how-to-choose-a-paver-sealing-company-in-northeast-florida/index.html'):
+              ('<h2>Request a clearly defined proposal</h2>', '<h2>Request a Clearly Defined Proposal</h2>'),
+            Path('learning-center/problems/cleaning-resealing-or-stripping/index.html'):
+              ('<h2>Need an honest paver assessment?</h2>', '<h2>Need an Honest Paver Assessment?</h2>'),
+          }
+          for path, (old, new) in replacements.items():
+              text = path.read_text(encoding='utf-8')
+              if old in text:
+                  text = text.replace(old, new, 1)
+                  path.write_text(text, encoding='utf-8')
+              elif new not in text:
+                  raise SystemExit(f'CTA heading marker not found in {path}')
+          PY
+      - name: Commit update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/css/learning-center.css \
+            learning-center/hiring/how-to-choose-a-paver-sealing-company-in-northeast-florida/index.html \
+            learning-center/problems/cleaning-resealing-or-stripping/index.html
+          git commit -m "Match article CTAs to strip-reseal template" || exit 0
+          git push
