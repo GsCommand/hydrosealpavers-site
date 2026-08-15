@@ -114,7 +114,7 @@
     const figure = document.createElement("figure");
     figure.className = "hs-travertine-cleaning-photo";
     figure.style.margin = "28px 0 30px";
-    figure.innerHTML = '<img src="/assets/hero/hydroseal-tavertine.webp" alt="HydroSeal travertine cleaning and restoration project in Northeast Florida" loading="lazy" style="display:block;width:100%;height:auto;border-radius:18px;">';
+    figure.innerHTML = '<img src="/assets/hero/travertine-cleaning-before-after.svg" alt="Before and after travertine cleaning project" loading="lazy" style="display:block;width:100%;height:auto;border-radius:18px;">';
     processSection.parentNode.insertBefore(figure, processSection);
   }
 
