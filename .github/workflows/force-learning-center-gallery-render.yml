@@ -21,7 +21,6 @@ jobs:
               s = p.read_text(encoding='utf-8')
               if app not in s:
                   raise SystemExit(f'Gallery app missing from {p}')
-              # Remove either legacy/current duplicate immediately preceding the gallery.
               s = s.replace('<script src="https://elfsightcdn.com/platform.js" async></script>\n' + app, app)
               s = s.replace('<script src="https://static.elfsight.com/platform/platform.js" async></script>\n' + app, app)
               s = s.replace(app, script + app, 1)
@@ -34,3 +33,4 @@ jobs:
           git add learning-center/surfaces/what-is-the-best-sand-for-paver-joints-in-florida/index.html learning-center/travertine/should-you-seal-travertine-pool-decks-in-florida/index.html
           git diff --cached --quiet || git commit -m "Use direct Elfsight platform on Learning Center galleries"
           git push
+# trigger
