@@ -546,3 +546,17 @@ body.page-learning-center.blog-story-prototype > footer > *:first-child {
   justify-content:center!important;
   text-align:center!important;
 }
+
+/* Center actual CTA button row */
+.page-learning-center .blog-post__cta p:last-child{
+  display:flex!important;
+  justify-content:center!important;
+  align-items:center!important;
+  flex-wrap:wrap!important;
+  gap:12px!important;
+  text-align:center!important;
+  font-size:0!important;
+}
+.page-learning-center .blog-post__cta p:last-child a{
+  font-size:14px!important;
+}
