@@ -560,3 +560,8 @@ body.page-learning-center.blog-story-prototype > footer > *:first-child {
 .page-learning-center .blog-post__cta p:last-child a{
   font-size:14px!important;
 }
+
+
+/* Travertine cleaning article image override */
+.page-learning-center .blog-post figure.hs-travertine-cleaning-photo{display:block!important;margin:28px 0 30px!important}
+.page-learning-center .blog-post figure.hs-travertine-cleaning-photo img{display:block!important;width:100%!important;height:auto!important;border-radius:18px!important}
