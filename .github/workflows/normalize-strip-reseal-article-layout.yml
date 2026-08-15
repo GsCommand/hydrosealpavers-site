@@ -1,0 +1,88 @@
+name: Normalize strip reseal Learning Center article layout
+on: [push]
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Convert custom cost shell to standard Learning Center article shell
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          p = Path('learning-center/cost/how-much-does-it-cost-to-strip-and-reseal-pavers/index.html')
+          s = p.read_text(encoding='utf-8')
+
+          old_open = re.compile(
+              r'<main id="page" data-page class="cost-page">\s*'
+              r'<header class="cost-hero">.*?</header>\s*'
+              r'<article class="cost-card">',
+              re.S
+          )
+          new_open = '''<main id="page" data-page><article class="blog-post">
+    <nav class="blog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><a href="/learning-center">Learning Center</a><span>›</span><span aria-current="page">How Much Does It Cost to Strip and Reseal Pavers?</span></nav>
+    <header class="blog-post__header">
+      <p class="blog-post__category">Paver Restoration Cost</p>
+      <h1>How Much Does It Cost to Strip and Reseal Pavers?</h1>
+      <p class="blog-post__dek">Removing failed sealer is a restoration project, not a routine maintenance coat. The price depends far more on coating failure and removal difficulty than on square footage alone.</p>
+      <p class="blog-post__meta">Published and reviewed by HydroSeal’s Trident Master Certified team · <time datetime="2026-08-09">Updated August 9, 2026</time></p>
+    </header>
+    <div class="blog-post__content">'''
+          s, count = old_open.subn(new_open, s, count=1)
+          if count != 1:
+              raise SystemExit('Custom cost hero/article opening not found exactly once')
+
+          quick_old = re.compile(r'<p class="cost-answer"><strong>Quick answer:</strong>\s*(.*?)</p>', re.S)
+          def quick_repl(m):
+              text = m.group(1).strip()
+              return '<section><h2>Quick answer</h2><p><strong>' + text + '</strong></p></section>'
+          s, qcount = quick_old.subn(quick_repl, s, count=1)
+          if qcount != 1:
+              raise SystemExit('Quick answer block not found exactly once')
+
+          s = s.replace('    </article>\n  </main>', '    </div>\n  </article></main>', 1)
+
+          # Remove the now-dead inline JavaScript written for the old hard-coded header.
+          s = re.sub(
+              r'\n\s*<script>\s*\(function\(\)\{\s*var header=document\.querySelector\(\'\.local-header\'\);.*?</script>\s*',
+              '\n', s, count=1, flags=re.S
+          )
+
+          # Remove old cost-shell/hero/card rules that caused the full-width custom layout.
+          style_replacements = [
+              r'\n\s*\.cost-page\{[^\n]*\}',
+              r'\n\s*\.cost-hero\{[^\n]*\}',
+              r'\n\s*\.cost-hero__eyebrow\{[^\n]*\}',
+              r'\n\s*\.cost-hero h1\{[^\n]*\}',
+              r'\n\s*\.cost-hero__intro\{[^\n]*\}',
+              r'\n\s*\.cost-meta\{[^\n]*\}',
+              r'\n\s*\.page-strip-reseal-cost \.cost-hero\{[^\n]*\}',
+              r'\n\s*\.page-strip-reseal-cost \.cost-hero__eyebrow,\.page-strip-reseal-cost \.cost-hero h1,\.page-strip-reseal-cost \.cost-hero__intro,\.page-strip-reseal-cost \.cost-meta\{[^\n]*\}',
+              r'\n\s*\.page-strip-reseal-cost \.cost-hero__eyebrow\{[^\n]*\}',
+              r'\n\s*\.page-strip-reseal-cost \.cost-hero h1\{[^\n]*\}',
+              r'\n\s*\.page-strip-reseal-cost \.cost-hero__intro\{[^\n]*\}',
+              r'\n\s*\.page-strip-reseal-cost \.cost-meta\{[^\n]*\}',
+              r'\n\s*\.cost-card\{[^\n]*\}',
+              r'\n\s*\.cost-card h2\{[^\n]*\}',
+              r'\n\s*\.cost-card h2:first-of-type\{[^\n]*\}',
+              r'\n\s*\.cost-card h3\{[^\n]*\}',
+              r'\n\s*\.cost-card p,\.cost-card li\{[^\n]*\}',
+              r'\n\s*\.cost-card a\{[^\n]*\}',
+              r'\n\s*\.cost-answer\{[^\n]*\}'
+          ]
+          for pat in style_replacements:
+              s = re.sub(pat, '', s, count=1)
+          s = re.sub(r'\n\s*@media\(max-width:650px\)\{\s*\.cost-page\{[^}]*\}\s*\.cost-card\{[^}]*\}\s*\.cost-hero h1\{[^}]*\}\s*\}', '', s, count=1, flags=re.S)
+
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit change
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add learning-center/cost/how-much-does-it-cost-to-strip-and-reseal-pavers/index.html
+          git diff --cached --quiet || git commit -m "Match strip reseal cost article to Learning Center layout"
+          git push
