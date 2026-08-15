@@ -22,15 +22,17 @@ jobs:
               r'<article class="cost-card">',
               re.S
           )
-          new_open = '''<main id="page" data-page><article class="blog-post">
-    <nav class="blog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><a href="/learning-center">Learning Center</a><span>›</span><span aria-current="page">How Much Does It Cost to Strip and Reseal Pavers?</span></nav>
-    <header class="blog-post__header">
-      <p class="blog-post__category">Paver Restoration Cost</p>
-      <h1>How Much Does It Cost to Strip and Reseal Pavers?</h1>
-      <p class="blog-post__dek">Removing failed sealer is a restoration project, not a routine maintenance coat. The price depends far more on coating failure and removal difficulty than on square footage alone.</p>
-      <p class="blog-post__meta">Published and reviewed by HydroSeal’s Trident Master Certified team · <time datetime="2026-08-09">Updated August 9, 2026</time></p>
-    </header>
-    <div class="blog-post__content">'''
+          new_open = (
+              '<main id="page" data-page><article class="blog-post">\n'
+              '    <nav class="blog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><a href="/learning-center">Learning Center</a><span>›</span><span aria-current="page">How Much Does It Cost to Strip and Reseal Pavers?</span></nav>\n'
+              '    <header class="blog-post__header">\n'
+              '      <p class="blog-post__category">Paver Restoration Cost</p>\n'
+              '      <h1>How Much Does It Cost to Strip and Reseal Pavers?</h1>\n'
+              '      <p class="blog-post__dek">Removing failed sealer is a restoration project, not a routine maintenance coat. The price depends far more on coating failure and removal difficulty than on square footage alone.</p>\n'
+              '      <p class="blog-post__meta">Published and reviewed by HydroSeal’s Trident Master Certified team · <time datetime="2026-08-09">Updated August 9, 2026</time></p>\n'
+              '    </header>\n'
+              '    <div class="blog-post__content">'
+          )
           s, count = old_open.subn(new_open, s, count=1)
           if count != 1:
               raise SystemExit('Custom cost hero/article opening not found exactly once')
@@ -46,12 +48,13 @@ jobs:
           s = s.replace('    </article>\n  </main>', '    </div>\n  </article></main>', 1)
 
           # Remove the now-dead inline JavaScript written for the old hard-coded header.
-          s = re.sub(
-              r'\n\s*<script>\s*\(function\(\)\{\s*var header=document\.querySelector\(\'\.local-header\'\);.*?</script>\s*',
-              '\n', s, count=1, flags=re.S
-          )
+          js_start = s.find("  <script>\n  (function(){\n    var header=document.querySelector('.local-header');")
+          if js_start != -1:
+              js_end = s.find('</script>', js_start)
+              if js_end != -1:
+                  s = s[:js_start] + s[js_end + len('</script>'):]
 
-          # Remove old cost-shell/hero/card rules that caused the full-width custom layout.
+          # Remove old cost-shell/hero/card rules that caused the custom full-width layout.
           style_replacements = [
               r'\n\s*\.cost-page\{[^\n]*\}',
               r'\n\s*\.cost-hero\{[^\n]*\}',
