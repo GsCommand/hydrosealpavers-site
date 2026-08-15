@@ -28,3 +28,4 @@ jobs:
           git add learning-center/travertine/how-to-clean-travertine-without-damage/index.html
           git diff --cached --quiet || git commit -m "Use travertine SVG asset in cleaning article"
           git push
+# trigger
