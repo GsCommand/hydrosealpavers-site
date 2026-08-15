@@ -56,3 +56,4 @@ a.sand-color-card:hover,a.sand-color-card:focus-visible{transform:translateY(-2p
           git add learning-center/surfaces/what-is-the-best-sand-for-paver-joints-in-florida/index.html
           git commit -m "Fix sand images and link color cards" || exit 0
           git push
+# retrigger
