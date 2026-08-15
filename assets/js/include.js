@@ -21,6 +21,82 @@
     );
   }
 
+  function applyLearningCenterFaqAccordions() {
+    if (!document.body.classList.contains("page-learning-center")) return;
+
+    const currentPath = location.pathname.replace(/\/$/, "");
+    const enabledSections = [
+      "/learning-center/cleaning/",
+      "/learning-center/cost/",
+      "/learning-center/hiring/",
+      "/learning-center/local/",
+      "/learning-center/maintenance/"
+    ];
+    if (!enabledSections.some((prefix) => currentPath.startsWith(prefix))) return;
+
+    if (!document.getElementById("hs-learning-center-faq-accordion-style")) {
+      const style = document.createElement("style");
+      style.id = "hs-learning-center-faq-accordion-style";
+      style.textContent = `
+        .page-learning-center .hs-lc-faq-accordion{margin-top:18px}
+        .page-learning-center .hs-lc-faq-item{margin:0 0 10px;border:1px solid #dce3e9;border-radius:14px;background:#fff;overflow:hidden;box-shadow:0 5px 16px rgba(11,45,74,.05)}
+        .page-learning-center .hs-lc-faq-item summary{position:relative;display:block;cursor:pointer;list-style:none;padding:17px 50px 17px 18px;color:#0b2d4a;font-weight:800;line-height:1.4}
+        .page-learning-center .hs-lc-faq-item summary::-webkit-details-marker{display:none}
+        .page-learning-center .hs-lc-faq-item summary::after{content:'+';position:absolute;right:18px;top:50%;transform:translateY(-50%);font-size:24px;font-weight:500;color:#0f6ea8}
+        .page-learning-center .hs-lc-faq-item[open] summary::after{content:'−'}
+        .page-learning-center .hs-lc-faq-item summary:focus-visible{outline:3px solid rgba(15,110,168,.28);outline-offset:-3px}
+        .page-learning-center .hs-lc-faq-answer{padding:0 18px 18px;color:#536475;line-height:1.7}
+        .page-learning-center .hs-lc-faq-answer>:first-child{margin-top:0}
+        .page-learning-center .hs-lc-faq-answer>:last-child{margin-bottom:0}
+      `;
+      document.head.appendChild(style);
+    }
+
+    const sections = Array.from(document.querySelectorAll(".blog-post__content section"));
+    sections.forEach((section) => {
+      const heading = section.querySelector(":scope > h2");
+      if (!heading || !/^(frequently asked questions|common questions|faq)$/i.test(heading.textContent.trim())) return;
+      if (section.dataset.hsFaqAccordion === "1") return;
+
+      const existingDetails = Array.from(section.querySelectorAll(":scope > details"));
+      if (existingDetails.length) {
+        section.classList.add("hs-lc-faq-accordion");
+        existingDetails.forEach((details) => details.classList.add("hs-lc-faq-item"));
+        section.dataset.hsFaqAccordion = "1";
+        return;
+      }
+
+      const questions = Array.from(section.querySelectorAll(":scope > h3"));
+      if (!questions.length) return;
+
+      section.classList.add("hs-lc-faq-accordion");
+      questions.forEach((question) => {
+        if (!question.parentNode) return;
+        const details = document.createElement("details");
+        details.className = "hs-lc-faq-item";
+        const summary = document.createElement("summary");
+        summary.textContent = question.textContent.trim();
+        const answer = document.createElement("div");
+        answer.className = "hs-lc-faq-answer";
+
+        let sibling = question.nextSibling;
+        while (sibling) {
+          const next = sibling.nextSibling;
+          if (sibling.nodeType === 1 && (sibling.tagName === "H3" || sibling.tagName === "H2")) break;
+          answer.appendChild(sibling);
+          sibling = next;
+        }
+
+        question.parentNode.insertBefore(details, question);
+        details.append(summary, answer);
+        question.remove();
+      });
+      section.dataset.hsFaqAccordion = "1";
+    });
+  }
+
+  applyLearningCenterFaqAccordions();
+
   document.body.classList.add("includes-loading");
 
   try {
