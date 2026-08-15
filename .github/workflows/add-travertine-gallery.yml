@@ -28,3 +28,4 @@ jobs:
           git add learning-center/travertine/should-you-seal-travertine-pool-decks-in-florida/index.html
           git diff --cached --quiet || git commit -m "Add Elfsight gallery to travertine sealing guide"
           git push
+# trigger
