@@ -1,0 +1,43 @@
+name: Fix strip reseal cost Learning Center header
+on: [push]
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Replace hard-coded header with shared Learning Center header
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          p = Path('learning-center/cost/how-much-does-it-cost-to-strip-and-reseal-pavers/index.html')
+          s = p.read_text(encoding='utf-8')
+
+          # Use the same Learning Center body/header structure as the working Travertine article.
+          s = s.replace(
+              '<body class="page-learning-center page-strip-reseal-cost">',
+              '<body class="page-learning-center page-strip-reseal-cost blog-story-prototype">',
+              1
+          )
+
+          pattern = re.compile(
+              r'\n\s*<header class="hs-modern-header local-header">.*?</header>\s*\n\s*<main id="page"',
+              re.S
+          )
+          replacement = '\n  <header data-include="/partials/header.html"></header>\n\n  <main id="page"'
+          s, count = pattern.subn(replacement, s, count=1)
+          if count != 1:
+              raise SystemExit('Old hard-coded header block not found exactly once')
+
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit change
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add learning-center/cost/how-much-does-it-cost-to-strip-and-reseal-pavers/index.html
+          git diff --cached --quiet || git commit -m "Use shared Learning Center header on strip reseal cost guide"
+          git push
