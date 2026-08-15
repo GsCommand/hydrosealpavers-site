@@ -30,3 +30,4 @@ jobs:
           git add learning-center/surfaces/what-is-the-best-sand-for-paver-joints-in-florida/index.html learning-center/travertine/should-you-seal-travertine-pool-decks-in-florida/index.html
           git diff --cached --quiet || git commit -m "Fix Elfsight galleries on Learning Center pages"
           git push
+# trigger
