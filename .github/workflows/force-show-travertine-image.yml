@@ -1,0 +1,26 @@
+name: Force show travertine image
+on: [push]
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Force image visible in article HTML
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('learning-center/travertine/how-to-clean-travertine-without-damage/index.html')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace('class="hs-travertine-cleaning-photo" style="margin:28px 0 30px"', 'class="hs-travertine-cleaning-photo" style="display:block!important;margin:28px 0 30px!important"')
+          s = s.replace('style="display:block;width:100%;height:auto;border-radius:18px"', 'style="display:block!important;width:100%!important;height:auto!important;border-radius:18px!important"')
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit change
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add learning-center/travertine/how-to-clean-travertine-without-damage/index.html
+          git diff --cached --quiet || git commit -m "Force travertine before-after image visible in article"
+          git push
