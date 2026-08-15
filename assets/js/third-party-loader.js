@@ -82,6 +82,19 @@
   fixJointSandColorCards();
   styleLearningCenterCtas();
 
+  if (path === '/learning-center/surfaces/what-is-the-best-sand-for-paver-joints-in-florida') {
+    const cta = document.querySelector('.blog-post__cta');
+    if (cta) {
+      const heading = cta.querySelector('h2');
+      const copy = cta.querySelector('p:not(:last-child)');
+      if (heading) {
+        heading.textContent = 'Need Joint-Sand Restoration?';
+        heading.style.textAlign = 'center';
+      }
+      if (copy) copy.style.textAlign = 'center';
+    }
+  }
+
   if (path === '/paver-sealing/pool-decks') {
     const gallery = document.querySelector('.elfsight-app-aac62a49-a425-47be-9c8a-13971e000940');
     const sandSection = document.querySelector('.sand-bar-section');
