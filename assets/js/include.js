@@ -31,7 +31,8 @@
       "/learning-center/hiring/",
       "/learning-center/local/",
       "/learning-center/maintenance/",
-      "/learning-center/problems/"
+      "/learning-center/problems/",
+      "/learning-center/sealing/"
     ];
     if (!enabledSections.some((prefix) => currentPath.startsWith(prefix))) return;
 
