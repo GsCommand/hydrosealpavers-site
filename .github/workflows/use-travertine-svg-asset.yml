@@ -1,0 +1,30 @@
+name: Use travertine SVG asset
+on: [push]
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Replace embedded image with SVG asset
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          p = Path('learning-center/travertine/how-to-clean-travertine-without-damage/index.html')
+          s = p.read_text(encoding='utf-8')
+          pattern = r'<figure class="hs-travertine-cleaning-photo"[^>]*>\s*<img src="data:image/webp;base64,[^"]+"[^>]*>\s*</figure>'
+          replacement = '<figure class="hs-travertine-cleaning-photo" style="display:block!important;margin:28px 0 30px!important"><img src="/assets/hero/travertine-cleaning-before-after.svg" alt="Before and after travertine cleaning project" width="531" height="305" loading="lazy" style="display:block!important;width:100%!important;height:auto!important;border-radius:18px!important"></figure>'
+          s2, n = re.subn(pattern, replacement, s, count=1, flags=re.S)
+          if n != 1:
+              raise SystemExit(f'Expected one embedded travertine image, replaced {n}')
+          p.write_text(s2, encoding='utf-8')
+          PY
+      - name: Commit change
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add learning-center/travertine/how-to-clean-travertine-without-damage/index.html
+          git diff --cached --quiet || git commit -m "Use travertine SVG asset in cleaning article"
+          git push
