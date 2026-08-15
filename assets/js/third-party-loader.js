@@ -79,15 +79,25 @@
     });
   }
 
-  function styleFirstFiveLearningCenterCtas() {
-    const firstFive = new Set([
+  function styleSelectedLearningCenterCtas() {
+    const selectedPages = new Set([
       '/learning-center/cost/pool-deck-paver-sealing-cost',
       '/learning-center/problems/why-pavers-fade-over-time',
       '/learning-center/problems/why-is-my-paver-sealer-peeling',
       '/learning-center/cleaning/can-pressure-washing-damage-pavers',
-      '/learning-center/problems/what-causes-efflorescence-on-pavers'
+      '/learning-center/problems/what-causes-efflorescence-on-pavers',
+      '/learning-center/problems/why-is-sand-coming-out-of-my-pavers',
+      '/learning-center/sealing/wet-look-vs-natural-look-paver-sealer',
+      '/learning-center/problems/why-are-my-pavers-slippery-after-sealing',
+      '/learning-center/local/best-time-of-year-to-seal-pavers-in-florida',
+      '/learning-center/cleaning/how-to-clean-pavers-without-damaging-them',
+      '/learning-center/problems/why-are-my-pavers-turning-white-in-florida',
+      '/learning-center/cleaning/how-to-remove-algae-and-mildew-from-pavers',
+      '/learning-center/surfaces/driveway-paver-sealing-cost-per-square-foot',
+      '/learning-center/sealing/how-to-choose-the-right-paver-sealer-for-your-home',
+      '/learning-center/surfaces/astm-c144-sand-vs-polymeric-sand-for-paver-sealing'
     ]);
-    if (!firstFive.has(path)) return;
+    if (!selectedPages.has(path)) return;
 
     const cta = document.querySelector('.blog-post__cta');
     if (!cta) return;
@@ -106,7 +116,7 @@
 
   fixJointSandColorCards();
   styleLearningCenterCtas();
-  styleFirstFiveLearningCenterCtas();
+  styleSelectedLearningCenterCtas();
 
   if (path === '/learning-center/surfaces/what-is-the-best-sand-for-paver-joints-in-florida') {
     const cta = document.querySelector('.blog-post__cta');
