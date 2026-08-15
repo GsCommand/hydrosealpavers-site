@@ -42,7 +42,45 @@
     });
   }
 
+  function styleLearningCenterCtas() {
+    if (!document.body.classList.contains('page-learning-center')) return;
+    const ctas = document.querySelectorAll('.blog-post__cta');
+    if (!ctas.length) return;
+
+    if (!document.getElementById('hs-learning-center-cta-pills')) {
+      const style = document.createElement('style');
+      style.id = 'hs-learning-center-cta-pills';
+      style.textContent = `
+        .page-learning-center .blog-post__cta p:last-child{display:flex!important;flex-wrap:wrap!important;gap:12px!important;align-items:center!important;margin-top:18px!important;font-size:0!important}
+        .page-learning-center .blog-post__cta p:last-child a{display:inline-flex!important;align-items:center!important;justify-content:center!important;min-height:48px!important;padding:13px 20px!important;border-radius:999px!important;text-decoration:none!important;font-size:14px!important;font-weight:900!important;line-height:1!important;letter-spacing:.01em!important;transition:transform .18s ease,box-shadow .18s ease!important}
+        .page-learning-center .blog-post__cta p:last-child a:first-of-type{background:#0b2d4a!important;color:#fff!important;border:1px solid #0b2d4a!important;box-shadow:0 8px 20px rgba(11,45,74,.16)!important}
+        .page-learning-center .blog-post__cta p:last-child a:last-of-type{background:#39bfea!important;color:#fff!important;border:1px solid #39bfea!important;box-shadow:0 8px 20px rgba(57,191,234,.24)!important}
+        .page-learning-center .blog-post__cta p:last-child a:hover,.page-learning-center .blog-post__cta p:last-child a:focus-visible{transform:translateY(-1px)!important}
+        @media(max-width:520px){.page-learning-center .blog-post__cta p:last-child a{width:100%!important}}
+      `;
+      document.head.appendChild(style);
+    }
+
+    ctas.forEach((cta) => {
+      const actionRow = cta.querySelector('p:last-child');
+      if (!actionRow) return;
+      const links = actionRow.querySelectorAll('a');
+      if (!links.length) return;
+
+      const first = links[0];
+      if (first.getAttribute('href') === 'sms:+19045375000' || first.textContent.trim().toLowerCase().startsWith('text 904.537.5000')) {
+        first.href = 'tel:+19045375000';
+        first.textContent = 'Call 904.537.5000';
+      }
+
+      if (links[1] && links[1].textContent.trim().toLowerCase() === 'request a quote') {
+        links[1].textContent = 'Request a Quote';
+      }
+    });
+  }
+
   fixJointSandColorCards();
+  styleLearningCenterCtas();
 
   if (path === '/paver-sealing/pool-decks') {
     const gallery = document.querySelector('.elfsight-app-aac62a49-a425-47be-9c8a-13971e000940');
