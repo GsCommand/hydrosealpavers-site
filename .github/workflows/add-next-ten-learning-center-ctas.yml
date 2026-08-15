@@ -1,0 +1,46 @@
+name: Add next ten Learning Center CTA pages
+on:
+  push:
+    paths:
+      - '.github/workflows/add-next-ten-learning-center-ctas.yml'
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add next ten CTA paths
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('assets/js/third-party-loader.js')
+          s = p.read_text(encoding='utf-8')
+          needle = "      '/learning-center/problems/what-causes-efflorescence-on-pavers'\n    ]);"
+          replacement = """      '/learning-center/problems/what-causes-efflorescence-on-pavers',
+      '/learning-center/problems/why-is-sand-coming-out-of-my-pavers',
+      '/learning-center/sealing/wet-look-vs-natural-look-paver-sealer',
+      '/learning-center/problems/why-are-my-pavers-slippery-after-sealing',
+      '/learning-center/local/best-time-of-year-to-seal-pavers-in-florida',
+      '/learning-center/cleaning/how-to-clean-pavers-without-damaging-them',
+      '/learning-center/problems/why-are-my-pavers-turning-white-in-florida',
+      '/learning-center/cleaning/how-to-remove-algae-and-mildew-from-pavers',
+      '/learning-center/surfaces/driveway-paver-sealing-cost-per-square-foot',
+      '/learning-center/sealing/how-to-choose-the-right-paver-sealer-for-your-home',
+      '/learning-center/surfaces/astm-c144-sand-vs-polymeric-sand-for-paver-sealing'
+    ]);"""
+          if needle not in s:
+              raise SystemExit('CTA path insertion marker not found')
+          s = s.replace(needle, replacement, 1)
+          s = s.replace('function styleFirstFiveLearningCenterCtas()', 'function styleSelectedLearningCenterCtas()', 1)
+          s = s.replace('styleFirstFiveLearningCenterCtas();', 'styleSelectedLearningCenterCtas();', 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/js/third-party-loader.js
+          git commit -m "Style next ten Learning Center CTAs" || exit 0
+          git push
