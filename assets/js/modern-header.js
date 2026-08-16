@@ -6,6 +6,13 @@ document.addEventListener('DOMContentLoaded',function(){
 
   var topicDetails=document.querySelectorAll('.lc-topic-directory details');
   if(topicDetails.length){
+    topicDetails.forEach(function(details){
+      details.addEventListener('toggle',function(){
+        if(!details.open)return;
+        topicDetails.forEach(function(other){if(other!==details&&other.open)other.open=false});
+      });
+    });
+
     window.addEventListener('scroll',function(){
       topicDetails.forEach(function(details){if(details.open)details.open=false});
     },{passive:true});
