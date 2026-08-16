@@ -6,6 +6,41 @@
       "permanent": true
     },
     {
+      "source": "/care-program/",
+      "destination": "https://hydrosealpavers.com/care-program",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/",
+      "destination": "https://hydrosealpavers.com/service-areas",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/st-johns-county/",
+      "destination": "https://hydrosealpavers.com/service-areas/st-johns-county",
+      "permanent": true
+    },
+    {
+      "source": "/warranty/",
+      "destination": "https://hydrosealpavers.com/warranty",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/st-johns-county/julington-creek.html",
+      "destination": "https://hydrosealpavers.com/service-areas/st-johns-county/julington-creek",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/clay-county/fleming-island.html",
+      "destination": "https://hydrosealpavers.com/service-areas/clay-county/fleming-island",
+      "permanent": true
+    },
+    {
+      "source": "/paver-sealing/patios-walkways.html",
+      "destination": "https://hydrosealpavers.com/paver-sealing/patios-walkways",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
         {
