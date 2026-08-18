@@ -218,11 +218,32 @@
     if (cta) cta.style.marginBottom = '32px';
   }
 
+  function positionLandingRecentJobs() {
+    if (path !== '/landing') return;
+    const title = document.querySelector('.lp-recent-jobs-title');
+    const gallery = document.querySelector('.lp-pricing-gallery');
+    const included = document.querySelector('.lp-included-section');
+    if (!title || !gallery || !included || document.querySelector('.hs-recent-jobs-wrap')) return;
+
+    const wrap = document.createElement('div');
+    wrap.className = 'hs-recent-jobs-wrap';
+    wrap.style.background = '#f8fafb';
+    wrap.style.borderBottom = '1px solid rgba(0,0,0,.06)';
+
+    const inner = document.createElement('div');
+    inner.className = 'lp-section';
+    inner.append(title, gallery);
+    wrap.appendChild(inner);
+
+    included.parentNode.insertBefore(wrap, included);
+  }
+
   fixJointSandColorCards();
   styleLearningCenterCtas();
   styleHiringTemplateCtas();
   featureTopLearningCenterGuides();
   spaceRebuiltTemplateCtas();
+  positionLandingRecentJobs();
 
   if (path === '/learning-center/surfaces/what-is-the-best-sand-for-paver-joints-in-florida') {
     const cta = document.querySelector('.blog-post__cta');
