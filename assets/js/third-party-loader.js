@@ -222,6 +222,7 @@
     if (path !== '/landing') return;
     const title = document.querySelector('.lp-recent-jobs-title');
     const gallery = document.querySelector('.lp-pricing-gallery');
+    const recentJobsWidget = document.querySelector('.elfsight-app-bfab489f-7fca-4f05-ba5a-d92616b76b26');
     const included = document.querySelector('.lp-included-section');
     if (!title || !gallery || !included || document.querySelector('.hs-recent-jobs-wrap')) return;
 
@@ -236,6 +237,7 @@
     wrap.appendChild(inner);
 
     included.parentNode.insertBefore(wrap, included);
+    if (recentJobsWidget) included.parentNode.insertBefore(recentJobsWidget, included);
   }
 
   fixJointSandColorCards();
