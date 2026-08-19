@@ -1,33 +1,137 @@
-name: Update pool deck hero
+name: Optimize pool deck page
 on:
   push:
     paths:
       - '.github/workflows/update-pool-deck-hero.yml'
 
 jobs:
-  update:
+  optimize:
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
       - uses: actions/checkout@v4
-      - name: Replace pool deck hero image
+
+      - name: Install image optimizer
+        run: python -m pip install --quiet pillow
+
+      - name: Optimize hero and page delivery
         run: |
           python - <<'PY'
           from pathlib import Path
-          p = Path('paver-sealing/pool-decks.html')
-          s = p.read_text(encoding='utf-8')
-          old = '/assets/hero/screen-pool-deck-sealing.jpeg'
-          new = '/assets/hero/screen-pool-deck-sealing-fl.jpeg'
-          if old not in s:
-              raise SystemExit('current hero image reference not found')
-          s = s.replace(old, new, 1)
-          p.write_text(s, encoding='utf-8')
+          from PIL import Image
+          import re
+
+          # Create responsive WebP versions of the existing hero without changing the crop/content.
+          hero_src = Path('assets/hero/screen-pool-deck-sealing-fl.jpeg')
+          if not hero_src.exists():
+              raise SystemExit(f'Missing hero source: {hero_src}')
+
+          with Image.open(hero_src) as source:
+              source = source.convert('RGB')
+              natural_w, natural_h = source.size
+              for target_w in (760, 1040):
+                  width = min(target_w, natural_w)
+                  height = round(natural_h * width / natural_w)
+                  optimized = source if width == natural_w else source.resize((width, height), Image.Resampling.LANCZOS)
+                  optimized.save(
+                      f'assets/hero/screen-pool-deck-sealing-fl-{target_w}.webp',
+                      'WEBP', quality=76, method=6
+                  )
+
+          page = Path('paver-sealing/pool-decks.html')
+          s = page.read_text(encoding='utf-8')
+
+          # Delay Google tags until the page is loaded/idle, while preserving queued pageview + Ads config.
+          deferred_gtag = '''<!-- Deferred Google tag: preserves measurement without competing with LCP -->
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments)}
+gtag('js',new Date());
+gtag('config','G-SXWZ2Z96S9');
+gtag('config','AW-17972657888');
+(function(){
+  var loaded=false;
+  function loadGoogleTags(){
+    if(loaded)return;
+    loaded=true;
+    var s=document.createElement('script');
+    s.async=true;
+    s.src='https://www.googletagmanager.com/gtag/js?id=G-SXWZ2Z96S9';
+    document.head.appendChild(s);
+  }
+  ['pointerdown','keydown','touchstart'].forEach(function(evt){
+    window.addEventListener(evt,loadGoogleTags,{once:true,passive:true});
+  });
+  window.addEventListener('load',function(){
+    setTimeout(function(){
+      if('requestIdleCallback' in window){requestIdleCallback(loadGoogleTags,{timeout:1500});}
+      else{loadGoogleTags();}
+    },1200);
+  },{once:true});
+})();
+</script>
+'''
+          gtag_pattern = re.compile(
+              r'<!-- Google tag \(gtag\.js\) -->\s*<script async src="https://www\.googletagmanager\.com/gtag/js\?id=G-SXWZ2Z96S9"></script>\s*<script>.*?</script>\s*',
+              re.S,
+          )
+          if gtag_pattern.search(s):
+              s = gtag_pattern.sub(deferred_gtag, s, count=1)
+
+          # Keep the same frontend stylesheet, but remove it from the render-critical path.
+          stylesheet = '<link rel="stylesheet" href="/styles.css?v=20260804-mobile-service-labels" />'
+          nonblocking_styles = '''<style id="hs-critical-base">:root{--navy:#0B2D4A;--blue:#0F6EA8;--text:#0B1220;--muted:#334155;--bg:#fff;--line:#e5e7eb;--h2-blue:#2FA8CF;--water-blue:#39BFEA}*{box-sizing:border-box}html,body{margin:0;min-height:100%}body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}img,svg{display:block;max-width:100%;height:auto}.container{max-width:1120px;margin:0 auto;padding:0 16px}.btn{display:inline-flex;align-items:center;justify-content:center}</style>
+<link rel="stylesheet" href="/styles.css?v=20260804-mobile-service-labels" media="print" fetchpriority="low" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="/styles.css?v=20260804-mobile-service-labels" /></noscript>'''
+          if stylesheet in s:
+              s = s.replace(stylesheet, nonblocking_styles, 1)
+
+          # Preload the responsive LCP hero so the request begins immediately.
+          hero_preload = '''<link rel="preload" as="image" type="image/webp" href="/assets/hero/screen-pool-deck-sealing-fl-760.webp" imagesrcset="/assets/hero/screen-pool-deck-sealing-fl-760.webp 760w, /assets/hero/screen-pool-deck-sealing-fl-1040.webp 1040w" imagesizes="100vw" fetchpriority="high" />'''
+          if 'screen-pool-deck-sealing-fl-760.webp" imagesrcset=' not in s:
+              marker = '<style id="hs-critical-base">'
+              if marker in s:
+                  s = s.replace(marker, hero_preload + '\n' + marker, 1)
+
+          old_img = re.compile(r'<img class="pool-service-hero__image" src="/assets/hero/screen-pool-deck-sealing-fl\.jpeg"[^>]*?/?>')
+          new_img = (
+              f'<img class="pool-service-hero__image" '
+              f'src="/assets/hero/screen-pool-deck-sealing-fl-1040.webp" '
+              f'srcset="/assets/hero/screen-pool-deck-sealing-fl-760.webp 760w, /assets/hero/screen-pool-deck-sealing-fl-1040.webp 1040w" '
+              f'sizes="100vw" width="{natural_w}" height="{natural_h}" '
+              f'alt="Sealed paver pool deck in Jacksonville, Florida" loading="eager" decoding="sync" fetchpriority="high"/>'
+          )
+          s, count = old_img.subn(new_img, s, count=1)
+          if count == 0 and 'screen-pool-deck-sealing-fl-1040.webp' not in s:
+              raise SystemExit('Pool deck hero image tag was not found')
+
+          page.write_text(s, encoding='utf-8')
+
+          # Lighthouse Agentic Browsing expects Markdown links, not only bare URLs.
+          llms = Path('llms.txt')
+          llms_text = llms.read_text(encoding='utf-8')
+          key_links = '''## Key links for AI agents
+- [HydroSeal home](https://hydrosealpavers.com/)
+- [Paver sealing services](https://hydrosealpavers.com/paver-sealing)
+- [Pool deck paver sealing](https://hydrosealpavers.com/paver-sealing/pool-decks)
+- [Learning Center](https://hydrosealpavers.com/learning-center/)
+- [Request a quote](https://hydrosealpavers.com/get-a-quote)
+- [XML sitemap](https://hydrosealpavers.com/sitemap.xml)
+
+'''
+          if '## Key links for AI agents' not in llms_text:
+              heading = '# HydroSeal AI Retrieval and Response Reference\n\n'
+              if heading not in llms_text:
+                  raise SystemExit('Expected llms.txt H1 was not found')
+              llms_text = llms_text.replace(heading, heading + key_links, 1)
+              llms.write_text(llms_text, encoding='utf-8')
           PY
-      - name: Commit
+
+      - name: Commit optimized assets and markup
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add paver-sealing/pool-decks.html
-          git commit -m "Use Florida pool deck hero image" || exit 0
+          git add paver-sealing/pool-decks.html llms.txt assets/hero/screen-pool-deck-sealing-fl-760.webp assets/hero/screen-pool-deck-sealing-fl-1040.webp
+          git commit -m "Optimize pool deck performance and agentic links" || exit 0
           git push
