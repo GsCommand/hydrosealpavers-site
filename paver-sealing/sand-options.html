@@ -1,14 +1,33 @@
 <!doctype html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SXWZ2Z96S9"></script>
+<!-- Deferred Google tag: preserves GA4 + Google Ads while keeping tags out of the critical render path -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-SXWZ2Z96S9');
-  gtag('config', 'AW-17972657888');
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments)}
+gtag('js',new Date());
+gtag('config','G-SXWZ2Z96S9');
+gtag('config','AW-17972657888');
+(function(){
+  var loaded=false;
+  function loadGoogleTags(){
+    if(loaded)return;
+    loaded=true;
+    var x=document.createElement('script');
+    x.async=true;
+    x.src='https://www.googletagmanager.com/gtag/js?id=G-SXWZ2Z96S9';
+    document.head.appendChild(x);
+  }
+  ['pointerdown','keydown','touchstart'].forEach(function(evt){
+    window.addEventListener(evt,loadGoogleTags,{once:true,passive:true});
+  });
+  window.addEventListener('load',function(){
+    setTimeout(function(){
+      if('requestIdleCallback' in window){requestIdleCallback(loadGoogleTags,{timeout:1500});}
+      else{loadGoogleTags();}
+    },1200);
+  },{once:true});
+})();
 </script>
 
   <meta charset="utf-8" />
@@ -34,11 +53,14 @@
   <meta name="twitter:title" content="Joint Sand Color Options | HydroSeal" />
   <meta name="twitter:description" content="Paver sand, professional resanding, joint stabilization and sand color options for Northeast Florida paver surfaces." />
   <meta name="twitter:image" content="https://hydrosealpavers.com/assets/hero/joint-sand.webp" />
-  <link rel="stylesheet" href="/styles.css?v=20260312-1" />
+  <link rel="preload" as="image" href="/assets/hero/jacksonville-paver-sealing-sand-options.webp" fetchpriority="high" />
+<style id="hs-critical-base">:root{--navy:#0B2D4A;--blue:#0F6EA8;--teal:#28B6C8;--text:#0B1220;--muted:#334155;--bg:#fff;--line:#e5e7eb;--h2-blue:#0F6EA8;--h3-blue:#1B4E63;--water-blue:#39BFEA;--cta-green:#2fbe63;--radius:18px;--section-space-desktop:80px;--section-space-mobile:48px}*{box-sizing:border-box}html,body{min-height:100%;margin:0}body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}img,svg,video,canvas{max-width:100%;height:auto;display:block}.container{max-width:1120px;margin:0 auto;padding:0 16px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 16px;border-radius:14px;font-weight:900}.section{padding:var(--section-space-desktop) 0}.grid{display:grid;gap:14px}.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}.card{border:1px solid var(--line);border-radius:var(--radius);padding:18px;background:#fff}.notice{border:1px solid var(--line);border-radius:var(--radius);padding:16px;background:#f9fafb}.mobile-contactbar{display:none}@media(max-width:900px){.section{padding:var(--section-space-mobile) 0}.grid-2{grid-template-columns:1fr}}</style>
+<link rel="stylesheet" href="/styles.css?v=20260312-1" media="print" fetchpriority="low" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="/styles.css?v=20260312-1" /></noscript>
 
   <style>
     .sand-page-hero{padding:0}.sand-page-hero>.container{max-width:none;padding:0}.sand-hero-card{text-align:center}
-    .sand-options-hero-card{background-image:linear-gradient(rgba(120,185,220,.18),rgba(120,185,220,.18)),linear-gradient(rgba(255,255,255,.05),rgba(255,255,255,.05)),url('/assets/hero/jacksonville-paver-sealing-sand-options.webp');background-size:cover;background-position:center;background-repeat:no-repeat;min-height:clamp(430px,62vw,760px);padding:0;display:flex;flex-direction:column;justify-content:center;border:0;border-radius:0;box-shadow:none}
+    .sand-options-hero-card{position:relative;min-height:clamp(430px,62vw,760px);padding:0;display:flex;flex-direction:column;justify-content:center;overflow:hidden;border:0;border-radius:0;box-shadow:none;background:#dbe9ef}.sand-options-hero-card__image{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:center;display:block}.sand-options-hero-card:after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(120,185,220,.18),rgba(120,185,220,.18)),linear-gradient(rgba(255,255,255,.05),rgba(255,255,255,.05));pointer-events:none}
     .sand-page-hero>.container>.sand-section-gap{max-width:1180px;margin-left:auto;margin-right:auto;padding-left:20px;padding-right:20px}.trust-strip,.breadcrumb{display:none}
     .hs-modern-header{position:absolute;top:16px;left:0;right:0;z-index:1000;font-family:Arial,Helvetica,sans-serif}.hs-modern-header *{box-sizing:border-box}.hs-modern-shell{width:min(1180px,calc(100% - 40px));margin:auto}.hs-modern-nav{height:78px;display:flex;align-items:center;gap:22px;padding:0 18px;background:rgba(255,255,255,.62);border:1px solid rgba(255,255,255,.48);border-radius:24px;color:#0b2d4a;box-shadow:0 14px 45px rgba(0,0,0,.12);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}.hs-modern-logo{margin-right:auto;display:block}.hs-modern-logo img{display:block;width:220px;max-width:100%;max-height:58px;object-fit:contain}.hs-modern-menu{display:flex;align-items:center;gap:4px}.hs-modern-group{position:relative}.hs-modern-link,.hs-modern-parent{display:block;border:0;background:transparent;color:#0b2d4a;padding:12px 10px;text-transform:uppercase;font-weight:900;font-size:12px;line-height:1.2;letter-spacing:1.4px;cursor:pointer;text-decoration:none;white-space:nowrap}.hs-modern-parent:after{content:'⌄';margin-left:7px}.hs-modern-mega{display:none;position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);width:620px;padding:18px;background:#fff;color:#0b1220;border-radius:22px;box-shadow:0 22px 60px rgba(11,45,74,.16);grid-template-columns:1fr 1fr;gap:7px}.hs-modern-mega:before{content:'';position:absolute;top:-14px;left:0;right:0;height:14px}.hs-modern-group:hover>.hs-modern-mega,.hs-modern-group:focus-within>.hs-modern-mega,.hs-modern-group.hs-open>.hs-modern-mega{display:grid}.hs-modern-mega a{display:block;padding:13px 14px;border-radius:13px;color:#0b1220;font-weight:800;text-decoration:none}.hs-modern-mega a:hover,.hs-modern-mega a:focus-visible{background:#eaf7fc;color:#0f6ea8}.hs-modern-mega small{display:block;font-weight:500;color:#536475;margin-top:2px}.hs-modern-column{display:flex;flex-direction:column;gap:7px}.hs-modern-areas-menu{grid-template-columns:1fr;width:260px;min-width:260px;gap:7px}.hs-modern-areas-menu a{white-space:nowrap}.hs-modern-about-menu{width:300px;grid-template-columns:1fr}.hs-modern-call{border:1px solid rgba(11,45,74,.18);padding:12px 15px;border-radius:30px;text-transform:uppercase;font-weight:900;font-size:12px;line-height:1.2;white-space:nowrap;background:rgba(255,255,255,.35);color:#0b2d4a;text-decoration:none}.hs-modern-quote{display:inline-flex;align-items:center;justify-content:center;padding:17px 24px;border-radius:30px;text-transform:uppercase;font-weight:950;font-size:14px;line-height:1;letter-spacing:1px;background:#39bfea;color:#fff;text-decoration:none;box-shadow:0 12px 28px rgba(57,191,234,.32);white-space:nowrap}.hs-modern-toggle{display:none;width:44px;height:44px;border:0;border-radius:12px;background:#fff;color:#0b2d4a;font-size:24px;cursor:pointer}
     .sand-section-gap{margin-top:22px}.sand-intro{max-width:920px;margin:0 auto;text-align:center;padding:18px 0 2px}.sand-eyebrow{margin:0 0 8px;text-transform:uppercase;letter-spacing:1.8px;font-size:12px;font-weight:900;color:#0f6ea8}.sand-h1{margin:0;color:#0b2d4a;font-size:clamp(34px,5vw,58px);line-height:1.02}.sand-lead{margin:16px auto 0;max-width:900px;color:var(--muted);font-size:18px;line-height:1.65}.sand-cta-row,.sand-bottom-cta-row{display:flex;justify-content:center;flex-wrap:wrap;align-items:center;gap:10px;margin-top:18px}
@@ -48,7 +70,7 @@
     .sand-table-wrap{overflow-x:auto;margin-top:18px}.sand-table{width:100%;border-collapse:collapse;min-width:720px}.sand-table th,.sand-table td{padding:14px 16px;text-align:left;border-bottom:1px solid rgba(0,0,0,.09);vertical-align:top}.sand-table th{background:#0b2d4a;color:#fff;font-size:14px}.sand-table td{color:var(--muted);line-height:1.5}.sand-table tr:nth-child(even) td{background:rgba(11,45,74,.025)}
     .sand-grid{margin-top:16px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.sand-swatch{border:1px solid rgba(0,0,0,.09);border-radius:16px;padding:10px 10px 14px;background:#fff;display:flex;flex-direction:column;align-items:flex-start;gap:8px;text-align:left;box-shadow:0 8px 22px rgba(11,45,74,.08)}.sand-swatch-image{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:12px;border:1px solid rgba(0,0,0,.12);display:block}.sand-swatch .label{font-weight:900;font-size:18px;color:#0b2d4a}.sand-swatch .best-for{margin:0;font-size:13px;line-height:1.45;color:var(--muted)}
     .sand-faq{display:grid;gap:10px;margin-top:16px}.sand-faq details{border:1px solid rgba(0,0,0,.09);border-radius:14px;background:#fff;padding:0 18px}.sand-faq summary{cursor:pointer;font-weight:900;color:#0b2d4a;padding:17px 0}.sand-faq details p{padding:0 0 17px;margin:0;color:var(--muted);line-height:1.65}
-    .sand-service-box{text-align:center;background:linear-gradient(145deg,#0b2d4a,#0f6ea8);color:#fff;border-radius:22px;padding:clamp(28px,5vw,52px)}.sand-service-box h2{color:#fff;margin:0 0 10px}.sand-service-box p{color:rgba(255,255,255,.9);max-width:820px;margin:0 auto;line-height:1.65}.sand-service-box .btn-ghost{color:#fff;border-color:rgba(255,255,255,.45)}.related-links-section.container{margin-left:auto;margin-right:auto}
+    .sand-service-box{text-align:center;background:linear-gradient(145deg,#0b2d4a,#0f6ea8);color:#fff;border-radius:22px;padding:clamp(28px,5vw,52px)}.sand-service-box h2{color:#fff;margin:0 0 10px}.sand-service-box p{color:rgba(255,255,255,.9);max-width:820px;margin:0 auto;line-height:1.65}.sand-service-box .btn-ghost{color:#fff;border-color:rgba(255,255,255,.45)}.related-links-section.container{margin-left:auto;margin-right:auto}.related-links-section a{color:#075985!important}.related-links-section h2,.related-links-section h3{color:#0b4f6c!important}
     @media(max-width:980px){.sand-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sand-process{grid-template-columns:repeat(2,minmax(0,1fr))}.hs-modern-header{top:10px}.hs-modern-shell{width:calc(100% - 24px)}.hs-modern-nav{height:66px;border-radius:18px}.hs-modern-logo img{width:180px}.hs-modern-toggle{display:block}.hs-modern-call,.hs-modern-quote{display:none}.hs-modern-menu{display:none}.hs-modern-menu.hs-open{display:flex;position:fixed;top:88px;left:12px;right:12px;max-height:calc(100vh - 108px);overflow:auto;background:#fff;color:#0b1220;border-radius:22px;box-shadow:0 22px 60px rgba(11,45,74,.16);padding:14px;flex-direction:column;align-items:stretch}.hs-modern-menu.hs-open .hs-modern-link,.hs-modern-menu.hs-open .hs-modern-parent{color:#0b1220;width:100%;text-align:left}.hs-modern-group:hover>.hs-modern-mega{display:none}.hs-modern-group.hs-open>.hs-modern-mega{display:grid;position:static;transform:none;width:100%;min-width:0;box-shadow:none;border:1px solid #dce5ea;grid-template-columns:1fr}}
     @media(max-width:640px){.sand-grid,.sand-process{grid-template-columns:minmax(0,1fr)}.sand-lead{font-size:16px}.sand-content-card{padding:22px 18px}}
   </style>
@@ -162,7 +184,7 @@
 <main id="page" data-page>
 <section class="section sand-page-hero">
   <div class="container">
-    <div class="card sand-hero-card sand-options-hero-card" role="img" aria-label="Paver joint sand and sealed paver surface"></div>
+    <div class="card sand-hero-card sand-options-hero-card"><img class="sand-options-hero-card__image" src="/assets/hero/jacksonville-paver-sealing-sand-options.webp" width="1536" height="732" alt="Paver joint sand and sealed paver surface" loading="eager" decoding="async" fetchpriority="high"></div>
 
     <section class="sand-section-gap sand-intro">
       <p class="sand-eyebrow">Paver Sand • Resanding • Joint Stabilization</p>
