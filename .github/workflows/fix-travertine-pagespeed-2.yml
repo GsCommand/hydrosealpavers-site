@@ -1,0 +1,42 @@
+name: Fix travertine PageSpeed 2
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-travertine-pagespeed-2.yml'
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Eliminate travertine mobile CLS
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          html = Path('paver-sealing/travertine-sealing.html')
+          s = html.read_text(encoding='utf-8')
+
+          # The deferred global stylesheet hides the desktop hero grid and fixes the
+          # mobile hero at 520px. Put those rules into first-paint CSS so the hero
+          # never changes height after styles.css arrives.
+          old = "@media(max-width:650px){.trav-service-hero__grid{width:calc(100% - 24px);padding-top:110px;padding-bottom:48px}.trav-service-hero__glass{padding:26px 10px;border:0;border-radius:0;background:transparent;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}.trav-service-hero h1,.trav-service-hero__subhead,.trav-service-hero__copy{text-shadow:0 2px 12px rgba(0,0,0,.78)}.trav-service-hero h1{font-size:38px}.trav-service-hero__subhead{font-size:18px}.trav-service-hero__copy{font-size:16px}.trav-service-proof,.trav-service-features{grid-template-columns:1fr}.trav-service-features{width:100%;margin-top:0;border-radius:0}}"
+          new = "@media(max-width:650px){.trav-service-hero__grid{display:none!important;width:calc(100% - 24px);padding-top:110px;padding-bottom:48px}.trav-service-hero{height:520px;min-height:520px!important;position:relative}.trav-service-hero__glass{padding:26px 10px;border:0;border-radius:0;background:transparent;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}.trav-service-hero h1,.trav-service-hero__subhead,.trav-service-hero__copy{text-shadow:0 2px 12px rgba(0,0,0,.78)}.trav-service-hero h1{font-size:38px}.trav-service-hero__subhead{font-size:18px}.trav-service-hero__copy{font-size:16px}.trav-service-proof,.trav-service-features{grid-template-columns:1fr}.trav-service-features{width:100%;margin-top:0;border-radius:0}}"
+          if old not in s:
+              raise SystemExit('travertine mobile hero CSS anchor not found')
+          s = s.replace(old, new, 1)
+
+          # Avoid synchronous decode on the LCP image.
+          s = s.replace('loading="eager" decoding="sync" fetchpriority="high"', 'loading="eager" decoding="async" fetchpriority="high"', 1)
+
+          html.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit fix
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add paver-sealing/travertine-sealing.html
+          git commit -m "Eliminate travertine mobile CLS" || exit 0
+          git push
