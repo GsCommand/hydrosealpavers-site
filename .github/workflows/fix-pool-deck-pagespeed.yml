@@ -1,0 +1,59 @@
+name: Fix pool deck PageSpeed
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-pool-deck-pagespeed.yml'
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Pillow
+        run: python -m pip install --quiet pillow
+      - name: Fix CLS, image delivery, and contrast
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+
+          p = Path('paver-sealing/pool-decks.html')
+          s = p.read_text(encoding='utf-8')
+
+          # 1) Reserve/stabilize all above-the-fold layout before deferred site CSS arrives.
+          critical_anchor = '<style id="hs-critical-base">:root{--navy:#0B2D4A;--blue:#0F6EA8;--teal:#28B6C8;--text:#0B1220;--muted:#334155;--bg:#fff;--line:#e5e7eb;--h2-blue:#2FA8CF;--h3-blue:#1B4E63;--water-blue:#39BFEA;--cta-green:#2fbe63}*{box-sizing:border-box}html,body{min-height:100%;margin:0}body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}img,svg,video,canvas{max-width:100%;height:auto;display:block}.container{max-width:1120px;margin:0 auto;padding:0 16px}.btn{display:inline-flex;align-items:center;justify-content:center}</style>'
+          critical_replacement = '''<style id="hs-critical-base">:root{--navy:#0B2D4A;--blue:#0F6EA8;--teal:#28B6C8;--text:#0B1220;--muted:#334155;--bg:#fff;--line:#e5e7eb;--h2-blue:#0F6EA8;--h3-blue:#1B4E63;--water-blue:#39BFEA;--cta-green:#2fbe63;--radius:18px;--section-space-desktop:80px;--section-space-mobile:48px}*{box-sizing:border-box}html,body{min-height:100%;margin:0}body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}img,svg,video,canvas{max-width:100%;height:auto;display:block}.container{max-width:1120px;margin:0 auto;padding:0 16px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 16px;border-radius:14px;font-weight:900}.section{padding:var(--section-space-desktop) 0}.grid{display:grid;gap:14px}.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}.card{border:1px solid var(--line);border-radius:var(--radius);padding:18px;background:#fff}.notice{border:1px solid var(--line);border-radius:var(--radius);padding:16px;background:#f9fafb}.mobile-hero-label{display:none}@media(max-width:900px){.section{padding:var(--section-space-mobile) 0}.grid-2{grid-template-columns:1fr}}@media(max-width:650px){.mobile-hero-label{position:absolute;z-index:4;top:50%;left:50%;display:block;width:max-content;max-width:calc(100% - 40px);padding:14px 20px;transform:translate(-50%,-50%);border:1px solid rgba(255,255,255,.32);border-radius:16px;background:rgba(8,35,55,.30);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);color:#fff;font-weight:900;font-size:clamp(22px,7vw,34px);line-height:1.04;letter-spacing:-.02em;text-align:center;text-shadow:0 2px 12px rgba(0,0,0,.45)}.mobile-hero-label__location{display:block;margin-top:6px;font-size:.58em;line-height:1.2;letter-spacing:0}}</style>'''
+          if critical_anchor not in s:
+              raise SystemExit('Critical CSS anchor not found')
+          s = s.replace(critical_anchor, critical_replacement, 1)
+
+          # 2) Remove content-visibility sizing hack. It can create late geometry changes during Lighthouse scroll/paint.
+          s = s.replace('    .pool-condition-feature,.pool-decks-dual-slider,.sand-bar-section,.related-links-section,#pool-faq,.hs-reminder-badges{content-visibility:auto;contain-intrinsic-size:auto 600px}\n', '')
+
+          # 3) Use an optimized WebP hero with the same crop/content.
+          jpeg = Path('assets/hero/screen-pool-deck-sealing-fl.jpeg')
+          webp = Path('assets/hero/screen-pool-deck-sealing-fl.webp')
+          with Image.open(jpeg) as im:
+              im = im.convert('RGB')
+              im.save(webp, 'WEBP', quality=76, method=6)
+          s = s.replace('/assets/hero/screen-pool-deck-sealing-fl.jpeg', '/assets/hero/screen-pool-deck-sealing-fl.webp')
+
+          # 4) Give the secondary pool image intrinsic dimensions as well.
+          s = s.replace('src="/assets/hero/hydroseal-best-pool-deck-sealing.webp" alt="Paver pool deck after sealing" loading="lazy" decoding="async"/>',
+                        'src="/assets/hero/hydroseal-best-pool-deck-sealing.webp" alt="Paver pool deck after sealing" width="733" height="500" loading="lazy" decoding="async"/>')
+
+          # 5) Accessibility: darker brand blue for the exact areas Lighthouse flags, no layout change.
+          contrast_css = '''\n<style id="pool-pagespeed-contrast">.card h2,.sand-bar-head h2,#pool-faq>h2{color:#0b5f8a}.related-links-section a{color:#075985!important}.related-links-section h3{color:#0b4f6c}</style>\n'''
+          s = s.replace('</head>', contrast_css + '</head>', 1)
+
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit fixes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add paver-sealing/pool-decks.html assets/hero/screen-pool-deck-sealing-fl.webp
+          git commit -m "Fix pool deck CLS and optimize hero delivery" || exit 0
+          git push
