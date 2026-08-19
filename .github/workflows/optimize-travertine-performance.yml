@@ -1,0 +1,100 @@
+name: Optimize travertine page performance
+on:
+  push:
+    paths:
+      - '.github/workflows/optimize-travertine-performance.yml'
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Optimize travertine page critical path
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          p = Path('paver-sealing/travertine-sealing.html')
+          s = p.read_text(encoding='utf-8')
+
+          old_gtag = '''<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SXWZ2Z96S9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SXWZ2Z96S9');
+  gtag('config', 'AW-17972657888');
+</script>'''
+
+          new_gtag = '''<!-- Deferred Google tag: preserves GA4 + Google Ads while keeping tags out of the critical render path -->
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments)}
+gtag('js',new Date());
+gtag('config','G-SXWZ2Z96S9');
+gtag('config','AW-17972657888');
+(function(){
+  var loaded=false;
+  function loadGoogleTags(){
+    if(loaded)return;
+    loaded=true;
+    var s=document.createElement('script');
+    s.async=true;
+    s.src='https://www.googletagmanager.com/gtag/js?id=G-SXWZ2Z96S9';
+    document.head.appendChild(s);
+  }
+  ['pointerdown','keydown','touchstart'].forEach(function(evt){
+    window.addEventListener(evt,loadGoogleTags,{once:true,passive:true});
+  });
+  window.addEventListener('load',function(){setTimeout(function(){
+    if('requestIdleCallback' in window){requestIdleCallback(loadGoogleTags,{timeout:1500});}
+    else{loadGoogleTags();}
+  },1200);},{once:true});
+})();
+</script>'''
+
+          if old_gtag not in s:
+              raise SystemExit('Google tag block not found')
+          s = s.replace(old_gtag, new_gtag, 1)
+
+          old_css = '  <link rel="stylesheet" href="/styles.css?v=20260804-mobile-service-labels" />'
+          new_css = '''  <link rel="preload" as="image" href="/assets/hero/travertine-sealing-nocatee.webp" fetchpriority="high" />
+  <style id="hs-critical-base">:root{--navy:#0B2D4A;--blue:#0F6EA8;--teal:#28B6C8;--text:#0B1220;--muted:#334155;--bg:#fff;--line:#e5e7eb;--h2-blue:#2FA8CF;--h3-blue:#1B4E63;--water-blue:#39BFEA;--cta-green:#2fbe63}*{box-sizing:border-box}html,body{min-height:100%;margin:0}body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}img,svg,video,canvas{max-width:100%;height:auto;display:block}.container,.shell{max-width:1120px;margin:0 auto;padding:0 16px}.btn{display:inline-flex;align-items:center;justify-content:center}</style>
+  <link rel="stylesheet" href="/styles.css?v=20260804-mobile-service-labels" media="print" fetchpriority="low" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="/styles.css?v=20260804-mobile-service-labels" /></noscript>'''
+          if old_css not in s:
+              raise SystemExit('Main stylesheet link not found')
+          s = s.replace(old_css, new_css, 1)
+
+          old_footer_css = '  <link rel="stylesheet" href="/site-footer.css?v=20260804-1" />'
+          new_footer_css = '''  <link rel="stylesheet" href="/site-footer.css?v=20260804-1" media="print" fetchpriority="low" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="/site-footer.css?v=20260804-1" /></noscript>
+  <style id="hs-perf-below-fold">@supports(content-visibility:auto){.travertine-customer-proof,.travertine-process,.related-links-section,#travertine-faq,.hs-reminder-badges,.cta,.site-footer{content-visibility:auto;contain-intrinsic-size:auto 700px}}</style>'''
+          if old_footer_css not in s:
+              raise SystemExit('Footer stylesheet link not found')
+          s = s.replace(old_footer_css, new_footer_css, 1)
+
+          hero_old = 'loading="eager" decoding="async" fetchpriority="high" />'
+          hero_new = 'loading="eager" decoding="sync" fetchpriority="high" />'
+          if hero_old not in s:
+              raise SystemExit('Hero loading attributes not found')
+          s = s.replace(hero_old, hero_new, 1)
+
+          footer_logo_old = '<img alt="HydroSeal" class="footer-logo" loading="lazy" src="/assets/hero/Hydrosealpaversealing.png"/>'
+          footer_logo_new = '<img alt="HydroSeal" class="footer-logo" loading="lazy" decoding="async" src="/assets/hero/Hydrosealpaversealing.png" width="600" height="234"/>'
+          if footer_logo_old not in s:
+              raise SystemExit('Footer logo tag not found')
+          s = s.replace(footer_logo_old, footer_logo_new, 1)
+
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit optimized travertine page
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add paver-sealing/travertine-sealing.html
+          git commit -m "Optimize travertine sealing page performance" || exit 0
+          git push
