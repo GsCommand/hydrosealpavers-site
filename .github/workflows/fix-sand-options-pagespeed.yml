@@ -1,0 +1,102 @@
+name: Fix sand options PageSpeed
+
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-sand-options-pagespeed.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch sand options page
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          path = Path('paver-sealing/sand-options.html')
+          s = path.read_text(encoding='utf-8')
+
+          old_tag = '''<!-- Google tag (gtag.js) -->
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-SXWZ2Z96S9"></script>
+          <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-SXWZ2Z96S9');
+            gtag('config', 'AW-17972657888');
+          </script>'''
+          new_tag = '''<!-- Deferred Google tag: preserves GA4 + Google Ads while keeping tags out of the critical render path -->
+          <script>
+          window.dataLayer=window.dataLayer||[];
+          function gtag(){dataLayer.push(arguments)}
+          gtag('js',new Date());
+          gtag('config','G-SXWZ2Z96S9');
+          gtag('config','AW-17972657888');
+          (function(){
+            var loaded=false;
+            function loadGoogleTags(){
+              if(loaded)return;
+              loaded=true;
+              var x=document.createElement('script');
+              x.async=true;
+              x.src='https://www.googletagmanager.com/gtag/js?id=G-SXWZ2Z96S9';
+              document.head.appendChild(x);
+            }
+            ['pointerdown','keydown','touchstart'].forEach(function(evt){
+              window.addEventListener(evt,loadGoogleTags,{once:true,passive:true});
+            });
+            window.addEventListener('load',function(){
+              setTimeout(function(){
+                if('requestIdleCallback' in window){requestIdleCallback(loadGoogleTags,{timeout:1500});}
+                else{loadGoogleTags();}
+              },1200);
+            },{once:true});
+          })();
+          </script>'''
+          if old_tag not in s:
+              raise SystemExit('Google tag block not found')
+          s = s.replace(old_tag, new_tag, 1)
+
+          old_css_link = '  <link rel="stylesheet" href="/styles.css?v=20260312-1" />'
+          critical = '''  <link rel="preload" as="image" href="/assets/hero/jacksonville-paver-sealing-sand-options.webp" fetchpriority="high" />
+          <style id="hs-critical-base">:root{--navy:#0B2D4A;--blue:#0F6EA8;--teal:#28B6C8;--text:#0B1220;--muted:#334155;--bg:#fff;--line:#e5e7eb;--h2-blue:#0F6EA8;--h3-blue:#1B4E63;--water-blue:#39BFEA;--cta-green:#2fbe63;--radius:18px;--section-space-desktop:80px;--section-space-mobile:48px}*{box-sizing:border-box}html,body{min-height:100%;margin:0}body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}img,svg,video,canvas{max-width:100%;height:auto;display:block}.container{max-width:1120px;margin:0 auto;padding:0 16px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 16px;border-radius:14px;font-weight:900}.section{padding:var(--section-space-desktop) 0}.grid{display:grid;gap:14px}.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}.card{border:1px solid var(--line);border-radius:var(--radius);padding:18px;background:#fff}.notice{border:1px solid var(--line);border-radius:var(--radius);padding:16px;background:#f9fafb}.mobile-contactbar{display:none}@media(max-width:900px){.section{padding:var(--section-space-mobile) 0}.grid-2{grid-template-columns:1fr}}</style>
+          <link rel="stylesheet" href="/styles.css?v=20260312-1" media="print" fetchpriority="low" onload="this.media='all'" />
+          <noscript><link rel="stylesheet" href="/styles.css?v=20260312-1" /></noscript>'''
+          if old_css_link not in s:
+              raise SystemExit('Stylesheet link not found')
+          s = s.replace(old_css_link, critical, 1)
+
+          hero_css = ".sand-options-hero-card{position:relative;min-height:clamp(430px,62vw,760px);padding:0;display:flex;flex-direction:column;justify-content:center;overflow:hidden;border:0;border-radius:0;box-shadow:none;background:#dbe9ef}.sand-options-hero-card__image{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:center;display:block}.sand-options-hero-card:after{content:\"\";position:absolute;inset:0;background:linear-gradient(rgba(120,185,220,.18),rgba(120,185,220,.18)),linear-gradient(rgba(255,255,255,.05),rgba(255,255,255,.05));pointer-events:none}"
+          s, count = re.subn(r"\.sand-options-hero-card\{[^}]*\}", hero_css, s, count=1)
+          if count != 1:
+              raise SystemExit('Hero CSS rule not found')
+
+          old_hero = '<div class="card sand-hero-card sand-options-hero-card" role="img" aria-label="Paver joint sand and sealed paver surface"></div>'
+          new_hero = '<div class="card sand-hero-card sand-options-hero-card"><img class="sand-options-hero-card__image" src="/assets/hero/jacksonville-paver-sealing-sand-options.webp" width="1536" height="732" alt="Paver joint sand and sealed paver surface" loading="eager" decoding="async" fetchpriority="high"></div>'
+          if old_hero not in s:
+              raise SystemExit('Hero markup not found')
+          s = s.replace(old_hero, new_hero, 1)
+
+          old_related = '.related-links-section.container{margin-left:auto;margin-right:auto}'
+          new_related = '.related-links-section.container{margin-left:auto;margin-right:auto}.related-links-section a{color:#075985!important}.related-links-section h2,.related-links-section h3{color:#0b4f6c!important}'
+          if old_related not in s:
+              raise SystemExit('Related-links rule not found')
+          s = s.replace(old_related, new_related, 1)
+
+          path.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Commit fix
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add paver-sealing/sand-options.html
+          git commit -m "Optimize sand options PageSpeed"
+          git push
