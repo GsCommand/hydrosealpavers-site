@@ -1,14 +1,31 @@
 <!doctype html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SXWZ2Z96S9"></script>
+<!-- Deferred Google tag: preserves GA4 + Google Ads while keeping tags out of the critical render path -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-SXWZ2Z96S9');
-  gtag('config', 'AW-17972657888');
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments)}
+gtag('js',new Date());
+gtag('config','G-SXWZ2Z96S9');
+gtag('config','AW-17972657888');
+(function(){
+  var loaded=false;
+  function loadGoogleTags(){
+    if(loaded)return;
+    loaded=true;
+    var s=document.createElement('script');
+    s.async=true;
+    s.src='https://www.googletagmanager.com/gtag/js?id=G-SXWZ2Z96S9';
+    document.head.appendChild(s);
+  }
+  ['pointerdown','keydown','touchstart'].forEach(function(evt){
+    window.addEventListener(evt,loadGoogleTags,{once:true,passive:true});
+  });
+  window.addEventListener('load',function(){setTimeout(function(){
+    if('requestIdleCallback' in window){requestIdleCallback(loadGoogleTags,{timeout:1500});}
+    else{loadGoogleTags();}
+  },1200);},{once:true});
+})();
 </script>
 
   <style id="travertine-hero-redesign">
@@ -52,7 +69,10 @@
 <meta name="robots" content="index,follow,max-image-preview:large" />
   <link rel="canonical" href="https://hydrosealpavers.com/paver-sealing/travertine-sealing" />
 
-  <link rel="stylesheet" href="/styles.css?v=20260804-mobile-service-labels" />
+  <link rel="preload" as="image" href="/assets/hero/travertine-sealing-nocatee.webp" fetchpriority="high" />
+  <style id="hs-critical-base">:root{--navy:#0B2D4A;--blue:#0F6EA8;--teal:#28B6C8;--text:#0B1220;--muted:#334155;--bg:#fff;--line:#e5e7eb;--h2-blue:#2FA8CF;--h3-blue:#1B4E63;--water-blue:#39BFEA;--cta-green:#2fbe63}*{box-sizing:border-box}html,body{min-height:100%;margin:0}body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}img,svg,video,canvas{max-width:100%;height:auto;display:block}.container,.shell{max-width:1120px;margin:0 auto;padding:0 16px}.btn{display:inline-flex;align-items:center;justify-content:center}</style>
+  <link rel="stylesheet" href="/styles.css?v=20260804-mobile-service-labels" media="print" fetchpriority="low" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="/styles.css?v=20260804-mobile-service-labels" /></noscript>
 
   <!-- =========================
        SCHEMA (LocalBusiness, Service, FAQ, Breadcrumbs)
@@ -298,7 +318,8 @@
     }
   </style>
 
-  <link rel="stylesheet" href="/site-footer.css?v=20260804-1" />
+  <link rel="stylesheet" href="/site-footer.css?v=20260804-1" media="print" fetchpriority="low" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="/site-footer.css?v=20260804-1" /></noscript>
 </head>
 
 <body class="shared-footer-page">
@@ -340,7 +361,7 @@
 
   <!-- BIG HERO (FULL WIDTH) — CENTERED GLASS PANEL -->
   <section class="trav-service-hero">
-    <img class="trav-service-hero__image" src="/assets/hero/travertine-sealing-nocatee.webp" width="1200" height="1065" alt="Sealed travertine pool deck overlooking the ocean in Northeast Florida" loading="eager" decoding="async" fetchpriority="high" />
+    <img class="trav-service-hero__image" src="/assets/hero/travertine-sealing-nocatee.webp" width="1200" height="1065" alt="Sealed travertine pool deck overlooking the ocean in Northeast Florida" loading="eager" decoding="sync" fetchpriority="high" />
     <div class="mobile-hero-label">Travertine Paver Sealing</div>
     <div class="trav-service-hero__grid">
       <div class="trav-service-hero__glass">
@@ -931,7 +952,7 @@
     </main>
 <div class="elfsight-app-8d93a5a4-3fe5-4e4e-a7d5-1856bb997b36" data-elfsight-app-lazy></div>
 
-<section class="cta"><div class="shell cta-grid" style="grid-template-columns:1fr;"><div><span class="kicker" style="color:#aee9fb">READY TO BRING IT BACK?</span><h2>Tell us about your pavers.</h2><p>Send the address, surface type, approximate size, and a few photos. We’ll help you determine the right restoration plan.</p><div class="actions"><a class="btn btn-green" href="/get-a-quote">Get a Quote</a><a class="btn btn-white" href="/paver-sealing-cost-calculator">Instant Pricing</a></div></div></div></section><footer class="site-footer"><div class="shell site-footer__inner"><div class="footer-grid"><div class="footer-brand"><div class="footer-brand__row"><img alt="HydroSeal" class="footer-logo" loading="lazy" src="/assets/hero/Hydrosealpaversealing.png"/></div><p class="footer-copy">Premium paver sealing and protection for driveways, pool decks, and travertine across St. Johns, Duval, and Clay County. Clean prep. Even finish. Results you can see.</p></div><div><div class="footer-title">Services</div><div class="footer-links"><a href="/paver-sealing/driveways">Driveway Paver Sealing</a><a href="/paver-resealing">Paver Resealing</a><a href="/paver-sealing/pool-decks">Pool Deck Sealing</a><a href="/paver-sealing/travertine-sealing">Travertine Sealing</a><a href="/paver-sealing-cost-calculator">Paver Sealing Cost Calculator</a></div></div><div class="footer-service-areas"><div class="footer-title">Service Areas</div><div class="footer-links"><a href="/service-areas/jacksonville">Jacksonville</a><a href="/service-areas/st-johns-county">St. Johns County</a><a href="/service-areas/clay-county">Clay County</a></div></div><div class="footer-popular-guides"><div class="footer-title">Planning &amp; Hiring Guides</div><div class="footer-links"><a href="/learning-center/problems/cleaning-resealing-or-stripping">Cleaning, Resealing or Stripping?</a><a href="/learning-center/cost/how-much-does-it-cost-to-strip-and-reseal-pavers">Strip-and-Reseal Cost</a><a href="/learning-center/sealing/what-should-professional-paver-sealing-include">What Professional Sealing Includes</a><a href="/learning-center/sealing/diy-vs-professional-paver-sealing-in-florida">DIY vs. Professional Sealing</a></div></div><div><div class="footer-title">Company</div><div class="footer-links"><a href="/about">About</a><a href="/faq">FAQ</a><a href="/learning-center">Learning Center</a><a href="/warranty">Warranty</a><a href="/care-program">Care Program</a></div></div><div><div class="footer-title">Contact</div><div class="footer-meta"><div><strong>Phone:</strong><a class="footer-phone" href="tel:+19045375000">904.537.5000</a></div><div class="footer-hours"><strong>Hours:</strong><span>Mon–Fri 8–5</span><span>Sat 9–1</span></div><div><strong>Email:</strong><a href="mailto:info@hydrosealpavers.com">info@hydrosealpavers.com</a></div></div></div></div><div class="footer-bottom"><div>© 2026 HydroSeal. All rights reserved.</div><a class="footer-sitemap-link" href="/sitemap">Sitemap</a></div></div></footer>
+<section class="cta"><div class="shell cta-grid" style="grid-template-columns:1fr;"><div><span class="kicker" style="color:#aee9fb">READY TO BRING IT BACK?</span><h2>Tell us about your pavers.</h2><p>Send the address, surface type, approximate size, and a few photos. We’ll help you determine the right restoration plan.</p><div class="actions"><a class="btn btn-green" href="/get-a-quote">Get a Quote</a><a class="btn btn-white" href="/paver-sealing-cost-calculator">Instant Pricing</a></div></div></div></section><footer class="site-footer"><div class="shell site-footer__inner"><div class="footer-grid"><div class="footer-brand"><div class="footer-brand__row"><img alt="HydroSeal" class="footer-logo" loading="lazy" decoding="async" src="/assets/hero/Hydrosealpaversealing.png" width="600" height="234"/></div><p class="footer-copy">Premium paver sealing and protection for driveways, pool decks, and travertine across St. Johns, Duval, and Clay County. Clean prep. Even finish. Results you can see.</p></div><div><div class="footer-title">Services</div><div class="footer-links"><a href="/paver-sealing/driveways">Driveway Paver Sealing</a><a href="/paver-resealing">Paver Resealing</a><a href="/paver-sealing/pool-decks">Pool Deck Sealing</a><a href="/paver-sealing/travertine-sealing">Travertine Sealing</a><a href="/paver-sealing-cost-calculator">Paver Sealing Cost Calculator</a></div></div><div class="footer-service-areas"><div class="footer-title">Service Areas</div><div class="footer-links"><a href="/service-areas/jacksonville">Jacksonville</a><a href="/service-areas/st-johns-county">St. Johns County</a><a href="/service-areas/clay-county">Clay County</a></div></div><div class="footer-popular-guides"><div class="footer-title">Planning &amp; Hiring Guides</div><div class="footer-links"><a href="/learning-center/problems/cleaning-resealing-or-stripping">Cleaning, Resealing or Stripping?</a><a href="/learning-center/cost/how-much-does-it-cost-to-strip-and-reseal-pavers">Strip-and-Reseal Cost</a><a href="/learning-center/sealing/what-should-professional-paver-sealing-include">What Professional Sealing Includes</a><a href="/learning-center/sealing/diy-vs-professional-paver-sealing-in-florida">DIY vs. Professional Sealing</a></div></div><div><div class="footer-title">Company</div><div class="footer-links"><a href="/about">About</a><a href="/faq">FAQ</a><a href="/learning-center">Learning Center</a><a href="/warranty">Warranty</a><a href="/care-program">Care Program</a></div></div><div><div class="footer-title">Contact</div><div class="footer-meta"><div><strong>Phone:</strong><a class="footer-phone" href="tel:+19045375000">904.537.5000</a></div><div class="footer-hours"><strong>Hours:</strong><span>Mon–Fri 8–5</span><span>Sat 9–1</span></div><div><strong>Email:</strong><a href="mailto:info@hydrosealpavers.com">info@hydrosealpavers.com</a></div></div></div></div><div class="footer-bottom"><div>© 2026 HydroSeal. All rights reserved.</div><a class="footer-sitemap-link" href="/sitemap">Sitemap</a></div></div></footer>
 
   <div class="mobile-contactbar" aria-label="HydroSeal mobile contact options">
   <a class="mobile-callbar-btn" href="tel:+19045375000" aria-label="Call HydroSeal">📞 Call</a>
