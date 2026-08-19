@@ -16,9 +16,7 @@
 <title>Paver Sealing Jacksonville & St. Johns County | HydroSeal</title>
 
 <link id="preload_final_lock" rel="preload" as="image" href="/assets/hero/paver-sealing-driveway-before-after.png" fetchpriority="high">
-<link rel="preload" href="/styles.css?v=20260620-landing" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="/styles.css?v=20260620-landing"></noscript>
-</head>
+<link rel="stylesheet" href="/styles.css?v=20260818-landing">
 
 <style>
   *, *::before, *::after { box-sizing: border-box; }
@@ -400,6 +398,21 @@
   .lp-footer { background: #0a1f30; color: rgba(255,255,255,.5); text-align: center; padding: 16px; font-size: 13px; }
   .lp-footer a { color: rgba(255,255,255,.6); text-decoration: none; }
 
+  .lp-bottom-gallery {
+    background: #f8fafb;
+    border-top: 1px solid rgba(0,0,0,.06);
+    padding: 32px 16px;
+  }
+  .lp-bottom-gallery-inner { max-width: 860px; margin: 0 auto; }
+  .lp-bottom-gallery-shell {
+    min-height: clamp(420px, 75vw, 720px);
+    margin-top: 18px;
+    overflow: hidden;
+    border-radius: 16px;
+    background: #eef4f7;
+    contain: layout paint;
+  }
+
   .mobile-contactbar { display: none; }
 
   @media (max-width: 767px) {
@@ -457,8 +470,8 @@
     fetchpriority="high"
     loading="eager"
     decoding="async"
-    width="1920"
-    height="1080"
+    width="1400"
+    height="1086"
     alt="Paver sealing driveway before and after"
   />
   <div class="lp-hero-wash" aria-hidden="true"></div>
@@ -542,10 +555,6 @@
   </div>
 </div>
 
-<!-- Elfsight Photo Gallery | DriveWay Gallery -->
-<script src="https://elfsightcdn.com/platform.js" async></script>
-<div class="elfsight-app-bfab489f-7fca-4f05-ba5a-d92616b76b26" data-elfsight-app-lazy></div>
-
 <!-- What's included -->
 <div class="lp-included-section" style="background:#fff; border-bottom:1px solid rgba(0,0,0,.06);">
   <div class="lp-section">
@@ -578,8 +587,6 @@
     </ul>
   </div>
 </div>
-
-<div class="elfsight-app-1ac40f22-7acd-45c3-839e-6716f56e8387" data-elfsight-app-lazy></div>
 
 
 <!-- Reviews -->
@@ -614,6 +621,17 @@ I highly recommend HydroSeal.</p>
   <img src="/assets/hero/Trident-Master-white.png" alt="Trident Master Certified" loading="lazy" decoding="async" width="1200" height="600" />
   <img src="/assets/hero/hydroseal-2-year-warranty.png" alt="2-Year Warranty" loading="lazy" decoding="async" width="1200" height="600" />
 </div>
+
+<!-- Bottom project gallery: Elfsight loads only when this section nears the viewport. -->
+<section class="lp-bottom-gallery" aria-labelledby="recent-gallery-title">
+  <div class="lp-bottom-gallery-inner">
+    <h2 class="lp-section-title" id="recent-gallery-title">More Recent HydroSeal Projects</h2>
+    <p class="lp-section-sub">Driveways, pool decks, patios, and natural stone sealing from recent local projects.</p>
+    <div class="lp-bottom-gallery-shell">
+      <div class="elfsight-app-bfab489f-7fca-4f05-ba5a-d92616b76b26" data-elfsight-app-lazy></div>
+    </div>
+  </div>
+</section>
 
 <!-- Bottom CTA -->
 <div class="lp-bottom-cta">
@@ -693,10 +711,36 @@ document.addEventListener("DOMContentLoaded", function(){
 </script>
 
 
-<!-- Elfsight AI Chatbot | HydroSeal AI Chatbot -->
+<script>
+(function () {
+  const gallery = document.querySelector('.lp-bottom-gallery .elfsight-app-bfab489f-7fca-4f05-ba5a-d92616b76b26');
+  if (!gallery) return;
 
-<div class="elfsight-app-8d93a5a4-3fe5-4e4e-a7d5-1856bb997b36" data-elfsight-app-lazy></div>
+  let loaded = false;
+  function loadGallery() {
+    if (loaded || window.ELFSIGHT || document.querySelector('script[data-hs-landing-elfsight]')) return;
+    loaded = true;
+    const script = document.createElement('script');
+    script.src = 'https://static.elfsight.com/platform/platform.js';
+    script.async = true;
+    script.defer = true;
+    script.dataset.hsLandingElfsight = '1';
+    document.head.appendChild(script);
+  }
 
-<script defer src="/assets/js/third-party-loader.js"></script>
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function (entries) {
+      if (!entries.some(function (entry) { return entry.isIntersecting || entry.intersectionRatio > 0; })) return;
+      observer.disconnect();
+      loadGallery();
+    }, { rootMargin: '600px 0px' });
+    observer.observe(gallery);
+  } else {
+    window.addEventListener('load', function () {
+      setTimeout(loadGallery, 2500);
+    }, { once: true });
+  }
+})();
+</script>
 </body>
 </html>
