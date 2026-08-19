@@ -1,0 +1,69 @@
+name: Fix pool deck PageSpeed 2
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-pool-pagespeed-2.yml'
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Optimize mobile hero and stabilize first paint
+        run: |
+          python -m pip install --quiet pillow
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+
+          html = Path('paver-sealing/pool-decks.html')
+          s = html.read_text(encoding='utf-8')
+
+          # 1) Make the deferred stylesheet's mobile hero behavior part of critical CSS.
+          old = "@media(max-width:650px){.mobile-hero-label{position:absolute;z-index:4;top:50%;left:50%;display:block;width:max-content;max-width:calc(100% - 40px);padding:14px 20px;transform:translate(-50%,-50%);border:1px solid rgba(255,255,255,.32);border-radius:16px;background:rgba(8,35,55,.30);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);color:#fff;font-weight:900;font-size:clamp(22px,7vw,34px);line-height:1.04;letter-spacing:-.02em;text-align:center;text-shadow:0 2px 12px rgba(0,0,0,.45)}.mobile-hero-label__location{display:block;margin-top:6px;font-size:.58em;line-height:1.2;letter-spacing:0}}</style>"
+          new = "@media(max-width:650px){.pool-service-hero__grid{display:none!important}.pool-service-hero{height:520px;min-height:520px!important;position:relative}.mobile-hero-label{position:absolute;z-index:4;top:50%;left:50%;display:block;width:max-content;max-width:calc(100% - 40px);padding:14px 20px;transform:translate(-50%,-50%);border:1px solid rgba(255,255,255,.32);border-radius:16px;background:rgba(8,35,55,.30);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);color:#fff;font-weight:900;font-size:clamp(22px,7vw,34px);line-height:1.04;letter-spacing:-.02em;text-align:center;text-shadow:0 2px 12px rgba(0,0,0,.45)}.mobile-hero-label__location{display:block;margin-top:6px;font-size:.58em;line-height:1.2;letter-spacing:0}}</style>"
+          if old not in s:
+              raise SystemExit('critical mobile CSS anchor not found')
+          s = s.replace(old, new, 1)
+
+          # 2) Fix the one remaining Lighthouse contrast failure.
+          old_contrast = '<style id="pool-pagespeed-contrast">.card h2,.sand-bar-head h2,#pool-faq>h2{color:#0b5f8a}.related-links-section a{color:#075985!important}.related-links-section h3{color:#0b4f6c}</style>'
+          new_contrast = '<style id="pool-pagespeed-contrast">.card h2,.sand-bar-head h2,#pool-faq>h2,.pool-decks-transformations-heading{color:#0b5f8a!important}.related-links-section a{color:#075985!important}.related-links-section h3{color:#0b4f6c}</style>'
+          if old_contrast in s:
+              s = s.replace(old_contrast, new_contrast, 1)
+
+          # 3) Build a much smaller mobile-only hero asset.
+          src = Path('assets/hero/screen-pool-deck-sealing-fl.webp')
+          out = Path('assets/hero/screen-pool-deck-sealing-fl-mobile.webp')
+          with Image.open(src) as im:
+              im = im.convert('RGB')
+              target_w = 720
+              target_h = round(im.height * target_w / im.width)
+              im = im.resize((target_w, target_h), Image.Resampling.LANCZOS)
+              im.save(out, 'WEBP', quality=68, method=6)
+
+          # 4) Preload the right asset for each viewport instead of always preloading the large one.
+          old_preload = '<link rel="preload" as="image" href="/assets/hero/screen-pool-deck-sealing-fl.webp" fetchpriority="high" />'
+          new_preload = '<link rel="preload" as="image" href="/assets/hero/screen-pool-deck-sealing-fl-mobile.webp" media="(max-width:650px)" fetchpriority="high" />\n  <link rel="preload" as="image" href="/assets/hero/screen-pool-deck-sealing-fl.webp" media="(min-width:651px)" fetchpriority="high" />'
+          if old_preload not in s:
+              raise SystemExit('hero preload anchor not found')
+          s = s.replace(old_preload, new_preload, 1)
+
+          # 5) Use the smaller file on mobile and correct intrinsic dimensions for the original image.
+          old_img = '<section class="pool-service-hero"><img class="pool-service-hero__image" src="/assets/hero/screen-pool-deck-sealing-fl.webp" width="1500" height="1000" alt="Sealed paver pool deck in Jacksonville, Florida" loading="eager" decoding="sync" fetchpriority="high"/>'
+          new_img = '<section class="pool-service-hero"><picture><source media="(max-width:650px)" srcset="/assets/hero/screen-pool-deck-sealing-fl-mobile.webp"><img class="pool-service-hero__image" src="/assets/hero/screen-pool-deck-sealing-fl.webp" width="1039" height="1313" alt="Sealed paver pool deck in Jacksonville, Florida" loading="eager" decoding="async" fetchpriority="high"/></picture>'
+          if old_img not in s:
+              raise SystemExit('hero image anchor not found')
+          s = s.replace(old_img, new_img, 1)
+
+          html.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit fixes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add paver-sealing/pool-decks.html assets/hero/screen-pool-deck-sealing-fl-mobile.webp
+          git commit -m "Eliminate pool deck CLS and optimize mobile hero" || exit 0
+          git push
