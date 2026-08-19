@@ -15,11 +15,21 @@
 <link rel="canonical" href="https://hydrosealpavers.com/landing" />
 <title>Paver Sealing Jacksonville & St. Johns County | HydroSeal</title>
 
-<link id="preload_final_lock" rel="preload" as="image" href="/assets/hero/paver-sealing-driveway-before-after.png" fetchpriority="high">
-<link rel="stylesheet" href="/styles.css?v=20260818-landing">
+<link id="preload_final_lock" rel="preload" as="image" href="/assets/hero/paver-sealing-driveway-before-after.webp" type="image/webp" fetchpriority="high">
 
 <style>
   *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; }
+  body {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    color: #0B1220;
+    background: #fff;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  a { color: inherit; text-decoration: none; }
+  img, svg, video, canvas { max-width: 100%; height: auto; display: block; }
 
   /* Landing stacking architecture lock: header 999999 > sticky CTA 900000 > hero content 10 > hero image 0. */
   .lp-header {
@@ -465,11 +475,11 @@
 <section class="lp-hero" id="lcp1" aria-label="HydroSeal paver sealing quote hero">
   <img
     id="lcp_final_lock"
-    src="/assets/hero/paver-sealing-driveway-before-after.png"
+    src="/assets/hero/paver-sealing-driveway-before-after.webp"
     class="lp-hero-img"
     fetchpriority="high"
     loading="eager"
-    decoding="async"
+    decoding="sync"
     width="1400"
     height="1086"
     alt="Paver sealing driveway before and after"
