@@ -25,14 +25,15 @@ jobs:
           if ! grep -q 'canonical" href="https://hydrosealpavers.com/learning-center/cleaning"' learning-center/cleaning/index.html; then
             git revert --no-edit d3842f5027df7a34f940b3d115d50bfd153b05b6
           fi
-      - name: Rewrite only retired article URLs
+      - name: Rewrite retired URLs and align sitemap
         run: python tools/fix-learning-center-links.py
       - name: Verify retired Learning Center links are gone
         run: |
           ! grep -RIlE 'href="/learning-center/(search|video-tutorials|warranty)(/|\")' . --include='*.html'
+          grep -q '<loc>https://hydrosealpavers.com/learning-center/local</loc>' sitemap.xml
       - name: Commit and push repairs
         run: |
-          git add '*.html' '**/*.html'
-          git diff --cached --quiet || git commit -m "Repair retired Learning Center article links"
+          git add '*.html' '**/*.html' sitemap.xml
+          git diff --cached --quiet || git commit -m "Align crawl and indexing signals"
           git push
-# Coverage cleanup trigger: 2026-09-03 category-hub restore
+# Coverage cleanup trigger: 2026-09-03 sitemap alignment
