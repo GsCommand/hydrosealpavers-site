@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 from pathlib import Path
 
+# Only rewrite retired article URLs to their live canonical destinations.
+# Do not rewrite Learning Center category hubs such as /learning-center/cleaning,
+# /learning-center/sealing, /learning-center/problems, or /learning-center/travertine.
 MAPPING = {
     '/learning-center/search/why-pressure-washing-alone-is-not-enough-for-pavers': '/learning-center/cleaning/can-pressure-washing-damage-pavers',
     '/learning-center/search/is-paver-sealing-worth-it-in-jacksonville': '/learning-center/sealing/how-long-does-paver-sealing-last-in-florida',
@@ -32,9 +35,6 @@ for path in Path('.').rglob('*.html'):
     original = text
     for old, new in MAPPING.items():
         text = text.replace(old, new)
-    for category in ('cleaning','local','maintenance','problems','sealing','search','surfaces','travertine','video-tutorials','warranty'):
-        text = text.replace(f'/learning-center/{category}"', '/learning-center"')
-        text = text.replace(f'/learning-center/{category}/"', '/learning-center"')
     if text != original:
         path.write_text(text, encoding='utf-8')
         changed.append(str(path))
