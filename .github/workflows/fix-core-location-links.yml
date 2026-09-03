@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'tools/fix-core-location-links.py'
+      - 'tools/unwrap-retired-location-links.py'
       - '.github/workflows/fix-core-location-links.yml'
   workflow_dispatch:
 
@@ -21,6 +22,7 @@ jobs:
       - name: Rebuild service-area internal links
         run: |
           python tools/fix-core-location-links.py
+          python tools/unwrap-retired-location-links.py
           find service-areas -type f -name '*.html' -print0 | xargs -0 sed -i 's/[[:space:]]\+$//'
           sed -i 's/[[:space:]]\+$//' sitemap.html partials/header.html partials/footer.html
 
@@ -30,5 +32,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add service-areas sitemap.html partials/header.html partials/footer.html
           git diff --cached --check
-          git commit -m "Rebuild core service area internal links" || exit 0
+          git commit -m "Finish core service area link cleanup" || exit 0
           git push
