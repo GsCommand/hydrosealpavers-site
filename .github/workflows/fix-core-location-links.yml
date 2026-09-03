@@ -1,0 +1,31 @@
+name: Fix core location links
+
+on:
+  push:
+    paths:
+      - 'tools/fix-core-location-links.py'
+      - '.github/workflows/fix-core-location-links.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fix-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Rebuild service-area internal links
+        run: python tools/fix-core-location-links.py
+
+      - name: Commit link architecture cleanup
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add service-areas sitemap.html partials/header.html partials/footer.html
+          git diff --cached --check
+          git commit -m "Rebuild core service area internal links" || exit 0
+          git push
