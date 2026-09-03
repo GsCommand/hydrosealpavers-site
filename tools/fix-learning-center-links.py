@@ -4,6 +4,8 @@ from pathlib import Path
 MAPPING = {
     '/learning-center/search/why-pressure-washing-alone-is-not-enough-for-pavers': '/learning-center/cleaning/can-pressure-washing-damage-pavers',
     '/learning-center/search/is-paver-sealing-worth-it-in-jacksonville': '/learning-center/sealing/how-long-does-paver-sealing-last-in-florida',
+    '/learning-center/search/paver-sealing-in-jacksonville-what-homeowners-need-to-know': '/learning-center/sealing/what-should-professional-paver-sealing-include',
+    '/learning-center/local/how-jacksonville-heat-affects-paver-sealing': '/learning-center/sealing/how-long-does-paver-sealing-last-in-florida',
     '/learning-center/local/best-time-of-year-to-seal-pavers-in-florida': '/learning-center/sealing/how-often-should-pavers-be-sealed-in-florida',
     '/learning-center/search/how-much-does-paver-sealing-cost-in-jacksonville': '/learning-center/surfaces/driveway-paver-sealing-cost-per-square-foot',
     '/learning-center/search/how-much-does-paver-sealing-cost-in-fleming-island': '/learning-center/surfaces/driveway-paver-sealing-cost-per-square-foot',
