@@ -13,18 +13,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: python tools/fix-learning-center-links.py
-      - name: Verify retired Learning Center links are gone
-        run: |
-          ! grep -RIlE 'href="/learning-center/(search|local|video-tutorials|warranty)(/|\")' . --include='*.html'
-      - name: Commit link repairs
+      - name: Restore category hubs if an older cleanup collapsed them
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if ! grep -q 'canonical" href="https://hydrosealpavers.com/learning-center/cleaning"' learning-center/cleaning/index.html; then
+            git revert --no-edit d3842f5027df7a34f940b3d115d50bfd153b05b6
+          fi
+      - name: Rewrite only retired article URLs
+        run: python tools/fix-learning-center-links.py
+      - name: Verify retired Learning Center links are gone
+        run: |
+          ! grep -RIlE 'href="/learning-center/(search|video-tutorials|warranty)(/|\")' . --include='*.html'
+      - name: Commit and push repairs
+        run: |
           git add '*.html' '**/*.html'
-          git diff --cached --quiet || git commit -m "Repair site-wide Learning Center links"
+          git diff --cached --quiet || git commit -m "Repair retired Learning Center article links"
           git push
-# Coverage cleanup trigger: 2026-09-03
+# Coverage cleanup trigger: 2026-09-03 category-hub restore
