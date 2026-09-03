@@ -45,4 +45,35 @@ for path in Path('.').rglob('*.html'):
     if text != original:
         path.write_text(text, encoding='utf-8')
         changed.append(str(path))
+
+# Keep the sitemap aligned with live, indexable hubs and pages touched by this cleanup.
+sitemap = Path('sitemap.xml')
+if sitemap.exists():
+    xml = sitemap.read_text(encoding='utf-8')
+    original_xml = xml
+    local_hub = 'https://hydrosealpavers.com/learning-center/local'
+    local_article = 'https://hydrosealpavers.com/learning-center/local/best-time-of-year-to-seal-pavers-in-florida'
+    if f'<loc>{local_hub}</loc>' not in xml:
+        entry = f'  <url><loc>{local_hub}</loc><lastmod>2026-09-03</lastmod></url>\n'
+        marker = f'  <url><loc>{local_article}</loc>'
+        xml = xml.replace(marker, entry + marker, 1)
+    for url in (
+        'https://hydrosealpavers.com/service-areas/jacksonville',
+        'https://hydrosealpavers.com/learning-center',
+        'https://hydrosealpavers.com/learning-center/cleaning',
+        'https://hydrosealpavers.com/learning-center/sealing',
+        'https://hydrosealpavers.com/learning-center/problems',
+        'https://hydrosealpavers.com/learning-center/travertine',
+        local_hub,
+    ):
+        import re
+        xml = re.sub(
+            rf'(<url><loc>{re.escape(url)}</loc><lastmod>)[^<]+(</lastmod></url>)',
+            rf'\g<1>2026-09-03\2',
+            xml,
+        )
+    if xml != original_xml:
+        sitemap.write_text(xml, encoding='utf-8')
+        changed.append('sitemap.xml')
+
 print(f'Updated {len(changed)} files')
