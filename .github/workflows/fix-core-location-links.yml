@@ -19,7 +19,10 @@ jobs:
           fetch-depth: 0
 
       - name: Rebuild service-area internal links
-        run: python tools/fix-core-location-links.py
+        run: |
+          python tools/fix-core-location-links.py
+          find service-areas -type f -name '*.html' -print0 | xargs -0 sed -i 's/[[:space:]]\+$//'
+          sed -i 's/[[:space:]]\+$//' sitemap.html partials/header.html partials/footer.html
 
       - name: Commit link architecture cleanup
         run: |
