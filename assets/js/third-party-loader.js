@@ -217,7 +217,6 @@
     const cta = document.querySelector('.cost-cta');
     if (cta) cta.style.marginBottom = '32px';
   }
-
   function positionLandingRecentJobs() {
     if (path !== '/landing') return;
     const title = document.querySelector('.lp-recent-jobs-title');
@@ -240,12 +239,67 @@
     if (recentJobsWidget) included.parentNode.insertBefore(recentJobsWidget, included);
   }
 
+  function addJacksonvilleGoogleMap() {
+    if (path !== '/service-areas/jacksonville') return;
+    if (document.getElementById('hs-jacksonville-google-map')) return;
+
+    const anchor = document.querySelector('.hs-reminder-badges');
+    if (!anchor || !anchor.parentNode) return;
+
+    if (!document.getElementById('hs-jacksonville-google-map-style')) {
+      const style = document.createElement('style');
+      style.id = 'hs-jacksonville-google-map-style';
+      style.textContent = `
+        .hs-jax-map{padding:14px 0 32px}
+        .hs-jax-map__card{overflow:hidden;border:1px solid rgba(15,110,168,.18);border-radius:22px;background:#fff;box-shadow:0 14px 36px rgba(11,45,74,.08)}
+        .hs-jax-map__copy{padding:24px 24px 18px;text-align:center}
+        .hs-jax-map__copy h2{margin:0;color:#0b2d4a;font-size:clamp(1.7rem,3.3vw,2.35rem);line-height:1.08}
+        .hs-jax-map__copy p{max-width:760px;margin:10px auto 0;color:#4f6681;line-height:1.65}
+        .hs-jax-map__frame{position:relative;min-height:360px;background:#eef5f8}
+        .hs-jax-map__frame iframe{display:block;width:100%;height:410px;border:0}
+        .hs-jax-map__actions{display:flex;justify-content:center;padding:18px 20px 22px}
+        .hs-jax-map__link{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:13px 20px;border-radius:999px;background:#0b2d4a;color:#fff!important;text-decoration:none!important;font-weight:900}
+        .hs-jax-map__link:hover,.hs-jax-map__link:focus-visible{background:#0f6ea8}
+        @media(max-width:650px){.hs-jax-map{padding-bottom:24px}.hs-jax-map__copy{padding:22px 18px 16px}.hs-jax-map__frame,.hs-jax-map__frame iframe{min-height:320px;height:320px}}
+      `;
+      document.head.appendChild(style);
+    }
+
+    const section = document.createElement('section');
+    section.id = 'hs-jacksonville-google-map';
+    section.className = 'hs-jax-map';
+    section.setAttribute('aria-labelledby', 'hs-jacksonville-google-map-title');
+    section.innerHTML = `
+      <div class="container">
+        <div class="hs-jax-map__card">
+          <div class="hs-jax-map__copy">
+            <h2 id="hs-jacksonville-google-map-title">Paver Sealing Across Jacksonville &amp; Duval County</h2>
+            <p>HydroSeal serves homeowners throughout Jacksonville, including Mandarin, Southside, Riverside, Ortega, the Beaches, and surrounding Duval County communities.</p>
+          </div>
+          <div class="hs-jax-map__frame">
+            <iframe
+              title="HydroSeal Paver Sealing in Jacksonville, Florida"
+              src="https://www.google.com/maps?q=HydroSeal%20Paver%20Sealing%20Jacksonville%20FL&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen></iframe>
+          </div>
+          <div class="hs-jax-map__actions">
+            <a class="hs-jax-map__link" href="https://share.google/zGByZ0ESG9TCl4kGw" target="_blank" rel="noopener noreferrer">View HydroSeal on Google</a>
+          </div>
+        </div>
+      </div>`;
+
+    anchor.parentNode.insertBefore(section, anchor);
+  }
+
   fixJointSandColorCards();
   styleLearningCenterCtas();
   styleHiringTemplateCtas();
   featureTopLearningCenterGuides();
   spaceRebuiltTemplateCtas();
   positionLandingRecentJobs();
+  addJacksonvilleGoogleMap();
 
   if (path === '/learning-center/surfaces/what-is-the-best-sand-for-paver-joints-in-florida') {
     const cta = document.querySelector('.blog-post__cta');
