@@ -20,6 +20,7 @@ jobs:
       - name: Rebuild four core location pages
         run: |
           python tools/rebuild-core-location-pages-v3.py
+          sed -i 's/[[:space:]]\+$//' service-areas/jacksonville/index.html service-areas/st-johns-county/index.html service-areas/clay-county/index.html service-areas/yulee.html
           git diff --check
       - name: Commit rebuilt pages
         run: |
