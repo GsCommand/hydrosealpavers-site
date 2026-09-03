@@ -1,6 +1,126 @@
 {
   "redirects": [
     {
+      "source": "/service-areas/jacksonville/atlantic-beach",
+      "destination": "https://hydrosealpavers.com/service-areas/jacksonville/jacksonville-beach",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/jacksonville/bartram-park",
+      "destination": "https://hydrosealpavers.com/service-areas/jacksonville",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/jacksonville/deerwood",
+      "destination": "https://hydrosealpavers.com/service-areas/jacksonville/southside",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/jacksonville/etown",
+      "destination": "https://hydrosealpavers.com/service-areas/jacksonville/southside",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/jacksonville/glen-kernan",
+      "destination": "https://hydrosealpavers.com/service-areas/jacksonville/southside",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/jacksonville/neptune-beach",
+      "destination": "https://hydrosealpavers.com/service-areas/jacksonville/jacksonville-beach",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/jacksonville/ortega",
+      "destination": "https://hydrosealpavers.com/service-areas/jacksonville",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/jacksonville/pablo-creek-reserve",
+      "destination": "https://hydrosealpavers.com/service-areas/jacksonville/southside",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/jacksonville/queens-harbour",
+      "destination": "https://hydrosealpavers.com/service-areas/jacksonville",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/jacksonville/riverside-avondale",
+      "destination": "https://hydrosealpavers.com/service-areas/jacksonville",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/jacksonville/tamaya",
+      "destination": "https://hydrosealpavers.com/service-areas/jacksonville/southside",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/st-johns-county/beachwalk",
+      "destination": "https://hydrosealpavers.com/service-areas/st-johns-county",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/st-johns-county/del-webb-ponte-vedra",
+      "destination": "https://hydrosealpavers.com/service-areas/st-johns-county/nocatee",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/st-johns-county/marsh-landing",
+      "destination": "https://hydrosealpavers.com/service-areas/st-johns-county/ponte-vedra-beach",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/st-johns-county/murabella",
+      "destination": "https://hydrosealpavers.com/service-areas/st-johns-county",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/st-johns-county/palencia",
+      "destination": "https://hydrosealpavers.com/service-areas/st-johns-county",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/st-johns-county/palm-valley",
+      "destination": "https://hydrosealpavers.com/service-areas/st-johns-county/ponte-vedra",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/st-johns-county/rivertown",
+      "destination": "https://hydrosealpavers.com/service-areas/st-johns-county",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/st-johns-county/sawgrass",
+      "destination": "https://hydrosealpavers.com/service-areas/st-johns-county/ponte-vedra-beach",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/st-johns-county/shearwater",
+      "destination": "https://hydrosealpavers.com/service-areas/st-johns-county",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/st-johns-county/silverleaf",
+      "destination": "https://hydrosealpavers.com/service-areas/st-johns-county",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/st-johns-county/world-golf-village",
+      "destination": "https://hydrosealpavers.com/service-areas/st-johns-county",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/clay-county/green-cove-springs",
+      "destination": "https://hydrosealpavers.com/service-areas/clay-county",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/wildlight",
+      "destination": "https://hydrosealpavers.com/service-areas/yulee",
+      "permanent": true
+    },
+    {
       "source": "/paver-sealing/driveways/",
       "destination": "/paver-sealing/driveways",
       "permanent": true

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<!-- refreshed 2026-08-13 to clear stale 4xx sitemap entries -->
+<!-- focused service-area architecture refreshed 2026-09-03 -->
   <url><loc>https://hydrosealpavers.com/</loc><lastmod>2026-08-01</lastmod></url>
   <url><loc>https://hydrosealpavers.com/about</loc><lastmod>2026-07-30</lastmod></url>
   <url><loc>https://hydrosealpavers.com/care-program</loc><lastmod>2026-07-30</lastmod></url>
@@ -8,7 +8,7 @@
   <url><loc>https://hydrosealpavers.com/get-a-quote</loc><lastmod>2026-07-30</lastmod></url>
   <url><loc>https://hydrosealpavers.com/paver-sealing-cost-calculator</loc><lastmod>2026-08-01</lastmod></url>
   <url><loc>https://hydrosealpavers.com/paver-resealing</loc><lastmod>2026-08-01</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas</loc><lastmod>2026-07-30</lastmod></url>
+  <url><loc>https://hydrosealpavers.com/service-areas</loc><lastmod>2026-09-03</lastmod></url>
   <url><loc>https://hydrosealpavers.com/privacy-policy</loc><lastmod>2026-07-30</lastmod></url>
   <url><loc>https://hydrosealpavers.com/warranty</loc><lastmod>2026-07-30</lastmod></url>
   <url><loc>https://hydrosealpavers.com/paver-sealing</loc><lastmod>2026-08-01</lastmod></url>
@@ -47,47 +47,23 @@
   <url><loc>https://hydrosealpavers.com/learning-center/maintenance/paver-maintenance-checklist-for-florida-homeowners</loc><lastmod>2026-07-30</lastmod></url>
   <url><loc>https://hydrosealpavers.com/learning-center/local</loc><lastmod>2026-09-03</lastmod></url>
   <url><loc>https://hydrosealpavers.com/learning-center/local/best-time-of-year-to-seal-pavers-in-florida</loc><lastmod>2026-08-01</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/clay-county</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/clay-county/fleming-island</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/clay-county/green-cove-springs</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/clay-county/middleburg</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/clay-county/oakleaf-plantation</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/clay-county/orange-park</loc><lastmod>2026-07-30</lastmod></url>
+  <url><loc>https://hydrosealpavers.com/service-areas/clay-county</loc><lastmod>2026-09-03</lastmod></url>
+  <url><loc>https://hydrosealpavers.com/service-areas/clay-county/fleming-island</loc><lastmod>2026-09-03</lastmod></url>
+  <url><loc>https://hydrosealpavers.com/service-areas/clay-county/middleburg</loc><lastmod>2026-09-03</lastmod></url>
+  <url><loc>https://hydrosealpavers.com/service-areas/clay-county/oakleaf-plantation</loc><lastmod>2026-09-03</lastmod></url>
+  <url><loc>https://hydrosealpavers.com/service-areas/clay-county/orange-park</loc><lastmod>2026-09-03</lastmod></url>
   <url><loc>https://hydrosealpavers.com/service-areas/jacksonville</loc><lastmod>2026-09-03</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/jacksonville/atlantic-beach</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/jacksonville/bartram-park</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/jacksonville/deerwood</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/jacksonville/etown</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/jacksonville/glen-kernan</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/jacksonville/jacksonville-beach</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/jacksonville/mandarin</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/jacksonville/neptune-beach</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/jacksonville/ortega</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/jacksonville/pablo-creek-reserve</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/jacksonville/queens-harbour</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/jacksonville/riverside-avondale</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/jacksonville/southside</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/jacksonville/tamaya</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/st-johns-county</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/st-johns-county/beachwalk</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/st-johns-county/del-webb-ponte-vedra</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/st-johns-county/durbin-crossing</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/st-johns-county/fruit-cove</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/st-johns-county/julington-creek</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/st-johns-county/marsh-landing</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/st-johns-county/murabella</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/st-johns-county/nocatee</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/st-johns-county/palencia</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/st-johns-county/palm-valley</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/st-johns-county/ponte-vedra</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/st-johns-county/ponte-vedra-beach</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/st-johns-county/rivertown</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/st-johns-county/sawgrass</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/st-johns-county/shearwater</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/st-johns-county/silverleaf</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/st-johns-county/world-golf-village</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/wildlight</loc><lastmod>2026-07-30</lastmod></url>
-  <url><loc>https://hydrosealpavers.com/service-areas/yulee</loc><lastmod>2026-07-30</lastmod></url>
+  <url><loc>https://hydrosealpavers.com/service-areas/jacksonville/jacksonville-beach</loc><lastmod>2026-09-03</lastmod></url>
+  <url><loc>https://hydrosealpavers.com/service-areas/jacksonville/mandarin</loc><lastmod>2026-09-03</lastmod></url>
+  <url><loc>https://hydrosealpavers.com/service-areas/jacksonville/southside</loc><lastmod>2026-09-03</lastmod></url>
+  <url><loc>https://hydrosealpavers.com/service-areas/st-johns-county</loc><lastmod>2026-09-03</lastmod></url>
+  <url><loc>https://hydrosealpavers.com/service-areas/st-johns-county/durbin-crossing</loc><lastmod>2026-09-03</lastmod></url>
+  <url><loc>https://hydrosealpavers.com/service-areas/st-johns-county/fruit-cove</loc><lastmod>2026-09-03</lastmod></url>
+  <url><loc>https://hydrosealpavers.com/service-areas/st-johns-county/julington-creek</loc><lastmod>2026-09-03</lastmod></url>
+  <url><loc>https://hydrosealpavers.com/service-areas/st-johns-county/nocatee</loc><lastmod>2026-09-03</lastmod></url>
+  <url><loc>https://hydrosealpavers.com/service-areas/st-johns-county/ponte-vedra</loc><lastmod>2026-09-03</lastmod></url>
+  <url><loc>https://hydrosealpavers.com/service-areas/st-johns-county/ponte-vedra-beach</loc><lastmod>2026-09-03</lastmod></url>
+  <url><loc>https://hydrosealpavers.com/service-areas/yulee</loc><lastmod>2026-09-03</lastmod></url>
   <url><loc>https://hydrosealpavers.com/paver-cleaning</loc><lastmod>2026-08-07</lastmod></url>
   <url><loc>https://hydrosealpavers.com/paver-repair</loc><lastmod>2026-08-07</lastmod></url>
   <url><loc>https://hydrosealpavers.com/paver-efflorescence-removal</loc><lastmod>2026-08-07</lastmod></url>
@@ -110,4 +86,5 @@
   <url><loc>https://hydrosealpavers.com/learning-center/problems/why-did-my-paver-sealer-turn-cloudy</loc><lastmod>2026-08-11</lastmod></url>
   <url><loc>https://hydrosealpavers.com/learning-center/maintenance/how-long-before-driving-on-sealed-pavers</loc><lastmod>2026-08-11</lastmod></url>
   <url><loc>https://hydrosealpavers.com/learning-center/travertine/does-travertine-need-to-be-sealed</loc><lastmod>2026-08-11</lastmod></url>
+  <url><loc>https://hydrosealpavers.com/service-areas/st-johns-county/trailmark</loc><lastmod>2026-09-03</lastmod></url>
 </urlset>
