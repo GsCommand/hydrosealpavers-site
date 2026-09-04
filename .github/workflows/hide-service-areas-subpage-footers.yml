@@ -1,0 +1,41 @@
+name: Hide service areas on subpage footers
+
+on:
+  push:
+    paths:
+      - '.github/workflows/hide-service-areas-subpage-footers.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Hide footer service areas on child location pages
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          targets = [
+              Path('assets/css/jacksonville-child-v3.css'),
+              Path('assets/css/regional-child-v3.css'),
+          ]
+          rule = '\n/* Child location pages: keep footer compact */\n.footer-service-areas{display:none!important;}\n'
+          for path in targets:
+              text = path.read_text()
+              if '.footer-service-areas{display:none!important;}' not in text:
+                  path.write_text(text.rstrip() + rule)
+          PY
+          git diff --check
+      - name: Commit footer cleanup
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/css/jacksonville-child-v3.css assets/css/regional-child-v3.css
+          git diff --cached --check
+          git commit -m "Hide service areas from child location footers" || exit 0
+          git push
