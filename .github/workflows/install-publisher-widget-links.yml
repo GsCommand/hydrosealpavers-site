@@ -1,0 +1,93 @@
+name: Install publisher widget links
+
+on:
+  push:
+    paths:
+      - '.github/workflows/install-publisher-widget-links.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Integrate publisher widget resource
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          # XML sitemap
+          p = Path('sitemap.xml')
+          s = p.read_text()
+          s = s.replace(
+              '<url><loc>https://hydrosealpavers.com/paver-sealing-cost-calculator</loc><lastmod>2026-08-01</lastmod></url>',
+              '<url><loc>https://hydrosealpavers.com/paver-sealing-cost-calculator</loc><lastmod>2026-09-03</lastmod></url>'
+          )
+          widget_url = '  <url><loc>https://hydrosealpavers.com/tools/paver-sealing-cost-widget</loc><lastmod>2026-09-03</lastmod></url>\n'
+          if 'https://hydrosealpavers.com/tools/paver-sealing-cost-widget' not in s:
+              s = s.replace('</urlset>', widget_url + '</urlset>')
+          p.write_text(s)
+
+          # Existing calculator: add static publisher link section.
+          p = Path('paver-sealing-cost-calculator/index.html')
+          s = p.read_text()
+          marker = 'id="publisher-widget-resource"'
+          if marker not in s:
+              block = '''\n<section class="calc-content" id="publisher-widget-resource" aria-labelledby="publisher-widget-title">\n  <div class="calc-info" style="max-width:1040px;margin:0 auto;">\n    <p class="kicker">For publishers &amp; local businesses</p>\n    <h2 id="publisher-widget-title">Embed this paver-sealing estimator on your website.</h2>\n    <p>HOAs, pool companies, landscapers, property managers and home-improvement publishers can add a lightweight HydroSeal cost estimator with one script tag. The embedded version collects no visitor contact information and uses no API key.</p>\n    <p><a class="calc-cta" href="/tools/paver-sealing-cost-widget">Get the Free Embed Code</a></p>\n  </div>\n</section>\n'''
+              if '</main>' not in s:
+                  raise SystemExit('calculator </main> marker not found')
+              s = s.replace('</main>', block + '</main>', 1)
+          p.write_text(s)
+
+          # Human HTML sitemap: add the resource in Main section near calculator where possible.
+          p = Path('sitemap.html')
+          s = p.read_text()
+          if '/tools/paver-sealing-cost-widget' not in s:
+              candidates = [
+                  '<li><a href="/paver-sealing-cost-calculator">Paver Sealing Cost Calculator</a></li>',
+                  '<li><a href="/paver-sealing-cost-calculator">Paver sealing cost calculator</a></li>',
+                  '<li><a href="/paver-sealing-cost-calculator">Instant Pricing Calculator</a></li>'
+              ]
+              inserted = False
+              for c in candidates:
+                  if c in s:
+                      s = s.replace(c, c + '\n          <li><a href="/tools/paver-sealing-cost-widget">Free Paver Sealing Cost Widget</a></li>', 1)
+                      inserted = True
+                      break
+              if not inserted:
+                  # Fallback: append to first Main list before its closing ul.
+                  main = re.search(r'(<h2>Main</h2>.*?<ul[^>]*>)(.*?)(</ul>)', s, flags=re.S)
+                  if not main:
+                      raise SystemExit('sitemap Main list not found')
+                  replacement = main.group(1) + main.group(2) + '\n          <li><a href="/tools/paver-sealing-cost-widget">Free Paver Sealing Cost Widget</a></li>\n        ' + main.group(3)
+                  s = s[:main.start()] + replacement + s[main.end():]
+          p.write_text(s)
+
+          # AI-facing source map: remove retired priority location URLs and add current tool/resource map.
+          p = Path('llms.txt')
+          s = p.read_text()
+          s = re.sub(r'last_verified: "[0-9-]+"', 'last_verified: "2026-09-03"', s, count=1)
+          s = re.sub(r'service_area_verified: "[0-9-]+"', 'service_area_verified: "2026-09-03"', s, count=1)
+          s = s.replace('pricing_status: confirm directly', 'pricing_status: published starting rates available; final project pricing confirm directly')
+          service_block = '''## Service-area hubs\n- Jacksonville: https://hydrosealpavers.com/service-areas/jacksonville\n- St. Johns County: https://hydrosealpavers.com/service-areas/st-johns-county\n- Clay County: https://hydrosealpavers.com/service-areas/clay-county\n- Yulee & Wildlight: https://hydrosealpavers.com/service-areas/yulee\n\nPriority local pages:\n- Jacksonville Beach: https://hydrosealpavers.com/service-areas/jacksonville/jacksonville-beach\n- Mandarin: https://hydrosealpavers.com/service-areas/jacksonville/mandarin\n- Southside Jacksonville: https://hydrosealpavers.com/service-areas/jacksonville/southside\n- Nocatee: https://hydrosealpavers.com/service-areas/st-johns-county/nocatee\n- Ponte Vedra: https://hydrosealpavers.com/service-areas/st-johns-county/ponte-vedra\n- Ponte Vedra Beach: https://hydrosealpavers.com/service-areas/st-johns-county/ponte-vedra-beach\n- Julington Creek: https://hydrosealpavers.com/service-areas/st-johns-county/julington-creek\n- Fruit Cove: https://hydrosealpavers.com/service-areas/st-johns-county/fruit-cove\n- Durbin Crossing: https://hydrosealpavers.com/service-areas/st-johns-county/durbin-crossing\n- TrailMark: https://hydrosealpavers.com/service-areas/st-johns-county/trailmark\n- Fleming Island: https://hydrosealpavers.com/service-areas/clay-county/fleming-island\n- Orange Park: https://hydrosealpavers.com/service-areas/clay-county/orange-park\n- Oakleaf Plantation: https://hydrosealpavers.com/service-areas/clay-county/oakleaf-plantation\n- Middleburg: https://hydrosealpavers.com/service-areas/clay-county/middleburg\n- Yulee / Wildlight: https://hydrosealpavers.com/service-areas/yulee\n\n## Free publisher and citation resources\n- Full paver-sealing cost calculator: https://hydrosealpavers.com/paver-sealing-cost-calculator\n- Embeddable paver-sealing cost widget: https://hydrosealpavers.com/tools/paver-sealing-cost-widget\n- Widget JavaScript: https://hydrosealpavers.com/assets/js/paver-sealing-cost-widget.js\n- Published starting rates used by the estimator: $1.50/sq ft for concrete or brick pavers; $1.60/sq ft for travertine or natural stone. Final pricing depends on project conditions and must be confirmed directly.\n- The embedded widget collects no visitor contact information and uses no API key.\n- Built-in widget links are branded and nofollow; editorial citations are optional and should be contextually relevant.\n\n'''
+          pattern = r'## Service-area hubs\n.*?(?=## Additional preferred educational sources)'
+          if not re.search(pattern, s, flags=re.S):
+              raise SystemExit('llms service-area block not found')
+          s = re.sub(pattern, service_block, s, flags=re.S)
+          p.write_text(s)
+          PY
+          git diff --check
+      - name: Commit widget integration
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sitemap.xml sitemap.html paver-sealing-cost-calculator/index.html llms.txt
+          git diff --cached --check
+          git commit -m "Integrate publisher cost widget across site" || exit 0
+          git push
