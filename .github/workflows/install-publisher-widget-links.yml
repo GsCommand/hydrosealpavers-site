@@ -61,11 +61,10 @@ jobs:
                       inserted = True
                       break
               if not inserted:
-                  # Fallback: append to first Main list before its closing ul.
                   main = re.search(r'(<h2>Main</h2>.*?<ul[^>]*>)(.*?)(</ul>)', s, flags=re.S)
                   if not main:
                       raise SystemExit('sitemap Main list not found')
-                  replacement = main.group(1) + main.group(2) + '\n          <li><a href="/tools/paver-sealing-cost-widget">Free Paver Sealing Cost Widget</a></li>\n        ' + main.group(3)
+                  replacement = main.group(1) + main.group(2) + '\n          <li><a href="/tools/paver-sealing-cost-widget">Free Paver Sealing Cost Widget</a></li>\n' + main.group(3)
                   s = s[:main.start()] + replacement + s[main.end():]
           p.write_text(s)
 
@@ -81,6 +80,12 @@ jobs:
               raise SystemExit('llms service-area block not found')
           s = re.sub(pattern, service_block, s, flags=re.S)
           p.write_text(s)
+
+          # Remove trailing whitespace from touched text files.
+          for name in ['sitemap.xml','sitemap.html','paver-sealing-cost-calculator/index.html','llms.txt']:
+              q = Path(name)
+              text = q.read_text()
+              q.write_text('\n'.join(line.rstrip() for line in text.splitlines()) + '\n')
           PY
           git diff --check
       - name: Commit widget integration
