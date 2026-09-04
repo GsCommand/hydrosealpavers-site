@@ -1,0 +1,40 @@
+name: Rebuild Clay and St Johns child pages v3
+
+on:
+  push:
+    paths:
+      - 'tools/rebuild-clay-stjohns-child-pages-v3.py'
+      - '.github/workflows/rebuild-clay-stjohns-child-pages-v3.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Rebuild Clay and St Johns child pages
+        run: |
+          python tools/rebuild-clay-stjohns-child-pages-v3.py
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('service-areas/st-johns-county/trailmark.html')
+          s=p.read_text()
+          s=s.replace('Why keep this page separate from the St. Johns County page?','What makes TrailMark paver maintenance different from eastern St. Johns County?')
+          s=s.replace('TrailMark homeowners have a distinct western St. Johns exposure pattern with newer open-sun hardscapes, irrigation and storm runoff, so the service guidance here is tailored to those property conditions.','TrailMark often has newer, more open-sun hardscapes with less mature tree canopy, regular irrigation and strong storm runoff. Those conditions can create a different wear pattern from more shaded or coastal parts of St. Johns County.')
+          p.write_text(s)
+          PY
+          sed -i 's/[[:space:]]\+$//' service-areas/clay-county/fleming-island.html service-areas/clay-county/orange-park.html service-areas/clay-county/oakleaf-plantation.html service-areas/clay-county/middleburg.html service-areas/st-johns-county/nocatee.html service-areas/st-johns-county/ponte-vedra.html service-areas/st-johns-county/ponte-vedra-beach.html service-areas/st-johns-county/julington-creek.html service-areas/st-johns-county/fruit-cove.html service-areas/st-johns-county/durbin-crossing.html service-areas/st-johns-county/trailmark.html
+          git diff --check
+      - name: Commit rebuilt regional child pages
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add service-areas/clay-county/fleming-island.html service-areas/clay-county/orange-park.html service-areas/clay-county/oakleaf-plantation.html service-areas/clay-county/middleburg.html service-areas/st-johns-county/nocatee.html service-areas/st-johns-county/ponte-vedra.html service-areas/st-johns-county/ponte-vedra-beach.html service-areas/st-johns-county/julington-creek.html service-areas/st-johns-county/fruit-cove.html service-areas/st-johns-county/durbin-crossing.html service-areas/st-johns-county/trailmark.html
+          git diff --cached --check
+          git commit -m "Rebuild Clay and St Johns child location pages" || exit 0
+          git push
