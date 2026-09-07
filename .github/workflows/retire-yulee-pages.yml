@@ -29,9 +29,6 @@ jobs:
           OLD_YULEE = 'https://hydrosealpavers.com/service-areas/yulee'
           OLD_WILDLIGHT = 'https://hydrosealpavers.com/service-areas/wildlight'
 
-          # Point every remaining HydroSeal HTML link/reference for these two retired
-          # landing pages to the dedicated local site. Keep ordinary text saying
-          # HydroSeal serves Yulee/Wildlight.
           for p in Path('.').rglob('*.html'):
               if p.as_posix() in ('service-areas/yulee.html', 'service-areas/wildlight.html'):
                   continue
@@ -44,7 +41,6 @@ jobs:
               s = s.replace(OLD_WILDLIGHT, WILDLIGHT)
               p.write_text(s)
 
-          # Remove HydroSeal Yulee from the XML sitemap entirely.
           p = Path('sitemap.xml')
           s = p.read_text()
           s = re.sub(
@@ -53,7 +49,6 @@ jobs:
           )
           p.write_text(s)
 
-          # AI-facing map: the dedicated Yulee site owns Yulee/Wildlight local intent.
           p = Path('llms.txt')
           s = p.read_text()
           s = s.replace('- Yulee & Wildlight HydroSeal service coverage: https://hydrosealpavers.com/service-areas/yulee\n', '')
@@ -62,18 +57,6 @@ jobs:
           s = s.replace('https://hydrosealpavers.com/service-areas/wildlight', WILDLIGHT)
           p.write_text(s)
 
-          # Make sure the publisher workflow cannot recreate the retired HydroSeal URL
-          # in llms.txt on a future run.
-          publisher = Path('.github/workflows/install-publisher-widget-links.yml')
-          if publisher.exists():
-              s = publisher.read_text()
-              s = s.replace('- Yulee & Wildlight HydroSeal service coverage: https://hydrosealpavers.com/service-areas/yulee\\n', '')
-              s = s.replace('- Yulee / Wildlight: https://hydrosealpavers.com/service-areas/yulee\\n', '')
-              s = s.replace('https://hydrosealpavers.com/service-areas/yulee', YULEE)
-              s = s.replace('https://hydrosealpavers.com/service-areas/wildlight', WILDLIGHT)
-              publisher.write_text(s)
-
-          # Add permanent redirects for both extensionless and legacy .html forms.
           p = Path('vercel.json')
           cfg = json.loads(p.read_text())
           sources = {
@@ -83,7 +66,6 @@ jobs:
               '/service-areas/wildlight.html': WILDLIGHT,
           }
           redirects = [r for r in cfg.get('redirects', []) if r.get('source') not in sources]
-          # Put these before catch-all host/protocol redirects.
           new_redirects = [
               {'source': src, 'destination': dest, 'permanent': True}
               for src, dest in sources.items()
@@ -91,13 +73,11 @@ jobs:
           cfg['redirects'] = new_redirects + redirects
           p.write_text(json.dumps(cfg, indent=2) + '\n')
 
-          # Remove the competing HydroSeal landing files.
           for name in ('service-areas/yulee.html', 'service-areas/wildlight.html'):
               q = Path(name)
               if q.exists():
                   q.unlink()
 
-          # Final safety checks.
           assert not Path('service-areas/yulee.html').exists()
           assert not Path('service-areas/wildlight.html').exists()
           assert OLD_YULEE not in Path('sitemap.xml').read_text()
@@ -124,7 +104,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
+          git add -A -- ':!.github/workflows/*'
           git diff --cached --check
           git commit -m "Retire HydroSeal Yulee and Wildlight landing pages" || exit 0
           git push
