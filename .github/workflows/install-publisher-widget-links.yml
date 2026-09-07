@@ -82,6 +82,26 @@ jobs:
           s = re.sub(pattern, service_block, s, flags=re.S)
           p.write_text(s)
 
+          # Retire direct internal links to the old HydroSeal Yulee/Wildlight landing pages.
+          # Keep generic Yulee/Wildlight service-area language and areaServed schema intact.
+          replacements = {
+              'href="/service-areas/yulee"': 'href="https://www.yuleepaversealing.com/"',
+              "href='/service-areas/yulee'": "href='https://www.yuleepaversealing.com/'",
+              'href="https://hydrosealpavers.com/service-areas/yulee"': 'href="https://www.yuleepaversealing.com/"',
+              "href='https://hydrosealpavers.com/service-areas/yulee'": "href='https://www.yuleepaversealing.com/'",
+              'href="/service-areas/wildlight"': 'href="https://www.yuleepaversealing.com/wildlight-paver-sealing.html"',
+              "href='/service-areas/wildlight'": "href='https://www.yuleepaversealing.com/wildlight-paver-sealing.html'",
+              'href="https://hydrosealpavers.com/service-areas/wildlight"': 'href="https://www.yuleepaversealing.com/wildlight-paver-sealing.html"',
+              "href='https://hydrosealpavers.com/service-areas/wildlight'": "href='https://www.yuleepaversealing.com/wildlight-paver-sealing.html'",
+          }
+          for q in Path('.').rglob('*.html'):
+              text = q.read_text()
+              updated = text
+              for old, new in replacements.items():
+                  updated = updated.replace(old, new)
+              if updated != text:
+                  q.write_text(updated)
+
           # Remove trailing whitespace from touched text files.
           for name in ['sitemap.xml','sitemap.html','paver-sealing-cost-calculator/index.html','llms.txt']:
               q = Path(name)
@@ -93,7 +113,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add sitemap.xml sitemap.html paver-sealing-cost-calculator/index.html llms.txt
+          git add -- '*.html' sitemap.xml sitemap.html paver-sealing-cost-calculator/index.html llms.txt
           git diff --cached --check
-          git commit -m "Integrate publisher cost widget across site" || exit 0
+          git commit -m "Consolidate Yulee and Wildlight links to dedicated site" || exit 0
           git push
