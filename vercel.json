@@ -116,26 +116,6 @@
       "permanent": true
     },
     {
-      "source": "/service-areas/yulee",
-      "destination": "https://www.yuleepaversealing.com/",
-      "permanent": true
-    },
-    {
-      "source": "/service-areas/yulee.html",
-      "destination": "https://www.yuleepaversealing.com/",
-      "permanent": true
-    },
-    {
-      "source": "/service-areas/wildlight",
-      "destination": "https://www.yuleepaversealing.com/wildlight-paver-sealing.html",
-      "permanent": true
-    },
-    {
-      "source": "/service-areas/wildlight.html",
-      "destination": "https://www.yuleepaversealing.com/wildlight-paver-sealing.html",
-      "permanent": true
-    },
-    {
       "source": "/paver-sealing/driveways/",
       "destination": "/paver-sealing/driveways",
       "permanent": true
