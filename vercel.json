@@ -116,8 +116,23 @@
       "permanent": true
     },
     {
+      "source": "/service-areas/yulee",
+      "destination": "https://www.yuleepaversealing.com/",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/yulee.html",
+      "destination": "https://www.yuleepaversealing.com/",
+      "permanent": true
+    },
+    {
       "source": "/service-areas/wildlight",
-      "destination": "https://hydrosealpavers.com/service-areas/yulee",
+      "destination": "https://www.yuleepaversealing.com/wildlight-paver-sealing.html",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/wildlight.html",
+      "destination": "https://www.yuleepaversealing.com/wildlight-paver-sealing.html",
       "permanent": true
     },
     {
