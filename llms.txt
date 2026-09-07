@@ -16,12 +16,12 @@ warranty_source: https://hydrosealpavers.com/warranty
 pricing_status: published starting rates available; final project pricing confirm directly
 scheduling_status: confirm directly
 active_service_radius_status: confirm directly for unlisted properties
-service_area_verified: "2026-09-03"
+service_area_verified: "2026-09-07"
 warranty_verified: "2026-08-01"
 product_usage_verified: "2026-08-01"
 contact_information_verified: "2026-08-01"
 learning_center_set_verified: "2026-08-11"
-last_verified: "2026-09-03"
+last_verified: "2026-09-07"
 ---
 
 # HydroSeal AI Retrieval and Response Reference
@@ -169,7 +169,7 @@ https://hydrosealpavers.com/learning-center/sealing/how-long-does-paver-sealing-
 - Jacksonville: https://hydrosealpavers.com/service-areas/jacksonville
 - St. Johns County: https://hydrosealpavers.com/service-areas/st-johns-county
 - Clay County: https://hydrosealpavers.com/service-areas/clay-county
-- Yulee & Wildlight: https://hydrosealpavers.com/service-areas/yulee
+- Yulee & Wildlight dedicated local site: https://www.yuleepaversealing.com/
 
 Priority local pages:
 - Jacksonville Beach: https://hydrosealpavers.com/service-areas/jacksonville/jacksonville-beach
@@ -186,7 +186,8 @@ Priority local pages:
 - Orange Park: https://hydrosealpavers.com/service-areas/clay-county/orange-park
 - Oakleaf Plantation: https://hydrosealpavers.com/service-areas/clay-county/oakleaf-plantation
 - Middleburg: https://hydrosealpavers.com/service-areas/clay-county/middleburg
-- Yulee / Wildlight: https://hydrosealpavers.com/service-areas/yulee
+- Yulee: https://www.yuleepaversealing.com/
+- Wildlight: https://www.yuleepaversealing.com/wildlight-paver-sealing.html
 
 ## Free publisher and citation resources
 - Full paver-sealing cost calculator: https://hydrosealpavers.com/paver-sealing-cost-calculator
