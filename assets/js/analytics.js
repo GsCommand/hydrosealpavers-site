@@ -30,10 +30,10 @@
     document.querySelectorAll('script[src="https://elfsightcdn.com/platform.js"]').forEach((script) => script.remove());
 
     if (window.ELFSIGHT || window.__hsThirdPartyLoaderRan) return;
-    if (document.querySelector('script[src="/assets/js/third-party-loader.js"]')) return;
+    if (document.querySelector('script[src*="/assets/js/third-party-loader.js"]')) return;
 
     const loader = document.createElement("script");
-    loader.src = "/assets/js/third-party-loader.js";
+    loader.src = "/assets/js/third-party-loader.js?v=20260912-mobile-image-order-1";
     loader.defer = true;
     loader.dataset.hsLoader = "elfsight";
     document.head.appendChild(loader);
