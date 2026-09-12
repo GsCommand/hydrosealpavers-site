@@ -1,5 +1,5 @@
 /* Mobile-only hero glass transparency override.
-   Keeps desktop untouched and makes all core mobile service hero panels fully see-through. */
+   Keeps desktop untouched and removes all visible glass fill/blur/shadow on core mobile service heroes. */
 @media (max-width:650px){
   body.page-driveway-sealing .dw-hero__glass,
   .pool-service-hero__glass,
@@ -7,8 +7,12 @@
   .sd-hero__glass,
   body>.header+main>.hero .glass,
   .sand-page-hero .sand-intro{
-    background:transparent!important;
+    background:none!important;
+    background-color:transparent!important;
+    background-image:none!important;
     -webkit-backdrop-filter:none!important;
     backdrop-filter:none!important;
+    box-shadow:none!important;
+    border-color:transparent!important;
   }
 }
