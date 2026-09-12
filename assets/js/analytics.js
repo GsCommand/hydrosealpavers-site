@@ -9,6 +9,16 @@
       .replace(/\/$/, "");
   }
 
+  function ensureSearchIntentCopyLoader() {
+    if (window.__hsSearchIntentCopyRan) return;
+    if (document.querySelector('script[data-hs-search-intent="1"]')) return;
+
+    const script = document.createElement("script");
+    script.src = "/assets/js/search-intent-copy.js?v=20260912";
+    script.dataset.hsSearchIntent = "1";
+    document.head.appendChild(script);
+  }
+
   function ensureSharedElfsightLoader() {
     const widget = document.querySelector('[class*="elfsight-app-"]');
     if (!widget) return;
@@ -121,6 +131,7 @@
     document.head.appendChild(style);
   }
 
+  ensureSearchIntentCopyLoader();
   ensureSharedElfsightLoader();
   removeStripResealNavLink();
   removePatioHeroDescription();
@@ -128,6 +139,7 @@
   fixStripCostArticleHeader();
 
   document.addEventListener("DOMContentLoaded", function () {
+    ensureSearchIntentCopyLoader();
     ensureSharedElfsightLoader();
     removeStripResealNavLink();
     removePatioHeroDescription();
