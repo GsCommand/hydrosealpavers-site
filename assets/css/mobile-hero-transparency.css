@@ -1,5 +1,5 @@
 /* Mobile-only hero glass transparency override.
-   Keeps desktop untouched, removes visible glass, hides the small eyebrow line, and uses HydroSeal dark blue for mobile hero subheads. */
+   Keeps desktop untouched, removes visible glass, and hides the small eyebrow line on core mobile heroes. */
 @media (max-width:650px){
   body.page-driveway-sealing .dw-hero__glass,
   .pool-service-hero__glass,
@@ -23,15 +23,5 @@
   body>.header+main>.hero .glass>.seo-h1,
   .sand-page-hero .sand-eyebrow{
     display:none!important;
-  }
-
-  body.page-driveway-sealing .dw-hero h2,
-  .pool-service-hero__subhead,
-  .trav-service-hero__subhead,
-  .sd-subhead,
-  body>.header+main>.hero .glass>h2,
-  .patio-service-hero__subhead,
-  .service-hub-hero__sub{
-    color:#0b2d4a!important;
   }
 }
