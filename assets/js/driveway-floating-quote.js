@@ -1,6 +1,6 @@
 (function () {
-  var path = location.pathname.replace(/\/$/, '');
-  if (path !== '/paver-sealing/driveways') return;
+  if (window.__hsFloatingQuoteInit) return;
+  window.__hsFloatingQuoteInit = true;
 
   var desktopOnly = window.matchMedia('(min-width:1181px) and (hover:hover) and (pointer:fine)');
   if (!desktopOnly.matches) return;
@@ -56,15 +56,20 @@
     });
   }
 
-  var hero = document.querySelector('.dw-hero');
-  if (!hero) return;
+  var hero = document.querySelector('.dw-hero, .hero, .pool-service-hero, .loc-hero, .service-hero, .cost-hero, .learning-hero, .article-hero, main > section:first-of-type');
 
   function update() {
-    var rect = hero.getBoundingClientRect();
-    box.classList.toggle('is-visible', rect.bottom < 140);
+    var shouldShow;
+    if (hero) {
+      shouldShow = hero.getBoundingClientRect().bottom < 140;
+    } else {
+      shouldShow = window.scrollY > 240;
+    }
+    box.classList.toggle('is-visible', shouldShow);
   }
 
   update();
+  window.setTimeout(update, 100);
   window.addEventListener('scroll', update, { passive: true });
   window.addEventListener('resize', update);
 })();
