@@ -1,0 +1,34 @@
+name: Remove footer exceptions
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/cleanup-footer-exceptions.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove page-specific footer hiding rules
+        shell: python
+        run: |
+          from pathlib import Path
+          p=Path('partials/footer.html')
+          t=p.read_text(encoding='utf-8')
+          block='''  body.page-learning-center .footer-service-areas,\n  body.page-service-areas .footer-service-areas,\n  body.page-driveway-sealing .footer-service-areas,\n  body:has(#calculator) .footer-service-areas { display: none !important; }\n\n'''
+          if block in t:
+            t=t.replace(block,'',1)
+          p.write_text(t,encoding='utf-8')
+      - name: Commit cleanup
+        shell: bash
+        run: |
+          git config user.name "HydroSeal Site Automation"
+          git config user.email "site-automation@users.noreply.github.com"
+          git add partials/footer.html
+          git commit -m "Remove page-specific footer exceptions"
+          git push origin HEAD:main
