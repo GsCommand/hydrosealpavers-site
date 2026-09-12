@@ -27,8 +27,6 @@
     const widget = document.querySelector('[class*="elfsight-app-"]');
     if (!widget) return;
 
-    // Older static pages embedded the Elfsight platform tag next to each widget.
-    // Remove every legacy copy and hand control to the one shared deferred loader.
     document.querySelectorAll('script[src="https://elfsightcdn.com/platform.js"]').forEach((script) => script.remove());
 
     if (window.ELFSIGHT || window.__hsThirdPartyLoaderRan) return;
@@ -39,6 +37,46 @@
     loader.defer = true;
     loader.dataset.hsLoader = "elfsight";
     document.head.appendChild(loader);
+  }
+
+  function prioritizeMobileImages() {
+    if (!window.matchMedia('(max-width:650px)').matches) return;
+
+    if (!window.__hsMobileImagePriorityObserver && 'IntersectionObserver' in window) {
+      window.__hsMobileImagePriorityObserver = new IntersectionObserver(function (entries) {
+        entries
+          .filter(function (entry) { return entry.isIntersecting || entry.intersectionRatio > 0; })
+          .sort(function (a, b) { return a.boundingClientRect.top - b.boundingClientRect.top; })
+          .forEach(function (entry) {
+            var img = entry.target;
+            window.__hsMobileImagePriorityObserver.unobserve(img);
+            img.setAttribute('loading', 'eager');
+            img.setAttribute('fetchpriority', 'high');
+
+            var settle = function () {
+              if (img.getAttribute('fetchpriority') === 'high') img.setAttribute('fetchpriority', 'auto');
+            };
+
+            if (img.complete) settle();
+            else {
+              img.addEventListener('load', settle, { once: true });
+              img.addEventListener('error', settle, { once: true });
+            }
+          });
+      }, { rootMargin: '120px 0px', threshold: 0.01 });
+    }
+
+    document.querySelectorAll('main img[loading="lazy"]').forEach(function (img) {
+      var src = img.currentSrc || img.getAttribute('src') || '';
+      if (!src || src.indexOf('data:') === 0) return;
+      if (img.dataset.hsMobilePriority === '1') return;
+
+      img.dataset.hsMobilePriority = '1';
+      img.setAttribute('fetchpriority', 'low');
+      if (window.__hsMobileImagePriorityObserver) {
+        window.__hsMobileImagePriorityObserver.observe(img);
+      }
+    });
   }
 
   function removeStripResealNavLink() {
@@ -137,6 +175,7 @@
 
   ensureFloatingQuoteLoader();
   ensureSharedElfsightLoader();
+  prioritizeMobileImages();
   removeStripResealNavLink();
   removePatioHeroDescription();
   injectPatioRecentProjects();
@@ -145,6 +184,7 @@
   document.addEventListener("DOMContentLoaded", function () {
     ensureFloatingQuoteLoader();
     ensureSharedElfsightLoader();
+    prioritizeMobileImages();
     removeStripResealNavLink();
     removePatioHeroDescription();
     injectPatioRecentProjects();
@@ -153,6 +193,7 @@
 
   const navObserver = new MutationObserver(function () {
     ensureSharedElfsightLoader();
+    prioritizeMobileImages();
     removeStripResealNavLink();
     removePatioHeroDescription();
     injectPatioRecentProjects();
