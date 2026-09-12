@@ -6,6 +6,12 @@
   if (window.__hs_includes_ran) return;
   window.__hs_includes_ran = true;
 
+  // Every real page now uses the same shared footer. Mark the page before
+  // the footer is inserted so legacy page CSS cannot style it differently.
+  if (document.querySelector('[data-include="/partials/footer.html"], footer.site-footer')) {
+    document.body.classList.add("shared-footer-page");
+  }
+
   // Prevent the browser's temporary mouse-focus outline from flashing in the
   // upper-left corner while navigating between Learning Center pages. Keyboard
   // focus remains unchanged for accessibility.
@@ -206,11 +212,6 @@
       placeholder.classList.add("is-loaded");
     });
 
-    // Learning Center pages use the shared footer without the brand/description
-    // block so Contact remains aligned with the other footer columns.
-    if (document.body.classList.contains("page-learning-center")) {
-      document.querySelectorAll("footer .footer-brand").forEach((brand) => brand.remove());
-    }
 
     await new Promise((r) => setTimeout(r, 0));
 
