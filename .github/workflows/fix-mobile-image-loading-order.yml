@@ -16,151 +16,38 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Patch mobile image and widget loading priorities
+      - name: Patch mobile Elfsight loading
         run: |
           python - <<'PY'
           from pathlib import Path
-
-          # 1) On mobile, do not let the first scroll/touch force every Elfsight widget
-          # to begin downloading. Wait until the first widget actually reaches the viewport.
           p = Path('assets/js/third-party-loader.js')
           s = p.read_text()
-
           old_margin = "      }, { rootMargin: '300px 0px' });"
           new_margin = "      }, { rootMargin: window.matchMedia('(max-width:650px)').matches ? '0px 0px' : '300px 0px' });"
           if old_margin not in s:
-              raise SystemExit('third-party-loader rootMargin marker not found')
+              raise SystemExit('rootMargin marker not found')
           s = s.replace(old_margin, new_margin, 1)
-
-          old_events = """  ['pointerdown', 'touchstart', 'scroll'].forEach((eventName) => {
-    window.addEventListener(eventName, loadElfsight, { once: true, passive: true });
-  });"""
-          new_events = """  // Desktop keeps the early interaction warm-up. On mobile, loading on the
-  // first scroll/touch caused lower galleries to compete with normal page images.
-  if (!window.matchMedia('(max-width:650px)').matches) {
-    ['pointerdown', 'touchstart', 'scroll'].forEach((eventName) => {
-      window.addEventListener(eventName, loadElfsight, { once: true, passive: true });
-    });
-  }"""
+          old_events = "  ['pointerdown', 'touchstart', 'scroll'].forEach((eventName) => {\n    window.addEventListener(eventName, loadElfsight, { once: true, passive: true });\n  });"
+          new_events = "  // Desktop keeps the early interaction warm-up. Mobile waits for the widget to reach the viewport.\n  if (!window.matchMedia('(max-width:650px)').matches) {\n    ['pointerdown', 'touchstart', 'scroll'].forEach((eventName) => {\n      window.addEventListener(eventName, loadElfsight, { once: true, passive: true });\n    });\n  }"
           if old_events not in s:
-              raise SystemExit('third-party-loader interaction marker not found')
+              raise SystemExit('interaction marker not found')
           s = s.replace(old_events, new_events, 1)
           p.write_text(s)
-
-          # 2) Keep below-the-fold mobile images low priority until they are close to the
-          # viewport, then promote only the images the user is actually reaching.
-          p = Path('assets/js/analytics.js')
-          s = p.read_text()
-
-          marker = "  function removeStripResealNavLink() {"
-          if marker not in s:
-              raise SystemExit('analytics insertion marker not found')
-
-          fn = r'''  function prioritizeMobileImages() {
-    if (!window.matchMedia('(max-width:650px)').matches) return;
-
-    if (!window.__hsMobileImagePriorityObserver && 'IntersectionObserver' in window) {
-      window.__hsMobileImagePriorityObserver = new IntersectionObserver(function (entries) {
-        entries
-          .filter(function (entry) { return entry.isIntersecting || entry.intersectionRatio > 0; })
-          .sort(function (a, b) { return a.boundingClientRect.top - b.boundingClientRect.top; })
-          .forEach(function (entry) {
-            var img = entry.target;
-            window.__hsMobileImagePriorityObserver.unobserve(img);
-            img.setAttribute('loading', 'eager');
-            img.setAttribute('fetchpriority', 'high');
-
-            var settle = function () {
-              if (img.getAttribute('fetchpriority') === 'high') img.setAttribute('fetchpriority', 'auto');
-            };
-            if (img.complete) settle();
-            else {
-              img.addEventListener('load', settle, { once: true });
-              img.addEventListener('error', settle, { once: true });
-            }
-          });
-      }, { rootMargin: '120px 0px', threshold: 0.01 });
-    }
-
-    document.querySelectorAll('main img[loading="lazy"]').forEach(function (img) {
-      var src = img.currentSrc || img.getAttribute('src') || '';
-      if (!src || src.indexOf('data:') === 0) return;
-      if (img.dataset.hsMobilePriority === '1') return;
-
-      img.dataset.hsMobilePriority = '1';
-      img.setAttribute('fetchpriority', 'low');
-      if (window.__hsMobileImagePriorityObserver) {
-        window.__hsMobileImagePriorityObserver.observe(img);
-      }
-    });
-  }
-
-'''
-          s = s.replace(marker, fn + marker, 1)
-
-          init_old = """  ensureFloatingQuoteLoader();
-  ensureSharedElfsightLoader();
-  removeStripResealNavLink();"""
-          init_new = """  ensureFloatingQuoteLoader();
-  ensureSharedElfsightLoader();
-  prioritizeMobileImages();
-  removeStripResealNavLink();"""
-          if init_old not in s:
-              raise SystemExit('analytics initial-call marker not found')
-          s = s.replace(init_old, init_new, 1)
-
-          dom_old = """    ensureFloatingQuoteLoader();
-    ensureSharedElfsightLoader();
-    removeStripResealNavLink();"""
-          dom_new = """    ensureFloatingQuoteLoader();
-    ensureSharedElfsightLoader();
-    prioritizeMobileImages();
-    removeStripResealNavLink();"""
-          if dom_old not in s:
-              raise SystemExit('analytics DOMContentLoaded marker not found')
-          s = s.replace(dom_old, dom_new, 1)
-
-          mut_old = """    ensureSharedElfsightLoader();
-    removeStripResealNavLink();"""
-          mut_new = """    ensureSharedElfsightLoader();
-    prioritizeMobileImages();
-    removeStripResealNavLink();"""
-          if mut_old not in s:
-              raise SystemExit('analytics mutation marker not found')
-          s = s.replace(mut_old, mut_new, 1)
-
-          p.write_text(s)
-
-          print('Patched mobile image priorities and mobile Elfsight loading behavior.')
           PY
 
-      - name: Validate patches
+      - name: Validate patch
         run: |
-          python - <<'PY'
-          from pathlib import Path
-          a = Path('assets/js/analytics.js').read_text()
-          t = Path('assets/js/third-party-loader.js').read_text()
-          checks = {
-            'mobile priority function': 'function prioritizeMobileImages()' in a,
-            'lazy images default low': "img.setAttribute('fetchpriority', 'low')" in a,
-            'near viewport promotion': "rootMargin: '120px 0px'" in a,
-            'mobile widget viewport margin': "matches ? '0px 0px' : '300px 0px'" in t,
-            'mobile interaction guard': "if (!window.matchMedia('(max-width:650px)').matches)" in t,
-          }
-          failed = [k for k,v in checks.items() if not v]
-          print(checks)
-          if failed:
-              raise SystemExit('Validation failed: ' + ', '.join(failed))
-          PY
+          grep -F "matches ? '0px 0px' : '300px 0px'" assets/js/third-party-loader.js
+          grep -F "Mobile waits for the widget to reach the viewport" assets/js/third-party-loader.js
 
       - name: Commit fix
         run: |
           git config user.name "HydroSeal Site Automation"
           git config user.email "site-automation@users.noreply.github.com"
-          git add assets/js/analytics.js assets/js/third-party-loader.js
+          git add assets/js/third-party-loader.js
           if git diff --cached --quiet; then
             echo "No changes needed"
             exit 0
           fi
-          git commit -m "Fix mobile image loading order"
+          git commit -m "Delay mobile gallery loading until visible"
           git push origin HEAD:main
