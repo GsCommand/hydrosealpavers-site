@@ -1,6 +1,9 @@
 (function () {
   var path = location.pathname.replace(/\/$/, '');
   if (path !== '/paver-sealing/driveways') return;
+
+  var desktopOnly = window.matchMedia('(min-width:1181px) and (hover:hover) and (pointer:fine)');
+  if (!desktopOnly.matches) return;
   if (document.querySelector('.driveway-floating-quote')) return;
 
   var style = document.createElement('style');
@@ -15,7 +18,7 @@
     '.driveway-floating-quote__button:hover,.driveway-floating-quote__button:focus-visible{background:#56c9eb;transform:translateY(-1px)}',
     '.driveway-floating-quote__phone{display:block;margin-top:10px;color:#fff!important;font-size:11px;font-weight:850;text-align:center;text-decoration:none!important}',
     '.driveway-floating-quote__phone:hover,.driveway-floating-quote__phone:focus-visible{text-decoration:underline!important;text-underline-offset:3px}',
-    '@media(max-width:1180px){.driveway-floating-quote{display:none!important}}',
+    '@media(max-width:1180px),(hover:none),(pointer:coarse){.driveway-floating-quote{display:none!important}}',
     '@media(prefers-reduced-motion:reduce){.driveway-floating-quote{transition:none!important}}'
   ].join('');
   document.head.appendChild(style);
