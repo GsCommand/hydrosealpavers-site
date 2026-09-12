@@ -372,7 +372,7 @@
         if (!entries.some((entry) => entry.isIntersecting || entry.intersectionRatio > 0)) return;
         intersectionObserver.disconnect();
         loadElfsight();
-      }, { rootMargin: '300px 0px' });
+      }, { rootMargin: window.matchMedia('(max-width:650px)').matches ? '0px 0px' : '300px 0px' });
       intersectionObserver.observe(widget);
     } else if ('requestIdleCallback' in window) {
       requestIdleCallback(loadElfsight, { timeout: 2500 });
@@ -394,7 +394,10 @@
     mutationObserver.observe(document.documentElement, { childList: true, subtree: true });
   }
 
-  ['pointerdown', 'touchstart', 'scroll'].forEach((eventName) => {
-    window.addEventListener(eventName, loadElfsight, { once: true, passive: true });
-  });
+  // Desktop keeps the early interaction warm-up. Mobile waits for the widget to reach the viewport.
+  if (!window.matchMedia('(max-width:650px)').matches) {
+    ['pointerdown', 'touchstart', 'scroll'].forEach((eventName) => {
+      window.addEventListener(eventName, loadElfsight, { once: true, passive: true });
+    });
+  }
 })();
