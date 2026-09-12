@@ -40,7 +40,7 @@
     '<div class="driveway-floating-quote__brand"><img class="driveway-floating-quote__logo" src="/assets/hero/Hydrosealpaversealing.png" alt="HydroSeal" loading="lazy" decoding="async"></div>',
     '<p class="driveway-floating-quote__eyebrow">Quick Driveway Estimate</p>',
     '<h3>Ready for a quote?</h3>',
-    '<p class="driveway-floating-quote__copy">Send a few photos and your approximate square footage for a quick project review.</p>',
+    '<p class="driveway-floating-quote__copy">Text 2–3 photos and your approximate square footage for a quick project review.</p>',
     '<a class="driveway-floating-quote__button" href="/get-a-quote">Get a Quote</a>',
     '<a class="driveway-floating-quote__phone" href="tel:+19045375000">Call or text 904.537.5000</a>',
     '<div class="driveway-floating-quote__trust"><span>5-star rated</span><span>2-year workmanship warranty</span></div>'
