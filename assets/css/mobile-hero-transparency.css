@@ -1,0 +1,14 @@
+/* Mobile-only hero glass transparency override.
+   Keeps desktop untouched and makes all core mobile service hero panels match. */
+@media (max-width:650px){
+  body.page-driveway-sealing .dw-hero__glass,
+  .pool-service-hero__glass,
+  .trav-service-hero__glass,
+  .sd-hero__glass,
+  body>.header+main>.hero .glass,
+  .sand-page-hero .sand-intro{
+    background:rgba(5,32,51,.10)!important;
+    -webkit-backdrop-filter:blur(5px)!important;
+    backdrop-filter:blur(5px)!important;
+  }
+}
