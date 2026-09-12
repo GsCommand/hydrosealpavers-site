@@ -9,6 +9,19 @@
       .replace(/\/$/, "");
   }
 
+  function ensureFloatingQuoteLoader() {
+    var desktopOnly = window.matchMedia('(min-width:1181px) and (hover:hover) and (pointer:fine)');
+    if (!desktopOnly.matches) return;
+    if (window.__hsFloatingQuoteInit || window.__hsFloatingQuoteLoaderRequested) return;
+    if (document.querySelector('script[src*="/assets/js/driveway-floating-quote.js"]')) return;
+
+    window.__hsFloatingQuoteLoaderRequested = true;
+    var script = document.createElement("script");
+    script.src = "/assets/js/driveway-floating-quote.js?v=5";
+    script.defer = true;
+    script.dataset.hsFloatingQuote = "1";
+    document.head.appendChild(script);
+  }
 
   function ensureSharedElfsightLoader() {
     const widget = document.querySelector('[class*="elfsight-app-"]');
@@ -122,6 +135,7 @@
     document.head.appendChild(style);
   }
 
+  ensureFloatingQuoteLoader();
   ensureSharedElfsightLoader();
   removeStripResealNavLink();
   removePatioHeroDescription();
@@ -129,7 +143,8 @@
   fixStripCostArticleHeader();
 
   document.addEventListener("DOMContentLoaded", function () {
-      ensureSharedElfsightLoader();
+    ensureFloatingQuoteLoader();
+    ensureSharedElfsightLoader();
     removeStripResealNavLink();
     removePatioHeroDescription();
     injectPatioRecentProjects();
