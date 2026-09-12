@@ -136,3 +136,19 @@ body .site-footer .footer-brand{display:block!important;visibility:visible!impor
   .site-footer .footer-grid{grid-template-columns:1fr!important}
   .site-footer .footer-brand{grid-column:auto!important}
 }
+
+/* Homepage mobile hero correction: remove the SEO eyebrow pill and show the real display headline. Desktop is untouched. */
+@media(max-width:650px){
+  body>.header+main>.hero .glass>.seo-h1{display:none!important}
+  body>.header+main>.hero .glass>.hero-display-heading{
+    display:block!important;
+    margin:0!important;
+    color:#fff!important;
+    font-family:"Arial Black",Arial,sans-serif!important;
+    font-size:clamp(36px,11vw,46px)!important;
+    line-height:1!important;
+    letter-spacing:-1.2px!important;
+    text-align:center!important;
+    text-shadow:0 3px 18px rgba(0,0,0,.78)!important;
+  }
+}
