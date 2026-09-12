@@ -1,0 +1,257 @@
+name: Move search intent copy into FAQs
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/move-search-intent-to-faq.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Move static search-intent sections into visible FAQs and FAQ schema
+        shell: python
+        run: |
+          from pathlib import Path
+          import json
+          import re
+
+          targets = {
+            'index.html': {
+              'remove_id': 'hs-near-me-static',
+              'faq_id': 'faq',
+              'question': 'How do I find a paver sealing company near me?',
+              'answer_text': 'If you are searching for paver sealing near me, paver cleaning and sealing near me, or a paver sealing company near me, HydroSeal serves Jacksonville, St. Johns County, Ponte Vedra, Nocatee, Orange Park, Fleming Island, and nearby Northeast Florida communities. We evaluate paver condition, joint sand, previous sealer, drainage, and surface type before recommending cleaning, resealing, or restoration.',
+              'answer_html': 'If you are searching for <strong>paver sealing near me</strong>, <strong>paver cleaning and sealing near me</strong>, or a <strong>paver sealing company near me</strong>, HydroSeal serves Jacksonville, St. Johns County, Ponte Vedra, Nocatee, Orange Park, Fleming Island, and nearby Northeast Florida communities. We evaluate paver condition, joint sand, previous sealer, drainage, and surface type before recommending cleaning, resealing, or restoration.',
+              'style': 'home',
+            },
+            'paver-cleaning/index.html': {
+              'remove_id': 'hs-search-intent-cleaning',
+              'faq_marker': 'Paver cleaning FAQ',
+              'question': 'Where can I find paver cleaning and sealing near me?',
+              'answer_text': 'If you are searching for paver cleaning and sealing near me or paver restoration near me, HydroSeal serves Jacksonville, St. Johns County, Ponte Vedra, Nocatee, Orange Park, Fleming Island, and nearby Northeast Florida communities. We evaluate the paver surface, stains, joint sand, previous sealer, drainage, and overall condition before recommending cleaning only, cleaning and sealing, resealing, or a more involved restoration process.',
+              'answer_html': 'If you are searching for <strong>paver cleaning and sealing near me</strong> or <strong>paver restoration near me</strong>, HydroSeal serves Jacksonville, St. Johns County, Ponte Vedra, Nocatee, Orange Park, Fleming Island, and nearby Northeast Florida communities. We evaluate the paver surface, stains, joint sand, previous sealer, drainage, and overall condition before recommending cleaning only, cleaning and sealing, resealing, or a more involved restoration process.',
+              'style': 'plain',
+            },
+            'paver-resealing/index.html': {
+              'remove_id': 'hs-search-intent-resealing',
+              'faq_marker': 'Driveway sealing FAQs',
+              'question': 'How do I find paver restoration or paver sealing near me?',
+              'answer_text': 'If you are searching for paver restoration near me or paver sealing near me, HydroSeal serves Jacksonville, St. Johns County, Ponte Vedra, Nocatee, Orange Park, Fleming Island, and nearby Northeast Florida communities. We inspect whitening, peeling, fading, joint-sand loss, moisture, drainage, and the compatibility of the existing coating before recommending cleaning, resealing, stripping, or restoration.',
+              'answer_html': 'If you are searching for <strong>paver restoration near me</strong> or <strong>paver sealing near me</strong>, HydroSeal serves Jacksonville, St. Johns County, Ponte Vedra, Nocatee, Orange Park, Fleming Island, and nearby Northeast Florida communities. We inspect whitening, peeling, fading, joint-sand loss, moisture, drainage, and the compatibility of the existing coating before recommending cleaning, resealing, stripping, or restoration.',
+              'style': 'plain',
+            },
+            'paver-sealing/driveways.html': {
+              'remove_id': 'hs-search-intent-driveway',
+              'faq_marker': 'Driveway sealing FAQs',
+              'question': 'Who offers driveway paver sealing near me?',
+              'answer_text': 'If you are searching for driveway paver sealing near me, HydroSeal serves Jacksonville, St. Johns County, Ponte Vedra, Nocatee, Orange Park, Fleming Island, and nearby Northeast Florida communities. Driveway projects are evaluated for surface condition, stains, joint-sand loss, previous sealer, drainage, and repairs before we recommend cleaning, re-sanding, sealing, or restoration.',
+              'answer_html': 'If you are searching for <strong>driveway paver sealing near me</strong>, HydroSeal serves Jacksonville, St. Johns County, Ponte Vedra, Nocatee, Orange Park, Fleming Island, and nearby Northeast Florida communities. Driveway projects are evaluated for surface condition, stains, joint-sand loss, previous sealer, drainage, and repairs before we recommend cleaning, re-sanding, sealing, or restoration.',
+              'style': 'plain',
+            },
+            'paver-sealing/travertine-sealing.html': {
+              'remove_id': 'hs-search-intent-travertine',
+              'faq_id': 'travertine-faq',
+              'question': 'Who offers travertine sealing near me?',
+              'answer_text': 'If you are searching for travertine sealing near me, HydroSeal provides material-specific cleaning and sealing for travertine pool decks, patios, and outdoor living areas across Jacksonville, St. Johns County, Ponte Vedra, Nocatee, and nearby Northeast Florida communities. We evaluate porosity, moisture, fill condition, staining, previous treatments, and the desired finish before recommending the sealing process.',
+              'answer_html': 'If you are searching for <strong>travertine sealing near me</strong>, HydroSeal provides material-specific cleaning and sealing for travertine pool decks, patios, and outdoor living areas across Jacksonville, St. Johns County, Ponte Vedra, Nocatee, and nearby Northeast Florida communities. We evaluate porosity, moisture, fill condition, staining, previous treatments, and the desired finish before recommending the sealing process.',
+              'style': 'accordion',
+            },
+            'service-areas/st-johns-county/index.html': {
+              'remove_id': 'hs-search-intent-st-johns',
+              'faq_id': 'county-faq',
+              'question': 'Do you provide paver sealing in St. Johns, FL and St. Augustine, FL?',
+              'answer_text': 'Yes. HydroSeal provides paver sealing in St. Johns, FL and serves homeowners looking for paver sealing in St. Augustine, FL, along with Nocatee, Ponte Vedra, Palm Valley, Julington Creek, World Golf Village, and nearby St. Johns County communities. Services include driveway sealing, pool deck sealing, paver cleaning, joint-sand restoration, resealing, and travertine sealing.',
+              'answer_html': 'Yes. HydroSeal provides <strong>paver sealing in St. Johns, FL</strong> and serves homeowners looking for <strong>paver sealing in St. Augustine, FL</strong>, along with Nocatee, Ponte Vedra, Palm Valley, Julington Creek, World Golf Village, and nearby St. Johns County communities. Services include driveway sealing, pool deck sealing, paver cleaning, joint-sand restoration, resealing, and travertine sealing.',
+              'style': 'accordion',
+            },
+          }
+
+          def matching_tag_end(text, tag, start):
+            token = re.compile(rf'<{tag}\b[^>]*>|</{tag}>', re.I)
+            depth = 0
+            for m in token.finditer(text, start):
+              if m.group(0).lower().startswith(f'</{tag}'):
+                depth -= 1
+                if depth == 0:
+                  return m.end()
+              else:
+                depth += 1
+            raise RuntimeError(f'Could not balance <{tag}> starting at {start}')
+
+          def remove_section_by_id(text, section_id):
+            start_match = re.search(rf'<section\b[^>]*\bid=["\']{re.escape(section_id)}["\'][^>]*>', text, re.I)
+            if not start_match:
+              return text, False
+            end = matching_tag_end(text, 'section', start_match.start())
+            return text[:start_match.start()] + text[end:], True
+
+          def find_faq_section(text, cfg):
+            if cfg.get('faq_id'):
+              m = re.search(rf'<section\b[^>]*\bid=["\']{re.escape(cfg["faq_id"])}["\'][^>]*>', text, re.I)
+              if not m:
+                raise RuntimeError(f'FAQ section id {cfg["faq_id"]} not found')
+              start = m.start()
+            else:
+              marker = cfg['faq_marker']
+              pos = text.find(marker)
+              if pos < 0:
+                raise RuntimeError(f'FAQ marker not found: {marker}')
+              start = text.rfind('<section', 0, pos)
+              if start < 0:
+                raise RuntimeError(f'Opening section not found before marker: {marker}')
+            end = matching_tag_end(text, 'section', start)
+            return start, end
+
+          def visible_details(cfg):
+            q = cfg['question']
+            a = cfg['answer_html']
+            if cfg['style'] == 'home':
+              return f'<details><summary>{q}</summary><div class="faq-body"><p>{a}</p></div></details>'
+            if cfg['style'] == 'accordion':
+              return f'<details class="faq-item"><summary>{q}</summary><div class="faq-body"><p>{a}</p></div></details>'
+            return f'<details><summary>{q}</summary><p>{a}</p></details>'
+
+          def add_visible_faq(text, cfg):
+            start, end = find_faq_section(text, cfg)
+            section = text[start:end]
+            if cfg['question'] in section:
+              return text, False
+            last_details = section.lower().rfind('</details>')
+            if last_details < 0:
+              raise RuntimeError(f'No existing <details> found in FAQ section for {cfg["question"]}')
+            insert_at = start + last_details + len('</details>')
+            addition = visible_details(cfg)
+            return text[:insert_at] + addition + text[insert_at:], True
+
+          def walk_for_faq(obj):
+            if isinstance(obj, dict):
+              t = obj.get('@type')
+              if t == 'FAQPage' or (isinstance(t, list) and 'FAQPage' in t):
+                yield obj
+              for value in obj.values():
+                yield from walk_for_faq(value)
+            elif isinstance(obj, list):
+              for value in obj:
+                yield from walk_for_faq(value)
+
+          def add_schema_faq(text, cfg):
+            q = cfg['question']
+            a = cfg['answer_text']
+            entity = {'@type':'Question','name':q,'acceptedAnswer':{'@type':'Answer','text':a}}
+            script_re = re.compile(r'<script\b[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>', re.I | re.S)
+            replacements = []
+            found_faq = False
+            already = False
+            for m in script_re.finditer(text):
+              raw = m.group(1).strip()
+              try:
+                data = json.loads(raw)
+              except Exception:
+                continue
+              faq_nodes = list(walk_for_faq(data))
+              if not faq_nodes:
+                continue
+              found_faq = True
+              node = faq_nodes[0]
+              entities = node.setdefault('mainEntity', [])
+              if any(isinstance(x, dict) and x.get('name') == q for x in entities):
+                already = True
+                break
+              entities.append(entity)
+              new_json = json.dumps(data, ensure_ascii=False, separators=(',', ':'))
+              replacements.append((m.start(1), m.end(1), new_json))
+              break
+            if already:
+              return text, False
+            if replacements:
+              s,e,new = replacements[0]
+              return text[:s] + new + text[e:], True
+            schema = '<script type="application/ld+json">' + json.dumps({'@context':'https://schema.org','@type':'FAQPage','mainEntity':[entity]}, ensure_ascii=False, separators=(',', ':')) + '</script>\n'
+            head_end = text.lower().find('</head>')
+            if head_end < 0:
+              raise RuntimeError('No </head> found for schema insertion')
+            return text[:head_end] + schema + text[head_end:], True
+
+          changed = []
+          removed = []
+          visible_added = []
+          schema_added = []
+
+          for path, cfg in targets.items():
+            p = Path(path)
+            text = p.read_text(encoding='utf-8')
+            original = text
+
+            text, did_remove = remove_section_by_id(text, cfg['remove_id'])
+            if did_remove: removed.append(path)
+
+            text, did_visible = add_visible_faq(text, cfg)
+            if did_visible: visible_added.append(path)
+
+            text, did_schema = add_schema_faq(text, cfg)
+            if did_schema: schema_added.append(path)
+
+            if text != original:
+              p.write_text(text, encoding='utf-8')
+              changed.append(path)
+
+          # Validation: old injected standalone sections are gone; each question is
+          # visible and represented in valid FAQPage JSON-LD.
+          errors = []
+          script_re = re.compile(r'<script\b[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>', re.I | re.S)
+          for path, cfg in targets.items():
+            text = Path(path).read_text(encoding='utf-8')
+            if cfg['remove_id'] in text:
+              errors.append(f'{path}: old standalone section still present')
+            body_start = text.lower().find('<body')
+            if body_start < 0 or cfg['question'] not in text[body_start:]:
+              errors.append(f'{path}: visible FAQ question missing')
+            schema_ok = False
+            for m in script_re.finditer(text):
+              try:
+                data = json.loads(m.group(1).strip())
+              except Exception:
+                continue
+              for node in walk_for_faq(data):
+                if any(isinstance(x, dict) and x.get('name') == cfg['question'] and x.get('acceptedAnswer',{}).get('text') == cfg['answer_text'] for x in node.get('mainEntity', [])):
+                  schema_ok = True
+            if not schema_ok:
+              errors.append(f'{path}: matching FAQPage schema missing')
+
+          # Confirm the retired JS injector is not referenced anywhere.
+          refs = []
+          for p in Path('.').rglob('*'):
+            if not p.is_file() or '.git' in p.parts or p.suffix.lower() not in {'.html','.js','.css','.md','.txt'}:
+              continue
+            if 'search-intent-copy.js' in p.read_text(encoding='utf-8', errors='ignore'):
+              refs.append(str(p))
+          if refs:
+            errors.append('Retired search-intent-copy.js still referenced: ' + ', '.join(refs))
+
+          print('CHANGED:', len(changed), changed)
+          print('REMOVED STANDALONE:', len(removed), removed)
+          print('VISIBLE FAQ ADDED:', len(visible_added), visible_added)
+          print('FAQ SCHEMA ADDED:', len(schema_added), schema_added)
+          print('ERRORS:', len(errors), errors)
+          if errors:
+            raise SystemExit(1)
+
+      - name: Commit FAQ migration
+        shell: bash
+        run: |
+          git config user.name "HydroSeal Site Automation"
+          git config user.email "site-automation@users.noreply.github.com"
+          git add index.html paver-cleaning/index.html paver-resealing/index.html paver-sealing/driveways.html paver-sealing/travertine-sealing.html service-areas/st-johns-county/index.html
+          if git diff --cached --quiet; then
+            echo "No FAQ migration changes needed."
+            exit 0
+          fi
+          git commit -m "Move local search intent copy into page FAQs"
+          git push origin HEAD:main
