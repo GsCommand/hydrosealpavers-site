@@ -1,5 +1,6 @@
 from pathlib import Path
 
+# One-time branch refinement: preserve the original local place detail while adding hub links.
 p = Path('learning-center/hiring/how-to-choose-a-paver-sealing-company-in-northeast-florida/index.html')
 text = p.read_text(encoding='utf-8')
 old = '<h2>Local experience matters, but proximity is not enough</h2><p><a href="/service-areas/jacksonville">Jacksonville</a>, <a href="/service-areas/st-johns-county">St. Johns County</a>, and <a href="/service-areas/clay-county">Clay County</a> share heat and rain, but properties differ in irrigation, shade, drainage, salt exposure, pool chemicals, traffic, and paver type. A contractor should explain the conditions at your property rather than relying on a generic “Florida-proof” process.</p>'
