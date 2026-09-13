@@ -1,0 +1,20 @@
+name: Indexable service audit
+
+on:
+  push:
+    branches:
+      - seo/internal-authority-funnel
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: seo/internal-authority-funnel
+      - name: Audit current indexable service and location architecture
+        run: python tools/audit-indexable-pages.py
