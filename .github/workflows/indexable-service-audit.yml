@@ -1,4 +1,4 @@
-name: Indexable service audit
+name: Internal authority funnel
 
 on:
   push:
@@ -6,15 +6,28 @@ on:
       - seo/internal-authority-funnel
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  audit:
+  apply:
     if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           ref: seo/internal-authority-funnel
-      - name: Audit current indexable service and location architecture
-        run: python tools/audit-indexable-pages.py
+          fetch-depth: 0
+      - name: Apply contextual authority links
+        run: python tools/apply-internal-authority.py
+      - name: Commit branch-only changes
+        shell: bash
+        run: |
+          if git diff --quiet && git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git config user.name "HydroSeal Site Automation"
+          git config user.email "site-automation@users.noreply.github.com"
+          git add -A
+          git commit -m "Route Learning Center authority into core service pages"
+          git push origin HEAD:seo/internal-authority-funnel
