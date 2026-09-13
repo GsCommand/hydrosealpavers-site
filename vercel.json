@@ -1,6 +1,16 @@
 {
   "redirects": [
     {
+      "source": "/paver-sealing",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/paver-sealing/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/service-areas/yulee",
       "destination": "https://www.yuleepaversealing.com/",
       "permanent": true
