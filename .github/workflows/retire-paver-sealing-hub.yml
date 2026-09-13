@@ -1,0 +1,36 @@
+name: Retire paver sealing hub
+
+on:
+  push:
+    branches:
+      - seo/retire-paver-sealing-hub
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+        with:
+          ref: seo/retire-paver-sealing-hub
+          fetch-depth: 0
+
+      - name: Apply retirement changes
+        run: python tools/retire-paver-sealing-hub.py
+
+      - name: Commit branch-only changes
+        shell: bash
+        run: |
+          if git diff --quiet && git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git config user.name "HydroSeal Site Automation"
+          git config user.email "site-automation@users.noreply.github.com"
+          git add -A
+          git commit -m "Retire redundant paver sealing hub"
+          git push origin HEAD:seo/retire-paver-sealing-hub
