@@ -95,17 +95,24 @@ for path in child_pages:
     html = path.read_text(encoding="utf-8")
     new_html, count = parent_item.subn('', html, count=1)
     if count:
-        # The child becomes position 2 after the redundant parent is removed.
         new_html = re.sub(r'("position"\s*:\s*)3', r'\g<1>2', new_html, count=1)
     write_if_changed(path, new_html)
 
-# 9) Remove the retired source page. Child URLs under /paver-sealing/ remain untouched.
+# 9) Any remaining general internal link to the retired hub now points to the homepage.
+# Specific links above are handled first so contextual pages can point to a narrower service when appropriate.
+for path in ROOT.rglob("*.html"):
+    html = path.read_text(encoding="utf-8", errors="ignore")
+    if 'href="/paver-sealing"' in html:
+        html = html.replace('href="/paver-sealing"', 'href="/"')
+        write_if_changed(path, html)
+
+# 10) Remove the retired source page. Child URLs under /paver-sealing/ remain untouched.
 hub = ROOT / "paver-sealing/index.html"
 if hub.exists():
     hub.unlink()
     changed.append(str(hub.relative_to(ROOT)))
 
-# 10) Validation: no direct internal href should still point at the retired hub.
+# 11) Validation: no direct internal href or structured breadcrumb should still point at the retired hub.
 remaining_href = []
 remaining_breadcrumb_parent = []
 for path in ROOT.rglob("*.html"):
