@@ -18,7 +18,7 @@
     list.dataset.priorityLinksAdded = "true";
 
     const guides = [
-      ["/learning-center/local/best-time-of-year-to-seal-pavers-in-florida", "How Long Pavers Must Dry Before Sealing"],
+      ["/learning-center/local/best-time-of-year-to-seal-pavers-in-florida", "Best Time of Year to Seal Pavers in Florida"],
       ["/learning-center/problems/why-are-my-pavers-turning-white-in-florida", "Why Paver Sealer Turns White"],
       ["/learning-center/sealing/water-based-vs-solvent-based-paver-sealer", "Water-Based vs. Solvent-Based Paver Sealer"],
       ["/learning-center/sealing/how-to-choose-the-right-paver-sealer-for-your-home", "Best Paver Sealer for Florida Weather"],
