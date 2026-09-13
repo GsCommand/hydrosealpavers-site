@@ -68,57 +68,57 @@ html = html.replace(
 )
 write_if_changed(article, html)
 
-# 7) Remove the retired hub as a visible and structured breadcrumb parent from child service pages.
+# 7) Remove the retired hub as a visible breadcrumb parent from Sand Options.
 sand = ROOT / "paver-sealing/sand-options.html"
 html = sand.read_text(encoding="utf-8")
 html = html.replace(
     '<nav class="breadcrumb" aria-label="Breadcrumb"><div class="container"><a href="/">Home</a><span aria-hidden="true">&gt;</span><a href="/paver-sealing">Paver Sealing</a><span aria-hidden="true">&gt;</span><span aria-current="page">Sand Options</span></div></nav>',
     '<nav class="breadcrumb" aria-label="Breadcrumb"><div class="container"><a href="/">Home</a><span aria-hidden="true">&gt;</span><span aria-current="page">Sand Options</span></div></nav>',
 )
-html = html.replace(
-    '      {"@type":"ListItem","position":2,"name":"Paver Sealing","item":"https://hydrosealpavers.com/paver-sealing"},\n      {"@type":"ListItem","position":3,"name":"Sand Options","item":"https://hydrosealpavers.com/paver-sealing/sand-options"}',
-    '      {"@type":"ListItem","position":2,"name":"Sand Options","item":"https://hydrosealpavers.com/paver-sealing/sand-options"}',
-)
 write_if_changed(sand, html)
 
-# Compact JSON-LD breadcrumbs on driveway and pool-deck service pages.
-for rel, label, url in [
-    ("paver-sealing/driveways.html", "Driveways", "https://hydrosealpavers.com/paver-sealing/driveways"),
-    ("paver-sealing/pool-decks.html", "Pool Decks", "https://hydrosealpavers.com/paver-sealing/pool-decks"),
-]:
-    path = ROOT / rel
-    html = path.read_text(encoding="utf-8")
-    old = (
-        '{"@type":"BreadcrumbList","itemListElement":['
-        '{"@type":"ListItem","position":1,"name":"Home","item":"https://hydrosealpavers.com/"},'
-        '{"@type":"ListItem","position":2,"name":"Paver Sealing","item":"https://hydrosealpavers.com/paver-sealing"},'
-        f'{{"@type":"ListItem","position":3,"name":"{label}","item":"{url}"}}]}}'
-    )
-    new = (
-        '{"@type":"BreadcrumbList","itemListElement":['
-        '{"@type":"ListItem","position":1,"name":"Home","item":"https://hydrosealpavers.com/"},'
-        f'{{"@type":"ListItem","position":2,"name":"{label}","item":"{url}"}}]}}'
-    )
-    html = html.replace(old, new)
-    write_if_changed(path, html)
-
-# Multiline breadcrumb on patios/walkways.
-patios = ROOT / "paver-sealing/patios-walkways.html"
-html = patios.read_text(encoding="utf-8")
-html = re.sub(
-    r'\{\s*"@type":\s*"ListItem",\s*"position":\s*2,\s*"name":\s*"Paver Sealing",\s*"item":\s*"https://hydrosealpavers\.com/paver-sealing"\s*\},\s*',
-    '',
-    html,
-    count=1,
+# 8) Remove the retired hub from structured breadcrumbs on all child service pages.
+child_pages = [
+    ROOT / "paver-sealing/driveways.html",
+    ROOT / "paver-sealing/pool-decks.html",
+    ROOT / "paver-sealing/patios-walkways.html",
+    ROOT / "paver-sealing/sand-options.html",
+    ROOT / "paver-sealing/travertine-sealing.html",
+]
+parent_item = re.compile(
+    r'\{\s*"@type"\s*:\s*"ListItem"\s*,\s*"position"\s*:\s*2\s*,\s*"name"\s*:\s*"Paver Sealing"\s*,\s*"item"\s*:\s*"https://hydrosealpavers\.com/paver-sealing"\s*\}\s*,?\s*',
+    flags=re.DOTALL,
 )
-html = html.replace('"position": 3,\n      "name": "Patios & Walkways"', '"position": 2,\n      "name": "Patios & Walkways"', 1)
-write_if_changed(patios, html)
+for path in child_pages:
+    if not path.exists():
+        continue
+    html = path.read_text(encoding="utf-8")
+    new_html, count = parent_item.subn('', html, count=1)
+    if count:
+        # The child becomes position 2 after the redundant parent is removed.
+        new_html = re.sub(r'("position"\s*:\s*)3', r'\g<1>2', new_html, count=1)
+    write_if_changed(path, new_html)
 
-# 8) Remove the retired source page. Child URLs under /paver-sealing/ remain untouched.
+# 9) Remove the retired source page. Child URLs under /paver-sealing/ remain untouched.
 hub = ROOT / "paver-sealing/index.html"
 if hub.exists():
     hub.unlink()
     changed.append(str(hub.relative_to(ROOT)))
+
+# 10) Validation: no direct internal href should still point at the retired hub.
+remaining_href = []
+remaining_breadcrumb_parent = []
+for path in ROOT.rglob("*.html"):
+    text = path.read_text(encoding="utf-8", errors="ignore")
+    if 'href="/paver-sealing"' in text:
+        remaining_href.append(str(path.relative_to(ROOT)))
+    if '"item":"https://hydrosealpavers.com/paver-sealing"' in text or '"item": "https://hydrosealpavers.com/paver-sealing"' in text:
+        remaining_breadcrumb_parent.append(str(path.relative_to(ROOT)))
+
+if remaining_href:
+    raise SystemExit("Retired /paver-sealing href remains in: " + ", ".join(remaining_href))
+if remaining_breadcrumb_parent:
+    raise SystemExit("Retired /paver-sealing breadcrumb remains in: " + ", ".join(remaining_breadcrumb_parent))
 
 print("Changed files:")
 for path in changed:
