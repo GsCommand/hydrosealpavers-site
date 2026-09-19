@@ -44,13 +44,33 @@
     .media-h-md{ height:360px; }
 
     .patio-slider-box{
-      height:auto !important;
-      min-height:0 !important;
-      overflow:visible;
-      background:transparent;
+      height:100% !important;
+      min-height:360px !important;
+      overflow:hidden;
+      background:#fff;
+      display:flex;
+      align-items:stretch;
     }
     .patio-slider-box .elfsight-app-bbdd2be7-1b39-4bb3-83a8-1a47522d7968{
       width:100%;
+      height:100% !important;
+      min-height:360px !important;
+      display:flex !important;
+      flex:1 1 auto;
+      align-items:stretch;
+    }
+    .patio-slider-box .elfsight-app-bbdd2be7-1b39-4bb3-83a8-1a47522d7968 > div{
+      width:100% !important;
+      height:100% !important;
+      min-height:360px !important;
+      flex:1 1 auto;
+    }
+    .patio-slider-box iframe{
+      width:100% !important;
+      height:100% !important;
+      min-height:360px !important;
+      display:block !important;
+      flex:1 1 auto;
     }
 
     .service-split,
@@ -96,8 +116,9 @@
       }
 
       .service-split-equal > .patio-slider-box{
-        height:auto !important;
-        min-height:0 !important;
+        height:100% !important;
+        min-height:360px !important;
+        align-self:stretch;
       }
     }
 
