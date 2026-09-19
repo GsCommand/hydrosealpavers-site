@@ -1,5 +1,21 @@
 /* HydroSeal canonical sitewide footer.
    This file intentionally isolates footer typography/layout from page CSS. */
+
+/* Keep the shared footer pinned to the bottom of short pages.
+   Long pages are unchanged; margin-top:auto only consumes unused viewport space. */
+body.shared-footer-page{
+  min-height:100vh!important;
+  min-height:100dvh!important;
+  display:flex!important;
+  flex-direction:column!important;
+}
+body.shared-footer-page>footer[data-include],
+body.shared-footer-page>footer.is-loaded{
+  margin-top:auto!important;
+  width:100%!important;
+  flex:0 0 auto!important;
+}
+
 .site-footer,
 .site-footer *{box-sizing:border-box}
 .site-footer{
