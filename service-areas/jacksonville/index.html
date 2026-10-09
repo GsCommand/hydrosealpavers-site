@@ -120,15 +120,16 @@
     .loc-jax .loc-jax-services .jax-service-copy{padding:24px}
   </style>
 
-  <style id="jax-before-after-slider">
-    .loc-jax .loc-jax-matrix{align-items:stretch}
-    .loc-jax .jax-before-after{position:static;min-width:0;width:100%;display:grid;gap:40px}
-    .loc-jax .jax-before-after__item{width:100%;height:360px;min-width:0}
-    .loc-jax .jax-before-after__item>div{width:100%;height:100%;min-height:360px}
-    .loc-jax .loc-jax-matrix__grid{height:100%;grid-template-rows:repeat(2,minmax(0,1fr));align-items:stretch;gap:24px}
-    .loc-jax .loc-jax-matrix__grid article{box-sizing:border-box;height:100%;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(145deg,#fff,#eef8fc);border-color:rgba(15,110,168,.22);box-shadow:0 12px 28px rgba(15,110,168,.18),0 3px 10px rgba(57,191,234,.12)}
-    @media(max-width:650px){.loc-jax .jax-before-after__item{height:280px}.loc-jax .jax-before-after__item>div{min-height:280px}.loc-jax .loc-jax-matrix__grid{height:auto;grid-template-rows:none}.loc-jax .loc-jax-matrix__grid article{height:auto}}
-  </style>
+  
+<style id="jax-before-after-slider">
+ .loc-jax .loc-jax-matrix{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 28px;align-items:stretch}
+ .loc-jax .jax-before-after__item{width:100%;height:360px;min-width:0}
+ .loc-jax .jax-before-after__item>div{width:100%;height:100%;min-height:360px}
+ .loc-jax .loc-jax-matrix__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:1fr;gap:24px;height:100%;align-items:stretch}
+ .loc-jax .loc-jax-matrix__grid article{box-sizing:border-box;height:100%;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(145deg,#fff,#eef8fc);border-color:rgba(15,110,168,.22);box-shadow:0 12px 28px rgba(15,110,168,.18),0 3px 10px rgba(57,191,234,.12)}
+ @media(max-width:980px){.loc-jax .loc-jax-matrix{grid-template-columns:1fr}.loc-jax .loc-jax-matrix__grid{height:auto}.loc-jax .loc-jax-matrix__grid article{height:auto}}
+ @media(max-width:650px){.loc-jax .jax-before-after__item{height:280px}.loc-jax .jax-before-after__item>div{min-height:280px}.loc-jax .loc-jax-matrix__grid{grid-template-columns:1fr}}
+</style>
 </head>
 
 <body>
@@ -184,18 +185,12 @@
 
   <section class="loc-section">
     <div class="loc-shell loc-jax-matrix">
-      <div class="loc-jax-matrix__intro jax-before-after" aria-label="Before and after driveway and pool deck restoration">
-        <!-- Elfsight Before and After Slider: pool deck -->
-        <div class="jax-before-after__item"><div class="elfsight-app-1ac40f22-7acd-45c3-839e-6716f56e8387" data-elfsight-app-lazy></div></div>
-        <!-- Elfsight Before and After Slider: driveway -->
-        <div class="jax-before-after__item"><div class="elfsight-app-bbdd2be7-1b39-4bb3-83a8-1a47522d7968" data-elfsight-app-lazy></div></div>
-      </div>
-      <div class="loc-jax-matrix__grid">
-        <article class="loc-card"><b>The Beaches</b><h3>Salt air + strong sun</h3><p>Jacksonville Beach, Atlantic Beach and Neptune Beach surfaces see intense UV, wind-driven moisture and coastal exposure. Fading and joint loss can show up faster on open driveways and pool surrounds.</p></article>
-        <article class="loc-card"><b>Mandarin</b><h3>Shade + mature tree canopy</h3><p>Older neighborhoods often hold moisture longer. Organic buildup, leaf tannins and darkened joints become the prep problem before the sealer ever comes out.</p></article>
-        <article class="loc-card"><b>Southside</b><h3>Large driveways + daily traffic</h3><p>Deerwood, eTown, Glen Kernan, Pablo Creek Reserve and Tamaya commonly combine large visible hardscapes with frequent vehicle use, irrigation and full-sun exposure.</p></article>
-        <article class="loc-card"><b>Older Jacksonville</b><h3>Drainage + mixed surface age</h3><p>Ortega, Riverside/Avondale, Bartram Park and established neighborhoods can have older pavers, repairs, tree roots, drainage changes and mixed previous coatings that require more evaluation.</p></article>
-      </div>
+      <div class="jax-before-after__item" aria-label="Before and after pool deck restoration"><div class="elfsight-app-1ac40f22-7acd-45c3-839e-6716f56e8387" data-elfsight-app-lazy></div></div>
+      <div class="loc-jax-matrix__grid"><article class="loc-card"><b>The Beaches</b><h3>Salt air + strong sun</h3><p>Jacksonville Beach, Atlantic Beach and Neptune Beach surfaces see intense UV, wind-driven moisture and coastal exposure. Fading and joint loss can show up faster on open driveways and pool surrounds.</p></article>
+<article class="loc-card"><b>Mandarin</b><h3>Shade + mature tree canopy</h3><p>Older neighborhoods often hold moisture longer. Organic buildup, leaf tannins and darkened joints become the prep problem before the sealer ever comes out.</p></article></div>
+      <div class="loc-jax-matrix__grid"><article class="loc-card"><b>Southside</b><h3>Large driveways + daily traffic</h3><p>Deerwood, eTown, Glen Kernan, Pablo Creek Reserve and Tamaya commonly combine large visible hardscapes with frequent vehicle use, irrigation and full-sun exposure.</p></article>
+<article class="loc-card"><b>Older Jacksonville</b><h3>Drainage + mixed surface age</h3><p>Ortega, Riverside/Avondale, Bartram Park and established neighborhoods can have older pavers, repairs, tree roots, drainage changes and mixed previous coatings that require more evaluation.</p></article></div>
+      <div class="jax-before-after__item" aria-label="Before and after patio restoration"><div class="elfsight-app-bbdd2be7-1b39-4bb3-83a8-1a47522d7968" data-elfsight-app-lazy></div></div>
     </div>
   </section>
 
