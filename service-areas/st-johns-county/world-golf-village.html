@@ -37,6 +37,7 @@
   <meta name="twitter:description" content="Professional paver sealing in World Golf Village, FL. Established paver driveways, pool decks, and patios ready for restoration and long-term protection. Call 904.537.5000." />
   <meta name="twitter:image" content="https://hydrosealpavers.com/assets/hero/world-golf-village-driveway-pavers-restored-and-sealed.webp" />
 <link rel="stylesheet" href="/styles.css?v=20260312-1" />
+  <link rel="stylesheet" href="/assets/css/modern-header.css?v=20260807-2" />
   <style>
     .media-box{ overflow:hidden; border-radius:18px; }
     .media-box img{ width:100%; height:100%; display:block; object-fit:cover; }
@@ -101,35 +102,75 @@
     }
 
 
-    .hero .hero-title,
-    body .hero-title {
-      margin: 0 0 0.45em 0;
-      color: #0046be;
-      line-height: 1.08;
-      letter-spacing: -0.03em;
-      text-shadow:
-        1px 1px 2px rgba(0, 0, 0, 0.14),
-        2px 2px 4px rgba(0, 0, 0, 0.08);
+    .wgv-hero {
+      position:relative;
+      isolation:isolate;
+      background:#052033;
+      color:#fff;
+      padding:clamp(32px, 7vw, 90px) 0;
     }
-
-    .hero-title-main {
-      font-size: clamp(1.50rem, 2.9vw, 2.57rem);
-      font-weight: 900;
+    .wgv-hero__photo {
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      z-index:-2;
     }
-
-    .hero-title-sub {
-      font-size: clamp(1.24rem, 2.42vw, 2.12rem);
-      font-weight: 900;
+    .wgv-hero::before {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:rgba(5, 32, 51, .6);
+      z-index:-1;
     }
-
-    @media (max-width: 768px) {
-      .hero-title-main {
-        font-size: clamp(1.30rem, 5.2vw, 2rem);
-      }
-
-      .hero-title-sub {
-        font-size: clamp(1.08rem, 4.35vw, 1.5rem);
-      }
+    .wgv-hero__grid {
+      display:grid;
+      grid-template-columns:minmax(0, 1.55fr) minmax(0, .75fr);
+      gap:clamp(16px, 4vw, 38px);
+      align-items:center;
+    }
+    .wgv-hero__copy, .wgv-hero__badge {
+      border:1px solid rgba(255, 255, 255, .28);
+      border-radius:28px;
+    }
+    .wgv-hero__copy {
+      background:rgba(5, 32, 51, .76);
+      padding:clamp(20px, 4vw, 42px);
+    }
+    .wgv-hero h1 {
+      color:#fff;
+      font-size:clamp(32px, 5vw, 58px);
+      line-height:1.08;
+      margin:0 0 16px;
+    }
+    .wgv-hero__location {
+      display:block;
+      font-size:.64em;
+      color:#b7e8ff;
+      margin-top:6px;
+    }
+    .wgv-hero__copy p { color:#e7f1f5; }
+    .wgv-hero__actions {
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:24px;
+    }
+    .wgv-hero__badge {
+      display:grid;
+      place-items:center;
+      background:#fff;
+      padding:clamp(16px, 3vw, 28px);
+    }
+    .wgv-hero__badge img {
+      display:block;
+      width:min(100%, 220px);
+      height:auto;
+    }
+    @media (max-width: 760px) {
+      .wgv-hero__grid { grid-template-columns:minmax(0, 1fr); }
+      .wgv-hero__badge { justify-self:center; width:min(100%, 205px); }
     }
 
     .service-cta-row{
@@ -236,71 +277,25 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","@id":"https://hydrosealpavers.com/service-areas/st-johns-county/world-golf-village#local-faq","mainEntity":[{"@type":"Question","name":"Can older World Golf Village driveways be restored?","acceptedAnswer":{"@type":"Answer","text":"Often, yes. We inspect faded pavers, worn joints and any existing sealer to determine whether cleaning, re-sanding and sealing will work or whether additional prep is needed."}},{"@type":"Question","name":"Can you seal a World Golf Village driveway with washed-out joints?","acceptedAnswer":{"@type":"Answer","text":"Yes. We check where water flows, clean the surface and refill low joints with kiln-dried ASTM C144 sand where needed. Any underlying drainage or settlement issues are evaluated separately."}},{"@type":"Question","name":"Can you seal the driveway and screened pool deck on the same project?","acceptedAnswer":{"@type":"Answer","text":"Yes. We can quote both areas together and evaluate each surface separately for moisture, previous coatings and material, including whether the deck is concrete pavers or travertine."}},{"@type":"Question","name":"How much does paver sealing cost in World Golf Village?","acceptedAnswer":{"@type":"Answer","text":"Most projects start around $1.50 per square foot. Total square footage, staining, joint condition and removal of a failed coating can affect the final quote."}}]}</script>
 </head>
 <body>
-  <header class="header">
-    <div class="container header-row">
+  <div data-include="/partials/header.html"></div>
 
-      <a class="brand" href="/" aria-label="HydroSeal home">
-        <img
-          src="/assets/hero/Hydrosealpaversealing.png"
-          alt="HydroSeal"
-          class="brand-logo"
-          loading="eager"
-          width="320"
-          height="125"
-        />
-      </a>
-
-      <div class="nav-shell">
-
-        <button
-          class="nav-toggle"
-          type="button"
-          aria-controls="navMenu"
-          aria-expanded="false"
-          aria-label="Open menu"
-        >
-          <span class="nav-toggle-bars" aria-hidden="true"></span>
-        </button>
-
-        <nav class="nav header-nav" aria-label="Primary">
-          <div class="nav-menu" id="navMenu">
-
-            <div class="nav-group">
-              <button class="nav-link nav-parent" type="button" aria-expanded="false">Paver Sealing</button><div class="dropdown paver-sealing-menu" role="menu" aria-label="Paver Sealing"><a role="menuitem" href="/paver-sealing/driveways">Driveway Paver Sealing<small>Clean, resand, and protect</small></a><a role="menuitem" href="/paver-sealing/pool-decks">Pool Deck Sealing<small>Moisture-aware preparation</small></a><a role="menuitem" href="/paver-sealing/travertine-sealing">Travertine Sealing<small>Natural-stone specific care</small></a><a role="menuitem" href="/paver-resealing/">Paver Resealing<small>Restore weathered protection</small></a><a role="menuitem" href="/paver-cleaning">Paver Cleaning<small>Surface-safe preparation and cleaning</small></a><a role="menuitem" href="/paver-repair">Paver Repair<small>Small repairs and paver re-leveling</small></a><a role="menuitem" href="/paver-sealing/sand-options">Joint Sand Options<small>ASTM C144 colors and selection</small></a><a role="menuitem" href="/paver-sealing-cost-calculator">Instant Pricing Calculator<small>Estimate standard sealing cost</small></a></div>
-            </div>
-
-
-
-            <div class="nav-group">
-              <button class="nav-link nav-parent" type="button" aria-expanded="false">Service Areas</button>
-              <div class="dropdown" role="menu" aria-label="Service Areas">
-                <a role="menuitem" href="/service-areas/jacksonville">Jacksonville</a>
-                <a role="menuitem" href="/service-areas/st-johns-county">St. Johns County</a>
-                <a role="menuitem" href="/service-areas/clay-county">Clay County</a>
-              </div>
-            </div>
-
-            <a class="nav-link" href="/care-program">Care Program</a>
-            <a class="nav-link" href="/warranty">Warranty</a>
-
-            <div class="nav-mobile-ctas" role="presentation">
-              <a class="btn btn-ghost" href="tel:+19045375000">Call 904.537.5000</a>
-              <a class="btn btn-primary" href="/get-a-quote">Request a Quote</a>
-            </div>
-
+  <main id="page" data-page>
+    <section class="wgv-hero" aria-labelledby="wgv-hero-title">
+      <img class="wgv-hero__photo" src="/assets/hero/world-golf-village-driveway-pavers-restored-and-sealed.webp" alt="" width="800" height="618" loading="eager" fetchpriority="high" decoding="async" />
+      <div class="container wgv-hero__grid">
+        <div class="wgv-hero__copy">
+          <h1 id="wgv-hero-title">Paver Sealing <span class="wgv-hero__location">in World Golf Village, FL</span></h1>
+          <p>World Golf Village spans established neighborhoods and newer sections where paver driveways, patios, and pool decks were installed across multiple building eras. Many early-2000s hardscapes are now in restoration cycles, while newer installations are entering first reseal windows that help prevent premature fading and sand loss.</p>
+          <div class="wgv-hero__actions">
+            <a class="btn btn-primary" href="/get-a-quote">Request a Quote</a>
+            <a class="btn btn-ghost" href="/paver-sealing-cost-calculator">Try Instant Pricing</a>
           </div>
-        </nav>
-
-        <button class="nav-overlay" type="button" hidden aria-label="Close menu"></button>
+        </div>
+        <aside class="wgv-hero__badge">
+          <img src="/assets/hero/Master%20Tech%20Logo.webp" alt="Trident Master Certified" width="290" height="251" decoding="async" />
+        </aside>
       </div>
-
-      <div class="header-ctas">
-        <a class="btn btn-ghost" href="tel:+19045375000">Call 904.537.5000</a>
-        <a class="btn btn-primary" href="/get-a-quote">Request a Quote</a>
-      </div>
-
-    </div>
-  </header>
+    </section>
 
   <div class="trustbar trust-strip" role="note" aria-label="Trust signals">
     <div class="container">
@@ -323,18 +318,8 @@
     </div>
   </nav>
 
-  <main id="page" data-page>
     <section class="section" style="padding-top:26px;">
       <div class="container">
-        <section class="intro-copy-section">
-        <h1 class="hero-title">
-          <span class="hero-title-main">Paver Sealing</span>
-          <span class="hero-title-sub">in World Golf Village, FL</span>
-        </h1>
-        <p class="muted" style="margin-top:8px; max-width:860px;">World Golf Village spans established neighborhoods and newer sections where paver driveways, patios, and pool decks were installed across multiple building eras. Many early-2000s hardscapes are now in restoration cycles, while newer installations are entering first reseal windows that help prevent premature fading and sand loss.</p>
-        <aside class="intro-trust-badge" aria-label="Master Tech certification badge" style="top: 32px; width: min(290px, 100%);"><img src="/assets/hero/Master Tech Logo.webp" alt="Master Tech certification logo" width="290" height="290" loading="lazy" decoding="async" style="width:290px; max-width:100%; height:auto;" /></aside>
-        </section>
-
         <div class="local-pricing-card">
           <p class="local-pricing-card__headline">
             <strong>Most World Golf Village paver sealing projects start around $1.50 per sq ft.</strong>
