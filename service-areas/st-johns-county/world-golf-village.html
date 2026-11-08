@@ -130,11 +130,9 @@
       gap:clamp(16px, 4vw, 38px);
       align-items:center;
     }
-    .wgv-hero__copy, .wgv-hero__badge {
+    .wgv-hero__copy {
       border:1px solid rgba(255, 255, 255, .28);
       border-radius:28px;
-    }
-    .wgv-hero__copy {
       background:rgba(5, 32, 51, .76);
       padding:clamp(20px, 4vw, 42px);
     }
@@ -160,17 +158,15 @@
     .wgv-hero__badge {
       display:grid;
       place-items:center;
-      background:#fff;
-      padding:clamp(16px, 3vw, 28px);
     }
     .wgv-hero__badge img {
       display:block;
-      width:min(100%, 220px);
+      width:min(100%, 286px);
       height:auto;
     }
     @media (max-width: 760px) {
       .wgv-hero__grid { grid-template-columns:minmax(0, 1fr); }
-      .wgv-hero__badge { justify-self:center; width:min(100%, 205px); }
+      .wgv-hero__badge { justify-self:center; width:min(100%, 213px); }
     }
 
     .service-cta-row{
@@ -275,6 +271,17 @@
 
   <link rel="stylesheet" href="/assets/css/regional-child-v3.css?v=20260903" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","@id":"https://hydrosealpavers.com/service-areas/st-johns-county/world-golf-village#local-faq","mainEntity":[{"@type":"Question","name":"Can older World Golf Village driveways be restored?","acceptedAnswer":{"@type":"Answer","text":"Often, yes. We inspect faded pavers, worn joints and any existing sealer to determine whether cleaning, re-sanding and sealing will work or whether additional prep is needed."}},{"@type":"Question","name":"Can you seal a World Golf Village driveway with washed-out joints?","acceptedAnswer":{"@type":"Answer","text":"Yes. We check where water flows, clean the surface and refill low joints with kiln-dried ASTM C144 sand where needed. Any underlying drainage or settlement issues are evaluated separately."}},{"@type":"Question","name":"Can you seal the driveway and screened pool deck on the same project?","acceptedAnswer":{"@type":"Answer","text":"Yes. We can quote both areas together and evaluate each surface separately for moisture, previous coatings and material, including whether the deck is concrete pavers or travertine."}},{"@type":"Question","name":"How much does paver sealing cost in World Golf Village?","acceptedAnswer":{"@type":"Answer","text":"Most projects start around $1.50 per square foot. Total square footage, staining, joint condition and removal of a failed coating can affect the final quote."}}]}</script>
+  <style>
+    .wgv-features{box-sizing:border-box;width:min(1180px,calc(100% - 40px));margin: -23px auto 0;position:relative;z-index:4;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;padding:17px;background:#f0f5f7;border-radius:30px}
+    .wgv-features article{box-sizing:border-box;height:100%;padding:20px;background:#fff;border:1px solid #dce5ea;border-radius:20px;transition:background .2s ease,border-color .2s ease,transform .2s ease,box-shadow .2s ease}
+    .wgv-features .feature-link{display:block;color:inherit;text-decoration:none;border-radius:20px}
+    .wgv-features .feature-link:focus-visible{outline:3px solid rgba(57,191,234,.38);outline-offset:2px}
+    .wgv-features h3{font:23px/1.08 "Arial Black",Arial,sans-serif;letter-spacing:-.7px;color:#0b2d4a;margin:0 0 5px}
+    .wgv-features p{font:13px/1.55 Arial,Helvetica,sans-serif;color:#536475;margin:0}
+    @media(hover:hover) and (pointer:fine){.wgv-features>article:hover,.wgv-features .feature-link:hover article{background:rgba(57,191,234,.20);border-color:rgba(57,191,234,.65);transform:translateY(-2px);box-shadow:0 12px 28px rgba(15,110,168,.13)}}
+    @media(max-width:650px){.wgv-features{grid-template-columns:1fr;width:100%;border-radius:0;margin-top:0}}
+    @media(prefers-reduced-motion:reduce){.wgv-features article{transition:none}}
+  </style>
 </head>
 <body>
   <div data-include="/partials/header.html"></div>
@@ -297,14 +304,7 @@
       </div>
     </section>
 
-  <div class="trustbar trust-strip" role="note" aria-label="Trust signals">
-    <div class="container">
-      <div class="trust-item">Licensed &amp; Insured</div>
-      <div class="trust-item">Trident Master Certified</div>
-      <div class="trust-item">2-Year Warranty</div>
-      <div class="trust-item">St. Johns • Duval • Clay</div>
-    </div>
-  </div>
+    <section aria-label="HydroSeal service standards" class="feature-strip wgv-features"><article><h3>DEEP CLEANING</h3><p>Surface preparation before sealing.</p></article><a aria-label="Learn about HydroSeal joint sand options" class="feature-link" href="/paver-sealing/sand-options"><article><h3>JOINT SAND</h3><p>ASTM C144 kiln-dried sand.</p></article></a><article><h3>BREATHABLE SEALER</h3><p>Two coats for Florida conditions.</p></article><a aria-label="View the HydroSeal 2-year warranty" class="feature-link" href="/warranty"><article><h3>2-YEAR WARRANTY</h3><p>Covered workmanship &amp; adhesion.</p></article></a></section>
 
   <nav class="breadcrumb" aria-label="Breadcrumb">
     <div class="container">
@@ -317,26 +317,6 @@
       <span aria-current="page">World Golf Village</span>
     </div>
   </nav>
-
-    <section class="section" style="padding-top:26px;">
-      <div class="container">
-        <div class="local-pricing-card">
-          <p class="local-pricing-card__headline">
-            <strong>Most World Golf Village paver sealing projects start around $1.50 per sq ft.</strong>
-          </p>
-
-          <p class="local-pricing-card__subtext">
-            Final pricing depends on surface condition, cleaning needs, joint stability, drainage, and the level of prep needed for a long-lasting result.
-          </p>
-
-          <div class="local-pricing-card__actions">
-            <a class="local-btn local-btn--primary" href="/get-a-quote">Request a Quote</a>
-            <a class="local-btn local-btn--secondary" href="tel:+19045375000">Call 904.537.5000</a>
-          </div>
-        </div>
-
-      </div>
-    </section>
 
     <section class="section" style="padding-top:0;">
       <div class="container">
