@@ -106,11 +106,6 @@
       "permanent": true
     },
     {
-      "source": "/service-areas/st-johns-county/palencia",
-      "destination": "https://hydrosealpavers.com/service-areas/st-johns-county",
-      "permanent": true
-    },
-    {
       "source": "/service-areas/st-johns-county/palm-valley",
       "destination": "https://hydrosealpavers.com/service-areas/st-johns-county/ponte-vedra",
       "permanent": true
@@ -132,11 +127,6 @@
     },
     {
       "source": "/service-areas/st-johns-county/silverleaf",
-      "destination": "https://hydrosealpavers.com/service-areas/st-johns-county",
-      "permanent": true
-    },
-    {
-      "source": "/service-areas/st-johns-county/world-golf-village",
       "destination": "https://hydrosealpavers.com/service-areas/st-johns-county",
       "permanent": true
     },
