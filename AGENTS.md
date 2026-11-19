@@ -8,6 +8,8 @@ This repo is a static marketing site (HTML/CSS/JS) deployed to production. Your 
 - Prefer **mobile-first correctness** over desktop flourishes.
 - Avoid adding new dependencies or build tooling.
 
+- Avoid selecting `/assets/hero/Jacksonville-paver-sealing-pool-deck.webp` for new or updated pages. Use another project photo.
+
 ## Primary Goals (in order)
 1) **Mobile reliability** (touch interactions must work consistently)
 2) **Visual stability** (no jumps, pops, unexpected zoom/hover behavior on phones)
