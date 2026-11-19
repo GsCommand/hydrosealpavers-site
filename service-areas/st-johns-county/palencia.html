@@ -234,73 +234,116 @@
 
   <link rel="stylesheet" href="/assets/css/regional-child-v3.css?v=20260903" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","@id":"https://hydrosealpavers.com/service-areas/st-johns-county/palencia#local-faq","mainEntity":[{"@type":"Question","name":"Why do shaded Palencia pavers turn dark?","acceptedAnswer":{"@type":"Answer","text":"Shade, leaf debris and irrigation can keep pavers damp longer, especially near landscaping and along driveway edges. We inspect the surface and treat organic buildup before sanding and sealing."}},{"@type":"Question","name":"Can you re-sand a Palencia driveway before sealing?","acceptedAnswer":{"@type":"Answer","text":"Yes. After cleaning, we check the joints and refill low areas with kiln-dried ASTM C144 joint sand as needed before applying sealer."}},{"@type":"Question","name":"Do you seal screened pool decks in Palencia?","acceptedAnswer":{"@type":"Answer","text":"Yes. We seal suitable concrete paver pool decks and evaluate travertine separately to choose a finish and sealer suited to the stone and its exposure."}},{"@type":"Question","name":"How much does paver sealing cost in Palencia?","acceptedAnswer":{"@type":"Answer","text":"Most projects start around $1.50 per square foot. The final quote depends on the surface condition, joint sand, access and whether an old coating needs removal."}}]}</script>
+<link rel="stylesheet" href="/assets/css/modern-header.css?v=20260804-2" />
+<link rel="stylesheet" href="/assets/css/core-location-v3.css?v=20260903" />
+<style>
+    .pv-hero {
+      position:relative;
+      isolation:isolate;
+      background:#052033;
+      color:#fff;
+      padding:clamp(32px, 7vw, 90px) 0;
+    }
+    .pv-hero__photo {
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center 26%;
+      z-index:-2;
+    }
+    .pv-hero__grid {
+      display:grid;
+      grid-template-columns:minmax(0, 1.55fr) minmax(0, .75fr);
+      gap:clamp(16px, 4vw, 38px);
+      align-items:center;
+    }
+    .pv-hero__copy {
+      border:1px solid rgba(255, 255, 255, .28);
+      border-radius:28px;
+      background:rgba(5, 32, 51, .38);
+      padding:clamp(20px, 4vw, 42px);
+    }
+    .pv-hero h1 {
+      color:#fff;
+      font-size:clamp(32px, 5vw, 58px);
+      line-height:1.08;
+      margin:0 0 16px;
+    }
+    .pv-hero__location {
+      display:block;
+      font-size:.64em;
+      color:#b7e8ff;
+      margin-top:6px;
+    }
+    .pv-hero__copy p { color:#e7f1f5; }
+    .pv-hero__actions {
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:24px;
+    }
+    .pv-hero .proof-stack{display:flex;flex-direction:column;gap:15px;margin:24px 0;min-width:0}
+    .pv-hero .proof-card{padding:28px;border-radius:30px}
+    .pv-hero .proof-card.white{background:rgba(255,255,255,.96);color:#0b1220}
+    .pv-hero .proof-card.blue{background:rgba(15,110,168,.94);padding:20px 22px;border-radius:24px}
+    .pv-hero .google-badge{display:inline-flex;align-items:center;gap:7px;padding:5px 10px;border-radius:999px;background:white;border:1px solid rgba(15,23,42,.12);box-shadow:0 8px 18px rgba(0,0,0,.06)}
+    .pv-hero .google-badge svg{width:14px;height:14px}
+    .pv-hero .google-badge span{font-size:11px;font-weight:800;color:#5f6368}
+    .pv-hero .stars{color:#ffb000;font-size:24px;letter-spacing:2px}
+    .pv-hero .proof-card h3{font:900 36px/1.08 "Arial Black",Arial,sans-serif;letter-spacing:-.7px;margin:14px 0}
+    .pv-hero .proof-card.blue h3{font-size:15.6px;line-height:1;margin:0;letter-spacing:-.3px;text-align:center}
+    .pv-hero .proof-card p{font-size:15px;color:#526273;font-weight:700}
+    .pv-hero .proof-card a{font-weight:900;text-transform:uppercase;font-size:12px;letter-spacing:1.4px;color:#0f6ea8}
+    @media (max-width: 760px) {
+      .pv-hero__grid { grid-template-columns:minmax(0, 1fr); }
+    }
+
+
+    .pv-features{box-sizing:border-box;width:min(1180px,calc(100% - 40px));margin: -23px auto 0;position:relative;z-index:4;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;padding:17px;background:#f0f5f7;border-radius:30px}
+    .pv-features article{box-sizing:border-box;height:100%;padding:20px;background:#fff;border:1px solid #dce5ea;border-radius:20px;transition:background .2s ease,border-color .2s ease,transform .2s ease,box-shadow .2s ease}
+    .pv-features .feature-link{display:block;color:inherit;text-decoration:none;border-radius:20px}
+    .pv-features .feature-link:focus-visible{outline:3px solid rgba(57,191,234,.38);outline-offset:2px}
+    .pv-features h3{font:23px/1.08 "Arial Black",Arial,sans-serif;letter-spacing:-.7px;color:#0b2d4a;margin:0 0 5px}
+    .pv-features p{font:13px/1.55 Arial,Helvetica,sans-serif;color:#536475;margin:0}
+    @media(hover:hover) and (pointer:fine){.pv-features>article:hover,.pv-features .feature-link:hover article{background:rgba(57,191,234,.20);border-color:rgba(57,191,234,.65);transform:translateY(-2px);box-shadow:0 12px 28px rgba(15,110,168,.13)}}
+    @media(max-width:650px){.pv-features{grid-template-columns:1fr;width:100%;border-radius:0;margin-top:0}}
+    @media(prefers-reduced-motion:reduce){.pv-features article{transition:none}}
+  </style>
+<style>
+  .rg-palencia .pv-field-notes .rg-card { background: #edf8ff; border-color: #c2e3f4; }
+  .rg-palencia .pv-field-notes .rg-card:nth-child(even) { background: #edf9f5; border-color: #c2e7dc; }
+  .rg-palencia .pv-customer-proof { background: #edf7fc; }
+  .pv-customer-proof .review-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+  .pv-customer-proof .review { margin: 0; background: #fff; border: 1px solid #d1e6f1; box-shadow: 0 12px 28px rgba(11,45,74,.08); color: #243d50; }
+  .pv-customer-proof .stars { color: #b46b00; letter-spacing: 2px; }
+  .pv-customer-proof cite { font-style: normal; font-weight: 800; color: #0f6ea8; }
+  @media (max-width: 700px) { .pv-customer-proof .review-grid { grid-template-columns: 1fr; } }
+</style>
+<style>
+  .pv-field-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: stretch; margin-top: 28px; }
+  .pv-field-pair > .rg-stack { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pv-field-photo { display: block; width: 100%; height: 100%; min-height: 0; object-fit: cover; border-radius: 18px; box-shadow: 0 12px 28px rgba(11,45,74,.12); }
+  @media (min-width: 761px) { .pv-field-photo { contain: size; } }
+  @media (max-width: 760px) {
+    .pv-field-pair { grid-template-columns: minmax(0, 1fr); }
+    .pv-field-photo { height: auto; max-width: 480px; margin-inline: auto; }
+  }
+  @media (max-width: 480px) { .pv-field-pair > .rg-stack { grid-template-columns: minmax(0, 1fr); } }
+</style>
+<style>
+  .rg-palencia .pv-service-cards > .rg-card { padding: 0; overflow: hidden; }
+  .pv-service-cards > .rg-card > img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+  .pv-service-copy { padding: 24px; }
+</style>
+<style>
+  .pv-workflow-photos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(10px, 2vw, 24px); padding-bottom: 28px; }
+  .pv-workflow-photos img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 18px; box-shadow: 0 12px 28px rgba(11,45,74,.12); }
+</style>
 </head>
 <body>
-  <header class="header">
-    <div class="container header-row">
-
-      <a class="brand" href="/" aria-label="HydroSeal home">
-        <img
-          src="/assets/hero/Hydrosealpaversealing.png"
-          alt="HydroSeal"
-          class="brand-logo"
-          loading="eager"
-          width="320"
-          height="125"
-        />
-      </a>
-
-      <div class="nav-shell">
-
-        <button
-          class="nav-toggle"
-          type="button"
-          aria-controls="navMenu"
-          aria-expanded="false"
-          aria-label="Open menu"
-        >
-          <span class="nav-toggle-bars" aria-hidden="true"></span>
-        </button>
-
-        <nav class="nav header-nav" aria-label="Primary">
-          <div class="nav-menu" id="navMenu">
-
-            <div class="nav-group">
-              <button class="nav-link nav-parent" type="button" aria-expanded="false">Paver Sealing</button><div class="dropdown paver-sealing-menu" role="menu" aria-label="Paver Sealing"><a role="menuitem" href="/paver-sealing/driveways">Driveway Paver Sealing<small>Clean, resand, and protect</small></a><a role="menuitem" href="/paver-sealing/pool-decks">Pool Deck Sealing<small>Moisture-aware preparation</small></a><a role="menuitem" href="/paver-sealing/travertine-sealing">Travertine Sealing<small>Natural-stone specific care</small></a><a role="menuitem" href="/paver-resealing/">Paver Resealing<small>Restore weathered protection</small></a><a role="menuitem" href="/paver-cleaning">Paver Cleaning<small>Surface-safe preparation and cleaning</small></a><a role="menuitem" href="/paver-repair">Paver Repair<small>Small repairs and paver re-leveling</small></a><a role="menuitem" href="/paver-sealing/sand-options">Joint Sand Options<small>ASTM C144 colors and selection</small></a><a role="menuitem" href="/paver-sealing-cost-calculator">Instant Pricing Calculator<small>Estimate standard sealing cost</small></a></div>
-            </div>
-
-
-
-            <div class="nav-group">
-              <button class="nav-link nav-parent" type="button" aria-expanded="false">Service Areas</button>
-              <div class="dropdown" role="menu" aria-label="Service Areas">
-                <a role="menuitem" href="/service-areas/jacksonville">Jacksonville</a>
-                <a role="menuitem" href="/service-areas/st-johns-county">St. Johns County</a>
-                <a role="menuitem" href="/service-areas/clay-county">Clay County</a>
-              </div>
-            </div>
-
-            <a class="nav-link" href="/care-program">Care Program</a>
-            <a class="nav-link" href="/warranty">Warranty</a>
-
-            <div class="nav-mobile-ctas" role="presentation">
-              <a class="btn btn-ghost" href="tel:+19045375000">Call 904.537.5000</a>
-              <a class="btn btn-primary" href="/get-a-quote">Request a Quote</a>
-            </div>
-
-          </div>
-        </nav>
-
-        <button class="nav-overlay" type="button" hidden aria-label="Close menu"></button>
-      </div>
-
-      <div class="header-ctas">
-        <a class="btn btn-ghost" href="tel:+19045375000">Call 904.537.5000</a>
-        <a class="btn btn-primary" href="/get-a-quote">Request a Quote</a>
-      </div>
-
-    </div>
-  </header>
+  <div data-include="/partials/header.html"></div>
 
   <div class="trustbar trust-strip" role="note" aria-label="Trust signals">
     <div class="container">
@@ -323,61 +366,42 @@
     </div>
   </nav>
 
-  <main id="page" data-page>
-    <section class="section" style="padding-top:26px;">
-      <div class="container">
-        <section class="intro-copy-section">
-        <h1 class="hero-title">
-          <span class="hero-title-main">Paver Sealing</span>
-          <span class="hero-title-sub">in Palencia, FL</span>
-        </h1>
-        <p class="muted" style="margin-top:8px; max-width:860px;">Palencia homes often feature broad paver driveways and backyard areas surrounded by mature landscaping, shade, and irrigation. Because many of the neighborhood’s original hardscapes are now older, faded color and weakening joints are becoming more noticeable across driveways and pool decks.</p>
-        <p class="muted" style="margin-top:10px; max-width:860px;">Palencia paver sealing usually focuses on preserving established properties before they need larger repairs. Homeowners here often review nearby <a href="/service-areas/st-johns-county/julington-creek">Julington Creek</a>, <a href="/service-areas/st-johns-county/fruit-cove">Fruit Cove</a>, and <a href="/paver-sealing/driveways">driveway sealing</a>.</p>
-<aside class="intro-trust-badge" aria-label="Master Tech certification badge" style="top: 32px; width: min(290px, 100%);"><img src="/assets/hero/Master Tech Logo.webp" alt="Master Tech certification logo" width="290" height="290" loading="lazy" decoding="async" style="width:290px; max-width:100%; height:auto;" /></aside>
-        </section>
-
-        <div class="local-pricing-card">
-          <p class="local-pricing-card__headline">
-            <strong>Most Palencia paver sealing projects start around $1.50 per sq ft.</strong>
-          </p>
-
-          <p class="local-pricing-card__subtext">
-            Final pricing depends on surface condition, cleaning needs, joint stability, drainage, and the level of prep needed for a long-lasting result.
-          </p>
-
-          <div class="local-pricing-card__actions">
-            <a class="local-btn local-btn--primary" href="/get-a-quote">Request a Quote</a>
-            <a class="local-btn local-btn--secondary" href="tel:+19045375000">Call 904.537.5000</a>
+  <main id="page" data-page class="rg-page rg-palencia">
+<section class="pv-hero" aria-labelledby="pv-hero-title">
+      <img class="pv-hero__photo" src="/assets/hero/palencia-driveway-pavers-restored-and-sealed.webp" alt="Palencia paver sealing" loading="eager" decoding="async" fetchpriority="high" />
+      <div class="container pv-hero__grid">
+        <div class="pv-hero__copy">
+          <h1 id="pv-hero-title">Paver Sealing <span class="pv-hero__location">in Palencia, FL</span></h1>
+          <p>Palencia homes often feature broad paver driveways and backyard areas surrounded by mature landscaping, shade, and irrigation. Because many of the neighborhood’s original hardscapes are now older, faded color and weakening joints are becoming more noticeable across driveways and pool decks.</p>
+          <div class="pv-hero__actions">
+            <a class="btn btn-primary" href="/get-a-quote">Request a Quote</a>
+            <a class="btn btn-ghost" href="/paver-sealing-cost-calculator">Try Instant Pricing</a>
           </div>
         </div>
-
+        <div class="proof-stack"><article class="proof-card white"><div aria-label="Google reviews" class="google-badge"><svg aria-hidden="true" focusable="false" viewbox="0 0 256 262"><path d="M255.68 133.5c0-10.79-.97-18.68-3.06-26.89H130.55v47.73h71.62c-1.44 11.86-9.17 29.71-26.34 41.7l-.24 1.6 38.31 29.68 2.65.26c24.31-22.42 38.13-55.43 38.13-94.08" fill="#4285F4"></path><path d="M130.55 261c34.98 0 64.32-11.54 85.76-31.38l-40.72-31.54c-10.9 7.62-25.52 12.97-45.04 12.97-34.25 0-63.32-22.42-73.67-53.41l-1.51.13-39.84 30.83-.52 1.45C36.36 232.1 79.97 261 130.55 261" fill="#34A853"></path><path d="M56.88 157.64c-2.69-7.89-4.24-16.34-4.24-25.14s1.55-17.25 4.1-25.14l-.07-1.69L16.34 74.34l-1.32.63C6 92.98.84 112.76.84 132.5s5.16 39.52 14.18 57.53z" fill="#FBBC05"></path><path d="M130.55 53.95c24.62 0 41.25 10.68 50.69 19.61l37-36.1C194.73 15.61 165.53 1 130.55 1 79.97 1 36.36 29.9 15.02 74.97l41.65 32.33c10.49-30.98 39.56-53.35 73.88-53.35" fill="#EB4335"></path></svg><span>Google</span></div><div class="stars">★★★★★</div><h3>5-STAR RATED PAVER RESTORATION.</h3><p>Homeowners hire HydroSeal when faded, dirty pavers need more than a quick pressure wash.</p><a href="https://share.google/4ddHhmrSn3woAYR6h" rel="noopener noreferrer" target="_blank">Read customer reviews →</a></article><article class="proof-card blue"><h3>TRIDENT MASTER CERTIFIED</h3></article></div>
       </div>
     </section>
 
-    <section class="section" style="padding-top:0;">
-      <div class="container">
-        <div class="service-split service-split-equal">
-          <div class="media-box media-h-md">
-            <img src="/assets/hero/palencia-driveway-pavers-restored-and-sealed.webp" alt="Palencia driveway pavers restored and sealed" loading="eager" decoding="async" width="1200" height="675" />
-          </div>
-          <div class="card">
-            <h2 style="margin:0 0 6px;">Why Palencia Pavers Show Wear So Clearly</h2>
-            <p style="margin:0; color:var(--muted);">Palencia homes often have wider driveways, front courtyards, longer walkways, and larger backyard living spaces than many surrounding neighborhoods. Because the homes are more established and the pavers are more visible, fading, dark staining, joint erosion, and uneven color tend to stand out much faster.</p>
-            <p style="margin:10px 0 0; color:var(--muted);">Many Palencia homes also deal with mature landscaping, irrigation overspray, tree cover, and humidity near the Intracoastal. That combination can leave some areas darker, dirtier, or more worn than others if the pavers are not cleaned and sealed correctly.</p>
-            <ul style="margin:12px 0 0; padding-left:18px; color:var(--muted);">
-              <li>Large front-entry driveways often show fading and joint washout first</li>
-              <li>Irrigation and mature landscaping can leave darker areas and uneven color</li>
-              <li>Shade and humidity make organic buildup more noticeable on patios and pool decks</li>
-              <li>Older Palencia pavers usually need re-sanding and deeper cleaning before sealing</li>
-              <li>Premium homes tend to show patchy finish and uneven wear much more clearly</li>
-            </ul>
-            <p style="margin:12px 0 0; color:var(--muted);">That is why Palencia paver sealing usually works best when the prep and finish are matched to the age, shade, and layout of the property instead of using the same approach everywhere.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+<section aria-label="HydroSeal service standards" class="feature-strip pv-features"><article><h3>DEEP CLEANING</h3><p>Surface preparation before sealing.</p></article><a aria-label="Learn about HydroSeal joint sand options" class="feature-link" href="/paver-sealing/sand-options"><article><h3>JOINT SAND</h3><p>ASTM C144 kiln-dried sand.</p></article></a><article><h3>BREATHABLE SEALER</h3><p>Two coats for Florida conditions.</p></article><a aria-label="View the HydroSeal 2-year warranty" class="feature-link" href="/warranty"><article><h3>2-YEAR WARRANTY</h3><p>Covered workmanship &amp; adhesion.</p></article></a></section>
 
-    <section style="margin-top:18px;" class="section">
+<section class="rg-section"><div class="rg-shell pv-field-notes"><div><span class="rg-eyebrow">Local field notes</span><h2>How Palencia conditions change the work.</h2><p class="rg-lede">We check shade, drainage, joint sand and older coatings before deciding what the pavers need.</p><div class="rg-btns"><a class="rg-btn rg-btn--outline" href="/paver-sealing-cost-calculator">Pricing Calculator</a><a class="rg-btn rg-btn--outline" href="/get-a-quote">Request a Quote</a></div></div><div class="pv-field-pair"><div class="rg-stack"><article class="rg-card"><h3>Broad driveways</h3><p>Fading, joint washout and uneven color stand out on large front entries.</p></article><article class="rg-card"><h3>Mature landscaping</h3><p>Tree cover and irrigation overspray can leave shaded edges darker and slower to dry.</p></article><article class="rg-card"><h3>Patios and pool decks</h3><p>Shade and humidity encourage organic buildup and change how we prepare outdoor living areas.</p></article><article class="rg-card"><h3>Established pavers</h3><p>Older joints and worn coatings may need deeper cleaning and re-sanding before sealing.</p></article></div>
+      <img class="pv-field-photo" src="/palencia%20paver%20sealing.jpeg" alt="Palencia paver sealing project" loading="lazy" decoding="async" />
+    </div></div></section>
+
+<section class="rg-section"><div class="rg-shell"><span class="rg-eyebrow">Choose the service</span><h2>Palencia paver services by surface.</h2><div class="rg-services pv-service-cards"><a class="rg-card" href="/paver-sealing/driveways"><img src="/assets/hero/paver-sealing-jacksonville-driveway.webp" alt="Sealed paver driveway" loading="lazy" decoding="async" width="900" height="600"/><div class="pv-service-copy"><span>Driveways</span><h3>Driveway paver sealing</h3><p>Cleaning, joint restoration and sealing built around traffic, runoff and curb appeal.</p></div></a><a class="rg-card" href="/paver-sealing/pool-decks"><img src="/assets/hero/jax-beach-sealing.webp" alt="ShellLock pool deck beside a swimming pool" loading="lazy" decoding="async" width="900" height="600"/><div class="pv-service-copy"><span>Pool decks</span><h3>Moisture-aware sealing</h3><p>Pool surfaces need a different prep and cure plan from front-of-home driveways.</p></div></a><a class="rg-card" href="/paver-sealing/patios-walkways"><img src="/assets/hero/hydroseal-paver-patio-square.webp" alt="Paver outdoor living area" loading="lazy" decoding="async" width="900" height="600"/><div class="pv-service-copy"><span>Outdoor living</span><h3>Patios & walkways</h3><p>Shade, organics and foot traffic often drive the restoration plan in backyard spaces.</p></div></a><a class="rg-card" href="/paver-sealing/travertine-sealing"><img src="/assets/hero/stone-safe-travertine-pool-deck.webp" alt="Travertine pavers around a pool" loading="lazy" decoding="async" /><div class="pv-service-copy"><span>Natural stone</span><h3>Travertine sealing</h3><p>Stone is evaluated separately because porosity, moisture and finish expectations differ.</p></div></a></div></div></section>
+
+<section class="rg-section pv-customer-proof"><div class="rg-shell"><span class="rg-eyebrow">CUSTOMER PROOF</span><h2>Trusted by Northeast Florida homeowners.</h2><div class="elfsight-app-6c4e28f8-e9a0-49a8-b07c-0c224e121a67" data-elfsight-app-lazy="" style="margin-top:34px;"></div><div class="review-grid" style="margin-top:24px;"><blockquote class="review" style="padding:18px 20px;border-radius:20px;min-height:auto;"><div class="stars" style="font-size:14px;">★★★★★</div><p style="font-size:14px;line-height:1.55;margin:10px 0 12px;">“HydroSeal made our paver driveway look brand new. The color came back to life, the joints were properly sanded, and the finish was smooth and professional.”</p><cite style="font-size:12px;">Scott M. · Google</cite></blockquote><blockquote class="review" style="padding:18px 20px;border-radius:20px;min-height:auto;"><div class="stars" style="font-size:14px;">★★★★★</div><p style="font-size:14px;line-height:1.55;margin:10px 0 12px;">“Outstanding results on our driveway, porch, and flower-bed pavers. Greg was professional, communicated clearly, and provided excellent customer service.”</p><cite style="font-size:12px;">Jane J. · Google</cite></blockquote><blockquote class="review" style="padding:18px 20px;border-radius:20px;min-height:auto;"><div class="stars" style="font-size:14px;">★★★★★</div><p style="font-size:14px;line-height:1.55;margin:10px 0 12px;">“They took their time, paid attention to every detail, and were thorough from start to finish. Our pavers look brand new and exceeded expectations.”</p><cite style="font-size:12px;">Sophia K. · Google</cite></blockquote></div></div></section>
+
+<div class="rg-shell pv-workflow-photos">
+  <img src="/assets/hero/hydroseal-best-pool-deck-sealing.webp" alt="Sealed paver pool deck" loading="lazy" decoding="async" />
+  <img src="/assets/hero/screen-pool-deck-sealing-fl.webp" alt="Sealed paver pool deck in a screened enclosure" width="1039" height="1500" loading="lazy" decoding="async" />
+</div>
+
+<section class="rg-section rg-soft"><div class="rg-shell"><span class="rg-eyebrow">HydroSeal workflow</span><h2>Prep first. Then restore joints. Then seal.</h2><div class="rg-process"><article class="rg-card"><b>01</b><h3>Inspect</h3><p>Evaluate coating condition, staining, drainage, joints and surface use.</p></article><article class="rg-card"><b>02</b><h3>Deep clean</h3><p>Remove organic growth, dirt and problem buildup before fresh sealer is considered.</p></article><article class="rg-card"><b>03</b><h3>Restore joints</h3><p>Where needed, reset low joints with kiln-dried ASTM C144 joint sand.</p></article><article class="rg-card"><b>04</b><h3>Seal correctly</h3><p>Apply a compatible system only after the pavers are properly prepared and ready.</p></article></div><div class="rg-btns"><a class="rg-btn rg-btn--outline" href="/paver-cleaning">Paver Cleaning</a><a class="rg-btn rg-btn--outline" href="/paver-repair">Paver Repair</a><a class="rg-btn rg-btn--outline" href="/paver-resealing">Paver Resealing</a><a class="rg-btn rg-btn--outline" href="/paver-sealing/sand-options">Joint Sand Options</a></div></div></section>
+
+<section class="rg-section"><div class="rg-shell"><div class="elfsight-app-bfab489f-7fca-4f05-ba5a-d92616b76b26" data-elfsight-app-lazy></div></div></section>
+
+<section style="margin-top:18px;" class="section">
       <div class="container">
         <div class="service-split-rev">
           <div class="card">
@@ -404,46 +428,8 @@
         </div>
       </div>
     </section>
-    <!-- Elfsight All-in-One Reviews | Untitled All-in-One Reviews -->
-    <div class="elfsight-app-6c4e28f8-e9a0-49a8-b07c-0c224e121a67" data-elfsight-app-lazy></div>
 
-    <section class="section">
-      <div class="container">
-        <section class="related-links-section" aria-label="Related areas, services, and learning resources">
-          <div class="related-links-column">
-            <h3>Nearby Areas We Serve</h3>
-            <ul>
-              <li><a href="/service-areas/st-johns-county/world-golf-village">World Golf Village Paver Sealing</a></li>
-              <li><a href="/service-areas/st-johns-county">Murabella Paver Sealing</a></li>
-              <li><a href="/service-areas/st-johns-county">Shearwater Paver Sealing</a></li>
-              <li><a href="/service-areas/st-johns-county">Silverleaf Paver Sealing</a></li>
-            </ul>
-          </div>
-
-          <div class="related-links-column">
-            <h3>Popular Services</h3>
-            <ul>
-              <li><a href="/paver-sealing/driveways">Driveway Sealing</a></li>
-              <li><a href="/paver-sealing/pool-decks">Pool Deck Sealing</a></li>
-              <li><a href="/paver-sealing/travertine-sealing">Travertine Sealing</a></li>
-              <li><a href="/paver-sealing/patios-walkways">Patio &amp; Walkway Sealing</a></li>
-              <li><a href="/paver-sealing/sand-options">Sand Options</a></li>
-            </ul>
-          </div>
-
-          <div class="related-links-column">
-            <h3>Learning Center</h3>
-            <ul>
-              <li><a href="/learning-center/sealing/how-long-does-paver-sealing-last-in-florida">How Long Does Paver Sealing Last in Florida?</a></li>
-              <li><a href="/learning-center/sealing/how-to-choose-the-right-paver-sealer-for-your-home">How to Choose the Right Paver Sealer for Your Home</a></li>
-              <li><a href="/learning-center/maintenance/paver-maintenance-checklist-for-florida-homeowners">Paver Maintenance Checklist for Florida Homeowners</a></li>
-            </ul>
-          </div>
-        </section>
-      </div>
-    </section>
-
-    <section class="section">
+<section class="section">
       <div class="container">
         <div class="service-split service-split-equal">
           <div class="card">
@@ -478,48 +464,10 @@
         </div>
       </div>
     </section>
-    <!-- Elfsight Photo Gallery | Pool Deck Gallery -->
-<div class="elfsight-app-aac62a49-a425-47be-9c8a-13971e000940" data-elfsight-app-lazy></div>
 
-        <section class="hs-reminder-badges" aria-label="HydroSeal trust badges" style="margin-top:24px; margin-bottom:12px;">
-      <div class="container">
-        <div class="hs-reminder-badges__grid">
-          <div class="hs-reminder-badges__item">
-            <img
-              src="/assets/hero/hydroseal-licensed-insured.png"
-              alt="Licensed and Insured"
-              loading="lazy"
-              decoding="async"
-              width="1200"
-              height="600"
-            />
-          </div>
-          <div class="hs-reminder-badges__item">
-            <img
-              src="/assets/hero/Trident-Master-white.png"
-              alt="Trident Master Certified"
-              loading="lazy"
-              decoding="async"
-              width="1200"
-              height="600"
-            />
-          </div>
-          <div class="hs-reminder-badges__item">
-            <img
-              src="/assets/hero/hydroseal-2-year-warranty.png"
-              alt="2-Year Warranty"
-              loading="lazy"
-              decoding="async"
-              width="1200"
-              height="600"
-            />
-          </div>
-        </div>
-        <p class="hs-trust-caption">Trusted by Northeast Florida Homeowners</p>
-      </div>
-    </section>
+<section class="rg-section"><div class="rg-shell"><div class="elfsight-app-aac62a49-a425-47be-9c8a-13971e000940" data-elfsight-app-lazy></div></div></section>
 
-    <section id="local-faq" class="rg-page rg-section rg-soft" aria-labelledby="local-faq-heading">
+<section id="local-faq" class="rg-page rg-section rg-soft" aria-labelledby="local-faq-heading">
       <div class="rg-shell">
         <span class="rg-eyebrow">Palencia FAQ</span>
         <h2 id="local-faq-heading">Questions homeowners ask before sealing.</h2>
@@ -544,28 +492,46 @@
       </div>
     </section>
 
-<section class="section" style="margin-top:12px;">
-      <div class="container">
-        <div class="card" style="text-align:center;">
-          <h2 style="margin:0;">Find Out What Your Palencia Pavers Need</h2>
-          <p class="muted" style="margin:12px auto 0; max-width:760px;">Whether your pavers need cleaning, re-sanding, or full sealing, we can inspect the condition of the surface and recommend the right next step for your property.</p>
-          <div style="margin-top:14px; display:flex; justify-content:center; flex-wrap:wrap; gap:10px;">
-            <a class="btn btn-primary" href="/get-a-quote">Request a Quote</a>
-            <a class="btn btn-ghost" href="tel:+19045375000">Call 904.537.5000</a>
+<section class="rg-section"><div class="rg-shell rg-related" aria-label="Related areas, services, and learning resources">
+          <div class="rg-card">
+            <h3>Nearby Areas We Serve</h3>
+            <ul>
+              <li><a href="/service-areas/st-johns-county/world-golf-village">World Golf Village Paver Sealing</a></li>
+              <li><a href="/service-areas/st-johns-county">Murabella Paver Sealing</a></li>
+              <li><a href="/service-areas/st-johns-county">Shearwater Paver Sealing</a></li>
+              <li><a href="/service-areas/st-johns-county">Silverleaf Paver Sealing</a></li>
+            </ul>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="section service-social-section" style="padding-top:0; margin-top:20px;">
+          <div class="rg-card">
+            <h3>Popular Services</h3>
+            <ul>
+              <li><a href="/paver-sealing/driveways">Driveway Sealing</a></li>
+              <li><a href="/paver-sealing/pool-decks">Pool Deck Sealing</a></li>
+              <li><a href="/paver-sealing/travertine-sealing">Travertine Sealing</a></li>
+              <li><a href="/paver-sealing/patios-walkways">Patio &amp; Walkway Sealing</a></li>
+              <li><a href="/paver-sealing/sand-options">Sand Options</a></li>
+            </ul>
+          </div>
+
+          <div class="rg-card">
+            <h3>Learning Center</h3>
+            <ul>
+              <li><a href="/learning-center/sealing/how-long-does-paver-sealing-last-in-florida">How Long Does Paver Sealing Last in Florida?</a></li>
+              <li><a href="/learning-center/sealing/how-to-choose-the-right-paver-sealer-for-your-home">How to Choose the Right Paver Sealer for Your Home</a></li>
+              <li><a href="/learning-center/maintenance/paver-maintenance-checklist-for-florida-homeowners">Paver Maintenance Checklist for Florida Homeowners</a></li>
+            </ul>
+          </div>
+        </div></section>
+
+<section class="section service-social-section" style="padding-top:0; margin-top:20px;">
     <div class="container">
     <div class="service-social-row" style="display:flex; justify-content:center;">
     <div class="elfsight-app-f7229490-8c31-483c-aa82-d3a3b751a7c7" data-elfsight-app-lazy></div>
     </div>
     </div>
     </section>
-
-  </main>
+</main>
 <div class="elfsight-app-8d93a5a4-3fe5-4e4e-a7d5-1856bb997b36" data-elfsight-app-lazy></div>
 
 <footer data-include="/partials/footer.html"></footer>
